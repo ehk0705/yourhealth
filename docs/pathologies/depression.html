@@ -1,0 +1,193 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dépression | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+      position:relative;
+    }
+
+    .header-image{
+      position:absolute;
+      top:10px;
+      right:10px;
+      max-width:180px;
+      height:auto;
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    nav a{color:var(--txt);text-decoration:none;padding:8px 10px;border:1px solid var(--border);border-radius:12px}
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:22px 16px}
+
+    h1{margin:0;font-size:28px;line-height:1.2}
+    .sub{color:var(--muted);margin:10px 0 0}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    h2{margin:0 0 8px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    .crumbs{margin-top:10px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      color:var(--txt);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px 12px;
+    }
+    .btn:hover{border-color:rgba(125,211,252,.55)}
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .header-image{
+        position:static;
+        display:block;
+        margin:0 auto 10px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="../../assets/img/depression.jfif" alt="Dépression" class="header-image">
+
+  <div class="wrap">
+    <h1>Dépression</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <div class="crumbs">
+      <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Dépression
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.php">Accueil</a>
+      <a href="/yourhealth/alimentation.php">Alimentation</a>
+      <a href="/yourhealth/ressources.php">Ressources</a>
+      <a href="/yourhealth/contact.php">Contact</a>
+    </nav>
+
+    <div class="btnrow">
+      <a class="btn" href="/yourhealth/index.php">Retour</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card">
+      <h2>Définition</h2>
+      <p>
+        Trouble de l’humeur avec tristesse persistante et perte d’intérêt,
+        souvent associé à fatigue, troubles du sommeil et difficultés de concentration.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Diagnostic</h2>
+      <ul>
+        <li>Entretien médical et évaluation des symptômes</li>
+        <li>Analyse du contexte personnel et médical</li>
+        <li>Évaluation de la durée et de la sévérité</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Prise en charge</h2>
+      <ul>
+        <li>Soutien psychologique</li>
+        <li>Traitement médicamenteux si nécessaire</li>
+        <li>Suivi régulier</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Conseils</h2>
+      <ul>
+        <li>Consulter si les symptômes durent plus de deux semaines</li>
+        <li>Maintenir des routines simples</li>
+        <li>En cas d’idées suicidaires : urgence immédiate</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Prévention</h2>
+      <ul>
+        <li>Sommeil régulier</li>
+        <li>Activité physique modérée</li>
+        <li>Soutien social</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations ne remplacent pas un avis médical.
+      En cas de détresse sévère ou d’idées suicidaires, contacte immédiatement les urgences.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

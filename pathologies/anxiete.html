@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anxiété | Pathologie</title>
+
+  <style>
+    :root {
+      --bg:#0b1220; 
+      --card:#121b2e; 
+      --txt:#eef2ff; 
+      --muted:#b9c2d6; 
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt)
+    }
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px)
+    }
+    .wrap{max-width:980px;margin:0 auto}
+
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .header-image{
+      max-width:180px;
+      height:auto;
+      flex-shrink:0;
+      border-radius:12px;
+    }
+
+    h1{margin:0;font-size:28px;line-height:1.2}
+    .sub{color:var(--muted);margin:6px 0 0}
+
+    .crumbs{margin-top:6px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px;
+    }
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px
+    }
+
+    main{padding:18px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px
+    }
+
+    .card:first-child{margin-top:0}
+
+    h2{margin:0 0 8px;font-size:18px}
+    p, li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted)
+    }
+
+    @media (max-width:700px){
+      .header-top{flex-direction:column;}
+      .header-image{max-width:140px;}
+    }
+    @media (max-width:520px){
+      h1{font-size:24px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-top">
+
+      <div>
+        <h1>Anxiété</h1>
+        <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+        <div class="crumbs">
+          <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Anxiété
+        </div>
+
+        <nav aria-label="Navigation principale">
+          <a href="/yourhealth/index.php">Accueil</a>
+          <a href="/yourhealth/ressources.php">Ressources</a>
+          <a href="/yourhealth/contact.php">Contact</a>
+        </nav>
+      </div>
+
+      <img src="/yourhealth/assets/img/anxiete.jfif"
+           alt="Anxiété"
+           class="header-image">
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <h2>Définition</h2>
+      <p>
+        L’anxiété est un état de tension psychique et physique caractérisé par une
+        inquiétude excessive et persistante. Lorsqu’elle devient chronique,
+        elle perturbe la vie quotidienne.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Causes fréquentes</h2>
+      <ul>
+        <li>Stress chronique et surcharge mentale</li>
+        <li>Traumatismes ou événements de vie difficiles</li>
+        <li>Manque de sommeil</li>
+        <li>Excès de caféine, alcool, nicotine</li>
+        <li>Déséquilibres hormonaux</li>
+        <li>Isolement social</li>
+        <li>Terrain anxieux familial</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Symptômes courants</h2>
+      <ul>
+        <li>Palpitations, oppression thoracique</li>
+        <li>Tensions musculaires</li>
+        <li>Troubles digestifs</li>
+        <li>Difficultés de concentration</li>
+        <li>Irritabilité</li>
+        <li>Troubles du sommeil</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Quand consulter</h2>
+      <ul>
+        <li>Anxiété quasi permanente</li>
+        <li>Crises de panique répétées</li>
+        <li>Retentissement sur le travail ou la vie sociale</li>
+        <li>Idées noires associées</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Mesures et remèdes</h2>
+      <ul>
+        <li>Sommeil régulier et suffisant</li>
+        <li>Réduction café, alcool, écrans</li>
+        <li>Activité physique modérée et régulière</li>
+        <li>Respiration lente</li>
+        <li>Accompagnement psychologique</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>À éviter</h2>
+      <ul>
+        <li>Automédication prolongée</li>
+        <li>Isolement</li>
+        <li>Hyperinformation anxiogène</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>À retenir</h2>
+      <p>
+        L’anxiété n’est pas une faiblesse. Lorsqu’elle devient envahissante,
+        elle nécessite une prise en charge adaptée.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

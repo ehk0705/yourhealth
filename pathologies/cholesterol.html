@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cholestérol | Pathologie</title>
+
+  <style>
+    :root {
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+      --green:#22c55e;
+      --yellow:#facc15;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt)
+    }
+
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+      position:relative;
+    }
+
+    .header-image{
+      position:absolute;
+      top:10px;
+      right:10px;
+      max-width:180px;
+      height:auto;
+      border-radius:12px;
+      border:1px solid var(--accent);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    nav a{color:var(--txt);text-decoration:none;padding:8px 10px;border:1px solid var(--border);border-radius:12px}
+    nav a:hover{border-color:var(--accent)}
+
+    main{padding:22px 16px}
+
+    h1{margin:0;font-size:28px;line-height:1.2; color:var(--green);}
+    .sub{color:var(--yellow);margin:10px 0 0}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      overflow:hidden;
+    }
+
+    h2{margin:0 0 8px;font-size:20px;color:var(--green)}
+    h3{margin:14px 0 6px;font-size:16px;color:var(--accent)}
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .card img{
+      max-width:200px;
+      border-radius:12px;
+      border:1px solid var(--accent);
+      margin:0 0 10px 16px;
+      float:right;
+    }
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px
+    }
+
+    .crumbs{margin-top:10px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .header-image{position:static;display:block;margin:0 auto 10px auto}
+      .card img{float:none;margin:0 auto 10px auto; display:block;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="wrap">
+    <h1>Cholestérol</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <div class="crumbs">
+      <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Cholestérol
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.php">Accueil</a>
+      <a href="/yourhealth/ressources.php">Ressources</a>
+      <a href="/yourhealth/contact.php">Contact</a>
+      <a href="javascript:history.back()">Retour</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Définition -->
+    <section class="card" id="definition">
+      <h2>Définition</h2>
+      <img src="/yourhealth/assets/img/cholesterol-definition.jfif" alt="Cholestérol dans le sang">
+      <p>
+        Le cholestérol est une substance grasse présente dans le sang, essentielle à la fabrication
+        des membranes cellulaires et de certaines hormones. En excès, il favorise l’accumulation
+        de dépôts dans les artères et augmente le risque cardiovasculaire.
+      </p>
+    </section>
+
+    <!-- Types -->
+    <section class="card" id="types">
+      <h2>Types de cholestérol</h2>
+      <img src="/yourhealth/assets/img/cholesterol-types.jfif" alt="Types de cholestérol">
+      <ul>
+        <li><strong>LDL</strong> : « mauvais » cholestérol, favorise les dépôts dans les artères.</li>
+        <li><strong>HDL</strong> : « bon » cholestérol, aide à éliminer l’excès de cholestérol.</li>
+      </ul>
+      <p>
+        Le rapport entre LDL et HDL est un indicateur important du risque cardiovasculaire.
+      </p>
+    </section>
+
+    <!-- Causes -->
+    <section class="card" id="causes">
+      <h2>Causes</h2>
+      <img src="/yourhealth/assets/img/cholesterol-causes.jfif" alt="Causes du cholestérol">
+      <ul>
+        <li>Alimentation riche en graisses saturées et trans</li>
+        <li>Sédentarité</li>
+        <li>Surpoids ou obésité</li>
+        <li>Facteurs génétiques</li>
+        <li>Tabac et alcool</li>
+      </ul>
+    </section>
+
+    <!-- Risques -->
+    <section class="card" id="risques">
+      <h2>Risques</h2>
+      <img src="/yourhealth/assets/img/cholesterol-risques.jfif" alt="Risques du cholestérol">
+      <ul>
+        <li>Athérosclérose</li>
+        <li>Infarctus du myocarde</li>
+        <li>Accident vasculaire cérébral</li>
+        <li>Hypertension et troubles cardiaques</li>
+      </ul>
+      <p>
+        Une surveillance régulière permet de réduire ces risques.
+      </p>
+    </section>
+
+    <!-- Prise en charge -->
+    <section class="card" id="remedes">
+      <h2>Prise en charge</h2>
+      <img src="/yourhealth/assets/img/cholesterol-remedes.jfif" alt="Gestion du cholestérol">
+      <ul>
+        <li>Adopter une alimentation équilibrée et riche en fibres</li>
+        <li>Pratiquer une activité physique régulière</li>
+        <li>Contrôler son poids</li>
+        <li>Suivi médical et traitement si nécessaire</li>
+      </ul>
+    </section>
+
+    <!-- Conseils -->
+    <section class="card" id="conseils">
+      <h2>Conseils pratiques</h2>
+      <img src="/yourhealth/assets/img/cholesterol-conseils.jfif" alt="Conseils cholestérol">
+      <ul>
+        <li>Faire contrôler son taux de cholestérol régulièrement</li>
+        <li>Limiter les aliments riches en graisses saturées</li>
+        <li>Éviter le tabac et l’alcool excessif</li>
+        <li>Privilégier les bons gras (huile d’olive, noix, avocat)</li>
+      </ul>
+      <p>
+        Des changements simples du mode de vie peuvent améliorer durablement la santé cardiovasculaire.
+      </p>
+    </section>
+
+    <!-- NOUVELLE SECTION : Graines de lin -->
+    <section class="card" id="graines-lin">
+      <h2>Graines de lin et cholestérol</h2>
+      <img src="/yourhealth/assets/img/lin.jfif" alt="Graines de lin">
+
+      <p>
+        Les graines de lin sont souvent citées comme une aide alimentaire naturelle pour réduire
+        le <strong>mauvais cholestérol (LDL)</strong>. Leur intérêt repose sur leur richesse en
+        <strong>fibres solubles</strong>, en <strong>oméga-3</strong> et en <strong>lignanes</strong>.
+      </p>
+
+      <p>
+        Les fibres solubles peuvent contribuer à limiter l’absorption intestinale du cholestérol,
+        tandis que les oméga-3 participent à la protection des vaisseaux sanguins.
+      </p>
+
+      <h3>Quantité</h3>
+      <p>
+        La quantité généralement évoquée est d’environ
+        <strong>une cuillère à soupe par jour</strong>, à intégrer dans la durée.
+      </p>
+
+      <h3>Mode de consommation</h3>
+      <ul>
+        <li>Consommer les graines <strong>moulues</strong> pour une meilleure assimilation</li>
+        <li>Les ajouter à un yaourt, une salade, une soupe ou un plat</li>
+        <li>Commencer progressivement pour éviter les troubles digestifs</li>
+      </ul>
+
+      <h3>Graines ou huile de lin</h3>
+      <p>
+        L’huile de lin apporte des oméga-3 mais ne contient pas de fibres.
+        Elle ne remplace donc pas les graines entières pour la gestion du cholestérol.
+      </p>
+
+      <h3>Précautions</h3>
+      <ul>
+        <li>Excès possible : effet laxatif</li>
+        <li>Prudence en cas de troubles digestifs</li>
+        <li>À discuter avec un médecin en cas de pathologie spécifique</li>
+      </ul>
+
+      <p>
+        Les graines de lin peuvent être un <strong>complément alimentaire utile</strong>,
+        sans jamais se substituer à un traitement médical.
+      </p>
+    </section>
+
+    <p class="note">
+      Ces informations ne remplacent pas un avis médical.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

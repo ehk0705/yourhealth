@@ -1,0 +1,229 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Troubles anxieux | Pathologie</title>
+
+  <style>
+    :root {
+      --bg:#0b1220; --card:#121b2e; --txt:#eef2ff; --muted:#b9c2d6; --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14, var(--bg));
+      color:var(--txt)
+    }
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+      position:relative;
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--border);
+      border-radius:12px
+    }
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+    main{padding:22px 16px}
+    h1{margin:0;font-size:28px;line-height:1.2}
+    .sub{color:var(--muted);margin:10px 0 0}
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px
+    }
+    h2{margin:0 0 8px;font-size:18px}
+    p, li{color:var(--muted);line-height:1.7}
+    ul{margin:8px 0 0 18px}
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px
+    }
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted)
+    }
+    .crumbs{margin-top:10px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      color:var(--txt);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px 12px
+    }
+    .btn:hover{border-color:rgba(125,211,252,.55)}
+    .header-image{
+      position:absolute;
+      top:10px;
+      right:10px;
+      max-width:180px;
+      height:auto;
+      border-radius:12px;
+      border:1px solid var(--accent);
+    }
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .header-image{position:static;display:block;margin:0 auto 10px auto}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="../assets/img/troubles-anxieux.jfif"
+       alt="Troubles anxieux"
+       class="header-image">
+
+  <div class="wrap">
+    <h1>Troubles anxieux</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <div class="crumbs">
+      <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Troubles anxieux
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.php">Accueil</a>
+      <a href="/yourhealth/alimentation.php">Alimentation</a>
+      <a href="/yourhealth/ressources.php">Ressources</a>
+      <a href="/yourhealth/contact.php">Contact</a>
+    </nav>
+
+    <div class="btnrow">
+      <a class="btn" href="/yourhealth/index.php">Retour</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Définition -->
+    <section class="card" id="definition">
+      <h2>Qu’est-ce qu’un trouble anxieux ?</h2>
+      <p>
+        L’anxiété est une réaction normale face à un danger ou à une situation stressante.
+        On parle de <strong>trouble anxieux</strong> lorsque cette anxiété devient
+        <strong>excessive, persistante ou incontrôlable</strong>, et qu’elle perturbe la vie quotidienne.
+      </p>
+      <p>
+        Les troubles anxieux peuvent se manifester par des inquiétudes constantes,
+        des crises de panique, des peurs intenses (phobies) ou une anxiété généralisée,
+        même en l’absence de danger réel.
+      </p>
+    </section>
+
+    <!-- Symptômes -->
+    <section class="card" id="symptomes">
+      <h2>Symptômes fréquents</h2>
+      <p>
+        Les symptômes varient selon les personnes et le type de trouble anxieux.
+        Ils peuvent être <strong>psychiques</strong> et <strong>physiques</strong>.
+      </p>
+      <ul>
+        <li>Inquiétudes excessives, pensées négatives répétitives</li>
+        <li>Sensation de danger imminent ou perte de contrôle</li>
+        <li>Palpitations, respiration rapide, oppression thoracique</li>
+        <li>Tensions musculaires, maux de tête, troubles digestifs</li>
+        <li>Troubles du sommeil, fatigue chronique</li>
+      </ul>
+    </section>
+
+    <!-- Diagnostic -->
+    <section class="card" id="diagnostic">
+      <h2>Comment se fait le diagnostic ?</h2>
+      <p>
+        Le diagnostic repose principalement sur un <strong>entretien médical</strong>.
+        Il permet d’identifier les symptômes, leur durée, leur intensité
+        et leur impact sur la vie quotidienne.
+      </p>
+      <ul>
+        <li>Discussion sur les symptômes et le contexte de vie</li>
+        <li>Recherche de facteurs déclenchants ou aggravants</li>
+        <li>Examen clinique pour éliminer une cause physique</li>
+        <li>Examens complémentaires si nécessaire</li>
+      </ul>
+    </section>
+
+    <!-- Prise en charge -->
+    <section class="card" id="remedes">
+      <h2>Prise en charge</h2>
+      <p>
+        La prise en charge dépend du type de trouble anxieux et de sa gravité.
+        Elle est souvent <strong>globale et progressive</strong>.
+      </p>
+      <ul>
+        <li>Psychothérapie (souvent thérapies cognitives et comportementales)</li>
+        <li>Apprentissage de techniques de gestion du stress</li>
+        <li>Médicaments dans certains cas, sur avis médical</li>
+        <li>Suivi régulier pour ajuster la prise en charge</li>
+      </ul>
+    </section>
+
+    <!-- Conseils -->
+    <section class="card" id="conseils">
+      <h2>Conseils au quotidien</h2>
+      <p>
+        En complément du suivi médical, certaines habitudes peuvent aider
+        à mieux gérer l’anxiété au quotidien.
+      </p>
+      <ul>
+        <li>Maintenir des horaires de sommeil réguliers</li>
+        <li>Pratiquer une activité physique modérée</li>
+        <li>Limiter café, alcool et stimulants</li>
+        <li>Apprendre des techniques de respiration et de relaxation</li>
+        <li>Éviter l’isolement, parler de ses difficultés</li>
+      </ul>
+    </section>
+
+    <!-- Prévention -->
+    <section class="card" id="prevention">
+      <h2>Prévention</h2>
+      <p>
+        Il n’est pas toujours possible d’éviter un trouble anxieux,
+        mais certaines mesures réduisent le risque ou limitent son impact.
+      </p>
+      <ul>
+        <li>Gestion du stress et des charges émotionnelles</li>
+        <li>Équilibre entre travail, repos et loisirs</li>
+        <li>Consultation précoce en cas de symptômes persistants</li>
+        <li>Suivi médical si terrain anxieux connu</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical.
+      Si l’anxiété devient envahissante ou durable, il est important de consulter.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

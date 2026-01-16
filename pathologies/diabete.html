@@ -1,0 +1,271 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diabète | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    /* --- En-tête image + texte alignés --- */
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .header-image{
+      max-width:180px;
+      height:auto;
+      flex-shrink:0;
+    }
+
+    h1{margin:0;font-size:28px;line-height:1.2;color:#22c55e} /* titre vert */
+    .sub{color:#facc15;margin:6px 0 0;font-size:16px} /* sous-titre jaune */
+
+    .crumbs{margin-top:6px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+
+    nav a:hover{
+      border-color:rgba(125,211,252,.55);
+    }
+
+    main{padding:18px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      position:relative;
+    }
+
+    /* images alignées à droite */
+    .card img{
+      float:right;
+      display:block;
+      max-width:180px;
+      margin-left:12px;
+      margin-bottom:12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+    }
+
+    /* Assure que le texte ne chevauche pas l'image suivante */
+    .card:after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    h2{margin:0 0 8px;font-size:20px;color:#22c55e;} /* vert */
+    h3{margin:12px 0 6px;font-size:16px;color:#facc15;} /* jaune */
+
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    @media (max-width:700px){
+      .header-top{flex-direction:column;}
+      .header-image{max-width:140px;margin-top:10px;}
+    }
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .card img{
+        float:none;
+        display:block;
+        margin:0 auto 12px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-top">
+      <div>
+        <h1>Diabète</h1>
+        <p class="sub">Fiche pratique : comprendre, repérer, agir efficacement.</p>
+
+        <div class="crumbs">
+          <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Diabète
+        </div>
+
+        <nav aria-label="Navigation principale">
+          <a href="/yourhealth/index.php">Accueil</a>
+          <a href="/yourhealth/ressources.php">Ressources</a>
+          <a href="/yourhealth/contact.php">Contact</a>
+        </nav>
+      </div>
+
+      <a href="/yourhealth/assets/img/diabete.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete.jfif" alt="Diabète" class="header-image">
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <a href="/yourhealth/assets/img/diabete-definition.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-definition.jfif" alt="Définition du diabète">
+      </a>
+      <h2>Définition</h2>
+      <p>
+        Le diabète est une maladie métabolique chronique dans laquelle le corps ne produit pas suffisamment d’insuline ou ne l’utilise pas correctement. 
+        Cela entraîne une élévation prolongée du taux de sucre dans le sang (glycémie), pouvant affecter progressivement différents organes comme le cœur, les reins, les yeux et les nerfs.
+      </p>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <a href="/yourhealth/assets/img/diabete-diagnostic.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-diagnostic.jfif" alt="Diagnostic du diabète">
+      </a>
+      <h2>Diagnostic</h2>
+      <ul>
+        <li>Analyse de la glycémie à jeun et tests de tolérance au glucose.</li>
+        <li>Dosage de l’HbA1c (hémoglobine glyquée) pour évaluer la glycémie moyenne sur 3 mois.</li>
+        <li>Évaluation des facteurs de risque : âge, antécédents familiaux, obésité, sédentarité.</li>
+        <li>Dépistage des complications cardiovasculaires, rénales ou oculaires.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="remedes">
+      <a href="/yourhealth/assets/img/diabete-remedes.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-remedes.jfif" alt="Prise en charge du diabète">
+      </a>
+      <h2>Prise en charge</h2>
+      <ul>
+        <li>Adopter une alimentation équilibrée riche en fibres et pauvre en sucres rapides.</li>
+        <li>Pratiquer une activité physique régulière adaptée à son état.</li>
+        <li>Suivre le traitement médicamenteux prescrit (insuline ou antidiabétiques oraux).</li>
+        <li>Assurer un suivi médical régulier et personnaliser les objectifs glycémiques.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="conseils">
+      <a href="/yourhealth/assets/img/diabete-conseils.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-conseils.jfif" alt="Conseils diabète">
+      </a>
+      <h2>Conseils pratiques</h2>
+      <ul>
+        <li>Surveiller sa glycémie régulièrement et noter les variations.</li>
+        <li>Éviter l’automédication et suivre les prescriptions médicales.</li>
+        <li>Respecter les rendez-vous médicaux pour dépistage et prévention des complications.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="prevention">
+      <a href="/yourhealth/assets/img/diabete-prevention.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-prevention.jfif" alt="Prévention diabète">
+      </a>
+      <h2>Prévention</h2>
+      <ul>
+        <li>Maintenir un poids stable et une alimentation équilibrée.</li>
+        <li>Limiter les sucres rapides et les aliments ultra-transformés.</li>
+        <li>Pratiquer régulièrement une activité physique adaptée.</li>
+        <li>Favoriser un sommeil régulier et gérer le stress efficacement.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="complications-diabete">
+      <a href="/yourhealth/assets/img/diabete-complications.jfif" target="_blank">
+        <img src="/yourhealth/assets/img/diabete-complications.jfif" alt="Complications du diabète">
+      </a>
+      <h2>Complications du diabète</h2>
+      <p>
+        Un diabète non contrôlé peut entraîner des complications graves et progressives affectant différents organes et systèmes du corps.
+      </p>
+
+      <h3>Complications cardiovasculaires</h3>
+      <p>Risque accru d’infarctus, d’accident vasculaire cérébral et d’hypertension artérielle.</p>
+
+      <h3>Atteintes nerveuses</h3>
+      <p>Douleurs, picotements et perte de sensibilité, principalement aux pieds et aux mains.</p>
+
+      <h3>Atteintes rénales</h3>
+      <p>Diminution progressive de la fonction rénale pouvant évoluer vers une insuffisance rénale chronique.</p>
+
+      <h3>Atteintes oculaires</h3>
+      <p>Rétinopathie diabétique pouvant entraîner une baisse de la vision et, dans certains cas, la cécité.</p>
+
+      <h3>Infections fréquentes</h3>
+      <p>Le diabète favorise les infections et ralentit la cicatrisation des plaies.</p>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical. Consulte un professionnel de santé en cas de doute ou de symptômes persistants.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

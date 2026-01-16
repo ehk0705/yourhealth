@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graines de lin et cholestérol</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --accent2:#34d399;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 12px 28px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    .wrap{max-width:1050px;margin:0 auto;padding:22px 16px 36px}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+      padding:18px;
+      background:linear-gradient(135deg, rgba(125,211,252,.10), rgba(52,211,153,.08));
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero h1{margin:0;font-size:26px;line-height:1.2}
+    .hero p{margin:10px 0 0;color:var(--muted);line-height:1.6}
+
+    .badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.22);
+      color:var(--txt);font-size:13px
+    }
+    .dot{width:8px;height:8px;border-radius:50%;}
+    .dot.a{background:var(--accent)}
+    .dot.b{background:var(--accent2)}
+
+    .hero-aside{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(0,0,0,.22);
+      padding:14px;
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .kpi .big{
+      font-size:34px;font-weight:800;letter-spacing:.3px;
+      margin:0;
+    }
+    .kpi .small{margin:0;color:var(--muted);line-height:1.5}
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .icon{
+      width:28px;height:28px;border-radius:10px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:rgba(125,211,252,.12);
+      border:1px solid var(--border);
+      color:var(--accent);
+      font-weight:800;
+    }
+
+    ul{margin:10px 0 0;padding-left:18px}
+    li{margin:8px 0;color:var(--txt);line-height:1.55}
+    .note{color:var(--muted);margin-top:10px;line-height:1.6}
+
+    .callout{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(253,224,71,.25);
+      background:rgba(253,224,71,.08);
+      color:var(--txt);
+    }
+    .callout b{color:#fde047}
+
+    .footerline{
+      margin-top:16px;
+      border-top:1px solid var(--border);
+      padding-top:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+  <section class="hero" aria-label="Résumé graines de lin et cholestérol">
+    <div>
+      <h1>Graines de lin et cholestérol : le point pratique</h1>
+      <p>
+        Selon l’article, les <b>graines de lin</b> sont mises en avant comme aide alimentaire pour réduire le
+        <b>mauvais cholestérol (LDL)</b>, à raison d’environ <b>une cuillère à soupe par jour</b>, dans le cadre
+        d’une alimentation équilibrée.
+      </p>
+
+      <div class="badges" aria-label="Mots-clés">
+        <span class="badge"><span class="dot a"></span> LDL (mauvais cholestérol)</span>
+        <span class="badge"><span class="dot b"></span> Fibres + oméga-3</span>
+        <span class="badge"><span class="dot a"></span> 1 cuillère / jour</span>
+      </div>
+    </div>
+
+    <aside class="hero-aside" aria-label="Chiffre clé">
+      <div class="kpi">
+        <p class="big">1</p>
+        <p class="small">
+          <b>Cuillère à soupe par jour</b> (repère de consommation proposé par l’article).
+          Préférence : <b>graines moulues</b> plutôt qu’entières.
+        </p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="grid" aria-label="Contenu">
+    <article class="card">
+      <h2><span class="icon">1</span>Points essentiels</h2>
+      <ul>
+        <li>Les graines de lin sont riches en <b>fibres solubles</b>, <b>oméga-3</b> et <b>lignanes</b>.</li>
+        <li>Les fibres peuvent contribuer à <b>limiter l’absorption</b> d’une partie du cholestérol.</li>
+        <li>Consommation conseillée dans l’article : <b>1 cuillère à soupe par jour</b>.</li>
+        <li>Meilleure assimilation : <b>graines moulues</b> (les graines entières sont moins bien digérées).</li>
+      </ul>
+      <p class="note">
+        Exemple simple : à ajouter dans un yaourt, une salade, une soupe, ou une préparation maison.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2><span class="icon">2</span>Huile vs graines</h2>
+      <ul>
+        <li><b>Huile de lin</b> : apporte surtout des <b>oméga-3</b>.</li>
+        <li><b>Graines de lin</b> : apportent <b>oméga-3 + fibres</b> (point mis en avant pour le cholestérol).</li>
+      </ul>
+      <div class="callout">
+        <b>Important :</b> l’huile ne remplace pas les graines si l’objectif principal est l’apport en fibres.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2><span class="icon">3</span>Délai et régularité</h2>
+      <ul>
+        <li>L’article insiste sur la <b>régularité</b> : c’est une habitude alimentaire, pas un “coup rapide”.</li>
+        <li>Les effets demandent du temps : l’article évoque un repère d’environ <b>plusieurs mois</b>.</li>
+      </ul>
+      <p class="note">
+        Si tu prends un traitement pour le cholestérol, ne le modifie pas sans avis médical.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2><span class="icon">4</span>Précautions</h2>
+      <ul>
+        <li>Excès possible : <b>effet laxatif</b>, ballonnements, inconfort digestif.</li>
+        <li>Prudence si antécédent de <b>cancer hormono-dépendant</b> (à discuter avec un médecin).</li>
+      </ul>
+      <div class="callout">
+        <b>Bon réflexe :</b> commencer petit (par exemple 1 cuillère à café), puis augmenter si bien toléré.
+      </div>
+    </article>
+  </section>
+
+  <section class="card" style="margin-top:14px" aria-label="Conseils alimentaires généraux">
+    <h2><span class="icon">✓</span>Conseils alimentaires associés</h2>
+    <ul>
+      <li>Limiter les <b>graisses animales</b> et les produits ultra-transformés.</li>
+      <li>Augmenter <b>fruits, légumes, légumineuses</b> et <b>fibres</b>.</li>
+      <li>Privilégier les <b>bons lipides</b> (huile d’olive, noix, poissons gras selon tolérance).</li>
+      <li>Garder une activité physique régulière (même modérée) si possible.</li>
+    </ul>
+
+    <div class="footerline">
+      Source : article du Journal des Femmes (santé) mentionné dans ta demande.
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

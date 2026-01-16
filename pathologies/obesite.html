@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obésité | Pathologie</title>
+
+  <style>
+    :root {
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt)
+    }
+
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+      position:relative;
+    }
+
+    .header-image{
+      position:absolute;
+      top:12px;
+      right:12px;
+      max-width:170px;
+      height:auto;
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    h1{margin:0;font-size:28px;line-height:1.2}
+    .sub{color:var(--muted);margin:6px 0 8px}
+
+    .crumbs{margin:4px 0}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px
+    }
+
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:10px 16px 22px}
+
+    .card{
+      margin-top:14px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px
+    }
+
+    h2{margin:0 0 8px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:16px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px
+    }
+
+    .imc-img{
+      margin-top:10px;
+      max-width:100%;
+      border-radius:12px;
+      border:1px solid var(--border);
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted)
+    }
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .header-image{
+        position:static;
+        display:block;
+        margin:0 auto 8px auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="../assets/img/obesite.jfif" target="_blank">
+    <img src="../assets/img/obesite.jfif"
+         alt="Obésité"
+         class="header-image">
+  </a>
+
+  <div class="wrap">
+    <h1>Obésité</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <div class="crumbs">
+      <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Obésité
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.php">Accueil</a>
+      <a href="/yourhealth/ressources.php">Ressources</a>
+      <a href="/yourhealth/contact.php">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <h2>Définition</h2>
+      <p>
+        Excès de masse grasse pouvant nuire à la santé. Elle est souvent évaluée
+        par l’indice de masse corporelle (IMC) et le tour de taille.
+      </p>
+    </section>
+
+    <section class="card" id="imc">
+      <h2>Indice de masse corporelle (IMC)</h2>
+      <p>
+        L’IMC permet d’estimer la corpulence.  
+        Il se calcule ainsi : <strong>IMC = poids (kg) ÷ taille² (m)</strong>.
+      </p>
+      <p>
+        Exemple : 80 kg pour 1,70 m → IMC = 80 ÷ (1,70 × 1,70) = 27,7.
+      </p>
+      <p>
+        L’IMC classe la corpulence en plusieurs intervalles : maigreur, corpulence normale,
+        surpoids et obésité.
+      </p>
+
+      <a href="../assets/img/imc.jfif" target="_blank">
+        <img src="../assets/img/imc.jfif"
+             alt="Intervalles de l'indice de masse corporelle"
+             class="imc-img">
+      </a>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <h2>Diagnostic</h2>
+      <ul>
+        <li>Entretien médical</li>
+        <li>Examen clinique</li>
+        <li>Examens complémentaires si nécessaire</li>
+        <li>Évaluation des complications</li>
+      </ul>
+    </section>
+
+    <section class="card" id="remedes">
+      <h2>Prise en charge</h2>
+      <ul>
+        <li>Adaptation alimentaire</li>
+        <li>Activité physique régulière</li>
+        <li>Suivi médical</li>
+        <li>Traitement spécifique si indiqué</li>
+      </ul>
+    </section>
+
+    <section class="card" id="conseils">
+      <h2>Conseils</h2>
+      <ul>
+        <li>Éviter l’automédication</li>
+        <li>Fixer des objectifs progressifs</li>
+        <li>Demander un avis médical si nécessaire</li>
+      </ul>
+    </section>
+
+    <section class="card" id="prevention">
+      <h2>Prévention</h2>
+      <ul>
+        <li>Alimentation équilibrée</li>
+        <li>Activité physique régulière</li>
+        <li>Sommeil suffisant</li>
+        <li>Suivi médical en cas de risque</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations ne remplacent pas un avis médical.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

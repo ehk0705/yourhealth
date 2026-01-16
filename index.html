@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Votre santé</title>
+
+  <!-- CSS principal (GitHub Pages : chemin relatif) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+  /* Ajustements du header (repris de ton header.php) */
+  header.topbar{
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+  body{
+    margin-top:0;
+  }
+  main.container{
+    margin-top:0;
+    padding-top:8px;
+  }
+
+  .hero{
+    background:linear-gradient(180deg,#0b1220,#1a2233);
+    color:#eef2ff;
+    border-radius:18px;
+    margin:0 0 20px 0;
+    padding:16px;
+  }
+
+  /* Haut du hero */
+  .hero-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+  }
+
+  .hero-left{flex:1;text-align:center}
+
+  .hero__medic{
+    display:block;
+    margin:0 auto 12px;
+    max-width:180px;
+    border-radius:14px;
+    border:2px solid #3b82f6;
+  }
+
+  .hero__text h1{font-size:32px;color:#22c55e;margin:0 0 8px}
+  .hero__text p{font-size:16px;color:#facc15;margin:0}
+
+  .hero__box-sante{
+    max-width:260px;
+    margin:0;
+    padding:16px;
+    font-family:Verdana,sans-serif;
+    font-size:12px;
+    color:#fff;
+    background-color:rgba(11,18,32,.95);
+    border-radius:12px;
+    border:2px solid #22d3ee;
+    border-left:6px solid #3b82f6;
+    box-shadow:0 8px 20px rgba(0,0,0,.55);
+    text-align:left;
+  }
+
+  .hero__box-sante h4{font-size:14px;color:#22c55e;margin:0 0 6px}
+  .hero__box-sante h5{font-size:12px;color:#facc15;margin:6px 0 4px}
+  .hero__box-sante ul{margin:0;padding-left:16px}
+  .hero__box-sante li{margin-bottom:4px}
+
+  .cards-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
+  .card-patho{display:block;width:220px;text-align:center;background:rgba(11,18,32,.9);border:1px solid #22d3ee;border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s;text-decoration:none}
+  .card-patho img{width:100%;height:140px;object-fit:cover}
+  .card-patho h3{margin:12px 8px 6px;font-size:18px;color:#22c55e}
+  .card-patho p{padding:0 8px 12px;font-size:14px;color:#b9c2d6}
+  .card-patho:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+
+  .container{margin-top:20px}
+
+  /* Remonter légèrement Pathologies principales */
+  .container-pathologies{margin-top:8px}
+
+  /* Mise en page minimale si ton CSS global ne couvre pas tout */
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:linear-gradient(180deg,#070b14,#0b1220);
+    color:#eef2ff;
+  }
+
+  /* On conserve le principe "container" si ton CSS ne le définit pas */
+  main.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:16px;
+  }
+
+  h2{margin:18px 0 8px}
+  a{color:#7dd3fc}
+  a:hover{opacity:.9}
+
+  /* Footer simple */
+  footer.site-footer{
+    margin-top:28px;
+    padding:14px 0 10px;
+    border-top:1px solid rgba(255,255,255,.12);
+    color:#b9c2d6;
+    font-size:13px;
+    text-align:center;
+  }
+
+  @media (max-width:800px){
+    .hero-top{flex-direction:column}
+    .hero__box-sante{max-width:100%}
+  }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER (statique, compatible GitHub Pages) -->
+<header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="index.html">Votre santé</a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="ressources.html">Ressources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+      <div class="hero-left">
+        <img
+          src="assets/img/Medic.jfif"
+          alt="Medic"
+          class="hero__medic"
+          onerror="this.onerror=null;this.src='assets/img/default.jpg';"
+        >
+        <div class="hero__text">
+          <h1>Votre santé nous tient à cœur</h1>
+          <p>Comprendre les maladies modernes, leurs causes et leurs mécanismes, afin de mieux les prévenir. Ce site propose des informations accessibles, des repères fiables et des conseils pratiques pour adopter une hygiène de vie plus saine et agir concrètement sur sa santé au quotidien.</p>
+          <p>---------------------------------------------------------------</p>
+          <p>Site en cours de développement, vos commentaires sont apprécis</p>
+        </div>
+      </div>
+
+      <div class="hero__box-sante">
+        <h4>Hygiène de vie à adopter</h4>
+        <h5>Hygiène essentielle</h5>
+        <ul>
+          <li>Supprimer le tabac et l’alcool.</li>
+          <li>Réduire fortement les excès de sucre.</li>
+          <li>Limiter les produits ultra-transformés.</li>
+          <li>Privilégier une alimentation simple et naturelle.</li>
+        </ul>
+        <h5>Activité physique</h5>
+        <ul>
+          <li>Pratiquer une activité régulière adaptée.</li>
+          <li>Marcher chaque jour.</li>
+        </ul>
+        <h5>Sommeil et stress</h5>
+        <ul>
+          <li>Respecter un sommeil régulier.</li>
+          <li>Gérer le stress calmement.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATHOLOGIES -->
+  <section class="container container-pathologies">
+    <h2>Pathologies principales</h2>
+
+    <div class="cards-container">
+
+      <a href="pathologies/anxiete.html" class="card-patho">
+        <img data-slug="anxiete" alt="Anxiété">
+        <h3>Anxiété</h3>
+        <p>Stress, inquiétude, symptômes physiques et mentaux.</p>
+      </a>
+
+      <a href="pathologies/diabete.html" class="card-patho">
+        <img data-slug="diabete" alt="Diabète de type 2">
+        <h3>Diabète de type 2</h3>
+        <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
+      </a>
+
+      <a href="pathologies/obesite.html" class="card-patho">
+        <img data-slug="obesite" alt="Obésité">
+        <h3>Obésité</h3>
+        <p>Excès de masse grasse, risques cardio-métaboliques.</p>
+      </a>
+
+      <a href="pathologies/syndrome-metabolique.html" class="card-patho">
+        <img data-slug="syndrome-metabolique" alt="Syndrome métabolique">
+        <h3>Syndrome métabolique</h3>
+        <p>Tour de taille, tension, sucre et lipides déséquilibrés.</p>
+      </a>
+
+      <a href="pathologies/foie-gras.html" class="card-patho">
+        <img data-slug="foie-gras" alt="Stéatose hépatique non alcoolique (maladie du foie gras)">
+        <h3>Stéatose hépatique non alcoolique (maladie du foie gras)</h3>
+        <p>Accumulation de graisses dans le foie hors alcool, risque d’inflammation.</p>
+      </a>
+
+      <a href="pathologies/hypertension.html" class="card-patho">
+        <img data-slug="hypertension" alt="Hypertension artérielle">
+        <h3>Hypertension artérielle</h3>
+        <p>Tension élevée durable, risque cardiovasculaire accru.</p>
+      </a>
+
+      <a href="pathologies/palpitations.html" class="card-patho">
+        <img data-slug="palpitations" alt="Palpitations du cœur">
+        <h3>Palpitations du cœur</h3>
+        <p>Battements rapides, forts ou irréguliers.</p>
+      </a>
+
+      <a href="pathologies/infarctus-myocarde.html" class="card-patho">
+        <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
+        <h3>Infarctus du myocarde</h3>
+        <p>Urgence : obstruction d’une artère coronaire.</p>
+      </a>
+
+      <a href="pathologies/avc.html" class="card-patho">
+        <img data-slug="avc" alt="Accident vasculaire cérébral">
+        <h3>Accident vasculaire cérébral</h3>
+        <p>Urgence : atteinte de la circulation cérébrale.</p>
+      </a>
+
+      <a href="pathologies/depression.html" class="card-patho">
+        <img data-slug="depression" alt="Dépression">
+        <h3>Dépression</h3>
+        <p>Humeur basse, fatigue, perte d’intérêt, troubles du sommeil.</p>
+      </a>
+
+      <a href="pathologies/troubles-anxieux.html" class="card-patho">
+        <img data-slug="troubles-anxieux" alt="Troubles anxieux">
+        <h3>Troubles anxieux</h3>
+        <p>Anxiété excessive : panique, phobies, anxiété généralisée.</p>
+      </a>
+
+      <a href="pathologies/burn-out.html" class="card-patho">
+        <img data-slug="burn-out" alt="Burn-out">
+        <h3>Burn-out</h3>
+        <p>Épuisement lié au stress chronique, baisse d’énergie.</p>
+      </a>
+
+      <a href="pathologies/alzheimer.html" class="card-patho">
+        <img data-slug="alzheimer" alt="Maladie d’Alzheimer">
+        <h3>Maladie d’Alzheimer</h3>
+        <p>Troubles cognitifs progressifs, notamment de la mémoire.</p>
+      </a>
+
+      <a href="pathologies/demences.html" class="card-patho">
+        <img data-slug="demences" alt="Autres démences">
+        <h3>Autres démences</h3>
+        <p>Autres causes de déclin cognitif (vasculaire, etc.).</p>
+      </a>
+
+      <a href="pathologies/troubles-sommeil.html" class="card-patho">
+        <img data-slug="troubles-sommeil" alt="Troubles du sommeil">
+        <h3>Troubles du sommeil</h3>
+        <p>Insomnie, apnée, sommeil non réparateur.</p>
+      </a>
+
+      <a href="pathologies/addictions.html" class="card-patho">
+        <img data-slug="addictions" alt="Addictions">
+        <h3>Addictions</h3>
+        <p>Dépendances avec impact sur la santé et la vie sociale.</p>
+      </a>
+
+      <a href="pathologies/troubles-musculo-squelettiques.html" class="card-patho">
+        <img data-slug="troubles-musculo-squelettiques" alt="Troubles musculo-squelettiques">
+        <h3>Troubles musculo-squelettiques</h3>
+        <p>Douleurs et limitations : dos, tendons, articulations.</p>
+      </a>
+
+      <a href="pathologies/asthme.html" class="card-patho">
+        <img data-slug="asthme" alt="Asthme">
+        <h3>Asthme</h3>
+        <p>Inflammation des voies aériennes, crises, essoufflement.</p>
+      </a>
+
+      <a href="pathologies/allergies.html" class="card-patho">
+        <img data-slug="allergies" alt="Allergies">
+        <h3>Allergies</h3>
+        <p>Réaction excessive à des allergènes (respiratoire, peau, etc.).</p>
+      </a>
+
+      <a href="pathologies/drogue.html" class="card-patho">
+        <img data-slug="drogue" alt="Méfaits de la drogue">
+        <h3>Méfaits de la drogue</h3>
+        <p>Risques physiques, psychiques, sociaux et dépendance.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PREVENTION -->
+  <section class="container">
+    <h2>Prévention et bien-être</h2>
+    <p>Des conseils simples pour réduire les risques et améliorer la qualité de vie.</p>
+
+    <p><a href="alimentation.html">Alimentation équilibrée</a></p>
+    <p><a href="pathologies/alzheimer.html">Maladie d’Alzheimer</a></p>
+    <p><a href="pathologies/syndrome-intestin-irritable.html">Syndrome de l’intestin irritable</a></p>
+    <p><a href="pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
+    <p><a href="pathologies/palpitations.html">Palpitations cardiaques</a></p>
+  </section>
+
+<footer class="site-footer">
+  <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
+  <p><strong>Auteur :</strong> Site développé par Hocine Korichi, ingénieur physicien et informaticien.</p>
+  <p>© 2026 yourhealth</p>
+</footer>
+
+</main>
+
+<script>
+(function () {
+  const IMG_BASE = "assets/img/";
+  const FALLBACK = IMG_BASE + "default.jpg";
+  const EXTS = ["jfif","jpg","jpeg","png","webp"];
+
+  function trySetImage(imgEl, slug) {
+    let i = 0;
+
+    function attempt() {
+      if (i >= EXTS.length) {
+        imgEl.src = FALLBACK;
+        imgEl.onerror = null;
+        return;
+      }
+      const url = IMG_BASE + slug + "." + EXTS[i++];
+      imgEl.onerror = attempt;
+      imgEl.src = url;
+    }
+
+    if (!slug) {
+      imgEl.src = FALLBACK;
+      return;
+    }
+    attempt();
+  }
+
+  document.querySelectorAll('img[data-slug]').forEach(img => {
+    const slug = img.getAttribute('data-slug');
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+    trySetImage(img, slug);
+  });
+})();
+</script>
+
+</body>
+</html>
