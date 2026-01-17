@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santé et alimentation</title>
+
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#121b2e;
+  --txt:#eef2ff;
+  --muted:#b9c2d6;
+  --accent:#7dd3fc;
+  --border:rgba(255,255,255,.12);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#070b14,var(--bg));
+  color:var(--txt);
+}
+
+.wrap{max-width:1000px;margin:auto;padding:16px}
+
+header.hero{
+  padding:40px 16px;
+  background:url("assets/img/alimentation.jfif") center/cover;
+  border-bottom:1px solid var(--border);
+}
+
+h1{margin:0;font-size:32px}
+p{color:var(--muted);line-height:1.6}
+
+nav.badges{
+  margin-top:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+nav.badges a{
+  text-decoration:none;
+  color:var(--txt);
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:12px;
+  font-size:14px;
+}
+
+nav.badges a:hover{border-color:var(--accent)}
+
+section.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  margin-top:18px;
+}
+
+h2{margin-top:0}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.grid img{
+  width:100%;
+  border-radius:12px;
+}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Santé et alimentation</h1>
+    <p>Choisir les bons aliments pour protéger sa santé.</p>
+
+    <nav class="badges">
+      <a href="#epices">Épices</a>
+      <a href="#fruitslegumes">Fruits et légumes</a>
+      <a href="#fibres">Fibres</a>
+      <a href="#ig">Indice glycémique</a>
+      <a href="#vitamines">Vitamines</a>
+      <a href="#antioxydants">Antioxydants</a>
+      <a href="#lactose">Lait sans lactose</a>
+      <a href="#chocolat">Chocolat noir</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="card" id="epices">
+<h2>Les épices : santé et saveur</h2>
+<div class="grid">
+  <div>
+    <p>
+Les épices ne servent pas seulement à parfumer les plats.
+Beaucoup possèdent des propriétés anti-inflammatoires et digestives.
+    </p>
+    <p>
+Curcuma, gingembre, cannelle et cumin soutiennent l’immunité
+et réduisent l’excès de sucre sanguin.
+    </p>
+  </div>
+  <img src="assets/img/epices.jfif" alt="Épices">
+</div>
+</section>
+
+<section class="card" id="fruitslegumes">
+<h2>Fruits et légumes : base de l’équilibre</h2>
+<div class="grid">
+  <img src="assets/img/fruits-legumes.jfif" alt="Fruits et légumes">
+  <div>
+    <p>
+Riches en vitamines, minéraux et eau, ils protègent le cœur
+et renforcent les défenses naturelles.
+    </p>
+    <p>
+Cinq portions par jour couvrent l’essentiel des besoins.
+Varier les couleurs assure un apport complet.
+    </p>
+  </div>
+</div>
+</section>
+
+<section class="card" id="fibres">
+<h2>Les fibres : alliées du transit</h2>
+<div class="grid">
+  <div>
+    <p>
+Les fibres régulent la digestion, nourrissent le microbiote
+et limitent les pics de sucre sanguin.
+    </p>
+    <p>
+On les trouve dans les légumes, fruits, légumineuses
+et céréales complètes.
+    </p>
+  </div>
+  <img src="assets/img/fibres.jfif" alt="Aliments riches en fibres">
+</div>
+</section>
+
+<section class="card" id="ig">
+<h2>L’indice glycémique</h2>
+<div class="grid">
+  <img src="assets/img/indice-glycemique.jfif" alt="Indice glycémique">
+  <div>
+    <p>
+L’indice glycémique mesure la vitesse à laquelle
+un aliment élève le sucre dans le sang.
+    </p>
+    <p>
+Privilégier les aliments à indice bas aide
+à prévenir le diabète et les fringales.
+    </p>
+  </div>
+</div>
+</section>
+
+<section class="card" id="vitamines">
+<h2>Les vitamines</h2>
+<p>
+Elles assurent le bon fonctionnement du corps.
+Une alimentation variée suffit généralement à couvrir les besoins.
+</p>
+</section>
+
+<section class="card" id="antioxydants">
+<h2>Les antioxydants</h2>
+<p>
+Ils protègent les cellules du vieillissement prématuré.
+On les trouve surtout dans les fruits colorés et le cacao.
+</p>
+</section>
+
+<section class="card" id="lactose">
+<h2>Le lait sans lactose</h2>
+<p>
+Les laits sans lactose facilitent la digestion
+tout en maintenant un bon apport en calcium.
+</p>
+</section>
+
+<section class="card" id="chocolat">
+<h2>Le chocolat noir</h2>
+<p>
+Riche en cacao, il soutient la circulation sanguine
+et améliore le moral. Une petite portion suffit.
+</p>
+</section>
+
+</main>
+
+<footer>
+© 2026 — Santé et alimentation
+</footer>
+
+</body>
+</html>

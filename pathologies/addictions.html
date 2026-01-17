@@ -18,7 +18,7 @@
       color:var(--txt)
     }
     header{
-      padding:22px 16px;
+      padding:14px 16px; /* réduit (était 22px) */
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(6px)
@@ -33,11 +33,11 @@
       border-radius:12px
     }
     nav a:hover{border-color:rgba(125,211,252,.55)}
-    main{padding:22px 16px}
+    main{padding:10px 16px 22px} /* remonte (top réduit) */
     h1{margin:0;font-size:28px;line-height:1.2}
-    .sub{color:var(--muted);margin:10px 0 0}
+    .sub{color:var(--muted);margin:8px 0 0} /* remonte (était 10px) */
     .card{
-      margin-top:18px;
+      margin-top:10px; /* remonte (était 18px) */
       background:var(--card);
       border:1px solid var(--border);
       border-radius:18px;
@@ -47,7 +47,7 @@
     p, li{color:var(--muted);line-height:1.6}
     ul{margin:8px 0 0 18px}
     .note{
-      margin-top:18px;
+      margin-top:10px; /* remonte (était 18px) */
       font-size:13px;
       color:var(--muted);
       border-left:3px solid var(--accent);
@@ -58,9 +58,9 @@
       border-top:1px solid var(--border);
       color:var(--muted)
     }
-    .crumbs{margin-top:10px}
+    .crumbs{margin-top:8px} /* remonte (était 10px) */
     .crumbs a{color:var(--accent);text-decoration:none}
-    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .btnrow{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap} /* remonte (était 14px) */
     .btn{
       display:inline-block;
       text-decoration:none;
@@ -71,10 +71,10 @@
     }
     .btn:hover{border-color:rgba(125,211,252,.55)}
 
-    /* Image en haut alignée à droite */
+    /* Image en haut alignée à droite, sans pousser le texte */
     .header-image{
       display:block;
-      margin:10px 0 0 auto;
+      margin:0 0 8px auto; /* remonte */
       max-width:180px;
       height:auto;
     }
@@ -85,26 +85,26 @@
 
 <body>
 <header>
-
-  <img src="../../assets/img/addictions.jfif" alt="Addictions" class="header-image">
-
   <div class="wrap">
+
+    <img src="../assets/img/addictions.jfif" alt="Addictions" class="header-image">
+
     <h1>Addictions (alcool, drogues, écrans)</h1>
     <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
 
     <div class="crumbs">
-      <a href="/yourhealth/index.php">Accueil</a> › Pathologies › Addictions
+      <a href="index.html">Accueil</a> › Pathologies › Addictions
     </div>
 
     <nav aria-label="Navigation principale">
-      <a href="/yourhealth/index.php">Accueil</a>
-      <a href="/yourhealth/alimentation.php">Alimentation</a>
-      <a href="/yourhealth/ressources.php">Ressources</a>
-      <a href="/yourhealth/contact.php">Contact</a>
+      <a href="index.html">Accueil</a>
+      <a href="alimentation.html">Alimentation</a>
+      <a href="ressources.html">Ressources</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <div class="btnrow">
-      <a class="btn" href="/yourhealth/index.php">Retour</a>
+      <a class="btn" href="index.html">Retour</a>
     </div>
   </div>
 </header>

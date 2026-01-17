@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | YourHealth</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+      --yellow:#facc15;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+    main{
+      padding:22px 16px;
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    h1{font-size:26px}
+    h2{margin:0 0 12px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:16px;
+    }
+    label{display:block;margin-top:12px}
+    input,textarea{
+      width:100%;
+      margin-top:6px;
+      padding:10px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#0b1220;
+      color:var(--txt);
+    }
+    textarea{min-height:120px}
+    button{
+      margin-top:16px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:transparent;
+      color:var(--txt);
+      cursor:pointer;
+    }
+    button:hover{border-color:rgba(125,211,252,.55)}
+    .muted{color:var(--muted)}
+    .info{
+      color:var(--yellow);
+      font-size:14px;
+      margin-top:10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="site-header"></div>
+
+<main>
+  <div class="wrap">
+
+    <section class="card">
+      <h1>Contact</h1>
+      <p class="muted">
+        Cette page permet de me contacter pour signaler une erreur,
+        un problème de navigation ou faire une remarque.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Formulaire de contact</h2>
+
+      <form onsubmit="return false;">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" placeholder="Votre nom">
+
+        <label for="commentaire">Message</label>
+        <textarea id="commentaire" placeholder="Votre message"></textarea>
+
+        <button type="button" onclick="alert('Formulaire statique. Utilisez l’adresse e-mail ci-dessous.')">
+          Envoyer
+        </button>
+
+      </form>
+    </section>
+
+   </div>
+</main>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+
+<script>
+fetch("includes/header.html")
+  .then(r => r.text())
+  .then(html => document.getElementById("site-header").innerHTML = html);
+
+fetch("includes/footer.html")
+  .then(r => r.text())
+  .then(html => document.getElementById("site-footer").innerHTML = html);
+</script>
+
+</body>
+</html>
