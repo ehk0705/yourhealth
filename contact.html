@@ -16,6 +16,8 @@
       --accent:#7dd3fc;
       --border:rgba(255,255,255,.12);
       --yellow:#facc15;
+      --ok:#34d399;
+      --bad:#fb7185;
     }
     *{box-sizing:border-box}
     body{
@@ -24,11 +26,9 @@
       background:linear-gradient(180deg,#070b14,var(--bg));
       color:var(--txt);
     }
-    main{
-      padding:22px 16px;
-    }
+    main{padding:22px 16px}
     .wrap{max-width:980px;margin:0 auto}
-    h1{font-size:26px}
+    h1{font-size:26px;margin:0 0 10px}
     h2{margin:0 0 12px}
     .card{
       background:var(--card);
@@ -38,7 +38,7 @@
       margin-bottom:16px;
     }
     label{display:block;margin-top:12px}
-    input,textarea{
+    textarea{
       width:100%;
       margin-top:6px;
       padding:10px;
@@ -46,8 +46,11 @@
       border:1px solid var(--border);
       background:#0b1220;
       color:var(--txt);
+      outline:none;
+      min-height:160px;
+      resize:vertical;
     }
-    textarea{min-height:120px}
+    textarea:focus{border-color:rgba(125,211,252,.6)}
     button{
       margin-top:16px;
       padding:10px 14px;
@@ -58,12 +61,27 @@
       cursor:pointer;
     }
     button:hover{border-color:rgba(125,211,252,.55)}
+    button:disabled{opacity:.5;cursor:not-allowed}
     .muted{color:var(--muted)}
     .info{
       color:var(--yellow);
       font-size:14px;
       margin-top:10px;
+      line-height:1.35;
     }
+    .hint{font-size:13px;color:var(--muted);margin-top:8px}
+    .status{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      display:none;
+    }
+    .status.ok{display:block;border-color:rgba(52,211,153,.4);color:var(--ok)}
+    .status.bad{display:block;border-color:rgba(251,113,133,.4);color:var(--bad)}
+    .count{font-size:13px;color:var(--muted);margin-top:6px;text-align:right}
+    /* Champ anti-spam (piège) */
+    .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
 </head>
 
@@ -78,42 +96,119 @@
     <section class="card">
       <h1>Contact</h1>
       <p class="muted">
-        Cette page permet de me contacter pour signaler une erreur,
-        un problème de navigation ou faire une remarque.
+        Laisse un commentaire pour signaler une erreur, un lien cassé, ou proposer une amélioration.
+      </p>
+      <p class="info">
+        Note : sur GitHub Pages, le site ne peut pas enregistrer un fichier « commentaires.txt ».
+        L’envoi passe donc par e-mail.
       </p>
     </section>
 
-    <section class="card">
-      <h2>Formulaire de contact</h2>
+    <section class="card" aria-labelledby="titre-form">
+      <h2 id="titre-form">Commentaire</h2>
 
-      <form onsubmit="return false;">
-        <label for="nom">Nom</label>
-        <input type="text" id="nom" placeholder="Votre nom">
-
+      <form id="contactForm" novalidate>
         <label for="commentaire">Message</label>
-        <textarea id="commentaire" placeholder="Votre message"></textarea>
+        <textarea id="commentaire" name="commentaire"
+          placeholder="Écris ton commentaire (si possible, indique la page concernée)."
+          maxlength="1200" required></textarea>
+        <div class="count" id="count">0 / 1200</div>
 
-        <button type="button" onclick="alert('Formulaire statique. Utilisez l’adresse e-mail ci-dessous.')">
-          Envoyer
-        </button>
+        <!-- Anti-spam simple : ne pas remplir -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Ne pas remplir ce champ</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
 
+        <button id="btnSend" type="submit">Envoyer</button>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <p class="hint">
+          Si le navigateur bloque l’ouverture du client e-mail, copie/colle le texte et envoie-le manuellement.
+        </p>
       </form>
     </section>
 
-   </div>
+  </div>
 </main>
 
 <!-- FOOTER -->
 <div id="site-footer"></div>
 
 <script>
-fetch("includes/header.html")
-  .then(r => r.text())
-  .then(html => document.getElementById("site-header").innerHTML = html);
+  fetch("includes/header.html")
+    .then(r => r.ok ? r.text() : "")
+    .then(html => { if (html) document.getElementById("site-header").innerHTML = html; });
 
-fetch("includes/footer.html")
-  .then(r => r.text())
-  .then(html => document.getElementById("site-footer").innerHTML = html);
+  fetch("includes/footer.html")
+    .then(r => r.ok ? r.text() : "")
+    .then(html => { if (html) document.getElementById("site-footer").innerHTML = html; });
+
+  (function () {
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("commentaire");
+    const hp = document.getElementById("website");
+    const status = document.getElementById("status");
+    const count = document.getElementById("count");
+    const btn = document.getElementById("btnSend");
+
+    const DEST_EMAIL = "ehk007@gmail.com";
+
+    function setStatus(text, ok) {
+      status.className = "status " + (ok ? "ok" : "bad");
+      status.textContent = text;
+    }
+
+    function clearStatus() {
+      status.className = "status";
+      status.textContent = "";
+    }
+
+    function updateCount() {
+      count.textContent = msg.value.length + " / 1200";
+    }
+    msg.addEventListener("input", updateCount);
+    updateCount();
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      clearStatus();
+
+      if (hp.value.trim() !== "") {
+        setStatus("Envoi bloqué (anti-spam).", false);
+        return;
+      }
+
+      const msgVal = msg.value.trim();
+      if (!msgVal) {
+        setStatus("Le commentaire est obligatoire.", false);
+        msg.focus();
+        return;
+      }
+
+      btn.disabled = true;
+
+      const page = window.location.href;
+      const date = new Date().toISOString();
+
+      const subject = "YourHealth - Commentaire";
+      const body =
+        "Page : " + page + "\n" +
+        "Date : " + date + "\n\n" +
+        "Commentaire :\n" + msgVal + "\n";
+
+      const mailto =
+        "mailto:" + encodeURIComponent(DEST_EMAIL) +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailto;
+
+      setStatus("Le client e-mail a été ouvert. Si rien ne se passe, copie/colle le commentaire et envoie-le manuellement.", true);
+      btn.disabled = false;
+    });
+  })();
 </script>
 
 </body>
