@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santé et alimentation — Bilan annuel : analyses et examens</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.55;
+    }
+    .wrap{max-width:1000px;margin:auto;padding:18px}
+    .card{
+      background:rgba(18,27,46,.9);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+      margin:14px 0;
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+    }
+    h1{margin:0 0 6px;font-size:28px}
+    h2{margin:18px 0 8px;font-size:18px;color:#cfe9ff}
+    h3{margin:14px 0 8px;font-size:15px;color:#cfe9ff}
+    p{margin:8px 0;color:var(--muted)}
+    .note{font-size:13px;color:var(--muted)}
+    .pill{
+      display:inline-block;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(125,211,252,.12);
+      border:1px solid rgba(125,211,252,.25);
+      color:#dff3ff;
+      font-size:12px;
+      margin-right:8px;
+    }
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{border:1px solid var(--border);padding:10px;vertical-align:top}
+    th{background:rgba(255,255,255,.04);text-align:left}
+    ul{margin:8px 0 8px 18px;color:var(--muted)}
+    .warn{color:#ffd6a6}
+    .good{color:#b7f7c6}
+    .bad{color:#ffb4b4}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+    .hr{height:1px;background:var(--border);margin:12px 0}
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <div class="card">
+      <h1>Santé et alimentation — Bilan annuel</h1>
+      <p>
+        Objectif : dépister tôt les facteurs de risque (diabète, insuffisance rénale, maladies cardiovasculaires, atteinte du foie).
+      </p>
+      <p class="note">
+        <span class="pill">Important</span>
+        Les seuils ci-dessous sont des repères. Les bornes exactes peuvent changer selon les laboratoires, l’âge, le sexe et le contexte médical.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1) Analyses souvent utiles chaque année</h2>
+      <ul>
+        <li>Glycémie à jeun (et parfois HbA1c selon le profil).</li>
+        <li>Profil lipidique : cholestérol total, LDL, HDL, triglycérides.</li>
+        <li>Fonction rénale : créatinine + estimation du DFG (eGFR).</li>
+        <li>Bilan hépatique : ALAT (ALT), ASAT (AST), GGT, phosphatases alcalines (PAL/ALP), bilirubine.</li>
+      </ul>
+      <p class="note">
+        D’autres examens peuvent être ajoutés selon l’âge et les facteurs de risque (tension artérielle, poids/IMC, albuminurie, etc.).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Valeurs de référence : normal / limite / anormal</h2>
+
+      <h3>2.1 Glycémie à jeun</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Normal</th>
+            <th>Limite (à surveiller)</th>
+            <th>Anormal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Glycémie à jeun</td>
+            <td class="good">&lt; 100 mg/dL (&lt; 5,6 mmol/L)</td>
+            <td class="warn">100–125 mg/dL (5,6–6,9 mmol/L)</td>
+            <td class="bad">≥ 126 mg/dL (≥ 7,0 mmol/L) à confirmer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>2.2 HbA1c (hémoglobine glyquée)</h3>
+      <p class="note">
+        Utile pour estimer la moyenne de glycémie sur ~2–3 mois. Le dépistage dépend du contexte.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Normal</th>
+            <th>Limite</th>
+            <th>Anormal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HbA1c</td>
+            <td class="good">&lt; 5,7 % (≈ &lt; 39 mmol/mol)</td>
+            <td class="warn">5,7–6,4 % (≈ 39–46 mmol/mol)</td>
+            <td class="bad">≥ 6,5 % (≈ ≥ 48 mmol/mol) à confirmer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>2.3 Cholestérol et triglycérides</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Objectif (désirable)</th>
+            <th>À surveiller</th>
+            <th>Élevé (risque accru)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cholestérol total</td>
+            <td class="good">&lt; 200 mg/dL (&lt; 5,1 mmol/L)</td>
+            <td class="warn">200–239 mg/dL</td>
+            <td class="bad">≥ 240 mg/dL</td>
+          </tr>
+          <tr>
+            <td>LDL (mauvais cholestérol)</td>
+            <td class="good">&lt; 100 mg/dL (&lt; 2,6 mmol/L)</td>
+            <td class="warn">100–159 mg/dL</td>
+            <td class="bad">≥ 160 mg/dL (plus haut = plus de risque)</td>
+          </tr>
+          <tr>
+            <td>HDL (bon cholestérol)</td>
+            <td class="good">≥ 60 mg/dL (≥ 1,6 mmol/L)</td>
+            <td class="warn">40–59 mg/dL</td>
+            <td class="bad">&lt; 40 mg/dL (protecteur insuffisant)</td>
+          </tr>
+          <tr>
+            <td>Triglycérides</td>
+            <td class="good">&lt; 150 mg/dL (&lt; 1,7 mmol/L)</td>
+            <td class="warn">150–199 mg/dL</td>
+            <td class="bad">≥ 200 mg/dL (très élevé si &gt; 500)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>2.4 Fonction rénale : créatinine et eGFR</h3>
+      <p class="note">
+        La créatinine dépend du sexe et de la masse musculaire. L’eGFR (DFG estimé) aide à classer la fonction rénale.
+      </p>
+      <div class="grid">
+        <div class="card" style="margin:0">
+          <h3>Créatinine (sérum)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Population</th>
+                <th>Valeurs usuelles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Homme adulte</td>
+                <td class="good">0,74–1,35 mg/dL (≈ 65–119 µmol/L)</td>
+              </tr>
+              <tr>
+                <td>Femme adulte</td>
+                <td class="good">0,59–1,04 mg/dL (≈ 52–92 µmol/L)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">
+            <span class="warn">À surveiller</span> : une créatinine au-dessus des bornes usuelles suggère souvent une baisse du DFG.
+          </p>
+        </div>
+
+        <div class="card" style="margin:0">
+          <h3>eGFR (DFG estimé)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th>eGFR (mL/min/1,73 m²)</th>
+                <th>Interprétation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="good">G1</td>
+                <td class="good">≥ 90</td>
+                <td>Normal/élevé (si pas d’autre signe rénal)</td>
+              </tr>
+              <tr>
+                <td class="warn">G2</td>
+                <td class="warn">60–89</td>
+                <td>Légèrement diminué</td>
+              </tr>
+              <tr>
+                <td class="warn">G3a</td>
+                <td class="warn">45–59</td>
+                <td>Diminution modérée</td>
+              </tr>
+              <tr>
+                <td class="bad">G3b</td>
+                <td class="bad">30–44</td>
+                <td>Diminution modérée à sévère</td>
+              </tr>
+              <tr>
+                <td class="bad">G4</td>
+                <td class="bad">15–29</td>
+                <td>Sévère</td>
+              </tr>
+              <tr>
+                <td class="bad">G5</td>
+                <td class="bad">&lt; 15</td>
+                <td>Insuffisance rénale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3>2.5 Foie : bilan hépatique (repères adultes)</h3>
+      <p class="note">
+        Les unités et les bornes peuvent varier. Voici des repères courants.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Valeur usuelle (repère)</th>
+            <th>À surveiller</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ALAT (ALT)</td>
+            <td class="good">0–40 UI/L</td>
+            <td class="warn">Au-dessus du seuil : à interpréter selon contexte</td>
+          </tr>
+          <tr>
+            <td>ASAT (AST)</td>
+            <td class="good">0–40 UI/L</td>
+            <td class="warn">Au-dessus du seuil : à interpréter selon contexte</td>
+          </tr>
+          <tr>
+            <td>GGT</td>
+            <td class="good">0–50 UI/L</td>
+            <td class="warn">Souvent augmenté avec alcool, cholestase, certains médicaments</td>
+          </tr>
+          <tr>
+            <td>Phosphatases alcalines (PAL/ALP)</td>
+            <td class="good">≈ 25–115 UI/L</td>
+            <td class="warn">Augmentation : foie/voies biliaires ou os (selon contexte)</td>
+          </tr>
+          <tr>
+            <td>Bilirubine totale</td>
+            <td class="good">≈ 0–17 µmol/L</td>
+            <td class="warn">Ictère possible si hausse importante</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>3) Hépatites : quels tests et comment lire “normal / anormal”</h2>
+      <p>
+        Les tests d’hépatite sont souvent <strong>qualitatifs</strong> (positif / négatif).
+        Le dépistage dépend du risque (antécédents, exposition au sang, etc.).
+      </p>
+
+      <h3>Hépatite B (exemples de marqueurs)</h3>
+      <ul>
+        <li><strong>HBsAg</strong> : positif = infection en cours (aiguë ou chronique).</li>
+        <li><strong>Anti-HBs</strong> : positif = immunité (vaccination ou guérison).</li>
+        <li><strong>Anti-HBc</strong> : témoigne d’un contact antérieur avec le virus.</li>
+      </ul>
+
+      <p class="note">
+        Pour une interprétation fiable, il faut lire le panel complet avec un professionnel (les combinaisons ont des sens différents).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Échographie de l’abdomen et des reins</h2>
+
+      <p class="warn">
+        Faire une échographie de l’abdomen et des reins “tous les ans” chez une personne sans symptômes ni facteur de risque
+        est souvent une mauvaise idée : ce n’est pas un dépistage systématique standard.
+      </p>
+
+      <h3>Quand elle est pertinente (exemples)</h3>
+      <ul>
+        <li>Douleurs abdominales, anomalies biologiques hépatiques persistantes.</li>
+        <li>Suspicion de stéatose hépatique, calculs biliaires, masses.</li>
+        <li>Douleurs lombaires, sang dans les urines, infections urinaires récidivantes.</li>
+        <li>Suivi d’une pathologie déjà connue (foie, vésicule, reins).</li>
+      </ul>
+
+      <h3>Cas particulier : dépistage anévrysme de l’aorte abdominale (AAA)</h3>
+      <ul>
+        <li>Dépistage <strong>une seule fois</strong> par échographie chez les hommes 65–75 ans ayant fumé (selon recommandations).</li>
+      </ul>
+
+      <p class="note">
+        Conclusion pratique : l’échographie est surtout un examen “orienté” par des symptômes, des facteurs de risque ou des anomalies d’analyses.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Conseils simples pour rester dans les bonnes zones</h2>
+      <ul>
+        <li>Alimentation majoritairement peu transformée, riche en fibres.</li>
+        <li>Activité physique régulière (adaptée à l’âge et au niveau).</li>
+        <li>Sommeil suffisant et gestion du stress.</li>
+        <li>Limiter alcool, tabac, boissons sucrées, excès de sel.</li>
+        <li>Revoir le médecin si un indicateur sort des limites, plutôt que “surveiller seul”.</li>
+      </ul>
+    </div>
+
+  </main>
+</body>
+</html>
