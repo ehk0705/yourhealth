@@ -9,130 +9,186 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-  /* Ajustements du header (repris de ton header.php) */
-  header.topbar{
-    margin-bottom:0;
-    padding-bottom:0;
-  }
-  body{
-    margin-top:0;
-  }
-  main.container{
-    margin-top:0;
-    padding-top:8px;
-  }
-
-  .hero{
-    background:linear-gradient(180deg,#0b1220,#1a2233);
-    color:#eef2ff;
-    border-radius:18px;
-    margin:0 0 20px 0;
-    padding:16px;
-  }
-
-  /* Haut du hero */
-  .hero-top{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:20px;
-  }
-
-  .hero-left{flex:1;text-align:center}
-
-  .hero__medic{
-    display:block;
-    margin:0 auto 12px;
-    max-width:180px;
-    border-radius:14px;
-    border:2px solid #3b82f6;
-  }
-
-  .hero__text h1{font-size:32px;color:#22c55e;margin:0 0 8px}
-  .hero__text p{font-size:16px;color:#facc15;margin:0}
-
-  .hero__box-sante{
-    max-width:260px;
-    margin:0;
-    padding:16px;
-    font-family:Verdana,sans-serif;
-    font-size:12px;
-    color:#fff;
-    background-color:rgba(11,18,32,.95);
-    border-radius:12px;
-    border:2px solid #22d3ee;
-    border-left:6px solid #3b82f6;
-    box-shadow:0 8px 20px rgba(0,0,0,.55);
-    text-align:left;
-  }
-
-  .hero__box-sante h4{font-size:14px;color:#22c55e;margin:0 0 6px}
-  .hero__box-sante h5{font-size:12px;color:#facc15;margin:6px 0 4px}
-  .hero__box-sante ul{margin:0;padding-left:16px}
-  .hero__box-sante li{margin-bottom:4px}
-
-  .cards-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
-  .card-patho{display:block;width:220px;text-align:center;background:rgba(11,18,32,.9);border:1px solid #22d3ee;border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s;text-decoration:none}
-  .card-patho img{width:100%;height:140px;object-fit:cover}
-  .card-patho h3{margin:12px 8px 6px;font-size:18px;color:#22c55e}
-  .card-patho p{padding:0 8px 12px;font-size:14px;color:#b9c2d6}
-  .card-patho:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
-
-  .container{margin-top:20px}
-
-  /* Remonter légèrement Pathologies principales */
-  .container-pathologies{margin-top:8px}
-
-  /* Mise en page minimale si ton CSS global ne couvre pas tout */
-  body{
-    margin:0;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    background:linear-gradient(180deg,#070b14,#0b1220);
-    color:#eef2ff;
-  }
-
-  /* On conserve le principe "container" si ton CSS ne le définit pas */
-  main.container{
-    max-width:1100px;
-    margin:0 auto;
-    padding:16px;
-  }
-
-  h2{margin:18px 0 8px}
-  a{color:#7dd3fc}
-  a:hover{opacity:.9}
-
-  /* Footer simple */
-  footer.site-footer{
-    margin-top:28px;
-    padding:14px 0 10px;
-    border-top:1px solid rgba(255,255,255,.12);
-    color:#b9c2d6;
-    font-size:13px;
-    text-align:center;
-  }
-
-  @media (max-width:800px){
-    .hero-top{flex-direction:column}
-    .hero__box-sante{max-width:100%}
-  }
-  
-.card-patho img{
-  display: block;
-  margin: 0 auto 10px auto;
-  max-width: 100%;
-  height: auto;
+/* Reset léger */
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#070b14,#0b1220);
+  color:#eef2ff;
 }
+
+/* Header */
+header.topbar{
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+/* Container principal */
+main.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(180deg,#0b1220,#1a2233);
+  color:#eef2ff;
+  border-radius:18px;
+  margin:0 0 20px;
+  padding:16px;
+}
+
+.hero-top{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+
+.hero-left{
+  flex:1;
+  text-align:center;
+}
+
+.hero__medic{
+  display:block;
+  margin:0 auto 12px;
+  max-width:180px;
+  border-radius:14px;
+  border:2px solid #3b82f6;
+}
+
+.hero__text h1{
+  font-size:32px;
+  color:#22c55e;
+  margin:0 0 8px;
+}
+
+.hero__text p{
+  font-size:16px;
+  color:#facc15;
+  margin:0 0 16px;
+}
+
+/* BOX SANTÉ */
+.hero__box-sante{
+  max-width:260px;
+  padding:16px;
+  font-family:Verdana,sans-serif;
+  font-size:12px;
+  color:#fff;
+  background-color:rgba(11,18,32,.95);
+  border-radius:12px;
+  border:2px solid #22d3ee;
+  border-left:6px solid #3b82f6;
+  box-shadow:0 8px 20px rgba(0,0,0,.55);
+  text-align:left;
+}
+
+.hero__box-sante h4{
+  font-size:14px;
+  color:#22c55e;
+  margin:0 0 6px;
+}
+
+.hero__box-sante h5{
+  font-size:12px;
+  color:#facc15;
+  margin:6px 0 4px;
+}
+
+.hero__box-sante ul{
+  margin:0;
+  padding-left:16px;
+}
+
+.hero__box-sante li{
+  margin-bottom:4px;
+}
+
+/* PATHOLOGIES : conteneur des cartes (côte à côte) */
+.cards-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-top:16px;
+}
+
+/* Carte pathologie */
 .card-patho{
-  text-align: center;
+  width:220px;               /* important pour l’affichage côte à côte */
+  display:flex;
+  flex-direction:column;
+  align-items:center;        /* centre l’image */
+  text-align:center;         /* centre le texte */
+  background:rgba(11,18,32,.9);
+  border:1px solid #22d3ee;
+  border-radius:16px;
+  padding:14px;
+  text-decoration:none;
+  transition:transform .3s, box-shadow .3s;
+  overflow:hidden;
 }
 
 .card-patho img{
-  display: block;
-  margin: 0 auto 10px auto;
+  display:block;
+  margin:10px auto;
+  max-width:160px;           /* image centrée et pas trop grande */
+  height:auto;
+  border-radius:12px;
 }
 
+.card-patho h3{
+  margin:6px 0 0;
+  font-size:18px;
+  color:#22c55e;
+}
 
+.card-patho p{
+  margin:6px 0 0;
+  font-size:14px;
+  color:#b9c2d6;
+}
+
+.card-patho:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
+}
+
+/* Titres h2 généraux */
+h2{
+  margin:18px 0 8px;
+}
+
+/* Liens */
+a{
+  color:#7dd3fc;
+}
+a:hover{
+  opacity:.9;
+}
+
+/* Footer */
+footer.site-footer{
+  margin-top:28px;
+  padding:14px 0 10px;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:#b9c2d6;
+  font-size:13px;
+  text-align:center;
+}
+
+/* Responsive */
+@media (max-width:800px){
+  .hero-top{
+    flex-direction:column;
+  }
+  .hero__box-sante{
+    max-width:100%;
+  }
+}
 
   </style>
 </head>
@@ -162,15 +218,14 @@
           alt="Medic"
           class="hero__medic"
           onerror="this.onerror=null;this.src='assets/img/default.jpg';"
-        >
+        /img>
         <div class="hero__text">
           <h1>Votre santé nous tient à cœur</h1>
           <p>Comprendre les maladies modernes, leurs causes et leurs mécanismes, afin de mieux les prévenir. Ce site propose des informations accessibles, des repères fiables et des conseils pratiques pour adopter une hygiène de vie plus saine et agir concrètement sur sa santé au quotidien.</p>
- <a href="bilan-annuel.html" class="card-patho">
-  <img data-slug="bilan-sante" alt="Bilan de santé annuel">
-  <h3>Bilan de santé annuel</h3>
-</a>         
-          
+		  <a href="bilan-annuel.html" class="card-patho">
+		  <img data-slug="bilan-sante" alt="Bilan de santé annuel">
+		  <h3>Bilan de santé annuel</h3>
+		 </a>         
         </div>
       </div>
 
