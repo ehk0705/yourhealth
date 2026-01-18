@@ -9,185 +9,134 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-/* Reset léger */
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg,#070b14,#0b1220);
-  color:#eef2ff;
-}
+  /* Ajustements du header (repris de ton header.html) */
+  header.topbar{
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+  body{
+    margin-top:0;
+  }
+  main.container{
+    margin-top:0;
+    padding-top:8px;
+  }
 
-/* Header */
-header.topbar{
-  margin-bottom:0;
-  padding-bottom:0;
-}
+  .hero{
+    background:linear-gradient(180deg,#0b1220,#1a2233);
+    color:#eef2ff;
+    border-radius:18px;
+    margin:0 0 20px 0;
+    padding:16px;
+  }
 
-/* Container principal */
-main.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:16px;
-}
+  /* Haut du hero */
+  .hero-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+  }
 
-/* HERO */
-.hero{
-  background:linear-gradient(180deg,#0b1220,#1a2233);
-  color:#eef2ff;
-  border-radius:18px;
-  margin:0 0 20px;
-  padding:16px;
-}
+  .hero-left{flex:1;text-align:center}
 
-.hero-top{
-  display:flex;
-  gap:20px;
-  align-items:flex-start;
-  justify-content:space-between;
-}
+  .hero__medic{
+    display:block;
+    margin:0 auto 12px;
+    max-width:180px;
+    border-radius:14px;
+    border:2px solid #3b82f6;
+  }
 
-.hero-left{
-  flex:1;
-  text-align:center;
-}
+  .hero__text h1{font-size:32px;color:#22c55e;margin:0 0 8px}
+  .hero__text p{font-size:16px;color:#facc15;margin:0}
 
-.hero__medic{
-  display:block;
-  margin:0 auto 12px;
-  max-width:180px;
-  border-radius:14px;
-  border:2px solid #3b82f6;
-}
+  .hero__box-sante{
+    max-width:260px;
+    margin:0;
+    padding:16px;
+    font-family:Verdana,sans-serif;
+    font-size:12px;
+    color:#fff;
+    background-color:rgba(11,18,32,.95);
+    border-radius:12px;
+    border:2px solid #22d3ee;
+    border-left:6px solid #3b82f6;
+    box-shadow:0 8px 20px rgba(0,0,0,.55);
+    text-align:left;
+  }
 
-.hero__text h1{
-  font-size:32px;
-  color:#22c55e;
-  margin:0 0 8px;
-}
+  .hero__box-sante h4{font-size:14px;color:#22c55e;margin:0 0 6px}
+  .hero__box-sante h5{font-size:12px;color:#facc15;margin:6px 0 4px}
+  .hero__box-sante ul{margin:0;padding-left:16px}
+  .hero__box-sante li{margin-bottom:4px}
 
-.hero__text p{
-  font-size:16px;
-  color:#facc15;
-  margin:0 0 16px;
-}
+  .cards-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
+  .card-patho{display:block;width:220px;text-align:center;background:rgba(11,18,32,.9);border:1px solid #22d3ee;border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s;text-decoration:none}
+  .card-patho img{width:100%;height:140px;object-fit:cover}
+  .card-patho h3{margin:12px 8px 6px;font-size:18px;color:#22c55e}
+  .card-patho p{padding:0 8px 12px;font-size:14px;color:#b9c2d6}
+  .card-patho:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 
-/* BOX SANTÉ */
-.hero__box-sante{
-  max-width:260px;
-  padding:16px;
-  font-family:Verdana,sans-serif;
-  font-size:12px;
-  color:#fff;
-  background-color:rgba(11,18,32,.95);
-  border-radius:12px;
-  border:2px solid #22d3ee;
-  border-left:6px solid #3b82f6;
-  box-shadow:0 8px 20px rgba(0,0,0,.55);
-  text-align:left;
-}
+  .container{margin-top:20px}
 
-.hero__box-sante h4{
-  font-size:14px;
-  color:#22c55e;
-  margin:0 0 6px;
-}
+  /* Remonter légèrement Pathologies principales */
+  .container-pathologies{margin-top:8px}
 
-.hero__box-sante h5{
-  font-size:12px;
-  color:#facc15;
-  margin:6px 0 4px;
-}
+  /* Mise en page minimale si ton CSS global ne couvre pas tout */
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:linear-gradient(180deg,#070b14,#0b1220);
+    color:#eef2ff;
+  }
 
-.hero__box-sante ul{
-  margin:0;
-  padding-left:16px;
-}
+  /* On conserve le principe "container" si ton CSS ne le définit pas */
+  main.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:16px;
+  }
 
-.hero__box-sante li{
-  margin-bottom:4px;
-}
+  h2{margin:18px 0 8px}
+  a{color:#7dd3fc}
+  a:hover{opacity:.9}
 
-/* PATHOLOGIES : conteneur des cartes (côte à côte) */
-.cards-container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-  margin-top:16px;
-}
+  /* Footer simple */
+  footer.site-footer{
+    margin-top:28px;
+    padding:14px 0 10px;
+    border-top:1px solid rgba(255,255,255,.12);
+    color:#b9c2d6;
+    font-size:13px;
+    text-align:center;
+  }
 
-/* Carte pathologie */
+  @media (max-width:800px){
+    .hero-top{flex-direction:column}
+    .hero__box-sante{max-width:100%}
+  }
+  
+.card-patho img{
+  display: block;
+  margin: 0 auto 10px auto;
+  max-width: 100%;
+  height: auto;
+}
 .card-patho{
-  width:220px;               /* important pour l’affichage côte à côte */
-  display:flex;
-  flex-direction:column;
-  align-items:center;        /* centre l’image */
-  text-align:center;         /* centre le texte */
-  background:rgba(11,18,32,.9);
-  border:1px solid #22d3ee;
-  border-radius:16px;
-  padding:14px;
-  text-decoration:none;
-  transition:transform .3s, box-shadow .3s;
-  overflow:hidden;
+  text-align: center;
 }
 
 .card-patho img{
-  display:block;
-  margin:10px auto;
-  max-width:160px;           /* image centrée et pas trop grande */
-  height:auto;
-  border-radius:12px;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 
-.card-patho h3{
-  margin:6px 0 0;
-  font-size:18px;
-  color:#22c55e;
-}
-
-.card-patho p{
-  margin:6px 0 0;
-  font-size:14px;
-  color:#b9c2d6;
-}
-
-.card-patho:hover{
-  transform:translateY(-4px);
-  box-shadow:0 8px 20px rgba(0,0,0,.5);
-}
-
-/* Titres h2 généraux */
-h2{
-  margin:18px 0 8px;
-}
-
-/* Liens */
-a{
-  color:#7dd3fc;
-}
-a:hover{
-  opacity:.9;
-}
-
-/* Footer */
-footer.site-footer{
-  margin-top:28px;
-  padding:14px 0 10px;
-  border-top:1px solid rgba(255,255,255,.12);
-  color:#b9c2d6;
-  font-size:13px;
-  text-align:center;
-}
-
-/* Responsive */
-@media (max-width:800px){
-  .hero-top{
-    flex-direction:column;
-  }
-  .hero__box-sante{
-    max-width:100%;
-  }
+.card-patho{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
   </style>
@@ -387,6 +336,7 @@ footer.site-footer{
     <h2>Prévention et bien-être</h2>
     <p>Des conseils simples pour réduire les risques et améliorer la qualité de vie.</p>
     <p><a href="alimentation.html">Alimentation équilibrée</a></p>
+	<p><a href="sport-sante.html">Bienfaits du sport sur la santé</a></p>
     <p><a href="pathologies/alzheimer.html">Maladie d’Alzheimer</a></p>
     <p><a href="pathologies/syndrome-intestin-irritable.html">Syndrome de l’intestin irritable</a></p>
     <p><a href="pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
