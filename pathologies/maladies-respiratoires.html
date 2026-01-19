@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maladies respiratoires | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    h1{margin:0;font-size:30px;color:var(--green)}
+    .sub{color:var(--yellow);margin-top:6px}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:22px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    /* Images à droite dans chaque section */
+    .card img{
+      float:right;
+      max-width:200px;
+      margin-left:14px;
+      margin-bottom:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    .card:after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    h2{margin:0 0 8px;font-size:20px;color:var(--green)}
+    h3{margin:12px 0 6px;font-size:16px;color:var(--yellow)}
+
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:520px){
+      .card img{
+        float:none;
+        display:block;
+        margin:0 auto 12px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Maladies respiratoires</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <img src="/yourhealth/assets/img/respiration-definition.jfif" alt="Appareil respiratoire">
+      <h2>Définition</h2>
+      <p>
+        Les maladies respiratoires regroupent des affections qui touchent les voies aériennes (nez, gorge, bronches)
+        et les poumons. Elles peuvent être aiguës (infection passagère) ou chroniques (asthme, BPCO).
+      </p>
+      <p>
+        Leur point commun : elles gênent la respiration, diminuent l’oxygénation et altèrent la qualité de vie.
+      </p>
+    </section>
+
+    <section class="card" id="principales-maladies">
+      <img src="/yourhealth/assets/img/respiration-types.jfif" alt="Types de maladies respiratoires">
+      <h2>Principales maladies</h2>
+      <ul>
+        <li><strong>Rhume / infections ORL</strong> : fréquentes, souvent virales.</li>
+        <li><strong>Bronchite</strong> : inflammation des bronches, souvent après une infection.</li>
+        <li><strong>Pneumonie</strong> : infection pulmonaire (virale ou bactérienne), parfois grave.</li>
+        <li><strong>Asthme</strong> : inflammation chronique avec crises d’essoufflement.</li>
+        <li><strong>BPCO</strong> : maladie chronique liée surtout au tabac (toux, essoufflement progressif).</li>
+        <li><strong>Allergies respiratoires</strong> : rhinite, toux, gêne respiratoire saisonnière.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="symptomes">
+      <img src="/yourhealth/assets/img/respiration-symptomes.jfif" alt="Symptômes respiratoires">
+      <h2>Symptômes</h2>
+      <p>
+        Les symptômes varient selon la cause (infection, allergie, inflammation chronique), mais certains signes
+        reviennent souvent.
+      </p>
+      <ul>
+        <li>Toux (sèche ou grasse), parfois persistante.</li>
+        <li>Essoufflement, gêne respiratoire, sifflements.</li>
+        <li>Oppression thoracique, fatigue à l’effort.</li>
+        <li>Fièvre, frissons, douleurs musculaires (plutôt infectieux).</li>
+        <li>Nez bouché, écoulement, éternuements (plutôt allergique/ORL).</li>
+        <li>Expectorations (crachats), parfois colorées.</li>
+      </ul>
+
+      <h3>Signes d’alerte</h3>
+      <ul>
+        <li>Essoufflement important au repos.</li>
+        <li>Douleur thoracique brutale, malaise.</li>
+        <li>Lèvres bleutées, confusion.</li>
+        <li>Fièvre élevée persistante, aggravation rapide.</li>
+        <li>Sang dans les crachats.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <img src="/yourhealth/assets/img/respiration-diagnostic.jfif" alt="Diagnostic respiratoire">
+      <h2>Diagnostic</h2>
+      <p>
+        Le diagnostic vise à identifier la cause (infection, allergie, asthme, BPCO, autre) et à évaluer la gravité.
+        Il repose sur l’histoire, l’examen, et parfois des tests.
+      </p>
+      <ul>
+        <li><strong>Entretien</strong> : durée, déclencheurs, tabac, allergies, antécédents.</li>
+        <li><strong>Examen clinique</strong> : écoute pulmonaire, fréquence respiratoire, saturation.</li>
+        <li><strong>Oxymétrie</strong> : mesure de l’oxygène dans le sang.</li>
+        <li><strong>Radiographie/scan</strong> : suspicion de pneumonie ou complication.</li>
+        <li><strong>Tests respiratoires</strong> (spirométrie) : utiles pour asthme et BPCO.</li>
+        <li><strong>Tests allergiques</strong> : si rhinite/asthme allergique suspecté.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="remedes">
+      <img src="/yourhealth/assets/img/respiration-remedes.jfif" alt="Traitements respiratoires">
+      <h2>Prise en charge et remèdes</h2>
+      <p>
+        Le traitement dépend de la cause. L’objectif est de soulager, de traiter l’infection si nécessaire,
+        et de prévenir les complications.
+      </p>
+
+      <h3>Mesures utiles (souvent valables dans la majorité des cas)</h3>
+      <ul>
+        <li>Hydratation régulière et repos.</li>
+        <li>Aération du logement, humidité modérée.</li>
+        <li>Lavage nasal (sérum physiologique) si congestion.</li>
+        <li>Miel (si pas de contre-indication) pour calmer la toux chez l’adulte.</li>
+        <li>Éviter la fumée, les irritants, et l’air trop sec.</li>
+      </ul>
+
+      <h3>Traitements médicaux possibles (selon avis médical)</h3>
+      <ul>
+        <li><strong>Infections</strong> : parfois antibiotiques si bactérien, sinon traitement symptomatique.</li>
+        <li><strong>Asthme</strong> : inhalateurs (bronchodilatateurs, corticoïdes inhalés).</li>
+        <li><strong>BPCO</strong> : bronchodilatateurs, réhabilitation respiratoire, parfois oxygène.</li>
+        <li><strong>Allergies</strong> : antihistaminiques, sprays nasaux, traitement de fond si besoin.</li>
+      </ul>
+
+      <p class="note">
+        Évite l’automédication prolongée, surtout les antibiotiques ou corticoïdes sans avis médical.
+      </p>
+    </section>
+
+    <section class="card" id="prevention">
+      <img src="/yourhealth/assets/img/respiration-prevention.jfif" alt="Prévention respiratoire">
+      <h2>Prévention</h2>
+      <p>
+        Une partie des maladies respiratoires se prévient en réduisant les infections, les irritants et les facteurs
+        de risque, notamment le tabac.
+      </p>
+      <ul>
+        <li><strong>Arrêt du tabac</strong> : mesure principale pour protéger les poumons.</li>
+        <li><strong>Vaccins</strong> : grippe et pneumocoque selon l’âge et les facteurs de risque.</li>
+        <li><strong>Hygiène</strong> : lavage des mains, aération, éviter les contacts en période infectieuse.</li>
+        <li><strong>Activité physique</strong> : améliore l’endurance et la fonction respiratoire.</li>
+        <li><strong>Qualité de l’air</strong> : limiter l’exposition à la pollution, fumées, solvants.</li>
+        <li><strong>Allergies</strong> : réduire les allergènes (acariens, moisissures), si sensibles.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="quand-consulter">
+      <img src="/yourhealth/assets/img/respiration-consulter.jfif" alt="Quand consulter">
+      <h2>Quand consulter</h2>
+      <ul>
+        <li>Symptômes qui durent plus de 7 à 10 jours ou qui s’aggravent.</li>
+        <li>Essoufflement inhabituel, respiration sifflante nouvelle.</li>
+        <li>Fièvre élevée persistante, douleur thoracique, grande fatigue.</li>
+        <li>Antécédents (asthme, BPCO, cœur) avec aggravation.</li>
+        <li>Tout signe d’alerte (difficulté à parler, cyanose, malaise, sang dans les crachats).</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical.
+      En cas de gêne respiratoire importante ou brutale, consulte en urgence.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>
