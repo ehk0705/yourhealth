@@ -7,6 +7,13 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- Afficher "En cours de développement", puis quitter la page (redirection) -->
+  <script>
+    setTimeout(function () {
+      window.location.href = "index.html"; /* change la destination si besoin */
+    }, 6000);
+  </script>
+
   <style>
     :root{
       --bg:#0b1220;
@@ -82,6 +89,16 @@
     .count{font-size:13px;color:var(--muted);margin-top:6px;text-align:right}
     /* Champ anti-spam (piège) */
     .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+    /* Affichage du message "En cours de développement" */
+    .dev-note{
+      text-align:center;
+      padding:26px 18px;
+    }
+    .dev-note p{
+      margin:0;
+      color:var(--muted);
+    }
   </style>
 </head>
 
@@ -93,41 +110,10 @@
 <main>
   <div class="wrap">
 
-    <section class="card">
-      <h1>Contact</h1>
-      <p class="muted">
-        Laisse un commentaire pour signaler une erreur, un lien cassé, ou proposer une amélioration.
-      </p>
-      <p class="info">
-        Note : sur GitHub Pages, le site ne peut pas enregistrer un fichier « commentaires.txt ».
-        L’envoi passe donc par e-mail.
-      </p>
-    </section>
-
-    <section class="card" aria-labelledby="titre-form">
-      <h2 id="titre-form">Commentaire</h2>
-
-      <form id="contactForm" novalidate>
-        <label for="commentaire">Message</label>
-        <textarea id="commentaire" name="commentaire"
-          placeholder="Écris ton commentaire (si possible, indique la page concernée)."
-          maxlength="1200" required></textarea>
-        <div class="count" id="count">0 / 1200</div>
-
-        <!-- Anti-spam simple : ne pas remplir -->
-        <div class="hp" aria-hidden="true">
-          <label for="website">Ne pas remplir ce champ</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-
-        <button id="btnSend" type="submit">Envoyer</button>
-
-        <div id="status" class="status" role="status" aria-live="polite"></div>
-
-        <p class="hint">
-          Si le navigateur bloque l’ouverture du client e-mail, copie/colle le texte et envoie-le manuellement.
-        </p>
-      </form>
+    <!-- Message visible, puis redirection automatique -->
+    <section class="card dev-note" aria-live="polite">
+      <h1>En cours de développement</h1>
+      <p>Redirection automatique…</p>
     </section>
 
   </div>
@@ -144,71 +130,6 @@
   fetch("includes/footer.html")
     .then(r => r.ok ? r.text() : "")
     .then(html => { if (html) document.getElementById("site-footer").innerHTML = html; });
-
-  (function () {
-    const form = document.getElementById("contactForm");
-    const msg = document.getElementById("commentaire");
-    const hp = document.getElementById("website");
-    const status = document.getElementById("status");
-    const count = document.getElementById("count");
-    const btn = document.getElementById("btnSend");
-
-    const DEST_EMAIL = "ehk007@gmail.com";
-
-    function setStatus(text, ok) {
-      status.className = "status " + (ok ? "ok" : "bad");
-      status.textContent = text;
-    }
-
-    function clearStatus() {
-      status.className = "status";
-      status.textContent = "";
-    }
-
-    function updateCount() {
-      count.textContent = msg.value.length + " / 1200";
-    }
-    msg.addEventListener("input", updateCount);
-    updateCount();
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      clearStatus();
-
-      if (hp.value.trim() !== "") {
-        setStatus("Envoi bloqué (anti-spam).", false);
-        return;
-      }
-
-      const msgVal = msg.value.trim();
-      if (!msgVal) {
-        setStatus("Le commentaire est obligatoire.", false);
-        msg.focus();
-        return;
-      }
-
-      btn.disabled = true;
-
-      const page = window.location.href;
-      const date = new Date().toISOString();
-
-      const subject = "YourHealth - Commentaire";
-      const body =
-        "Page : " + page + "\n" +
-        "Date : " + date + "\n\n" +
-        "Commentaire :\n" + msgVal + "\n";
-
-      const mailto =
-        "mailto:" + encodeURIComponent(DEST_EMAIL) +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = mailto;
-
-      setStatus("Le client e-mail a été ouvert. Si rien ne se passe, copie/colle le commentaire et envoie-le manuellement.", true);
-      btn.disabled = false;
-    });
-  })();
 </script>
 
 </body>
