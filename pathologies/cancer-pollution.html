@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancers liés à la pollution | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#121b2e; --txt:#eef2ff; --muted:#c6cfdf; --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14, var(--bg));
+      color:var(--txt);
+      font-size:16px;
+      line-height:1.75;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px)
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    nav a{color:var(--txt);text-decoration:none;padding:8px 10px;border:1px solid var(--border);border-radius:12px}
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+    main{padding:22px 16px}
+    h1{margin:0;font-size:30px;line-height:1.25;letter-spacing:.2px}
+    .sub{color:var(--muted);margin:10px 0 0;font-size:16px}
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:19px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      letter-spacing:.2px
+    }
+    p{color:var(--muted);margin:10px 0}
+    li{color:var(--muted);line-height:1.7}
+    ul{margin:10px 0 0 18px}
+    .note{
+      margin-top:18px;
+      font-size:14px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding:10px 12px;
+      background:rgba(255,255,255,.03);
+      border-radius:12px;
+    }
+    footer{padding:18px 16px;border-top:1px solid var(--border);color:var(--muted)}
+    .crumbs{margin-top:10px;color:var(--muted)}
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;text-decoration:none;color:var(--txt);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+    .btn:hover{border-color:rgba(125,211,252,.55)}
+    .header-image{
+      display:block;
+      margin:10px auto 0 auto;
+      max-width:180px;
+      height:auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+    .icon{
+      width:22px;
+      height:22px;
+      flex:0 0 22px;
+      color:var(--accent);
+    }
+    .section-image{
+      display:block;
+      width:100%;
+      max-width:860px;
+      margin:14px auto 0 auto;
+      height:auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+      opacity:.95;
+    }
+
+    /* Lisibilité : structure du long texte */
+    .lead{font-size:16px}
+    .content-block{margin-top:12px}
+    .content-title{
+      margin:12px 0 6px;
+      font-size:16px;
+      color:var(--txt);
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .content-block p{margin:8px 0}
+    .content-block ul{margin:8px 0 0 18px}
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .card{padding:16px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <img src="/yourhealth/assets/img/cancer-pollution.jfif" alt="cancers-pollution" class="header-image">
+
+  <div class="wrap">
+    <h1>Cancers liés à la pollution</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> ›
+      <a href="./index.html">Pathologies</a> › Cancers liés à la pollution
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/alimentation.html">Alimentation</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+
+    <div class="btnrow">
+      <a class="btn" href="./index.html">Retour à la liste des pathologies</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="card" id="definition">
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/>
+        </svg>
+        Définition de la pathologie
+      </h2>
+
+      <p class="lead">
+        Certains cancers sont associés à des expositions environnementales
+        (air pollué, fumées, substances chimiques), en interaction avec d’autres facteurs de risque.
+      </p>
+
+      <div class="content-block">
+        <div class="content-title">Pollution et cancer : un danger sous-estimé</div>
+
+        <p>
+          La pollution de l’environnement est aujourd’hui reconnue comme un facteur majeur de risque de cancer.
+          Elle agit de façon lente, diffuse et souvent silencieuse, ce qui rend son impact difficile à percevoir au quotidien.
+          Les substances polluantes pénètrent dans l’organisme par l’air que nous respirons, l’eau que nous buvons et les aliments que nous consommons.
+        </p>
+
+        <p>
+          La pollution de l’air est l’une des plus préoccupantes. Les particules fines, les oxydes d’azote, l’ozone
+          et certains composés organiques volatils sont classés comme cancérogènes ou probablement cancérogènes.
+          Une exposition prolongée augmente le risque de cancer du poumon, mais aussi de cancers cardiovasculaires et métaboliques indirectement liés.
+        </p>
+
+        <p>
+          La pollution de l’eau et des sols expose la population à des pesticides, des métaux lourds (arsenic, cadmium, plomb)
+          et des résidus industriels. Ces substances peuvent s’accumuler dans l’organisme, perturber le fonctionnement cellulaire
+          et favoriser l’apparition de mutations génétiques.
+        </p>
+
+        <p>
+          Certains perturbateurs endocriniens, présents dans les plastiques, les cosmétiques ou les produits ménagers,
+          interfèrent avec les hormones. Ils sont soupçonnés d’augmenter le risque de cancers hormonodépendants, comme ceux du sein,
+          de la prostate ou des testicules.
+        </p>
+
+        <p>
+          La pollution n’agit pas seule : elle s’additionne aux autres facteurs de risque comme le tabac, l’alcool,
+          une mauvaise alimentation ou la sédentarité. Réduire l’exposition aux polluants, à l’échelle individuelle et collective,
+          est donc un enjeu majeur de prévention du cancer et de protection de la santé publique.
+        </p>
+      </div>
+
+      <img class="section-image" src="/yourhealth/assets/img/cancer-pollution.jfif" alt="Illustration : pollution et santé">
+    </section>
+
+    <section class="card" id="diagnostic">
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M6 2h9l3 3v17a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V6h2.5ZM7 9h10v2H7Zm0 4h10v2H7Zm0 4h7v2H7Z"/>
+        </svg>
+        Diagnostic
+      </h2>
+      <ul>
+        <li>Entretien médical : symptômes, antécédents, expositions et facteurs de risque</li>
+        <li>Examen clinique adapté</li>
+        <li>Examens complémentaires selon le cas (analyses, imagerie, biopsies)</li>
+        <li>Évaluation de l’extension, de la sévérité et des complications</li>
+      </ul>
+
+      <img class="section-image" src="/yourhealth/assets/img/cancer-pollution.jfif" alt="Illustration : consultation et diagnostic">
+    </section>
+
+    <section class="card" id="remedes">
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M10 2h4v6h6v4h-6v6h-4v-6H4V8h6Z"/>
+        </svg>
+        Remèdes
+      </h2>
+      <ul>
+        <li>Prise en charge spécialisée selon le type de cancer et son stade</li>
+        <li>Traitements médicaux ou chirurgicaux selon avis spécialisé</li>
+        <li>Mesures de soutien et accompagnement global</li>
+        <li>Suivi régulier pour adapter la stratégie thérapeutique</li>
+      </ul>
+
+      <img class="section-image" src="/yourhealth/assets/img/cancer-pollution.jfif" alt="Illustration : prise en charge médicale">
+    </section>
+
+    <section class="card" id="conseils">
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2a7 7 0 0 0-4 12.74V18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.26A7 7 0 0 0 12 2Zm2 16h-4v-1h4Zm0-3h-4a5 5 0 1 1 4 0Z"/>
+        </svg>
+        Conseils
+      </h2>
+      <ul>
+        <li>Limiter l’exposition aux polluants connus lorsque c’est possible</li>
+        <li>Consulter en cas de symptômes persistants ou inhabituels</li>
+        <li>Respecter les suivis et examens recommandés</li>
+        <li>Adopter un mode de vie favorable à la santé globale</li>
+      </ul>
+
+      <img class="section-image" src="/yourhealth/assets/img/cancer-pollution.jfif" alt="Illustration : prévention au quotidien">
+    </section>
+
+    <section class="card" id="prevention">
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2l8 4v6c0 5.25-3.5 10-8 10S4 17.25 4 12V6Zm0 2.2L6 7v5c0 4.1 2.6 7.9 6 7.9S18 16.1 18 12V7Z"/>
+        </svg>
+        Préventions
+      </h2>
+      <ul>
+        <li>Réduction de l’exposition à la pollution et aux substances toxiques</li>
+        <li>Arrêt du tabac et limitation de l’alcool</li>
+        <li>Alimentation équilibrée et activité physique régulière</li>
+        <li>Dépistage adapté aux facteurs de risque individuels</li>
+      </ul>
+
+      <img class="section-image" src="/yourhealth/assets/img/cancer-pollution.jfif" alt="Illustration : protection et prévention">
+    </section>
+
+    <p class="note">
+      Information générale, non personnalisée. En cas de symptômes, de doute ou d’aggravation,
+      consulte rapidement un professionnel de santé ou les urgences.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+</body>
+</html>
