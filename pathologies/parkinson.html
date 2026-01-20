@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maladie de Parkinson | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+      --ok:#34d399;
+      --warn:#facc15;
+      --bad:#fb7185;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      color:var(--txt);
+      opacity:.95;
+    }
+    nav a:hover{border-color:rgba(125,211,252,.5)}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 40px}
+
+    .hero{
+      background:linear-gradient(180deg,#0b1220,#1a2233);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      margin:14px 0 16px;
+      overflow:hidden;
+    }
+    .hero-top{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+    .hero h1{margin:0 0 6px;font-size:1.45rem}
+    .hero p{margin:0;color:var(--muted)}
+    .hero-figure{
+      width:260px;
+      flex:0 0 260px;
+    }
+    .hero-figure img{
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+      display:block;
+    }
+    @media (max-width:780px){
+      .hero-top{flex-direction:column}
+      .hero-figure{width:100%;flex:0 0 auto}
+      .hero-figure img{height:180px}
+    }
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.92rem;
+      color:var(--txt);
+      opacity:.95;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:rgba(18,27,46,.85);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    }
+    .card h2{margin:0 0 10px;font-size:1.1rem}
+    .card h3{margin:14px 0 8px;font-size:1rem}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px;padding:0}
+    li{margin:6px 0}
+
+    .badge{
+      display:inline-flex;
+      align-items:flex-start;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      margin:8px 0 0;
+      color:var(--txt);
+      background:rgba(0,0,0,.10);
+    }
+    .dot{width:10px;height:10px;border-radius:999px;display:inline-block;margin-top:5px}
+    .dot.ok{background:var(--ok)}
+    .dot.warn{background:var(--warn)}
+    .dot.bad{background:var(--bad)}
+
+    details{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      background:rgba(0,0,0,.12);
+      margin:10px 0;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:600;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+
+    .sep{height:1px;background:var(--border);margin:12px 0}
+
+    .media{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      margin-top:10px;
+    }
+    .media img{
+      width:180px;
+      height:125px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+      flex:0 0 180px;
+      display:block;
+    }
+    .media .txt{flex:1}
+    @media (max-width:700px){
+      .media{flex-direction:column}
+      .media img{width:100%;height:180px;flex:0 0 auto}
+    }
+
+    footer{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 16px 28px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+    }
+    .small{font-size:.92rem}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="topbar">
+    <div class="muted" style="font-weight:700;">YourHealth</div>
+    <nav>
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>Maladie de Parkinson</h1>
+        <p>Maladie neurologique chronique. Elle touche surtout le mouvement, mais peut aussi affecter le sommeil, l’humeur et certaines fonctions cognitives.</p>
+        <div class="chips" aria-label="Mots-clés">
+          <span class="chip">Tremblement</span>
+          <span class="chip">Rigidité</span>
+          <span class="chip">Lenteur</span>
+          <span class="chip">Dopamine</span>
+          <span class="chip">Rééducation</span>
+        </div>
+      </div>
+
+      <figure class="hero-figure" aria-label="Illustration Parkinson">
+        <img src="../assets/img/parkinson-definition.gif"
+             alt="Illustration : maladie de Parkinson"
+             loading="lazy"
+             decoding="async"
+             onerror="this.onerror=null;this.src='../assets/img/default.jpg';">
+      </figure>
+    </div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>1) Ce qui se passe (explication simple)</h2>
+
+      <div class="media">
+        <img src="../assets/img/dopamine-neurones.png"
+             alt="Neurones et dopamine (illustration)"
+             loading="lazy"
+             decoding="async"
+             onerror="this.onerror=null;this.src='../assets/img/default.jpg';">
+        <div class="txt">
+          <p class="muted">
+            Dans Parkinson, certaines zones du cerveau produisent moins de dopamine.
+            La dopamine aide à contrôler les mouvements. Quand elle baisse, les gestes deviennent plus lents,
+            plus raides, et certains tremblements peuvent apparaître.
+          </p>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <h2>2) Les signes typiques</h2>
+
+      <details open>
+        <summary>Signes moteurs</summary>
+        <ul>
+          <li><strong>Lenteur</strong> des mouvements (gestes moins rapides, écriture plus petite).</li>
+          <li><strong>Rigidité</strong> (raideur, douleurs, gêne).</li>
+          <li><strong>Tremblement</strong> souvent au repos (pas toujours présent).</li>
+          <li><strong>Instabilité</strong> et chutes (souvent plus tardives).</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Signes non moteurs</summary>
+        <ul>
+          <li>Troubles du sommeil (sommeil agité, somnolence).</li>
+          <li>Constipation, troubles urinaires.</li>
+          <li>Anxiété, dépression.</li>
+          <li>Perte d’odorat, fatigue.</li>
+        </ul>
+      </details>
+
+      <div class="media">
+        <img src="../assets/img/tremblements.gif"
+             alt="Tremblement et raideur (illustration)"
+             loading="lazy"
+             decoding="async"
+             onerror="this.onerror=null;this.src='../assets/img/default.jpg';">
+        <div class="txt">
+          <p class="muted small">
+            Attention : un tremblement n’est pas forcément Parkinson. Le diagnostic repose sur un examen clinique neurologique.
+          </p>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <h2>3) Diagnostic</h2>
+      <ul>
+        <li><strong>Examen clinique neurologique</strong> : essentiel.</li>
+        <li><strong>Imagerie</strong> : parfois utile pour éliminer d’autres causes (selon le contexte).</li>
+        <li><strong>Suivi</strong> : évolution dans le temps et réponse aux traitements.</li>
+      </ul>
+
+      <div class="sep"></div>
+
+      <h2>4) Traitements et prise en charge</h2>
+      <ul>
+        <li><strong>Médicaments</strong> : améliorent les symptômes (ajustements progressifs).</li>
+        <li><strong>Rééducation</strong> : kinésithérapie, orthophonie, ergothérapie.</li>
+        <li><strong>Activité physique</strong> : bénéfice important sur mobilité, équilibre, fatigue.</li>
+        <li><strong>Soutien</strong> : sommeil, nutrition, accompagnement psychologique si besoin.</li>
+      </ul>
+
+      <div class="badge" role="note">
+        <span class="dot ok" aria-hidden="true"></span>
+        <span class="small"><strong>Idée à retenir :</strong> la prise en charge est globale : médicaments + rééducation + activité régulière.</span>
+      </div>
+    </article>
+
+    <aside class="card">
+      <h2>Quand consulter rapidement</h2>
+
+      <div class="badge">
+        <span class="dot bad" aria-hidden="true"></span>
+        <span class="small"><strong>Urgent :</strong> chute avec traumatisme, confusion brutale, faiblesse soudaine, troubles de la parole.</span>
+      </div>
+
+      <div class="badge">
+        <span class="dot warn" aria-hidden="true"></span>
+        <span class="small"><strong>À vérifier :</strong> troubles de l’équilibre, lenteur qui s’installe, raideur persistante d’un côté, tremblement au repos.</span>
+      </div>
+
+      <div class="sep"></div>
+
+      <h2>Conseils pratiques</h2>
+      <ul>
+        <li>Bouger un peu chaque jour, sans surcharger.</li>
+        <li>Travailler l’équilibre et la marche (rééducation si besoin).</li>
+        <li>Faire le point sur le sommeil et la constipation (souvent sous-estimés).</li>
+        <li>Ne pas modifier un traitement sans avis médical.</li>
+      </ul>
+
+      <div class="sep"></div>
+
+      <div class="media" style="margin-top:0;">
+        <img src="../assets/img/exercice-parkinson.jfif"
+             alt="Exercice et rééducation (illustration)"
+             loading="lazy"
+             decoding="async"
+             onerror="this.onerror=null;this.src='../assets/img/default.jpg';">
+        <div class="txt">
+          <h3 style="margin:0 0 6px;">Activité physique</h3>
+          <p class="muted small" style="margin:0;">
+            La régularité compte plus que l’intensité. La marche, les exercices d’équilibre et le renforcement doux sont souvent utiles.
+          </p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="card" style="margin-top:14px;">
+    <h2>Références (à lire si besoin)</h2>
+    <ul>
+      <li>Sociétés de neurologie et centres hospitaliers universitaires.</li>
+      <li>Associations de patients reconnues.</li>
+      <li>Recommandations de prise en charge (neurologie, rééducation).</li>
+    </ul>
+    <p class="small muted">
+      Cette page est informative. Elle ne remplace pas une consultation ni un diagnostic.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="small">YourHealth • Page : Maladie de Parkinson</div>
+</footer>
+
+</body>
+</html>
