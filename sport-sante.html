@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bienfaits du sport | Créatinine et reins</title>
+  <title>Bienfaits du sport</title>
 
   <style>
     :root{
@@ -26,8 +26,9 @@
       color:var(--txt);
     }
 
+    /* HEADER */
     header{
-      padding:22px 16px;
+      padding:14px 16px;
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(6px);
@@ -35,14 +36,12 @@
 
     .wrap{max-width:980px;margin:0 auto}
 
-    h1{margin:0;font-size:30px;color:var(--green)}
-    .sub{color:var(--yellow);margin-top:6px}
-
+    /* MENU EN HAUT */
     nav{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:10px;
+      margin-bottom:14px;
     }
 
     nav a{
@@ -54,6 +53,24 @@
     }
 
     nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    /* TITRE + IMAGE ALIGNÉS */
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .header-image{
+      max-width:160px;
+      height:auto;
+      border-radius:14px;
+      border:2px solid rgba(125,211,252,.35);
+    }
+
+    h1{margin:0;font-size:30px;color:var(--green)}
+    .sub{color:var(--yellow);margin-top:6px}
 
     main{padding:22px 16px}
 
@@ -102,28 +119,44 @@
     }
 
     @media (max-width:520px){
+      .header-top{flex-direction:column}
       .card img{
         float:none;
         display:block;
         margin:0 auto 12px auto;
       }
+      h1{font-size:24px}
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="topbar">
-      <nav>
-        <a href="/yourhealth/index.html">Accueil</a>
-        <a href="/yourhealth/ressources.html">Ressources</a>
-        <a href="/yourhealth/contact.html">Contact</a>
-      </nav>
-    </div>
- 
+
+<header>
   <div class="wrap">
-    <h1>Bienfaits du sport sur la santé</h1>
-    <p class="sub">Musculation, créatinine et fonctionnement des reins</p>
+
+    <!-- MENU TOUT EN HAUT -->
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+
+    <!-- TITRE + IMAGE -->
+    <div class="header-top">
+      <div>
+        <h1>Bienfaits du sport sur la santé</h1>
+        <p class="sub">Endurance, renforcement, équilibre : des bénéfices à tout âge</p>
+      </div>
+
+      <img
+        src="/yourhealth/assets/img/sport-sante-titre.jfif"
+        alt="Sport et santé"
+        class="header-image"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </div>
+
   </div>
 </header>
 
@@ -134,139 +167,92 @@
       <img src="/yourhealth/assets/img/sport-sante.jfif" alt="Sport et santé">
       <h2>Sport et santé globale</h2>
       <p>
-        L’activité physique régulière est un pilier fondamental de la santé.
-        Elle agit sur le cœur, le métabolisme, le cerveau et le système immunitaire.
+        L’activité physique régulière est un pilier majeur de la santé. Elle améliore la condition cardiovasculaire,
+        aide à contrôler le poids, renforce les muscles et les os, et agit positivement sur le cerveau.
       </p>
       <p>
-        Pratiqué de façon adaptée, le sport réduit le risque de maladies chroniques
-        et améliore la qualité de vie à tout âge.
+        Même une pratique modérée (marche rapide, vélo, natation) diminue le risque de nombreuses maladies chroniques
+        lorsqu’elle est régulière et adaptée au niveau de chacun.
       </p>
     </section>
 
     <section class="card">
       <img src="/yourhealth/assets/img/musculation.jfif" alt="Musculation">
-      <h2>Musculation : un rôle clé</h2>
+      <h2>Renforcement musculaire : un rôle clé</h2>
       <p>
-        La musculation améliore la force, la densité osseuse et la sensibilité à l’insuline.
-        Elle protège contre la sarcopénie et favorise un vieillissement en meilleure santé.
+        Le renforcement musculaire ne concerne pas seulement la performance. Il protège la posture,
+        stabilise les articulations et limite les douleurs de dos. Avec l’âge, il aide à prévenir la sarcopénie
+        (perte de masse et de force musculaire) et réduit le risque de chute.
       </p>
       <ul>
-        <li>Augmentation de la masse musculaire</li>
-        <li>Amélioration du métabolisme</li>
-        <li>Soutien indirect de la fonction rénale</li>
+        <li>Augmentation de la force et de l’autonomie au quotidien</li>
+        <li>Amélioration de la sensibilité à l’insuline (aide contre le diabète de type 2)</li>
+        <li>Soutien de la densité osseuse (prévention de l’ostéoporose)</li>
       </ul>
     </section>
 
     <section class="card">
-      <img src="/yourhealth/assets/img/creatinine.jfif" alt="Créatinine">
-      <h2>Créatinine : définition</h2>
+      <img src="/yourhealth/assets/img/sport-recomandations.jfif" alt="Recommandations">
+      <h2>Endurance : cœur, tension, souffle</h2>
       <p>
-        La créatinine est un déchet produit par les muscles lors de leur fonctionnement normal.
-        Elle est issue de la dégradation de la créatine utilisée pour l’énergie musculaire.
+        Les activités d’endurance (marche rapide, course légère, vélo, rameur, danse) renforcent le cœur et les poumons.
+        Elles peuvent contribuer à réduire la tension artérielle, améliorer le cholestérol et augmenter la capacité respiratoire.
       </p>
-      <p>
-        Elle est éliminée presque exclusivement par les reins.
-      </p>
-    </section>
-
-    <section class="card">
-      <img src="/yourhealth/assets/img/reins.jfif" alt="Fonction rénale">
-      <h2>À quoi sert la créatinine</h2>
-      <p>
-        La créatinine sanguine sert à évaluer la capacité des reins à filtrer le sang.
-        Plus son taux est élevé, plus la filtration rénale est réduite.
-      </p>
-    </section>
-
-    <section class="card">
-      <img src="/yourhealth/assets/img/creatinine-valeurs.jfif" alt="Valeurs créatinine">
-      <h2>Valeurs usuelles (approximatives)</h2>
       <ul>
-        <li><strong>Homme adulte :</strong> ~64 à 104 µmol/L</li>
-        <li><strong>Femme adulte :</strong> ~49 à 90 µmol/L</li>
-      </ul>
-      <p>
-        Les normes varient selon les laboratoires, l’âge et la masse musculaire.
-      </p>
-    </section>
-
-    <section class="card">
-      <img src="/yourhealth/assets/img/dfg.jfif" alt="DFG">
-      <h2>Indicateur clé : le DFG</h2>
-      <p>
-        Le débit de filtration glomérulaire (DFG) est plus fiable que la créatinine seule.
-        Il tient compte de l’âge, du sexe et du contexte clinique.
-      </p>
-    </section>
-
-    <section class="card">
-      <img src="/yourhealth/assets/img/creatinine-elevee.jfif" alt="Créatinine élevée">
-      <h2>Créatinine élevée</h2>
-      <ul>
-        <li>Insuffisance rénale</li>
-        <li>Déshydratation</li>
-        <li>Médicaments néphrotoxiques</li>
-        <li>Obstruction urinaire</li>
-        <li>Effort musculaire intense récent</li>
+        <li>Meilleure santé cardiovasculaire et meilleure récupération à l’effort</li>
+        <li>Réduction du stress physiologique et amélioration du sommeil</li>
+        <li>Meilleure énergie et diminution de l’essoufflement à l’effort</li>
       </ul>
     </section>
 
     <section class="card">
-      <img src="/yourhealth/assets/img/creatinine-basse.jfif" alt="Créatinine basse">
-      <h2>Créatinine basse</h2>
+      <img src="/yourhealth/assets/img/mental-health.jfif" alt="Sport et santé mentale">
+      <h2>Sport et santé mentale</h2>
       <p>
-        Elle est peu significative médicalement.
-        Elle est souvent liée à une faible masse musculaire ou au vieillissement.
+        L’activité physique agit sur l’humeur et l’anxiété. Elle favorise la libération de médiateurs liés au bien-être,
+        améliore l’estime de soi et aide à mieux gérer le stress. Elle peut aussi diminuer la rumination mentale,
+        surtout quand elle est pratiquée régulièrement.
       </p>
-    </section>
-
-    <section class="card">
-      <img src="/yourhealth/assets/img/sport-reins.jfif" alt="Sport et reins">
-      <h2>Sport et reins : ce qui est vrai, ce qui est faux</h2>
-
-      <h3>Musculation et reins</h3>
-      <p>
-        Chez une personne en bonne santé, la musculation n’abîme pas les reins.
-        Une élévation transitoire de la créatinine après l’effort est possible et souvent bénigne.
-      </p>
-
-      <h3>Situations nécessitant prudence</h3>
       <ul>
-        <li>Déshydratation</li>
-        <li>Efforts extrêmes inhabituels</li>
-        <li>Produits dopants ou compléments non contrôlés</li>
-        <li>Maladie rénale existante</li>
+        <li>Amélioration de l’humeur et diminution de l’anxiété</li>
+        <li>Meilleur sommeil et meilleure concentration</li>
+        <li>Effet positif sur la motivation et la régularité au quotidien</li>
       </ul>
     </section>
 
     <section class="card">
-      <img src="/yourhealth/assets/img/sport-profils.jfif" alt="Recommandations profils">
-      <h2>Recommandations selon le profil</h2>
-
-      <h3>Sportifs</h3>
+      <img src="/yourhealth/assets/img/sport-hydratation.jfif" alt="Hydratation et sport">
+      <h2>Hydratation, récupération et sécurité</h2>
+      <p>
+        Les bénéfices du sport sont maximaux quand la pratique est progressive et bien récupérée.
+        Les blessures et la fatigue chronique surviennent surtout en cas d’excès, de reprise trop rapide,
+        de manque de sommeil ou d’hydratation insuffisante.
+      </p>
       <ul>
-        <li>Hydratation régulière</li>
-        <li>Progressivité des charges</li>
-        <li>Éviter l’entraînement intense avant une prise de sang</li>
+        <li>Commencer progressivement et augmenter la charge par étapes</li>
+        <li>Boire régulièrement, surtout en cas de chaleur ou d’effort prolongé</li>
+        <li>Prévoir des jours de récupération et dormir suffisamment</li>
+        <li>Écouter les signaux d’alerte : douleur inhabituelle, essoufflement anormal, malaise</li>
       </ul>
+    </section>
 
-      <h3>Seniors</h3>
+    <section class="card">
+      <img src="/yourhealth/assets/img/sport-sante.jfif" alt="Programme simple">
+      <h2>Programme simple et réaliste</h2>
+      <p>
+        L’objectif n’est pas de faire “beaucoup”, mais de faire “souvent”. Une bonne base consiste à combiner :
+        endurance + renforcement + mobilité/équilibre.
+      </p>
       <ul>
-        <li>Renforcement musculaire doux</li>
-        <li>Marche quotidienne</li>
-        <li>Priorité à la régularité</li>
-      </ul>
-
-      <h3>Maladie rénale connue</h3>
-      <ul>
-        <li>Activité physique adaptée</li>
-        <li>Éviter les excès</li>
-        <li>Suivi médical régulier</li>
+        <li><strong>Endurance :</strong> 30 minutes de marche rapide (ou équivalent) 5 jours par semaine</li>
+        <li><strong>Renforcement :</strong> 2 séances par semaine (jambes, dos, gainage, poussée/traction)</li>
+        <li><strong>Mobilité/équilibre :</strong> 5 à 10 minutes par jour (étirements doux, équilibre)</li>
       </ul>
     </section>
 
     <p class="note">
-      Ces informations sont générales et ne remplacent pas un avis médical.
+      Ces informations sont générales et ne remplacent pas un avis médical. En cas de maladie chronique,
+      de douleur thoracique, de malaise, ou de reprise après longue inactivité, demande un avis médical avant de reprendre.
     </p>
 
   </div>

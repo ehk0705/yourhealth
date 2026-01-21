@@ -6,7 +6,7 @@
   <title>Addictions (alcool, drogues, écrans) | Pathologie</title>
 
   <style>
-    :root {
+    :root{
       --bg:#0b1220; --card:#121b2e; --txt:#eef2ff; --muted:#b9c2d6; --accent:#7dd3fc;
       --border:rgba(255,255,255,.12);
     }
@@ -15,71 +15,90 @@
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:linear-gradient(180deg,#070b14, var(--bg));
-      color:var(--txt)
+      color:var(--txt);
     }
+
     header{
-      padding:14px 16px; /* réduit (était 22px) */
+      padding:14px 16px;
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
-      backdrop-filter:blur(6px)
+      backdrop-filter:blur(6px);
     }
     .wrap{max-width:980px;margin:0 auto}
-    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+    /* MENU EN HAUT */
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 12px;
+    }
     nav a{
       color:var(--txt);
       text-decoration:none;
       padding:8px 10px;
       border:1px solid var(--border);
-      border-radius:12px
+      border-radius:12px;
     }
     nav a:hover{border-color:rgba(125,211,252,.55)}
-    main{padding:10px 16px 22px} /* remonte (top réduit) */
+
+    main{padding:10px 16px 22px}
+
     h1{margin:0;font-size:28px;line-height:1.2}
-    .sub{color:var(--muted);margin:8px 0 0} /* remonte (était 10px) */
+    .sub{color:var(--muted);margin:8px 0 0}
+
     .card{
-      margin-top:10px; /* remonte (était 18px) */
+      margin-top:10px;
       background:var(--card);
       border:1px solid var(--border);
       border-radius:18px;
-      padding:16px
+      padding:16px;
     }
     h2{margin:0 0 8px;font-size:18px}
     p, li{color:var(--muted);line-height:1.6}
     ul{margin:8px 0 0 18px}
+
     .note{
-      margin-top:10px; /* remonte (était 18px) */
+      margin-top:10px;
       font-size:13px;
       color:var(--muted);
       border-left:3px solid var(--accent);
-      padding-left:10px
+      padding-left:10px;
     }
+
     footer{
       padding:18px 16px;
       border-top:1px solid var(--border);
-      color:var(--muted)
+      color:var(--muted);
     }
-    .crumbs{margin-top:8px} /* remonte (était 10px) */
+
+    .crumbs{margin-top:8px}
     .crumbs a{color:var(--accent);text-decoration:none}
-    .btnrow{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap} /* remonte (était 14px) */
+
+    .btnrow{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
     .btn{
       display:inline-block;
       text-decoration:none;
       color:var(--txt);
       border:1px solid var(--border);
       border-radius:12px;
-      padding:10px 12px
+      padding:10px 12px;
     }
     .btn:hover{border-color:rgba(125,211,252,.55)}
 
-    /* Image en haut alignée à droite, sans pousser le texte */
+    /* Image en haut à droite */
     .header-image{
       display:block;
-      margin:0 0 8px auto; /* remonte */
+      margin:0 0 8px auto;
       max-width:180px;
       height:auto;
+      border-radius:14px;
+      border:2px solid rgba(125,211,252,.35);
     }
 
-    @media (max-width:520px){h1{font-size:24px}}
+    @media (max-width:520px){
+      h1{font-size:24px}
+    }
   </style>
 </head>
 
@@ -87,24 +106,31 @@
 <header>
   <div class="wrap">
 
-    <img src="../assets/img/addictions.jfif" alt="Addictions" class="header-image">
+    <!-- MENU EN HAUT : Accueil, Ressources, Contact -->
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+
+    <img
+      src="/yourhealth/assets/img/addictions.jfif"
+      alt="Addictions"
+      class="header-image"
+      onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+    >
 
     <h1>Addictions (alcool, drogues, écrans)</h1>
     <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
 
     <div class="crumbs">
-      <a href="index.html">Accueil</a> › Pathologies › Addictions
+      <a href="/yourhealth/index.html">Accueil</a> ›
+      <a href="/yourhealth/pathologies/index.html">Pathologies</a> ›
+      Addictions
     </div>
 
-    <nav aria-label="Navigation principale">
-      <a href="index.html">Accueil</a>
-      <a href="alimentation.html">Alimentation</a>
-      <a href="ressources.html">Ressources</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
     <div class="btnrow">
-      <a class="btn" href="index.html">Retour</a>
+      <a class="btn" href="/yourhealth/pathologies/index.html">Retour à la liste des pathologies</a>
     </div>
   </div>
 </header>
@@ -113,52 +139,56 @@
   <div class="wrap">
 
     <section class="card" id="definition">
-      <h2>Définition de la pathologie</h2>
-      <p>Dépendance à une substance ou à un comportement (alcool, drogues, jeux, écrans), avec perte de contrôle et conséquences négatives.</p>
+      <h2>Définition</h2>
+      <p>
+        Dépendance à une substance ou à un comportement (alcool, drogues, jeux, écrans),
+        avec perte de contrôle et conséquences négatives sur la santé, la vie sociale ou professionnelle.
+      </p>
     </section>
 
     <section class="card" id="diagnostic">
       <h2>Diagnostic</h2>
       <ul>
-        <li>Entretien médical : symptômes, antécédents, facteurs de risque</li>
+        <li>Entretien médical : habitudes, symptômes, antécédents, facteurs de risque</li>
+        <li>Évaluation de la sévérité, des complications et de l’impact sur la vie quotidienne</li>
         <li>Examen clinique adapté</li>
-        <li>Examens complémentaires selon le cas</li>
-        <li>Évaluation de la sévérité et des complications</li>
+        <li>Examens complémentaires selon le contexte (foie, carences, infections, etc.)</li>
       </ul>
     </section>
 
     <section class="card" id="remedes">
-      <h2>Remèdes</h2>
+      <h2>Prise en charge</h2>
       <ul>
-        <li>Prise en charge adaptée au diagnostic et à la gravité</li>
-        <li>Mesures non médicamenteuses (mode de vie, soutien)</li>
-        <li>Traitements si indiqués</li>
-        <li>Suivi régulier</li>
+        <li>Objectifs réalistes : réduction progressive ou arrêt selon le cas</li>
+        <li>Accompagnement : médecin, addictologie, soutien psychologique, groupes d’aide</li>
+        <li>Mesures non médicamenteuses : sommeil, activité physique, gestion du stress</li>
+        <li>Traitements si indiqués et suivis réguliers</li>
       </ul>
     </section>
 
     <section class="card" id="conseils">
       <h2>Conseils</h2>
       <ul>
-        <li>Noter les comportements et leur évolution</li>
-        <li>Éviter l’automédication</li>
-        <li>Consulter en cas de perte de contrôle</li>
-        <li>Objectifs simples et progressifs</li>
+        <li>Repérer les situations déclenchantes (stress, solitude, fatigue)</li>
+        <li>Éviter l’automédication et les mélanges dangereux (alcool + médicaments, etc.)</li>
+        <li>Se faire aider tôt : la perte de contrôle est un signal important</li>
+        <li>Objectifs simples et progressifs, avec suivi</li>
       </ul>
     </section>
 
     <section class="card" id="prevention">
       <h2>Prévention</h2>
       <ul>
-        <li>Mode de vie équilibré</li>
-        <li>Réduction des facteurs de risque</li>
-        <li>Suivi et dépistage</li>
-        <li>Prévention des infections si pertinent</li>
+        <li>Mode de vie équilibré (sommeil, alimentation, activité)</li>
+        <li>Limiter les facteurs de risque et chercher du soutien en cas de fragilité</li>
+        <li>Prévention des rechutes : plan d’action, entourage, suivi</li>
+        <li>Dépistage et prévention des complications si nécessaire</li>
       </ul>
     </section>
 
     <p class="note">
-      Information générale, non personnalisée. En cas de symptômes persistants ou aggravation, consulte un professionnel de santé.
+      Information générale, non personnalisée. En cas de symptômes persistants, d’aggravation ou de mise en danger,
+      consulte rapidement un professionnel de santé.
     </p>
 
   </div>
@@ -169,6 +199,5 @@
     © 2026 — Fiches pathologies
   </div>
 </footer>
-
 </body>
 </html>

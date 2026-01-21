@@ -7,7 +7,8 @@
 
   <style>
     :root{
-      --bg:#0b1220; --card:#121b2e; --txt:#eef2ff; --muted:#b9c2d6; --accent:#7dd3fc;
+      --bg:#0b1220; --card:#121b2e; --txt:#eef2ff;
+      --muted:#b9c2d6; --accent:#7dd3fc;
       --border:rgba(255,255,255,.12);
     }
     *{box-sizing:border-box}
@@ -17,25 +18,52 @@
       background:linear-gradient(180deg,#070b14, var(--bg));
       color:var(--txt);
     }
+
     header{
-      padding:22px 16px;
+      padding:14px 16px;
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(6px);
     }
+
     .wrap{max-width:980px;margin:0 auto}
-    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+    /* MENU TOUT EN HAUT */
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:14px;
+    }
     nav a{
       color:var(--txt);
       text-decoration:none;
-      padding:8px 10px;
+      padding:8px 12px;
       border:1px solid var(--border);
       border-radius:12px;
     }
     nav a:hover{border-color:rgba(125,211,252,.55)}
-    main{padding:22px 16px}
+
+    /* TITRE + IMAGE */
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .header-image{
+      max-width:160px;
+      height:auto;
+      border-radius:14px;
+      border:2px solid rgba(125,211,252,.35);
+    }
+
     h1{margin:0;font-size:28px;line-height:1.2}
-    .sub{color:var(--muted);margin:10px 0 0}
+    .sub{color:var(--muted);margin:6px 0 0}
+
+    main{padding:22px 16px}
+
     .card{
       margin-top:18px;
       background:var(--card);
@@ -43,9 +71,11 @@
       border-radius:18px;
       padding:16px;
     }
+
     h2{margin:0 0 8px;font-size:18px}
     p, li{color:var(--muted);line-height:1.6}
     ul{margin:8px 0 0 18px}
+
     .note{
       margin-top:18px;
       font-size:13px;
@@ -53,38 +83,22 @@
       border-left:3px solid var(--accent);
       padding-left:10px;
     }
+
     footer{
       padding:18px 16px;
       border-top:1px solid var(--border);
       color:var(--muted);
     }
-    .crumbs{margin-top:10px}
-    .crumbs a{color:var(--accent);text-decoration:none}
-    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      color:var(--txt);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:10px 12px;
-    }
-    .btn:hover{border-color:rgba(125,211,252,.55)}
-    .header-image{
-      display:block;
-      margin:10px auto 0 auto;
-      max-width:220px;
-      height:auto;
-      border-radius:14px;
-      border:2px solid rgba(125,211,252,.35);
-    }
+
     .cols{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
       margin-top:14px;
     }
+
     @media (max-width:760px){
+      .header-top{flex-direction:column}
       .cols{grid-template-columns:1fr}
       h1{font-size:24px}
     }
@@ -92,147 +106,119 @@
 </head>
 
 <body>
+
 <header>
-  <img
-    src="/yourhealth/assets/img/epilepsie.jfif"
-    alt="Épilepsie"
-    class="header-image"
-    onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
-  >
-
   <div class="wrap">
-    <h1>Épilepsie</h1>
-    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
 
-    <div class="crumbs">
-      <a href="/yourhealth/index.html">Accueil</a> ›
-      <a href="/yourhealth/pathologies/index.html">Pathologies</a> ›
-      Épilepsie
-    </div>
-
+    <!-- MENU TOUT EN HAUT -->
     <nav aria-label="Navigation principale">
       <a href="/yourhealth/index.html">Accueil</a>
-      <a href="/yourhealth/alimentation.html">Alimentation</a>
       <a href="/yourhealth/ressources.html">Ressources</a>
       <a href="/yourhealth/contact.html">Contact</a>
     </nav>
 
-    <div class="btnrow">
-      <a class="btn" href="/yourhealth/pathologies/index.html">Retour à la liste des pathologies</a>
+    <!-- TITRE + IMAGE -->
+    <div class="header-top">
+      <div>
+        <h1>Épilepsie</h1>
+        <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+      </div>
+
+      <img
+        src="/yourhealth/assets/img/epilepsie.jfif"
+        alt="Épilepsie"
+        class="header-image"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
     </div>
+
   </div>
 </header>
 
 <main>
   <div class="wrap">
 
-    <section class="card" id="definition">
+    <section class="card">
       <h2>Définition</h2>
       <p>
         L’épilepsie est une affection neurologique caractérisée par la survenue de crises répétées,
         liées à une activité électrique anormale et excessive dans le cerveau.
-        Il existe différents types de crises : généralisées (perte de connaissance possible) ou focales
-        (symptômes limités à une zone du corps, sensations inhabituelles, automatismes, etc.).
       </p>
     </section>
 
-    <section class="card" id="causes">
+    <section class="card">
       <h2>Causes et facteurs favorisants</h2>
       <ul>
-        <li>Causes identifiées : séquelles d’un AVC, traumatisme crânien, tumeur, infection du cerveau, malformation, certaines maladies génétiques.</li>
-        <li>Causes parfois inconnues : aucune lésion visible malgré les examens.</li>
-        <li>Facteurs pouvant déclencher une crise chez certains : manque de sommeil, alcool, stress intense, fièvre, oubli de traitement, lumière clignotante (rare), certains médicaments ou drogues.</li>
+        <li>AVC, traumatisme crânien, tumeur, infection, malformation, maladies génétiques.</li>
+        <li>Causes parfois inconnues malgré les examens.</li>
+        <li>Facteurs déclenchants possibles : manque de sommeil, alcool, stress, oubli de traitement.</li>
       </ul>
     </section>
 
-    <section class="card" id="symptomes">
-      <h2>Signes possibles d’une crise</h2>
+    <section class="card">
+      <h2>Types de crises</h2>
       <div class="cols">
         <div>
-          <h2 style="font-size:16px;margin:0 0 8px">Crise généralisée (exemples)</h2>
+          <h2 style="font-size:16px">Crises généralisées</h2>
           <ul>
             <li>Perte de connaissance</li>
             <li>Raideur puis secousses</li>
-            <li>Morsure de langue, salivation</li>
-            <li>Fatigue importante après la crise</li>
+            <li>Fatigue post-crise</li>
           </ul>
         </div>
         <div>
-          <h2 style="font-size:16px;margin:0 0 8px">Crise focale (exemples)</h2>
+          <h2 style="font-size:16px">Crises focales</h2>
           <ul>
-            <li>Sensation étrange, peur brutale, déjà-vu</li>
-            <li>Fourmillements, mouvements involontaires</li>
-            <li>Regard fixe, gestes automatiques</li>
+            <li>Sensations inhabituelles</li>
+            <li>Mouvements involontaires</li>
             <li>Confusion brève</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="card" id="diagnostic">
+    <section class="card">
       <h2>Diagnostic</h2>
       <ul>
-        <li>Interrogatoire précis : description de la crise (si possible par un témoin), durée, circonstances, récupération.</li>
-        <li>Examen neurologique.</li>
-        <li>EEG (électroencéphalogramme) pour rechercher des anomalies électriques.</li>
-        <li>IRM cérébrale (ou scanner) selon le contexte pour rechercher une cause.</li>
-        <li>Bilans selon le cas : glycémie, ions, toxiques, fièvre, etc.</li>
+        <li>Interrogatoire précis et témoignage si possible</li>
+        <li>Examen neurologique</li>
+        <li>EEG, IRM cérébrale selon le contexte</li>
       </ul>
     </section>
 
-    <section class="card" id="prise-en-charge">
+    <section class="card">
       <h2>Prise en charge</h2>
       <ul>
-        <li>Traitement antiépileptique (au long cours) si épilepsie confirmée : il vise à prévenir les crises.</li>
-        <li>Règle essentielle : ne pas arrêter un traitement sans avis médical.</li>
-        <li>Suivi régulier : efficacité, effets indésirables, adaptation des doses.</li>
-        <li>Cas particuliers : chirurgie de l’épilepsie, stimulation du nerf vague, ou autres options si crises résistantes (selon avis spécialisé).</li>
+        <li>Traitement antiépileptique au long cours</li>
+        <li>Suivi régulier et adaptation des doses</li>
+        <li>Autres options spécialisées dans certains cas</li>
       </ul>
     </section>
 
-    <section class="card" id="remedes">
-      <h2>“Remèdes” et mesures utiles</h2>
-      <p>
-        Il n’existe pas de remède maison qui “guérit” une épilepsie. Les mesures suivantes peuvent
-        réduire le risque de crises et améliorer la qualité de vie :
-      </p>
+    <section class="card">
+      <h2>Mesures utiles</h2>
       <ul>
-        <li>Sommeil régulier et suffisant.</li>
-        <li>Éviter alcool excessif et drogues.</li>
-        <li>Respect strict du traitement (pas d’oubli).</li>
-        <li>Gestion du stress : respiration lente, activité physique adaptée, routine.</li>
-        <li>Éviter les situations dangereuses si crises non contrôlées (hauteur, baignade seul, conduite selon règles médicales/légales locales).</li>
+        <li>Sommeil régulier</li>
+        <li>Éviter alcool et drogues</li>
+        <li>Respect strict du traitement</li>
       </ul>
     </section>
 
-    <section class="card" id="premiers-secours">
-      <h2>Que faire pendant une crise (premiers gestes)</h2>
+    <section class="card">
+      <h2>Premiers gestes pendant une crise</h2>
       <ul>
-        <li>Mettre la personne en sécurité : éloigner les objets dangereux, protéger la tête.</li>
-        <li>Ne pas bloquer les mouvements, ne pas mettre d’objet dans la bouche.</li>
-        <li>Chronométrer la crise.</li>
-        <li>Après les secousses : placer en position latérale de sécurité si somnolence.</li>
-        <li>Rester présent jusqu’au retour complet à l’état habituel.</li>
+        <li>Mettre en sécurité, protéger la tête</li>
+        <li>Ne rien mettre dans la bouche</li>
+        <li>Chronométrer la crise</li>
       </ul>
       <p class="note">
-        Appeler les urgences si la crise dure plus de 5 minutes, si les crises s’enchaînent,
-        si la personne est blessée, enceinte, diabétique, ou si c’est une première crise connue.
+        Appeler les urgences si la crise dépasse 5 minutes ou en cas de blessure.
       </p>
-    </section>
-
-    <section class="card" id="conseils">
-      <h2>Conseils pratiques</h2>
-      <ul>
-        <li>Noter les crises : date, durée, contexte, récupération (utile au neurologue).</li>
-        <li>Informer un proche : comment réagir, quand appeler les urgences.</li>
-        <li>Porter une information médicale (carte/bracelet) si crises sévères ou fréquentes.</li>
-        <li>Éviter l’automédication : certains produits peuvent abaisser le seuil épileptogène.</li>
-      </ul>
     </section>
 
     <p class="note">
-      Information générale, non personnalisée. En cas de crise prolongée, de blessure, de première crise,
-      ou si la situation s’aggrave, consulte rapidement un professionnel de santé ou les urgences.
+      Information générale, non personnalisée. En cas de doute ou d’aggravation,
+      consulte rapidement un professionnel de santé.
     </p>
 
   </div>
@@ -243,5 +229,6 @@
     © 2026 — Fiches pathologies
   </div>
 </footer>
+
 </body>
 </html>
