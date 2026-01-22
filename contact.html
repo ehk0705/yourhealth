@@ -15,11 +15,9 @@
       --muted:#b9c2d6;
       --accent:#7dd3fc;
       --border:rgba(255,255,255,.12);
-      --yellow:#facc15;
       --ok:#34d399;
       --bad:#fb7185;
-
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box}
@@ -27,209 +25,169 @@
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(900px 450px at 10% -10%, rgba(125,211,252,.18), transparent 60%),
-        radial-gradient(900px 450px at 90% 0%, rgba(52,211,153,.14), transparent 55%),
-        linear-gradient(180deg,#070b14,var(--bg));
+      background:linear-gradient(180deg,#070b14,var(--bg));
       color:var(--txt);
     }
 
-    main{padding:26px 16px}
-    .wrap{max-width:920px;margin:0 auto}
-
-    /* Titre au-dessus du formulaire */
-    .page-head{
-      margin-bottom:14px;
-      text-align:left;
+    /* 🔴 COLLÉ SOUS LE MENU */
+    main{
+      padding:0 16px 20px;
+      margin-top:0;
     }
-    .page-head .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      color:rgba(185,194,214,.9);
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--border);
-      padding:6px 10px;
-      border-radius:999px;
+
+    .wrap{
+      max-width:1400px;
+      margin:0 auto;
+      padding-top:6px; /* micro-espacement contrôlé */
+    }
+
+    .page-head{
+      margin:0 0 8px;
     }
     .page-head h1{
-      font-size:30px;
-      margin:12px 0 6px;
-      line-height:1.15;
+      font-size:26px;
+      margin:0 0 2px;
     }
     .page-head p{
       margin:0;
       color:var(--muted);
-      max-width:70ch;
     }
 
-    /* Carte formulaire */
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background:var(--card);
       border:1px solid var(--border);
-      border-radius:20px;
-      padding:18px;
+      border-radius:18px;
+      padding:14px 24px;
       box-shadow:var(--shadow);
     }
 
     .form-grid{
       display:grid;
-      gap:12px;
-      margin-top:14px;
-      text-align:left; /* alignement à gauche */
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:8px;
     }
 
     label{
       display:block;
+      margin-bottom:6px;
       font-size:14px;
-      color:rgba(238,242,255,.92);
-      margin:0;
-      text-align:left;
     }
 
     .field{
-      background:rgba(11,18,32,.75);
-      border:1px solid rgba(255,255,255,.12);
+      width:100%;
+      padding:10px 14px;
       border-radius:14px;
-      padding:10px 12px;
+      border:1px solid var(--border);
+      background:#0b1220;
       color:var(--txt);
       outline:none;
-      width:100%;
-      transition: border-color .15s ease, box-shadow .15s ease;
-      text-align:left;
     }
     .field::placeholder{color:rgba(185,194,214,.65)}
-    .field:focus{
-      border-color:rgba(125,211,252,.65);
-      box-shadow:0 0 0 4px rgba(125,211,252,.12);
-    }
+    .field:focus{border-color:var(--accent)}
+
+    .full-width{grid-column:1 / -1}
 
     textarea.field{
       min-height:170px;
       resize:vertical;
-      line-height:1.4;
-    }
-
-    .actions{
-      display:flex;
-      justify-content:flex-start;
-      align-items:center;
-      gap:12px;
-      margin-top:2px;
-    }
-
-    button{
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid rgba(125,211,252,.35);
-      background:linear-gradient(180deg, rgba(125,211,252,.18), rgba(125,211,252,.08));
-      color:var(--txt);
-      cursor:pointer;
-      font-weight:600;
-      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-      text-align:left;
-    }
-    button:hover{
-      border-color:rgba(125,211,252,.65);
-      box-shadow:0 10px 22px rgba(0,0,0,.28);
-      transform: translateY(-1px);
-    }
-    button:disabled{
-      opacity:.55;
-      cursor:not-allowed;
-      transform:none;
-      box-shadow:none;
+      line-height:1.45;
+      font-size:15px;
     }
 
     .micro{
       font-size:13px;
       color:var(--muted);
-      margin:0;
-      text-align:left;
+      margin-top:4px;
     }
 
-    /* Messages */
-    .status{
-      margin-top:12px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      display:none;
-      text-align:left;
-      background:rgba(255,255,255,.03);
+    .actions-inline{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:6px;
     }
-    .status.bad{
-      display:block;
-      border-color:rgba(251,113,133,.35);
+
+    button{
+      padding:9px 18px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.45);
+      background:transparent;
+      color:var(--txt);
+      cursor:pointer;
+      font-weight:600;
+    }
+    button:disabled{opacity:.6;cursor:not-allowed}
+
+    .thanks{
+      display:none;
+      margin-top:8px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(52,211,153,.12);
+      border:1px solid rgba(52,211,153,.4);
+    }
+
+    #statusBad{
+      display:none;
+      margin-top:8px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(251,113,133,.12);
+      border:1px solid rgba(251,113,133,.4);
       color:var(--bad);
     }
 
-    .thanks{
-      margin-top:10px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(52,211,153,.25);
-      background:rgba(52,211,153,.08);
-      color:rgba(238,242,255,.92);
-      display:none;
-      text-align:left;
-    }
-    .thanks strong{color:var(--ok)}
-
-    /* Anti-spam */
-    .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    .hp{position:absolute;left:-9999px}
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- MENU -->
 <div id="site-header"></div>
 
 <main>
   <div class="wrap">
 
     <header class="page-head">
-      <div class="kicker">Commentaires</div>
       <h1>Contact</h1>
-      <p>Un retour, une correction, une suggestion : écrivez ici. Le message sera envoyé et je le recevrai.</p>
+      <p>Un retour, une correction, une suggestion : écrivez ici.</p>
     </header>
 
-    <section class="card" aria-label="Formulaire de contact">
+    <section class="card">
       <form id="contactForm" action="https://formspree.io/f/xojjgkqe" method="POST" novalidate>
+
         <div class="form-grid">
 
           <div>
             <label for="email">Courriel (facultatif)</label>
-            <input class="field" id="email" name="email" type="email" placeholder="exemple@domaine.com" autocomplete="email">
+            <input class="field" id="email" name="email" type="email"
+                   placeholder="exemple@domaine.com" autocomplete="email">
           </div>
 
-          <div>
+          <div></div>
+
+          <div class="full-width">
             <label for="commentaire">Commentaire</label>
-            <textarea class="field" id="commentaire" name="commentaire" required placeholder="Écrivez votre message ici…"></textarea>
+            <textarea class="field" id="commentaire" name="commentaire" required
+              placeholder="Écrivez votre message ici…"></textarea>
             <p class="micro">Merci de rester concis et clair.</p>
+
+            <div class="actions-inline">
+              <button id="btnSend" type="submit">Envoyer</button>
+              <span id="sendingNote" class="micro" style="display:none;">Envoi en cours…</span>
+            </div>
+
+            <div id="thanks" class="thanks">
+              <strong>Merci pour votre commentaire.</strong> Il a bien été transmis.
+            </div>
+
+            <div id="statusBad"></div>
           </div>
 
-          <!-- Anti-spam discret -->
-          <div class="hp" aria-hidden="true">
-            <label>Ne pas remplir</label>
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="actions">
-            <button id="btnSend" type="submit">Envoyer</button>
-            <p id="sendingNote" class="micro" style="display:none;">Envoi en cours…</p>
-          </div>
-
-          <div id="thanks" class="thanks" role="status" aria-live="polite">
-            <strong>Merci pour votre commentaire.</strong> Il a bien été transmis.
-          </div>
-
-          <div id="statusBad" class="status bad" role="alert">
-            Échec de l’envoi. Veuillez réessayer plus tard.
+          <div class="hp">
+            <input type="text" name="_gotcha">
           </div>
 
         </div>
@@ -243,67 +201,62 @@
 <div id="site-footer"></div>
 
 <script>
-  // Header / footer
   fetch("includes/header.html")
     .then(r => r.ok ? r.text() : "")
-    .then(html => { if (html) document.getElementById("site-header").innerHTML = html; });
+    .then(html => { if(html) document.getElementById("site-header").innerHTML = html; });
 
   fetch("includes/footer.html")
     .then(r => r.ok ? r.text() : "")
-    .then(html => { if (html) document.getElementById("site-footer").innerHTML = html; });
+    .then(html => { if(html) document.getElementById("site-footer").innerHTML = html; });
 
-  // Envoi sans quitter la page
   (function(){
     const form = document.getElementById("contactForm");
     const btn = document.getElementById("btnSend");
     const thanks = document.getElementById("thanks");
     const bad = document.getElementById("statusBad");
-    const sendingNote = document.getElementById("sendingNote");
+    const note = document.getElementById("sendingNote");
+    const textarea = document.getElementById("commentaire");
 
-    function hideAll(){
-      thanks.style.display = "none";
-      bad.style.display = "none";
-      sendingNote.style.display = "none";
+    function resetUI(){
+      thanks.style.display="none";
+      bad.style.display="none";
+      bad.textContent="";
+      note.style.display="none";
     }
 
-    form.addEventListener("submit", async function(e){
+    form.addEventListener("submit", async e=>{
       e.preventDefault();
-      hideAll();
+      resetUI();
 
-      // Validation minimale
-      const msg = (document.getElementById("commentaire").value || "").trim();
-      if(!msg){
-        bad.textContent = "Veuillez écrire un commentaire avant d’envoyer.";
-        bad.style.display = "block";
+      if(!textarea.value.trim()){
+        bad.textContent="Veuillez écrire un commentaire avant d’envoyer.";
+        bad.style.display="block";
         return;
       }
 
-      btn.disabled = true;
-      sendingNote.style.display = "block";
+      btn.disabled=true;
+      note.style.display="inline";
 
       try{
-        const fd = new FormData(form);
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: fd,
-          headers: { "Accept": "application/json" }
+        const res = await fetch(form.action,{
+          method:"POST",
+          body:new FormData(form),
+          headers:{Accept:"application/json"}
         });
 
         if(res.ok){
           form.reset();
-          sendingNote.style.display = "none";
-          thanks.style.display = "block";
+          thanks.style.display="block";
         }else{
-          sendingNote.style.display = "none";
-          bad.textContent = "Échec de l’envoi. Veuillez réessayer plus tard.";
-          bad.style.display = "block";
+          bad.textContent="Échec de l’envoi. Veuillez réessayer plus tard.";
+          bad.style.display="block";
         }
-      }catch(err){
-        sendingNote.style.display = "none";
-        bad.textContent = "Échec de l’envoi. Veuillez vérifier votre connexion et réessayer.";
-        bad.style.display = "block";
+      }catch{
+        bad.textContent="Erreur réseau. Veuillez réessayer.";
+        bad.style.display="block";
       }finally{
-        btn.disabled = false;
+        btn.disabled=false;
+        note.style.display="none";
       }
     });
   })();
