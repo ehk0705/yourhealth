@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santé et alimentation</title>
+
+<style>
+  :root{
+    --bg:#0b1220;
+    --card:#121b2e;
+    --txt:#eef2ff;
+    --muted:#b9c2d6;
+    --accent:#7dd3fc;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --border:rgba(255,255,255,.12);
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:linear-gradient(180deg,#070b14,var(--bg));
+    color:var(--txt);
+    line-height:1.7;
+  }
+
+  /* HEADER */
+  header{
+    padding:14px 16px;
+    border-bottom:1px solid var(--border);
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(6px);
+  }
+
+  .wrap{
+    max-width:1020px;
+    margin:0 auto;
+  }
+
+  /* NAVIGATION */
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:14px;
+  }
+
+  nav a{
+    color:var(--txt);
+    text-decoration:none;
+    padding:8px 12px;
+    border:1px solid var(--border);
+    border-radius:12px;
+  }
+
+  nav a:hover{
+    border-color:rgba(125,211,252,.55);
+  }
+
+  /* TITRE + IMAGE */
+  .header-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+  }
+
+  h1{
+    margin:0;
+    font-size:30px;
+    color:var(--green);
+    line-height:1.15;
+  }
+
+  .sub{
+    margin:8px 0 0;
+    color:var(--yellow);
+    max-width:720px;
+  }
+
+  .header-image{
+    width:180px;
+    max-width:34vw;
+    height:auto;
+    border-radius:14px;
+    border:2px solid rgba(125,211,252,.35);
+    display:block;
+  }
+
+  /* CONTENU */
+  main{
+    padding:22px 16px;
+  }
+
+  /* GRID */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  /* CARD : 100 % */
+  .card{
+    width:100%;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:16px;
+  }
+
+  .card + .card{
+    margin-top:16px;
+  }
+
+  h2{
+    margin:0 0 10px;
+    font-size:20px;
+    color:var(--green);
+  }
+
+  h3{
+    margin:14px 0 8px;
+    font-size:16px;
+    color:var(--yellow);
+  }
+
+  p, li{
+    color:var(--muted);
+  }
+
+  ul{
+    margin:8px 0 0 18px;
+  }
+
+  /* TABLE DES MATIÈRES */
+  .toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:12px;
+  }
+
+  .toc a{
+    text-decoration:none;
+    color:var(--txt);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:7px 10px;
+    font-size:13px;
+    background:rgba(255,255,255,.03);
+  }
+
+  .toc a:hover{
+    border-color:rgba(125,211,252,.55);
+  }
+
+  /* IMAGES : TAILLE LIMITÉE */
+  .section-image{
+    display:block;
+    width:100%;
+    max-width:420px;   /* limite stricte */
+    height:auto;
+    margin:12px auto 0 auto;
+    border-radius:14px;
+    border:1px solid var(--border);
+    opacity:.98;
+  }
+
+  /* Sécurité si images directes dans card */
+  .card img{
+    max-width:420px;
+    height:auto;
+  }
+
+  /* NOTE */
+  .note{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--muted);
+    border-left:3px solid var(--accent);
+    padding-left:10px;
+  }
+
+  /* FOOTER */
+  footer{
+    padding:18px 16px;
+    border-top:1px solid var(--border);
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:520px){
+    .header-top{
+      flex-direction:column;
+    }
+    h1{
+      font-size:24px;
+    }
+    .header-image{
+      width:200px;
+      max-width:70vw;
+    }
+    .section-image{
+      max-width:320px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/sport-sante.html">Sport</a>
+      <a href="/yourhealth/alimentation.html">Alimentation</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+
+    <div class="header-top">
+      <div>
+        <h1>Santé et alimentation</h1>
+        <p class="sub">
+          Une page pratique pour comprendre comment l’alimentation influence l’énergie, l’immunité,
+          l’inflammation, le poids et la prévention de plusieurs maladies.
+        </p>
+
+        <div class="toc" aria-label="Sommaire">
+          <a href="#preface">Préface</a>
+          <a href="#bases">Les bases</a>
+          <a href="#antiox">Antioxydants</a>
+          <a href="#antiinf">Anti-inflammatoire</a>
+          <a href="#som">Sommeil</a>
+          <a href="#poids">IMC et poids</a>
+          <a href="#intolerances">Gluten et lactose</a>
+          <a href="#chocolat">Chocolat noir</a>
+          <a href="#marche">Marche</a>
+          <a href="#cafe">Café</a>
+          <a href="#bio">Bio ou pas bio</a>
+          <a href="#mental">Mental</a>
+          <a href="#diabete">Diabète</a>
+          <a href="#hta">Hypertension</a>
+        </div>
+      </div>
+
+      <img
+        src="/yourhealth/assets/img/alimentation-illustration.jfif"
+        alt="Illustration alimentation"
+        class="header-image"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+      >
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="grid">
+      <div>
+
+        <section class="card" id="preface">
+          <h2>Préface</h2>
+          <p>
+            La santé est un capital. Une alimentation adaptée aide à prévenir des problèmes fréquents
+            (fatigue, surpoids, troubles métaboliques) et peut soutenir l’équilibre physique et mental.
+          </p>
+          <img
+			class="section-image"
+			src="/yourhealth/assets/img/illustration-alimentation.jfif"
+			alt="Illustration santé"
+			style="width:40%; height:auto;"
+			onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+/>
+        </section>
+
+        <section class="card" id="bases">
+          <h2>Les bases simples qui changent tout</h2>
+          <ul>
+            <li>Privilégier le “vrai” : produits peu transformés, cuisine simple.</li>
+            <li>Augmenter les fibres : légumes, légumineuses, fruits, céréales complètes.</li>
+            <li>Choisir de bonnes graisses : huile d’olive, noix, poissons gras (oméga-3).</li>
+            <li>Limiter : excès de sucre, ultra-transformés, gras trans, alcool.</li>
+            <li>Boire suffisamment d’eau et bouger chaque jour.</li>
+          </ul>
+          <p class="note">L’objectif n’est pas la perfection : viser une amélioration stable et réaliste.</p>
+        </section>
+
+        <section class="card" id="antiox">
+          <h2>Antioxydants : protéger les cellules</h2>
+          <p>
+            Les antioxydants aident à neutraliser les radicaux libres. Une alimentation riche en fruits et
+            légumes colorés apporte polyphénols, caroténoïdes, vitamines C/E/A et oligo-éléments.
+          </p>
+          <h3>Exemples utiles</h3>
+          <ul>
+            <li>Baies : myrtilles, framboises, fraises.</li>
+            <li>Agrumes : orange, citron, pamplemousse.</li>
+            <li>Légumes verts et crucifères : brocoli, chou, épinards.</li>
+            <li>Thé vert, cacao/chocolat noir (≥ 70%).</li>
+          </ul>
+ <img
+  class="section-image"
+  src="/yourhealth/assets/img/alimentation-antioxydants.jfif"
+  alt="Illustration : antioxydants"
+  onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+/>
+        </section>
+
+        <section class="card" id="antiinf">
+          <h2>Alimentation anti-inflammatoire</h2>
+          <p>
+            L’inflammation est normale à court terme. Quand elle devient chronique (stress, sédentarité,
+            alimentation ultra-transformée), elle favorise des maladies dégénératives.
+          </p>
+          <h3>À favoriser</h3>
+          <ul>
+            <li>Fruits et légumes colorés.</li>
+            <li>Épices : curcuma (avec poivre), gingembre, ail, oignon.</li>
+            <li>Oméga-3 : sardines, maquereaux, saumon, graines de chia/lin.</li>
+            <li>Huile d’olive extra-vierge, avocat, noix.</li>
+          </ul>
+          <h3>À limiter</h3>
+          <ul>
+            <li>Sucre raffiné et boissons sucrées.</li>
+            <li>Gras trans et fritures répétées.</li>
+            <li>Produits ultra-transformés.</li>
+            <li>Excès d’alcool.</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-anti-inflammatoire.jfif"
+            alt="Illustration : alimentation anti-inflammatoire"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="som">
+          <h2>Sommeil : un pilier souvent sous-estimé</h2>
+          <ul>
+            <li>Heures régulières, chambre sombre, écran réduit le soir.</li>
+            <li>Éviter les repas très lourds tard le soir.</li>
+            <li>Réduire la caféine en fin de journée.</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-sommeil.jfif"
+            alt="Illustration : sommeil"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="poids">
+          <h2>IMC et poids : repères simples</h2>
+          <ul>
+            <li><strong>IMC</strong> = poids (kg) / taille² (m²).</li>
+            <li><strong>18,5 à 24,9</strong> : zone habituelle.</li>
+            <li><strong>25 à 29,9</strong> : surpoids.</li>
+            <li><strong>≥ 30</strong> : obésité.</li>
+          </ul>
+          <p class="note">Le tour de taille et l’activité physique comptent aussi, pas seulement l’IMC.</p>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-imc.jfif"
+            alt="Illustration : IMC et poids"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="intolerances">
+          <h2>Gluten et lactose : faire simple</h2>
+          <h3>Gluten</h3>
+          <p>
+            Éviter le gluten est indispensable en cas de maladie cœliaque (diagnostic médical).
+            Hors de ce cadre, ce n’est pas forcément utile.
+          </p>
+          <h3>Lactose</h3>
+          <p>
+            En cas d’intolérance, réduire ou choisir des produits pauvres en lactose peut suffire
+            (yaourts, fromages affinés, lait sans lactose).
+          </p>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-gluten.jfif"
+            alt="Illustration : gluten et lactose"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >		  
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-lactose.jfif"
+            alt="Illustration : gluten et lactose"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="chocolat">
+          <h2>Chocolat noir</h2>
+          <p>
+            Le chocolat noir (≥ 70%) apporte des polyphénols. L’intérêt dépend de la dose :
+            petite quantité, sans excès.
+          </p>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-chocolat.jfif"
+            alt="Illustration : chocolat noir"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="marche">
+          <h2>Marche : l’outil le plus simple</h2>
+          <ul>
+            <li>Améliore la sensibilité à l’insuline et le contrôle du poids.</li>
+            <li>Réduit le stress et améliore le sommeil.</li>
+            <li>Protège le cœur si pratiquée régulièrement.</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-marcher.jfif"
+            alt="Illustration : marche"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="cafe">
+          <h2>Café : utile, mais avec mesure</h2>
+          <p>
+            Le café peut avoir des effets bénéfiques (vigilance, antioxydants) mais l’excès peut
+            favoriser nervosité et troubles du sommeil.
+          </p>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/cafe.jfif"
+            alt="Café"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="bio">
+          <h2>Bio ou pas bio</h2>
+          <p>
+            La différence principale concerne les méthodes de culture/élevage et l’usage de pesticides
+            de synthèse. L’intérêt dépend aussi de la qualité globale de l’alimentation.
+          </p>
+          <p class="note">
+            Priorité : plus de végétaux, moins d’ultra-transformés, cuisine simple.
+          </p>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-bio.jfif"
+            alt="Illustration : bio ou pas bio"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="mental">
+          <h2>Santé mentale : liens avec l’alimentation</h2>
+          <ul>
+            <li>Stabilité glycémique : limiter les pics de sucre aide l’énergie et l’humeur.</li>
+            <li>Fibres et diversité alimentaire soutiennent l’équilibre global.</li>
+            <li>Éviter l’alcool comme “anxiolytique” : effet rebond fréquent.</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-sante-mentale.jfif"
+            alt="Illustration : santé mentale"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="diabete">
+          <h2>Diabète : objectifs pratiques</h2>
+          <ul>
+            <li>Réduire sucres rapides et boissons sucrées.</li>
+            <li>Mettre des fibres à chaque repas (légumes + légumineuses).</li>
+            <li>Activité physique régulière (marche + renforcement).</li>
+            <li>Suivi médical selon le contexte (glycémie, HbA1c).</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-diabete.jfif"
+            alt="Illustration : diabète"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <section class="card" id="hta">
+          <h2>Hypertension : leviers efficaces</h2>
+          <ul>
+            <li>Limiter le sel (surtout aliments industriels).</li>
+            <li>Augmenter les fruits et légumes (si pas de contre-indication).</li>
+            <li>Perte de poids si nécessaire, activité physique, sommeil.</li>
+            <li>Suivi médical et mesures à domicile.</li>
+          </ul>
+          <img
+            class="section-image"
+            src="/yourhealth/assets/img/alimentation-hypertension.jfif"
+            alt="Illustration : hypertension"
+            onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';"
+          >
+        </section>
+
+        <p class="note">
+          Informations générales. En cas de maladie chronique ou de traitement, adapter avec un professionnel de santé.
+        </p>
+
+      </div>
+
+      <aside>
+        <section class="card">
+          <h2>Repères rapides</h2>
+          <h3>Dans l’assiette</h3>
+          <ul>
+            <li>½ légumes</li>
+            <li>¼ protéines</li>
+            <li>¼ féculents (plutôt complets)</li>
+            <li>1 à 2 cuillères d’huile d’olive</li>
+          </ul>
+
+          <h3>Habitudes</h3>
+          <ul>
+            <li>Marche quotidienne</li>
+            <li>Sommeil régulier</li>
+            <li>Hydratation</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
+    <p><strong>Auteur :</strong> Site développé par Hocine Korichi.</p>
+    <p>© 2026 — yourhealth</p>
+  </div>
+</footer>
+
+</body>
+</html>
