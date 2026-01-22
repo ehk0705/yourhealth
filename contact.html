@@ -7,13 +7,6 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Afficher "En cours de développement", puis quitter la page (redirection) -->
-  <script>
-    setTimeout(function () {
-      window.location.href = "index.html"; /* change la destination si besoin */
-    }, 6000);
-  </script>
-
   <style>
     :root{
       --bg:#0b1220;
@@ -25,80 +18,169 @@
       --yellow:#facc15;
       --ok:#34d399;
       --bad:#fb7185;
+
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14,var(--bg));
+      background:
+        radial-gradient(900px 450px at 10% -10%, rgba(125,211,252,.18), transparent 60%),
+        radial-gradient(900px 450px at 90% 0%, rgba(52,211,153,.14), transparent 55%),
+        linear-gradient(180deg,#070b14,var(--bg));
       color:var(--txt);
     }
-    main{padding:22px 16px}
-    .wrap{max-width:980px;margin:0 auto}
-    h1{font-size:26px;margin:0 0 10px}
-    h2{margin:0 0 12px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:18px;
-      margin-bottom:16px;
-    }
-    label{display:block;margin-top:12px}
-    textarea{
-      width:100%;
-      margin-top:6px;
-      padding:10px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:#0b1220;
-      color:var(--txt);
-      outline:none;
-      min-height:160px;
-      resize:vertical;
-    }
-    textarea:focus{border-color:rgba(125,211,252,.6)}
-    button{
-      margin-top:16px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:transparent;
-      color:var(--txt);
-      cursor:pointer;
-    }
-    button:hover{border-color:rgba(125,211,252,.55)}
-    button:disabled{opacity:.5;cursor:not-allowed}
-    .muted{color:var(--muted)}
-    .info{
-      color:var(--yellow);
-      font-size:14px;
-      margin-top:10px;
-      line-height:1.35;
-    }
-    .hint{font-size:13px;color:var(--muted);margin-top:8px}
-    .status{
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      display:none;
-    }
-    .status.ok{display:block;border-color:rgba(52,211,153,.4);color:var(--ok)}
-    .status.bad{display:block;border-color:rgba(251,113,133,.4);color:var(--bad)}
-    .count{font-size:13px;color:var(--muted);margin-top:6px;text-align:right}
-    /* Champ anti-spam (piège) */
-    .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 
-    /* Affichage du message "En cours de développement" */
-    .dev-note{
-      text-align:center;
-      padding:26px 18px;
+    main{padding:26px 16px}
+    .wrap{max-width:920px;margin:0 auto}
+
+    /* Titre au-dessus du formulaire */
+    .page-head{
+      margin-bottom:14px;
+      text-align:left;
     }
-    .dev-note p{
+    .page-head .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:rgba(185,194,214,.9);
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .page-head h1{
+      font-size:30px;
+      margin:12px 0 6px;
+      line-height:1.15;
+    }
+    .page-head p{
       margin:0;
       color:var(--muted);
+      max-width:70ch;
     }
+
+    /* Carte formulaire */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .form-grid{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+      text-align:left; /* alignement à gauche */
+    }
+
+    label{
+      display:block;
+      font-size:14px;
+      color:rgba(238,242,255,.92);
+      margin:0;
+      text-align:left;
+    }
+
+    .field{
+      background:rgba(11,18,32,.75);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      padding:10px 12px;
+      color:var(--txt);
+      outline:none;
+      width:100%;
+      transition: border-color .15s ease, box-shadow .15s ease;
+      text-align:left;
+    }
+    .field::placeholder{color:rgba(185,194,214,.65)}
+    .field:focus{
+      border-color:rgba(125,211,252,.65);
+      box-shadow:0 0 0 4px rgba(125,211,252,.12);
+    }
+
+    textarea.field{
+      min-height:170px;
+      resize:vertical;
+      line-height:1.4;
+    }
+
+    .actions{
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+      gap:12px;
+      margin-top:2px;
+    }
+
+    button{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.35);
+      background:linear-gradient(180deg, rgba(125,211,252,.18), rgba(125,211,252,.08));
+      color:var(--txt);
+      cursor:pointer;
+      font-weight:600;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      text-align:left;
+    }
+    button:hover{
+      border-color:rgba(125,211,252,.65);
+      box-shadow:0 10px 22px rgba(0,0,0,.28);
+      transform: translateY(-1px);
+    }
+    button:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      transform:none;
+      box-shadow:none;
+    }
+
+    .micro{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
+      text-align:left;
+    }
+
+    /* Messages */
+    .status{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      display:none;
+      text-align:left;
+      background:rgba(255,255,255,.03);
+    }
+    .status.bad{
+      display:block;
+      border-color:rgba(251,113,133,.35);
+      color:var(--bad);
+    }
+
+    .thanks{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(52,211,153,.25);
+      background:rgba(52,211,153,.08);
+      color:rgba(238,242,255,.92);
+      display:none;
+      text-align:left;
+    }
+    .thanks strong{color:var(--ok)}
+
+    /* Anti-spam */
+    .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
 </head>
 
@@ -110,10 +192,48 @@
 <main>
   <div class="wrap">
 
-    <!-- Message visible, puis redirection automatique -->
-    <section class="card dev-note" aria-live="polite">
-      <h1>En cours de développement</h1>
-      <p>Redirection automatique…</p>
+    <header class="page-head">
+      <div class="kicker">Commentaires</div>
+      <h1>Contact</h1>
+      <p>Un retour, une correction, une suggestion : écrivez ici. Le message sera envoyé et je le recevrai.</p>
+    </header>
+
+    <section class="card" aria-label="Formulaire de contact">
+      <form id="contactForm" action="https://formspree.io/f/xojjgkqe" method="POST" novalidate>
+        <div class="form-grid">
+
+          <div>
+            <label for="email">Courriel (facultatif)</label>
+            <input class="field" id="email" name="email" type="email" placeholder="exemple@domaine.com" autocomplete="email">
+          </div>
+
+          <div>
+            <label for="commentaire">Commentaire</label>
+            <textarea class="field" id="commentaire" name="commentaire" required placeholder="Écrivez votre message ici…"></textarea>
+            <p class="micro">Merci de rester concis et clair.</p>
+          </div>
+
+          <!-- Anti-spam discret -->
+          <div class="hp" aria-hidden="true">
+            <label>Ne pas remplir</label>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="actions">
+            <button id="btnSend" type="submit">Envoyer</button>
+            <p id="sendingNote" class="micro" style="display:none;">Envoi en cours…</p>
+          </div>
+
+          <div id="thanks" class="thanks" role="status" aria-live="polite">
+            <strong>Merci pour votre commentaire.</strong> Il a bien été transmis.
+          </div>
+
+          <div id="statusBad" class="status bad" role="alert">
+            Échec de l’envoi. Veuillez réessayer plus tard.
+          </div>
+
+        </div>
+      </form>
     </section>
 
   </div>
@@ -123,6 +243,7 @@
 <div id="site-footer"></div>
 
 <script>
+  // Header / footer
   fetch("includes/header.html")
     .then(r => r.ok ? r.text() : "")
     .then(html => { if (html) document.getElementById("site-header").innerHTML = html; });
@@ -130,6 +251,62 @@
   fetch("includes/footer.html")
     .then(r => r.ok ? r.text() : "")
     .then(html => { if (html) document.getElementById("site-footer").innerHTML = html; });
+
+  // Envoi sans quitter la page
+  (function(){
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("btnSend");
+    const thanks = document.getElementById("thanks");
+    const bad = document.getElementById("statusBad");
+    const sendingNote = document.getElementById("sendingNote");
+
+    function hideAll(){
+      thanks.style.display = "none";
+      bad.style.display = "none";
+      sendingNote.style.display = "none";
+    }
+
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      hideAll();
+
+      // Validation minimale
+      const msg = (document.getElementById("commentaire").value || "").trim();
+      if(!msg){
+        bad.textContent = "Veuillez écrire un commentaire avant d’envoyer.";
+        bad.style.display = "block";
+        return;
+      }
+
+      btn.disabled = true;
+      sendingNote.style.display = "block";
+
+      try{
+        const fd = new FormData(form);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: fd,
+          headers: { "Accept": "application/json" }
+        });
+
+        if(res.ok){
+          form.reset();
+          sendingNote.style.display = "none";
+          thanks.style.display = "block";
+        }else{
+          sendingNote.style.display = "none";
+          bad.textContent = "Échec de l’envoi. Veuillez réessayer plus tard.";
+          bad.style.display = "block";
+        }
+      }catch(err){
+        sendingNote.style.display = "none";
+        bad.textContent = "Échec de l’envoi. Veuillez vérifier votre connexion et réessayer.";
+        bad.style.display = "block";
+      }finally{
+        btn.disabled = false;
+      }
+    });
+  })();
 </script>
 
 </body>
