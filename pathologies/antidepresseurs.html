@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antidépresseurs : dangers et précautions | Santé</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.7;
+    }
+
+    header{
+      padding:14px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+    .wrap{max-width:1100px;margin:0 auto}
+
+    /* MENU TOUT EN HAUT */
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 14px 0;
+    }
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    /* TITRE + IMAGE ALIGNÉS */
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    h1{
+      margin:0;
+      font-size:30px;
+      color:var(--green);
+      line-height:1.15;
+    }
+    .sub{
+      margin:8px 0 0;
+      color:var(--yellow);
+      max-width:780px;
+    }
+    .header-image{
+      width:180px;
+      max-width:34vw;
+      height:auto;
+      border-radius:14px;
+      border:2px solid rgba(125,211,252,.35);
+      display:block;
+    }
+
+    main{padding:22px 16px}
+
+    /* Cards en pleine largeur */
+    .card{
+      width:100%;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      margin-top:16px;
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:20px;
+      color:var(--green);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:16px;
+      color:var(--yellow);
+    }
+
+    p, li{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+
+    /* Image de section, réduite de 50% */
+    .section-image{
+      display:block;
+      width:50%;
+      max-width:520px;
+      height:auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+      margin:12px auto 0 auto;
+      opacity:.98;
+    }
+
+    .note{
+      margin-top:16px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    .danger{
+      margin-top:14px;
+      border:1px solid rgba(250,204,21,.35);
+      background:rgba(250,204,21,.06);
+      border-radius:14px;
+      padding:12px 12px;
+      color:var(--muted);
+    }
+    .danger strong{color:var(--yellow)}
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:760px){
+      .header-top{flex-direction:column}
+      .header-image{width:200px;max-width:70vw}
+      .section-image{width:92%;max-width:92%}
+      h1{font-size:24px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+
+    <!-- MENU TOUT EN HAUT -->
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+      <a href="/yourhealth/sport-sante.html">Sport</a>
+      <a href="/yourhealth/alimentation.html">Alimentation</a>
+    </nav>
+
+    <!-- TITRE + IMAGE -->
+    <div class="header-top">
+      <div>
+        <h1>Antidépresseurs : dangers et précautions</h1>
+        <p class="sub">
+          Effets indésirables possibles, risque de sevrage, interactions, et alternatives d’accompagnement.
+        </p>
+      </div>
+
+      <img
+        src="/yourhealth/assets/img/antidepresseurs.jfif"
+        alt="Illustration : antidépresseurs"
+        class="header-image"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="resume">
+      <h2>À retenir</h2>
+      <ul>
+        <li>Les antidépresseurs peuvent être utiles, mais comportent des risques et effets secondaires possibles.</li>
+        <li>Un arrêt brutal peut provoquer un syndrome de sevrage : la réduction doit être progressive et encadrée.</li>
+        <li>En cas d’idées suicidaires ou de danger immédiat : urgences (911/112 selon pays) ou consultation sans délai.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="risques">
+      <h2>Risques et effets secondaires possibles</h2>
+      <p>
+        Le document liste plusieurs risques potentiels : effets secondaires fréquents, interactions, problèmes cardiovasculaires,
+        syndrome de sevrage, et possible aggravation des idées suicidaires au début du traitement chez certains profils.
+      </p>
+
+      <h3>Effets secondaires fréquents</h3>
+      <ul>
+        <li>Nausées, fatigue, insomnie.</li>
+        <li>Prise de poids, baisse de libido.</li>
+      </ul>
+
+      <h3>Sevrage et arrêt brutal</h3>
+      <ul>
+        <li>Anxiété, vertiges, irritabilité.</li>
+        <li>Règle simple : ne pas arrêter sans avis médical.</li>
+      </ul>
+
+      <h3>Interactions et risques cardio</h3>
+      <ul>
+        <li>Complications possibles avec d’autres traitements.</li>
+        <li>Augmentation de la tension artérielle ou arythmies selon les molécules et le contexte.</li>
+      </ul>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/medicaments.jfif"
+        alt="Illustration : médicaments et précautions"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="cognitif">
+      <h2>Déclin cognitif : point de prudence</h2>
+      <p>
+        Le document mentionne que certaines études suggèrent un lien possible entre certains antidépresseurs (notamment à effet anticholinergique)
+        et un risque accru de déclin cognitif ou de maladie d’Alzheimer, via une interférence avec l’acétylcholine.
+      </p>
+      <div class="danger">
+        <strong>Important :</strong> ce point doit être discuté avec un médecin (bénéfices/risques, âge, antécédents, alternatives).
+      </div>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/warning.jfif"
+        alt="Illustration : vigilance"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="proche">
+      <h2>Aider un proche en difficulté</h2>
+      <p>
+        Le document propose une approche en étapes : écoute, consultation, thérapie, réduction progressive, hygiène de vie,
+        groupes de soutien.
+      </p>
+      <ul>
+        <li>Écoute bienveillante : encourager l’expression, sans jugement.</li>
+        <li>Consultation médicale : réévaluer le traitement.</li>
+        <li>Thérapie (ex. TCC) si adaptée.</li>
+        <li>Réduction progressive uniquement avec accord médical.</li>
+        <li>Hygiène de vie : sport, relaxation, activités utiles.</li>
+        <li>Groupes de soutien : utile pour ne pas rester seul.</li>
+      </ul>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/tcc.jfif"
+        alt="Illustration : accompagnement et thérapie"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="alternatives">
+      <h2>Alternatives et mesures de soutien (cas légers à modérés)</h2>
+      <p>
+        Le document cite plusieurs pistes : plantes (avec prudence), compléments, activité physique, relaxation, alimentation équilibrée,
+        tout en rappelant que l’accompagnement médical reste essentiel.
+      </p>
+
+      <h3>Plantes (attention aux interactions)</h3>
+      <ul>
+        <li>Millepertuis : possible intérêt, mais interactions fréquentes.</li>
+        <li>Valériane, passiflore : apaisement/anxiété, sommeil (selon tolérance).</li>
+      </ul>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/plantes.jfif"
+        alt="Illustration : plantes et hygiène de vie"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+      <h3>Compléments</h3>
+      <ul>
+        <li>Oméga-3 : soutien possible de l’humeur.</li>
+        <li>Magnésium : stress, fatigue.</li>
+        <li>Vitamines B6, B9, B12 : soutien du système nerveux.</li>
+      </ul>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/magnesium-1.jfif"
+        alt="Illustration : Magnésium, Vitamines B6, B9, B12"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+      <h3>Sport, respiration, alimentation</h3>
+      <ul>
+        <li>Activité physique régulière : libération d’endorphines (bien-être).</li>
+        <li>Respiration / pleine conscience : utile contre l’anxiété.</li>
+        <li>Aliments riches en tryptophane (exemples cités : bananes, dinde, noix).</li>
+      </ul>
+
+
+    </section>
+
+    <section class="card" id="sevrage">
+      <h2>Sevrage : prudence si dépendance importante</h2>
+      <p>
+        Le document insiste : un sevrage brutal peut être dangereux, et recommande une prise en charge encadrée.
+      </p>
+      <ul>
+        <li>Consulter un spécialiste sans délai.</li>
+        <li>Plan de sevrage progressif sous supervision médicale.</li>
+        <li>Hospitalisation si symptômes graves ou risque élevé.</li>
+        <li>Soutien moral + suivi psychologique + prévention des rechutes.</li>
+      </ul>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/sevrage.jfif"
+        alt="Illustration : sevrage progressif"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="focus">
+      <h2>Focus : cardamome et chocolat noir (avec mesure)</h2>
+
+      <h3>Cardamome</h3>
+      <p>
+        Le document présente la cardamome comme un allié traditionnel, utilisable en infusion, cuisine ou aromathérapie
+        (propriétés relaxantes et antioxydantes évoquées).
+      </p>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/cardamome.jfif"
+        alt="Illustration : cardamome"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+
+      <h3>Chocolat noir</h3>
+      <p>
+        Le document cite des bénéfices possibles “avec modération” (humeur, antioxydants, cardiovasculaire, énergie douce).
+      </p>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/chocolat-noir.jfif"
+        alt="Illustration : chocolat noir"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <p class="note">
+      Information générale, non personnalisée. Un traitement psychotrope se discute toujours avec un professionnel de santé.
+      En cas d’idées suicidaires, d’aggravation rapide, ou de danger immédiat : urgences (911/112) ou consultation sans délai.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
+    <p>© 2026 — Votre santé</p>
+  </div>
+</footer>
+
+</body>
+</html>
