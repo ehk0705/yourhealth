@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pathologies et défauts de l’œil | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.7;
+    }
+
+    header{
+      padding:14px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+    .wrap{max-width:1020px;margin:0 auto}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 14px 0;
+    }
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    h1{
+      margin:0;
+      font-size:30px;
+      color:var(--green);
+      line-height:1.15;
+    }
+    .sub{
+      margin:8px 0 0;
+      color:var(--yellow);
+      max-width:760px;
+    }
+    .header-image{
+      width:180px;
+      max-width:34vw;
+      height:auto;
+      border-radius:14px;
+      border:2px solid rgba(125,211,252,.35);
+      display:block;
+    }
+
+    main{padding:22px 16px}
+    .card{
+      width:100%;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      margin-top:16px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:20px;
+      color:var(--green);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:16px;
+      color:var(--yellow);
+    }
+    p, li{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+
+    /* Images réduites (≈ 50%) */
+    .section-image{
+      display:block;
+      width:100%;
+      max-width:210px;
+      height:auto;
+      margin:12px auto 0 auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+      opacity:.98;
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .note{
+      margin-top:16px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:760px){
+      .cols{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .header-top{flex-direction:column}
+      h1{font-size:24px}
+      .header-image{width:200px;max-width:70vw}
+      .section-image{max-width:180px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/alimentation.html">Alimentation</a>
+      <a href="/yourhealth/sport-sante.html">Sport</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+
+    <div class="header-top">
+      <div>
+        <h1>Pathologies et défauts de l’œil</h1>
+        <p class="sub">Myopie, hypermétropie, astigmatisme, presbytie, sécheresse oculaire, conjonctivite, cataracte, glaucome : causes, diagnostic, prise en charge et prévention.</p>
+      </div>
+
+      <img
+        src="/yourhealth/assets/img/oeil.jfif"
+        alt="Œil et vision"
+        class="header-image"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <h2>Définition</h2>
+      <p>
+        Les troubles de l’œil regroupent :
+        <strong>les défauts de réfraction</strong> (vision floue par problème de focalisation)
+        et <strong>les pathologies</strong> (inflammation, infection, atteinte du cristallin, du nerf optique, etc.).
+        Beaucoup sont bénins, mais certains peuvent menacer la vision s’ils ne sont pas pris en charge.
+      </p>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/vision-floue.jfif"
+        alt="Illustration vision floue"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="defauts">
+      <h2>Défauts de l’œil (réfraction)</h2>
+
+      <div class="cols">
+        <div>
+          <h3>Myopie</h3>
+          <ul>
+            <li>Vision floue de loin.</li>
+            <li>Souvent familiale, favorisée par le travail de près prolongé.</li>
+            <li>Correction : lunettes, lentilles, parfois chirurgie réfractive (avis spécialisé).</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hypermétropie</h3>
+          <ul>
+            <li>Vision floue de près (parfois aussi de loin selon l’âge).</li>
+            <li>Fatigue visuelle et maux de tête possibles.</li>
+            <li>Correction : lunettes/lentilles.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Astigmatisme</h3>
+          <ul>
+            <li>Vision déformée, floue à toutes distances.</li>
+            <li>Souvent associé à myopie/hypermétropie.</li>
+            <li>Correction : lunettes/lentilles toriques.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Presbytie</h3>
+          <ul>
+            <li>Difficulté à voir de près après ~40–45 ans (phénomène normal de l’âge).</li>
+            <li>Correction : lunettes de près, progressives, lentilles adaptées.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">
+        Si la vision change rapidement (en jours/semaines), ou s’il y a douleur/rougeur importante, il ne faut pas attribuer cela seulement à la réfraction.
+      </p>
+    </section>
+
+    <section class="card" id="pathologies">
+      <h2>Pathologies fréquentes</h2>
+
+      <h3>Sécheresse oculaire</h3>
+      <ul>
+        <li>Sensation de sable, brûlure, picotements, vision fluctuante.</li>
+        <li>Facteurs : écrans, air sec, lentilles, âge, certains médicaments.</li>
+        <li>Mesures : pauses visuelles, larmes artificielles (sans conservateur si usage fréquent), humidification.</li>
+      </ul>
+
+      <h3>Conjonctivite</h3>
+      <ul>
+        <li>Œil rouge, larmoiement, sécrétions (selon cause).</li>
+        <li>Causes : virale (fréquente), allergique, bactérienne (parfois).</li>
+        <li>Hygiène : lavage des mains, éviter de toucher l’œil, serviette personnelle.</li>
+      </ul>
+
+      <h3>Orgelet / Chalazion</h3>
+      <ul>
+        <li>Petite boule douloureuse (orgelet) ou kyste du bord palpébral (chalazion).</li>
+        <li>Mesures : compresses tièdes, hygiène des paupières ; consulter si persistant.</li>
+      </ul>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/oeil-rouge.jfif"
+        alt="Illustration œil rouge"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="causes">
+      <h2>Causes et facteurs de risque</h2>
+      <ul>
+        <li><strong>Hérédité</strong> (myopie, certaines maladies oculaires).</li>
+        <li><strong>Âge</strong> (presbytie, cataracte, risque de glaucome).</li>
+        <li><strong>Écrans</strong> : baisse du clignement → sécheresse, fatigue visuelle.</li>
+        <li><strong>Allergies</strong> : démangeaisons, larmoiement, conjonctivite allergique.</li>
+        <li><strong>Diabète</strong> : risque de rétinopathie, baisse visuelle progressive.</li>
+        <li><strong>Hypertension</strong> : atteintes vasculaires rétiniennes.</li>
+        <li><strong>Tabac</strong> : augmente plusieurs risques (dont certaines atteintes rétiniennes).</li>
+        <li><strong>UV</strong> : exposition chronique sans protection (yeux) = facteur de risque de certaines atteintes.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <h2>Diagnostic</h2>
+      <ul>
+        <li><strong>Interrogatoire</strong> : baisse de vision (près/loin), douleur, rougeur, lumière gênante, larmoiement, sécrétions, contexte (écran, allergie).</li>
+        <li><strong>Mesure de l’acuité visuelle</strong> et de la réfraction (défauts optiques).</li>
+        <li><strong>Examen de l’œil</strong> : paupières, cornée, conjonctive, chambre antérieure.</li>
+        <li><strong>Fond d’œil</strong> selon symptômes et facteurs (rétine, nerf optique).</li>
+        <li><strong>Pression intraoculaire</strong> si suspicion de glaucome.</li>
+      </ul>
+
+      <h3>Signes d’alerte (consultation urgente)</h3>
+      <ul>
+        <li>Baisse brutale de vision.</li>
+        <li>Douleur intense, œil très rouge, nausées.</li>
+        <li>Flashs lumineux, “rideau noir”, pluie de points noirs.</li>
+        <li>Traumatisme oculaire ou projection chimique.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="prise-en-charge">
+      <h2>Remèdes et prise en charge</h2>
+
+      <h3>Mesures simples (fatigue visuelle / sécheresse)</h3>
+      <ul>
+        <li>Règle “20-20-20” : toutes les 20 minutes, regarder à 20 pieds (6 m) pendant 20 secondes.</li>
+        <li>Cligner volontairement, faire des pauses d’écrans.</li>
+        <li>Larmes artificielles si besoin (idéalement sans conservateur si usage fréquent).</li>
+      </ul>
+
+      <h3>Correction optique</h3>
+      <ul>
+        <li>Lunettes / lentilles adaptées : correction et confort.</li>
+        <li>Éviter l’automédication et les collyres “au hasard”.</li>
+      </ul>
+
+      <h3>Quand un traitement médical est nécessaire</h3>
+      <ul>
+        <li>Allergie : collyres adaptés (avis médical/pharmacien selon situation).</li>
+        <li>Infection : prise en charge selon le type (pas d’antibiotique systématique).</li>
+        <li>Glaucome / cataracte : suivi spécialisé ; parfois traitement au long cours ou chirurgie.</li>
+      </ul>
+
+      <p class="note">
+        Un collyre corticoïde ne doit pas être utilisé sans avis médical (risques : aggravation d’infection, hausse de pression oculaire, etc.).
+      </p>
+
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/ophtalmo.jfif"
+        alt="Consultation ophtalmologique"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <section class="card" id="prevention">
+      <h2>Prévention</h2>
+      <ul>
+        <li><strong>Écrans :</strong> pauses régulières, distance correcte, luminosité adaptée, clignement.</li>
+        <li><strong>Protection UV :</strong> lunettes de soleil de qualité (catégorie adaptée), surtout en forte luminosité.</li>
+        <li><strong>Hygiène :</strong> mains propres avant de toucher l’œil, maquillage et lentilles avec précautions.</li>
+        <li><strong>Sommeil</strong> et hydratation : limitent la fatigue oculaire.</li>
+        <li><strong>Contrôles réguliers</strong> : surtout après 40 ans, ou si diabète/hypertension, ou antécédents familiaux de glaucome.</li>
+        <li><strong>Arrêt du tabac</strong> : bénéfice global, y compris pour les yeux.</li>
+      </ul>
+      <img
+        class="section-image"
+        src="/yourhealth/assets/img/lunettes-soleil.jfif"
+        alt="Protection des yeux"
+        onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';"
+      >
+    </section>
+
+    <p class="note">
+      Information générale, non personnalisée. En cas de douleur importante, baisse visuelle brutale, flashs/rideau noir,
+      traumatisme ou doute, consulte rapidement un professionnel de santé.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>
