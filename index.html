@@ -129,6 +129,20 @@
     text-align:center;
   }
 
+  /* Bloc compteur (visible) */
+  .compteur-visites{
+    display:inline-block;
+    margin:10px auto 6px;
+    padding:10px 12px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;
+    background:rgba(0,0,0,.18);
+    color:#eef2ff;
+    min-width:220px;
+  }
+  .compteur-visites .label{display:block;color:#b9c2d6;font-size:12px;margin-bottom:6px}
+  .compteur-visites #compteur-visites{font-weight:700;color:#eef2ff}
+
   @media (max-width:800px){
     .hero-top{flex-direction:column}
     .hero__box-sante{max-width:100%}
@@ -150,7 +164,6 @@
     <a href="contact.html">Contact</a>
   </nav>
 </div>
-
 </header>
 
 <main class="container">
@@ -169,9 +182,9 @@
         <div class="hero__text">
           <h1>La santé, en toute compréhension</h1>
           <p>
-			Comprendre les maladies actuelles, leurs causes et leurs mécanismes est indispensable pour mieux les prévenir.
-			Ce site propose des informations claires et accessibles, fondées sur des repères fiables, pour mieux comprendre le fonctionnement du corps et les enjeux de la santé contemporaine.
-			Il offre des conseils pratiques pour adopter une hygiène de vie plus saine, faire des choix éclairés et agir durablement sur sa santé au quotidien.
+            Comprendre les maladies actuelles, leurs causes et leurs mécanismes est indispensable pour mieux les prévenir.
+            Ce site propose des informations claires et accessibles, fondées sur des repères fiables, pour mieux comprendre le fonctionnement du corps et les enjeux de la santé contemporaine.
+            Il offre des conseils pratiques pour adopter une hygiène de vie plus saine, faire des choix éclairés et agir durablement sur sa santé au quotidien.
           </p>
         </div>
       </div>
@@ -224,8 +237,6 @@
         <p>Effets indésirables possibles, risque de sevrage, interactions, et alternatives d’accompagnement.</p>
       </a>
 
-
-
       <!-- Thyroïde -->
       <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
         <img data-slug="thyroide" alt="Maladies de la thyroïde">
@@ -234,21 +245,21 @@
       </a>
 
       <!-- AJOUT : Parkinson -->
-<a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
-  <img src="assets/img/tremblements.gif"
-       alt="Maladie de Parkinson"
-       loading="lazy"
-       decoding="async"
-       onerror="this.onerror=null;this.src='assets/img/default.jpg';">
-  <h3>Maladie de Parkinson</h3>
-  <p>Symptômes, diagnostic, prise en charge.</p>
-</a>
-<a href="/yourhealth/pathologies/cholesterol.html" class="card-patho">
-  <img data-slug="cholesterol" alt="Cholestérol">
-  <h3>Cholestérol</h3>
-  <p>LDL, HDL, triglycérides : risques et prévention.</p>
-</a>
+      <a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
+        <img src="assets/img/tremblements.gif"
+             alt="Maladie de Parkinson"
+             loading="lazy"
+             decoding="async"
+             onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+        <h3>Maladie de Parkinson</h3>
+        <p>Symptômes, diagnostic, prise en charge.</p>
+      </a>
 
+      <a href="/yourhealth/pathologies/cholesterol.html" class="card-patho">
+        <img data-slug="cholesterol" alt="Cholestérol">
+        <h3>Cholestérol</h3>
+        <p>LDL, HDL, triglycérides : risques et prévention.</p>
+      </a>
 
       <!-- Nouveaux thèmes du pack (/yourhealth/pathologies/*.html) -->
       <a href="/yourhealth/pathologies/prediabete.html" class="card-patho">
@@ -262,7 +273,7 @@
         <h3>Diabète</h3>
         <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
       </a>
-	  
+
       <a href="/yourhealth/pathologies/resistance-insuline.html" class="card-patho">
         <img data-slug="resistance-insuline" alt="Résistance à l’insuline">
         <h3>Résistance à l’insuline</h3>
@@ -329,13 +340,12 @@
         <p>Sucre, sel, additifs, repères.</p>
       </a>
 
-      <!-- Tes autres cartes déjà présentes (je ne les supprime pas) -->
+      <!-- Tes autres cartes déjà présentes -->
       <a href="/yourhealth/pathologies/anxiete.html" class="card-patho">
         <img data-slug="anxiete" alt="Anxiété">
         <h3>Anxiété</h3>
         <p>Stress, inquiétude, symptômes physiques et mentaux.</p>
       </a>
-
 
       <a href="/yourhealth/pathologies/obesite.html" class="card-patho">
         <img data-slug="obesite" alt="Obésité">
@@ -366,7 +376,6 @@
         <h3>Palpitations du cœur</h3>
         <p>Battements rapides, forts ou irréguliers.</p>
       </a>
-
 
       <a href="/yourhealth/pathologies/infarctus-myocarde.html" class="card-patho">
         <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
@@ -440,11 +449,11 @@
         <p>Réaction excessive à des allergènes (respiratoire, peau, etc.).</p>
       </a>
 
-<a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
-  <img data-slug="phlebite" alt="Phlébite (thrombose veineuse profonde)">
-  <h3>Phlébite</h3>
-  <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
-</a>
+      <a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
+        <img data-slug="phlebite" alt="Phlébite (thrombose veineuse profonde)">
+        <h3>Phlébite</h3>
+        <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
+      </a>
 
       <a href="/yourhealth/pathologies/grippe.html" class="card-patho">
         <img data-slug="grippe" alt="Grippe hivernale">
@@ -470,18 +479,17 @@
         <p></p>
       </a>
 
-<a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
-  <img data-slug="epilepsie" alt="Épilepsie">
-  <h3>Épilepsie</h3>
-  <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
-</a>
+      <a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
+        <img data-slug="epilepsie" alt="Épilepsie">
+        <h3>Épilepsie</h3>
+        <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
+      </a>
 
-<a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
-  <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
-  <h3>Syndrome de l’intestin irritable</h3>
-  <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
-</a>
-
+      <a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
+        <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
+        <h3>Syndrome de l’intestin irritable</h3>
+        <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
+      </a>
 
     </div>
   </section>
@@ -498,6 +506,13 @@
   <footer class="site-footer">
     <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
     <p><strong>Auteur :</strong> Site développé par Hocine Korichi, ingénieur physicien et informaticien.</p>
+
+    <!-- COMPTEUR VISITEURS (visible) -->
+    <div class="compteur-visites" aria-live="polite">
+      <span class="label">Visites (total du site)</span>
+      <div id="compteur-visites">Chargement…</div>
+    </div>
+
     <p>© 2026 yourhealth</p>
   </footer>
 
@@ -546,6 +561,35 @@
     img.setAttribute('decoding', 'async');
     trySetImage(img, slug);
   });
+})();
+</script>
+
+<!-- GoatCounter : remplace MYCODE par ton code exact -->
+<script data-goatcounter="https://MYCODE.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+
+<script>
+/* Compteur visible : TOTAL du site (évite les problèmes de chemins).
+   Nécessite d’activer "Allow adding visitor counts on your website" dans GoatCounter. */
+(function () {
+  var t = setInterval(function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(t);
+      window.goatcounter.visit_count({
+        append: '#compteur-visites',
+        type: 'html',
+        no_branding: true,
+        path: 'TOTAL'
+      });
+    }
+  }, 100);
+
+  // Message clair si ça ne charge pas (bloqueur / 403 / mauvais MYCODE).
+  setTimeout(function () {
+    var el = document.querySelector('#compteur-visites');
+    if (el && (el.textContent || '').trim() === 'Chargement…') {
+      el.textContent = 'Indisponible (vérifier MYCODE et réglages GoatCounter).';
+    }
+  }, 4000);
 })();
 </script>
 
