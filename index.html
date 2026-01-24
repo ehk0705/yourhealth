@@ -508,7 +508,7 @@
 
     <!-- COMPTEUR VISITEURS (visible) -->
     <div class="compteur-visites" aria-live="polite">
-      <span class="label">Visites (total du site)</span>
+      <span class="label">Nombre de visites</span>
       <div id="compteur-visites">Chargement…</div>
     </div>
 
@@ -520,7 +520,7 @@
 <script>
 (function () {
   const IMG_BASE = "assets/img/";
-  const FALLBACKS = [IMG_BASE + "default.jpg", IMG_BASE + "default.svg"];
+  const FALLBACKS = [IMG_BASE + "lunettes-soleil.jfif", IMG_BASE + "default.svg"];
   const EXTS = ["jfif","jpg","jpeg","png","webp","svg"];
 
   function setFallback(imgEl) {
@@ -560,39 +560,22 @@
     img.setAttribute('decoding', 'async');
     trySetImage(img, slug);
   });
+
+  /* Compteur visible (ne dépend pas de visit_count, donc ne disparaît pas) */
+  const el = document.getElementById('compteur-visites');
+  if (el) {
+    el.innerHTML =
+      '<img src="https://ehk0705.goatcounter.com/counter/TOTAL.svg?no_branding=1" ' +
+      'alt="Compteur de visites(TOTAL" ' +
+      'loading="lazy" style="max-width:100%;height:auto">';
+  }
 })();
 </script>
 
-<!-- GoatCounter -->
+<!-- GoatCounter (suivi des visites) -->
 <script data-goatcounter="https://ehk0705.goatcounter.com/count"
         src="https://gc.zgo.at/count.js"></script>
 
-<script>
-
-/* Compteur visible : TOTAL du site (évite les problèmes de chemins).
-   Nécessite d’activer "Allow adding visitor counts on your website" dans GoatCounter. */
-(function () {
-  var t = setInterval(function () {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(t);
-      window.goatcounter.visit_count({
-        append: '#compteur-visites',
-        type: 'html',
-        no_branding: true,
-        path: 'TOTAL'
-      });
-    }
-  }, 100);
-
-  // Message clair si ça ne charge pas (bloqueur / 403 / mauvais MYCODE).
-  setTimeout(function () {
-    var el = document.querySelector('#compteur-visites');
-    if (el && (el.textContent || '').trim() === 'Chargement…') {
-      el.textContent = 'Indisponible (vérifier MYCODE et réglages GoatCounter).';
-    }
-  }, 4000);
-})();
-</script>
 
 </body>
 </html>
