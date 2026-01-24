@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthrose | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    /* En-tête image + texte */
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .header-image{
+      max-width:180px;
+      height:auto;
+      flex-shrink:0;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    h1{margin:0;font-size:28px;line-height:1.2;color:var(--green)}
+    .sub{color:var(--yellow);margin:6px 0 0;font-size:16px}
+
+    .crumbs{margin-top:6px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:18px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .card:first-child{margin-top:0}
+
+    /* Images à droite dans chaque section */
+    .card img.section-img{
+      float:right;
+      max-width:200px;
+      margin:0 0 12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+    .card::after{content:"";display:block;clear:both}
+
+    h2{margin:0 0 8px;font-size:20px;color:var(--green)}
+    h3{margin:12px 0 6px;font-size:16px;color:var(--yellow)}
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-block;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      color:var(--txt);
+      text-decoration:none;
+      font-size:13px;
+    }
+    .chip:hover{border-color:rgba(125,211,252,.55)}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:700px){
+      .header-top{flex-direction:column;}
+      .header-image{max-width:140px;}
+    }
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .card img.section-img{float:none;display:block;margin:0 auto 12px auto;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-top">
+      <div>
+        <h1>Arthrose</h1>
+        <p class="sub">Fiche pratique : comprendre, soulager, préserver ses articulations.</p>
+
+        <div class="crumbs">
+          <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Arthrose
+        </div>
+
+        <nav aria-label="Navigation principale">
+          <a href="/yourhealth/index.html">Accueil</a>
+          <a href="/yourhealth/ressources.html">Ressources</a>
+          <a href="/yourhealth/contact.html">Contact</a>
+        </nav>
+
+        <div class="chips" aria-label="Accès rapide">
+          <a class="chip" href="#definition">Définition</a>
+          <a class="chip" href="#gonarthrose">Arthrose du genou</a>
+          <a class="chip" href="#remedes-naturels">Remèdes naturels</a>
+          <a class="chip" href="#alimentation">Alimentation</a>
+          <a class="chip" href="#sport">Activité physique</a>
+          <a class="chip" href="#electrostimulation">Électrostimulation</a>
+          <a class="chip" href="#chaud-froid">Chaud / froid</a>
+        </div>
+      </div>
+
+      <img src="/yourhealth/assets/img/arthrose.jfif"
+           alt="Arthrose"
+           class="header-image"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-definition.jfif"
+           alt="Définition de l’arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Définition</h2>
+      <p>
+        L’arthrose est une maladie articulaire chronique liée à l’usure progressive du cartilage.
+        Le cartilage sert d’« amortisseur » : quand il s’abîme, l’articulation devient moins souple,
+        plus douloureuse, et peut perdre en mobilité.
+      </p>
+      <p>
+        Elle touche surtout les articulations portantes (genou, hanche) et celles très sollicitées
+        (doigts, colonne). L’arthrose évolue lentement, par périodes, avec des phases plus calmes
+        et des poussées douloureuses.
+      </p>
+    </section>
+
+    <section class="card" id="gonarthrose">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-genou.jfif"
+           alt="Arthrose du genou"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Arthrose du genou (gonarthrose)</h2>
+      <p>
+        La gonarthrose correspond à une usure du cartilage de l’articulation du genou.
+        En France, elle concerne une part importante des personnes âgées (plus de 65 ans),
+        et peut devenir très handicapante au quotidien.
+      </p>
+      <p>
+        Sans prise en charge adaptée, elle peut provoquer des douleurs importantes, une raideur,
+        une limitation de la marche et une perte de confiance dans le mouvement, surtout en cas
+        de surpoids ou de sédentarité.
+      </p>
+
+      <h3>Signes fréquents</h3>
+      <ul>
+        <li>Douleur au genou à la marche, en montant/descendant les escaliers.</li>
+        <li>Raideur au réveil ou après une période assise.</li>
+        <li>Craquements, gêne, sensation d’instabilité.</li>
+        <li>Gonflement lors des poussées inflammatoires.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="remedes-naturels">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-remedes-naturels.jfif"
+           alt="Remèdes naturels et arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Remèdes naturels utiles</h2>
+      <p>
+        Les approches naturelles ne « réparent » pas le cartilage, mais peuvent aider à réduire la douleur,
+        l’inflammation, et à améliorer la qualité de vie. Elles s’intègrent à une prise en charge globale.
+      </p>
+
+      <h3>Romarin</h3>
+      <ul>
+        <li><strong>Infusion / décoction</strong> : traditionnellement utilisé pour le confort articulaire.</li>
+        <li><strong>Huile essentielle</strong> : parfois utilisée en massage (toujours diluée, avec prudence).</li>
+      </ul>
+
+      <h3>Gingembre</h3>
+      <ul>
+        <li>Connu pour ses composés actifs à effet anti-inflammatoire.</li>
+        <li>Peut être consommé en tisane, dans l’alimentation, ou en préparation adaptée.</li>
+        <li>Huile essentielle : usage prudent, et jamais pure sur la peau.</li>
+      </ul>
+
+<section class="card" id="solutions-naturelles">
+  <img class="section-img"
+       src="/yourhealth/assets/img/arthrose-solutions-naturelles.jfif"
+       alt="Solutions naturelles arthrose"
+       onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';">
+  <h2>Solutions naturelles conseillées</h2>
+
+  <p>
+    Plusieurs approches naturelles peuvent compléter la prise en charge de l’arthrose du genou
+    lorsqu’elles sont utilisées de manière adaptée et sous avis médical.
+    L’article de référence ci-dessous propose des pistes intéressantes pour soulager
+    l’inflammation et la douleur en complément des autres stratégies.
+  </p>
+
+  <h3>Plantes et remèdes traditionnels</h3>
+  <ul>
+    <li>
+      <strong>Romarin</strong> : en infusion ou en décoction, ou encore via une huile essentielle
+      diluée dans une huile végétale, il est souvent utilisé pour apaiser les douleurs
+      articulaires et musculaires.
+    </li>
+    <li>
+      <strong>Gingembre</strong> : grâce à ses carbures sesquiterpéniques, il possède des
+      propriétés anti-inflammatoires intéressantes. On peut l’ajouter en tisane ou dans
+      l’alimentation.
+    </li>
+    <li>
+      <strong>Curcuma</strong> : réputé pour son potentiel anti-inflammatoire, souvent associé
+      au poivre noir pour améliorer son absorption.
+    </li>
+  </ul>
+
+  <h3>Autres approches complémentaires</h3>
+  <p>
+    Ces approches peuvent être intégrées à une prise en charge globale, mais ne doivent pas
+    se substituer aux conseils d’un professionnel de santé :
+  </p>
+  <ul>
+    <li>Massages ou automassages des muscles autour du genou.</li>
+    <li>Applications locales de cataplasmes à base d’argile ou de plantes adaptées.</li>
+    <li>Aliments riches en oméga-3 (poissons gras, graines de lin) pour aider à moduler
+        l’inflammation.</li>
+    <li>Activités douces et régulières (marche, étirements) pour maintenir mobilité et
+        confort articulaire.</li>
+  </ul>
+
+  <p>
+    Ces solutions ne conviennent pas à tout le monde, notamment en cas de
+    traitement médical en cours ou d’allergies/plaintes associées. Il est recommandé
+    de demander l’avis d’un professionnel de santé (médecin, pharmacien, nutritionniste,
+    kinésithérapeute) avant d’entreprendre un protocole naturel.
+  </p>
+
+  <p>
+    📄 <a href="https://centre-osteopathe-lyon.fr/arthrose-du-genou-10-solutions-naturelles/#:~:text=Romarin%20%3A%20en%20infusion%20ou%20en,lutter%20efficacement%20contre%20l%27inflammation"
+          style="color:var(--accent); text-decoration:none;"
+          target="_blank" rel="noopener">
+      Lire l’article complet sur les solutions naturelles recommandées
+    </a>
+  </p>
+</section>
+
+
+      <p class="note">
+        Attention : huiles essentielles et plantes peuvent interagir avec des médicaments (anticoagulants, etc.)
+        et ne conviennent pas à tout le monde. Demande un avis médical si traitement en cours.
+      </p>
+    </section>
+
+    <section class="card" id="alimentation">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-alimentation.jfif"
+           alt="Alimentation et arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Alimentation : un levier important</h2>
+      <p>
+        Une alimentation saine et équilibrée est particulièrement utile en cas d’arthrose du genou,
+        car elle aide à limiter le surpoids et à réduire l’inflammation. Un poids excessif augmente
+        fortement les contraintes sur le genou et accélère l’usure.
+      </p>
+
+      <h3>Aliments anti-inflammatoires à privilégier</h3>
+      <ul>
+        <li>Volailles.</li>
+        <li>Légumes à feuilles vertes (épinards, brocoli, cresson, chou…).</li>
+        <li>Huile d’olive (cuisson) et huile de colza (assaisonnement).</li>
+        <li>Poissons gras (truite, sardines, maquereau, saumon…).</li>
+        <li>Fruits (variés, selon la tolérance et les habitudes).</li>
+      </ul>
+
+      <h3>Aliments à limiter</h3>
+      <ul>
+        <li>Sucres ajoutés.</li>
+        <li>Sodas et jus de fruits.</li>
+        <li>Produits ultra-transformés (chips, gâteaux, biscuits, pizzas, plats préparés…).</li>
+        <li>Graisses animales saturées (viandes grasses, beurre, certains produits laitiers…).</li>
+        <li>Alcool.</li>
+      </ul>
+
+      <p class="note">
+        Un accompagnement par un nutritionniste peut aider à construire un plan réaliste et durable.
+      </p>
+    </section>
+
+    <section class="card" id="sport">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-sport.jfif"
+           alt="Activité physique et arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Activité physique à faible impact</h2>
+      <p>
+        Bouger est bénéfique : cela aide à maintenir un poids stable, renforcer les muscles autour du genou,
+        et préserver la mobilité. À l’inverse, la sédentarité augmente raideur et douleur.
+      </p>
+      <p>
+        Le choix du sport est important : il faut limiter les impacts, éviter les douleurs excessives,
+        et progresser doucement.
+      </p>
+
+      <h3>Exemples d’activités adaptées</h3>
+      <ul>
+        <li>Cyclisme.</li>
+        <li>Natation.</li>
+        <li>Marche à pied.</li>
+        <li>Yoga.</li>
+        <li>Vélo elliptique.</li>
+        <li>Aquagym.</li>
+      </ul>
+
+      <p>
+        Une séance de <strong>30 à 40 minutes</strong> la plupart des jours est une bonne base, si bien tolérée.
+        En cas de douleur persistante, il faut ajuster l’intensité et demander conseil.
+      </p>
+    </section>
+
+    <section class="card" id="electrostimulation">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-electrostimulation.jfif"
+           alt="Électrostimulation et arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Électrostimulation : intérêt possible</h2>
+      <p>
+        L’électrostimulation peut apporter un soulagement chez certaines personnes, notamment par :
+      </p>
+      <ul>
+        <li>Un apaisement de la douleur.</li>
+        <li>Un renforcement des muscles autour du genou.</li>
+        <li>Une amélioration de la mobilité.</li>
+      </ul>
+
+      <p>
+        Le principe : des impulsions électriques peuvent stimuler des voies nerveuses qui modulent la douleur,
+        et favoriser une sensation de mieux-être. Les effets varient selon les individus et les protocoles.
+      </p>
+
+      <p class="note">
+        Si douleur importante ou trouble neurologique, demander un avis médical avant utilisation.
+      </p>
+    </section>
+
+    <section class="card" id="chaud-froid">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-chaud-froid.jfif"
+           alt="Chaud et froid pour l’arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>Chaud ou froid : comment choisir</h2>
+      <p>
+        Le chaud et le froid sont des méthodes simples pour soulager.
+        Le froid peut diminuer le gonflement et « anesthésier » la zone.
+        La chaleur détend les muscles et favorise la circulation sanguine.
+      </p>
+
+      <h3>Conseils pratiques</h3>
+      <ul>
+        <li>Tester les deux : certaines personnes répondent mieux au froid, d’autres au chaud.</li>
+        <li>Avant l’exercice : chaleur pour détendre et préparer l’articulation.</li>
+        <li>Après l’effort : froid pour calmer la douleur.</li>
+        <li>Durée : environ <strong>20 minutes</strong> (bouillotte ou compresse adaptée).</li>
+      </ul>
+
+      <p class="note">
+        Protéger la peau (ne jamais appliquer glace ou chaleur intense directement).
+      </p>
+    </section>
+
+    <section class="card" id="lire-aussi">
+      <img class="section-img"
+           src="/yourhealth/assets/img/arthrose-ressources.jfif"
+           alt="Ressources arthrose"
+           onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
+      <h2>À lire aussi</h2>
+      <p>
+        Source (article) : centre-osteopathe-lyon.fr — « Arthrose du genou : solutions naturelles ».
+      </p>
+      <p>
+        <a href="https://centre-osteopathe-lyon.fr/arthrose-du-genou-10-solutions-naturelles/#:~:text=Romarin%20%3A%20en%20infusion%20ou%20en,lutter%20efficacement%20contre%20l%27inflammation"
+           style="color:var(--accent);text-decoration:none"
+           target="_blank" rel="noopener">
+          Ouvrir l’article de référence
+        </a>
+      </p>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical.
+      En cas de douleur importante, de blocage, de gonflement persistant ou de gêne majeure à la marche,
+      consulte un professionnel de santé.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>
