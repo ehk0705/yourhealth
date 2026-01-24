@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maladies auto-immunes : quand l’immunité se trompe d’ennemi | YourHealth</title>
+  <meta name="description" content="Comprendre les maladies auto-immunes : mécanismes, exemples, symptômes, diagnostic, traitements et conseils pratiques.">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.7;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 16px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    /* ✅ Navigation style : proche de tes autres pages (crumbs + nav) */
+    .topbar{
+      padding:12px 0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .crumbs{
+      color:var(--muted);
+      font-size:14px;
+    }
+    .crumbs a{color:var(--accent)}
+    .mainnav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-start;
+    }
+    .mainnav a{
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      color:var(--txt);
+      background:rgba(255,255,255,.03);
+      font-size:14px;
+      text-decoration:none;
+    }
+    .mainnav a:hover{background:rgba(125,211,252,.10)}
+
+    /* Hero */
+    .hero{
+      padding:22px 0 10px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .heroCard{
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .heroText{padding:18px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border:1px solid rgba(125,211,252,.35);
+      border-radius:999px;
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:13px;
+    }
+    h1{margin:10px 0 8px; font-size:28px; line-height:1.2}
+    .lead{margin:0; color:var(--muted)}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .chip{
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      background:rgba(0,0,0,.18);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .heroImg{
+      position:relative;
+      min-height:240px;
+      background:#0a1222;
+      border-left:1px solid rgba(255,255,255,.06);
+    }
+    .heroImg img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.05);
+    }
+    .heroImg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(90deg, rgba(11,18,32,.65), rgba(11,18,32,.05) 55%, rgba(11,18,32,.35));
+      pointer-events:none;
+    }
+    .credit{
+      position:absolute; left:12px; bottom:10px;
+      font-size:12px;
+      color:rgba(238,242,255,.8);
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 10px;
+      border-radius:999px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Main layout */
+    main{padding:10px 0 28px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr .38fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .card{
+      background:rgba(18,27,46,.85);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .card h2{margin:0 0 10px; font-size:20px}
+    .card h3{margin:14px 0 8px; font-size:16px}
+    .muted{color:var(--muted)}
+    .note{
+      border-left:4px solid rgba(125,211,252,.55);
+      padding:10px 12px;
+      background:rgba(125,211,252,.07);
+      border-radius:12px;
+      color:var(--txt);
+    }
+
+    .list{
+      margin:8px 0 0;
+      padding-left:18px;
+      color:var(--txt);
+    }
+    .list li{margin:6px 0}
+    .pillRow{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;
+    }
+    .pill{
+      display:inline-flex; align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
+      color:var(--txt);
+      font-size:13px;
+    }
+    .dot{
+      width:9px; height:9px; border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 3px rgba(125,211,252,.15);
+      flex:0 0 auto;
+    }
+
+    /* Right column */
+    .side .miniTitle{margin:0 0 10px; font-size:16px}
+    .toc{display:flex; flex-direction:column; gap:8px}
+    .toc a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      background:rgba(0,0,0,.16);
+      color:var(--txt);
+      text-decoration:none;
+      font-size:14px;
+    }
+    .toc a:hover{background:rgba(125,211,252,.10)}
+    .badge{
+      font-size:12px; color:var(--muted);
+      padding:2px 8px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .alert{
+      border:1px solid rgba(250,204,21,.35);
+      background:rgba(250,204,21,.08);
+      border-radius:var(--radius);
+      padding:12px;
+      margin-top:12px;
+    }
+    .alert strong{color:var(--yellow)}
+
+    /* Small image cards */
+    .imgRow{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .imgCard{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      overflow:hidden;
+      background:rgba(0,0,0,.16);
+    }
+    .imgCard img{width:100%; height:160px; object-fit:cover; display:block}
+    .imgCap{padding:10px; font-size:13px; color:var(--muted)}
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:18px 0 26px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns:1fr}
+      .heroImg{min-height:220px; border-left:0; border-top:1px solid rgba(255,255,255,.06)}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+
+      <!-- ✅ Fil d’Ariane comme tes autres pages -->
+      <div class="crumbs">
+        <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Maladies auto-immunes
+      </div>
+
+      <!-- ✅ Menu principal identique -->
+      <nav class="mainnav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="heroCard">
+      <div class="heroGrid">
+        <div class="heroText">
+          <span class="kicker">Système immunitaire • dérèglement • inflammation</span>
+          <h1>Maladies auto-immunes : quand l’immunité se trompe d’ennemi</h1>
+          <p class="lead">
+            Normalement, l’immunité défend le corps contre les microbes. Dans une maladie auto-immune,
+            elle se dérègle et s’attaque aux tissus de l’organisme comme s’ils étaient une menace.
+          </p>
+
+          <div class="chips" role="list" aria-label="Résumé en mots-clés">
+            <span class="chip" role="listitem">Perte de tolérance</span>
+            <span class="chip" role="listitem">Inflammation chronique</span>
+            <span class="chip" role="listitem">Atteinte d’organes</span>
+            <span class="chip" role="listitem">Poussées / rémissions</span>
+          </div>
+        </div>
+
+        <div class="heroImg">
+          <img src="assets/img/autoimmune-hero.jpg" alt="Illustration : cellules immunitaires et inflammation" loading="lazy"
+               onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+          <div class="credit">À compléter : image “autoimmune-hero.jpg”</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <section class="card" aria-label="Contenu principal">
+        <h2 id="comprendre">Comprendre le mécanisme</h2>
+        <div class="note">
+          <strong>Idée centrale :</strong> l’immunité se trompe de cible. Au lieu de neutraliser des microbes,
+          elle attaque le “soi” (cellules, tissus, organes). Cela entretient une <strong>inflammation</strong> qui peut devenir chronique.
+        </div>
+
+        <h3>Pourquoi ça arrive ?</h3>
+        <ul class="list">
+          <li><strong>Terrain génétique</strong> : certaines prédispositions augmentent le risque.</li>
+          <li><strong>Déclencheurs possibles</strong> : infections, stress intense, tabac, déséquilibres hormonaux, certains médicaments, etc. (souvent, on ne retrouve pas une cause unique).</li>
+          <li><strong>Dérèglement de la tolérance immunitaire</strong> : les “freins” qui empêchent l’attaque du corps fonctionnent mal.</li>
+        </ul>
+
+        <div class="pillRow" aria-label="Notions importantes">
+          <span class="pill"><span class="dot"></span>Auto-anticorps</span>
+          <span class="pill"><span class="dot"></span>Inflammation</span>
+          <span class="pill"><span class="dot"></span>Poussées</span>
+          <span class="pill"><span class="dot"></span>Atteinte d’organe</span>
+        </div>
+
+        <h2 id="exemples" style="margin-top:18px">Exemples fréquents</h2>
+        <ul class="list">
+          <li><strong>Polyarthrite rhumatoïde</strong> : inflammation des articulations.</li>
+          <li><strong>Lupus</strong> : maladie systémique pouvant toucher peau, articulations, reins, etc.</li>
+          <li><strong>Thyroïdite de Hashimoto</strong> / <strong>Basedow</strong> : atteinte de la thyroïde.</li>
+          <li><strong>Diabète de type 1</strong> : destruction auto-immune des cellules du pancréas.</li>
+          <li><strong>Sclérose en plaques</strong> : atteinte du système nerveux central.</li>
+          <li><strong>Maladie cœliaque</strong> : réaction immunitaire au gluten, atteinte de l’intestin.</li>
+          <li><strong>Maladies inflammatoires de l’intestin</strong> (Crohn, rectocolite) : inflammation digestive.</li>
+          <li><strong>Psoriasis</strong> : inflammation cutanée (souvent immunitaire).</li>
+        </ul>
+
+        <div class="imgRow" aria-label="Images d’illustration">
+          <div class="imgCard">
+            <img src="assets/img/autoimmune-joints.jpg" alt="Articulations : inflammation et douleur" loading="lazy"
+                 onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+            <div class="imgCap">Exemple : atteinte articulaire (douleurs, raideur).</div>
+          </div>
+          <div class="imgCard">
+            <img src="assets/img/autoimmune-skin.jpg" alt="Peau : plaques inflammatoires" loading="lazy"
+                 onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+            <div class="imgCap">Exemple : atteinte cutanée (plaques, rougeurs).</div>
+          </div>
+        </div>
+
+        <h2 id="signes" style="margin-top:18px">Signes possibles</h2>
+        <p class="muted">Les symptômes dépendent de l’organe touché. Beaucoup sont “généraux” et peu spécifiques.</p>
+        <ul class="list">
+          <li><strong>Fatigue inhabituelle</strong>, fièvre modérée, douleurs diffuses.</li>
+          <li><strong>Douleurs et raideur</strong> (souvent le matin), gonflements articulaires.</li>
+          <li><strong>Éruptions cutanées</strong>, aphtes, sécheresse des yeux/bouche.</li>
+          <li><strong>Troubles digestifs</strong> persistants (douleurs, diarrhées, amaigrissement).</li>
+          <li><strong>Signes neurologiques</strong> (fourmillements, faiblesse, troubles visuels) selon les cas.</li>
+        </ul>
+
+        <h2 id="diagnostic" style="margin-top:18px">Diagnostic</h2>
+        <ul class="list">
+          <li><strong>Examen clinique</strong> + histoire des symptômes.</li>
+          <li><strong>Biologie</strong> : inflammation, auto-anticorps, bilan d’organe.</li>
+          <li><strong>Imagerie</strong> si besoin (échographie, IRM, radiographie).</li>
+          <li><strong>Consultations spécialisées</strong> (rhumatologie, gastro-entérologie, endocrinologie, neurologie…).</li>
+        </ul>
+
+        <h2 id="traitements" style="margin-top:18px">Prise en charge</h2>
+        <p class="muted">
+          Objectifs : calmer l’inflammation, limiter les lésions, réduire les symptômes, prévenir les complications.
+        </p>
+        <ul class="list">
+          <li><strong>Traitements symptomatiques</strong> : antalgiques, anti-inflammatoires (selon indication médicale).</li>
+          <li><strong>Corticoïdes</strong> : efficaces sur les poussées, mais à surveiller.</li>
+          <li><strong>Traitements de fond</strong> : immunomodulateurs / immunosuppresseurs, biothérapies, selon la maladie.</li>
+          <li><strong>Hygiène de vie</strong> : sommeil, activité physique adaptée, arrêt du tabac, gestion du stress, alimentation équilibrée.</li>
+        </ul>
+
+        <div class="alert">
+          <strong>À ne pas faire :</strong> “booster” l’immunité au hasard (compléments, cures, plantes) est une mauvaise idée quand on suspecte une auto-immunité.
+          Le problème n’est pas une immunité trop faible, mais une immunité mal réglée.
+        </div>
+
+        <h3>Quand consulter rapidement</h3>
+        <ul class="list">
+          <li>Douleur importante + perte de force, troubles neurologiques, baisse de vision.</li>
+          <li>Fièvre persistante, amaigrissement, fatigue extrême.</li>
+          <li>Sang dans les selles, diarrhée prolongée, douleurs abdominales fortes.</li>
+          <li>Essoufflement, douleur thoracique, gonflement brutal d’un membre.</li>
+        </ul>
+      </section>
+
+      <aside class="card side" aria-label="Sommaire et repères">
+        <p class="miniTitle"><strong>Sommaire</strong></p>
+        <div class="toc">
+          <a href="#comprendre">Comprendre <span class="badge">mécanisme</span></a>
+          <a href="#exemples">Exemples <span class="badge">maladies</span></a>
+          <a href="#signes">Signes <span class="badge">symptômes</span></a>
+          <a href="#diagnostic">Diagnostic <span class="badge">examens</span></a>
+          <a href="#traitements">Prise en charge <span class="badge">traitements</span></a>
+        </div>
+
+        <div class="alert" style="margin-top:14px">
+          <strong>Repère simple :</strong><br>
+          Auto-immun : le corps est pris pour l’ennemi.<br>
+          Allergie : une substance externe banale déclenche une réaction excessive.
+        </div>
+
+        <p class="muted" style="margin-top:12px">
+          Images à prévoir dans <code>assets/img/</code> :
+          <br>• <code>autoimmune-hero.jpg</code>
+          <br>• <code>autoimmune-joints.jpg</code>
+          <br>• <code>autoimmune-skin.jpg</code>
+          <br>(sinon <code>default.jpg</code> sera utilisée)
+        </p>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Page informative. En cas de symptômes persistants ou inquiétants, consulte un professionnel de santé.</div>
+  </div>
+</footer>
+
+</body>
+</html>
