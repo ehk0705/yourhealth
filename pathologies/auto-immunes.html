@@ -40,7 +40,6 @@
       border-bottom:1px solid var(--border);
     }
 
-    /* ✅ Navigation style : proche de tes autres pages (crumbs + nav) */
     .topbar{
       padding:12px 0;
       display:flex;
@@ -70,9 +69,7 @@
     .mainnav a:hover{background:rgba(125,211,252,.10)}
 
     /* Hero */
-    .hero{
-      padding:22px 0 10px;
-    }
+    .hero{padding:22px 0 10px}
     .heroGrid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -113,11 +110,16 @@
       min-height:240px;
       background:#0a1222;
       border-left:1px solid rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
     }
     .heroImg img{
-      width:100%; height:100%;
-      object-fit:cover;
+      width:75%;
+      height:auto;
       display:block;
+      border-radius:14px;
       filter:saturate(1.05) contrast(1.05);
     }
     .heroImg::after{
@@ -125,16 +127,6 @@
       position:absolute; inset:0;
       background:linear-gradient(90deg, rgba(11,18,32,.65), rgba(11,18,32,.05) 55%, rgba(11,18,32,.35));
       pointer-events:none;
-    }
-    .credit{
-      position:absolute; left:12px; bottom:10px;
-      font-size:12px;
-      color:rgba(238,242,255,.8);
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.12);
-      padding:6px 10px;
-      border-radius:999px;
-      backdrop-filter: blur(8px);
     }
 
     /* Main layout */
@@ -248,14 +240,8 @@
       .heroGrid{grid-template-columns:1fr}
       .heroImg{min-height:220px; border-left:0; border-top:1px solid rgba(255,255,255,.06)}
       .grid{grid-template-columns:1fr}
+      .heroImg img{width:90%}
     }
-	.heroImg img{
-  width:75%;
-  height:auto;
-  margin:0 auto;
-  display:block;
-}
-
   </style>
 </head>
 
@@ -264,20 +250,16 @@
 <header>
   <div class="wrap">
     <div class="topbar">
-
-      <!-- ✅ Fil d’Ariane comme tes autres pages -->
       <div class="crumbs">
         <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Maladies auto-immunes
       </div>
 
-      <!-- ✅ Menu principal identique -->
       <nav class="mainnav" aria-label="Navigation principale">
         <a href="/yourhealth/index.html">Accueil</a>
         <a href="/yourhealth/ressources.html">Ressources</a>
         <a href="/yourhealth/contact.html">Contact</a>
         <a href="javascript:history.back()">Retour</a>
       </nav>
-
     </div>
   </div>
 </header>
@@ -286,7 +268,6 @@
   <div class="wrap">
     <div class="heroCard">
       <div class="heroGrid">
-
         <div class="heroText">
           <span class="kicker">Système immunitaire • dérèglement • inflammation</span>
           <h1>Maladies auto-immunes : quand l’immunité se trompe d’ennemi</h1>
@@ -306,81 +287,52 @@
         <div class="heroImg">
           <img src="/yourhealth/assets/img/auto-immunes.jfif"
                alt="Illustration : cellules immunitaires et inflammation"
-               class="heroImgSmall"
                loading="lazy"
-               onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jpg';">
+               onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
         </div>
-
       </div>
     </div>
   </div>
 </section>
-
-</section>
-
-<section class="card" aria-label="Causes des maladies auto-immunes" style="margin-top:18px">
-  <h2>Pourquoi une maladie auto-immune apparaît-elle ?</h2>
-
-  <p>
-    Une maladie auto-immune survient lorsque le système immunitaire se trompe de cible.
-    Au lieu de défendre l’organisme contre les microbes, il attaque des cellules,
-    des tissus ou des organes du corps.
-  </p>
-
-  <p class="muted">
-    Il n’existe pas une cause unique, mais une combinaison de facteurs.
-  </p>
-
-  <h3>1) Prédisposition génétique</h3>
-  <p>
-    Certaines personnes naissent avec un terrain génétique qui augmente le risque.
-    Cette prédisposition ne déclenche pas la maladie à elle seule.
-  </p>
-
-  <h3>2) Facteurs déclenchants possibles</h3>
-  <ul class="list">
-    <li>Infections, après une activation intense du système immunitaire.</li>
-    <li>Stress important ou prolongé.</li>
-    <li>Tabagisme.</li>
-    <li>Déséquilibres hormonaux.</li>
-    <li>Certains médicaments.</li>
-  </ul>
-
-  <h3>3) Perte de la tolérance immunitaire</h3>
-  <p>
-    Les mécanismes qui empêchent normalement le système immunitaire
-    d’attaquer le corps ne fonctionnent plus correctement.
-  </p>
-
-  <h3>4) Facteurs environnementaux</h3>
-  <p>
-    L’exposition à certains polluants, perturbateurs endocriniens
-    ou à une alimentation très transformée pourrait jouer un rôle.
-  </p>
-
-  <div class="alert" style="margin-top:12px">
-    <strong>À retenir :</strong><br>
-    Ce n’est ni psychologique ni volontaire.<br>
-    Le problème n’est pas une immunité trop faible,
-    mais une immunité <strong>mal régulée</strong>
 
 <main>
   <div class="wrap">
     <div class="grid">
 
       <section class="card" aria-label="Contenu principal">
-        <h2 id="comprendre">Comprendre le mécanisme</h2>
+
+        <!-- ✅ Section épurée (fusion des redondances) -->
+        <section id="causes" aria-label="Causes des maladies auto-immunes">
+          <h2>Pourquoi une maladie auto-immune apparaît-elle ?</h2>
+
+          <p>
+            Une maladie auto-immune survient lorsque le système immunitaire se trompe de cible.
+            Au lieu de défendre l’organisme contre les microbes, il attaque des cellules, des tissus ou des organes.
+          </p>
+
+          <p class="muted">
+            Il n’existe pas une cause unique : c’est souvent une combinaison de facteurs.
+          </p>
+
+          <h3>Facteurs qui peuvent contribuer</h3>
+          <ul class="list">
+            <li><strong>Prédisposition génétique</strong> : un terrain augmente le risque, sans déclencher la maladie à lui seul.</li>
+            <li><strong>Déclencheurs possibles</strong> : infections, stress important ou prolongé, tabagisme, variations hormonales, certains médicaments.</li>
+            <li><strong>Perte de tolérance immunitaire</strong> : les mécanismes qui empêchent l’attaque du “soi” fonctionnent mal.</li>
+            <li><strong>Facteurs environnementaux</strong> : certains polluants, perturbateurs endocriniens ou une alimentation très transformée pourraient jouer un rôle.</li>
+          </ul>
+
+          <div class="alert">
+            <strong>À retenir :</strong><br>
+            Ce n’est ni “psychologique” ni volontaire. Le problème n’est pas une immunité trop faible, mais une immunité <strong>mal régulée</strong>.
+          </div>
+        </section>
+
+        <h2 id="comprendre" style="margin-top:18px">Comprendre le mécanisme</h2>
         <div class="note">
           <strong>Idée centrale :</strong> l’immunité se trompe de cible. Au lieu de neutraliser des microbes,
           elle attaque le “soi” (cellules, tissus, organes). Cela entretient une <strong>inflammation</strong> qui peut devenir chronique.
         </div>
-
-        <h3>Pourquoi ça arrive ?</h3>
-        <ul class="list">
-          <li><strong>Terrain génétique</strong> : certaines prédispositions augmentent le risque.</li>
-          <li><strong>Déclencheurs possibles</strong> : infections, stress intense, tabac, déséquilibres hormonaux, certains médicaments, etc. (souvent, on ne retrouve pas une cause unique).</li>
-          <li><strong>Dérèglement de la tolérance immunitaire</strong> : les “freins” qui empêchent l’attaque du corps fonctionnent mal.</li>
-        </ul>
 
         <div class="pillRow" aria-label="Notions importantes">
           <span class="pill"><span class="dot"></span>Auto-anticorps</span>
@@ -392,44 +344,80 @@
         <h2 id="exemples" style="margin-top:18px">Exemples fréquents</h2>
         <ul class="list">
           <li><strong>Polyarthrite rhumatoïde</strong> : inflammation des articulations.</li>
-          <li><strong>Lupus</strong> : maladie systémique pouvant toucher peau, articulations, reins, etc.</li>
+          <li><strong>Lupus</strong> : atteinte possible de la peau, des articulations, des reins, etc.</li>
           <li><strong>Thyroïdite de Hashimoto</strong> / <strong>Basedow</strong> : atteinte de la thyroïde.</li>
-          <li><strong>Diabète de type 1</strong> : destruction auto-immune des cellules du pancréas.</li>
+          <li><strong>Diabète de type 1</strong> : destruction des cellules du pancréas.</li>
           <li><strong>Sclérose en plaques</strong> : atteinte du système nerveux central.</li>
-          <li><strong>Maladie cœliaque</strong> : réaction immunitaire au gluten, atteinte de l’intestin.</li>
+          <li><strong>Maladie cœliaque</strong> : réaction immunitaire au gluten, atteinte intestinale.</li>
           <li><strong>Maladies inflammatoires de l’intestin</strong> (Crohn, rectocolite) : inflammation digestive.</li>
-          <li><strong>Psoriasis</strong> : inflammation cutanée (souvent immunitaire).</li>
+          <li><strong>Psoriasis</strong> : inflammation cutanée d’origine immunitaire.</li>
         </ul>
 
         <div class="imgRow" aria-label="Images d’illustration">
           <div class="imgCard">
-            <img src="assets/img/autoimmune-joints.jpg" alt="Articulations : inflammation et douleur" loading="lazy"
-                 onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+            <img src="/yourhealth/assets/img/autoimmune-joints.jfif" alt="Articulations : inflammation et douleur" loading="lazy"
+                 onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
             <div class="imgCap">Exemple : atteinte articulaire (douleurs, raideur).</div>
           </div>
           <div class="imgCard">
-            <img src="assets/img/autoimmune-skin.jpg" alt="Peau : plaques inflammatoires" loading="lazy"
-                 onerror="this.onerror=null;this.src='assets/img/default.jpg';">
+            <img src="/yourhealth/assets/img/autoimmune-skin.jfif" alt="Peau : plaques inflammatoires" loading="lazy"
+                 onerror="this.onerror=null;this.src='/yourhealth/assets/img/default.jfif';">
             <div class="imgCap">Exemple : atteinte cutanée (plaques, rougeurs).</div>
           </div>
         </div>
 
         <h2 id="signes" style="margin-top:18px">Signes possibles</h2>
-        <p class="muted">Les symptômes dépendent de l’organe touché. Beaucoup sont “généraux” et peu spécifiques.</p>
+        <p class="muted">Les symptômes dépendent de l’organe touché. Beaucoup sont généraux et peu spécifiques.</p>
         <ul class="list">
           <li><strong>Fatigue inhabituelle</strong>, fièvre modérée, douleurs diffuses.</li>
           <li><strong>Douleurs et raideur</strong> (souvent le matin), gonflements articulaires.</li>
-          <li><strong>Éruptions cutanées</strong>, aphtes, sécheresse des yeux/bouche.</li>
+          <li><strong>Éruptions cutanées</strong>, aphtes, sécheresse des yeux ou de la bouche.</li>
           <li><strong>Troubles digestifs</strong> persistants (douleurs, diarrhées, amaigrissement).</li>
           <li><strong>Signes neurologiques</strong> (fourmillements, faiblesse, troubles visuels) selon les cas.</li>
         </ul>
 
+        <!-- ✅ Nouvelle section demandée : texte ajouté + épuré -->
+        <h2 id="detection" style="margin-top:18px">Comment détecter une maladie auto-immune ?</h2>
+        <p class="muted">Il n’existe pas un test unique. Le diagnostic repose sur l’ensemble des signes et des examens.</p>
+
+        <h3>1) Symptômes persistants</h3>
+        <ul class="list">
+          <li>Fatigue durable et inhabituelle.</li>
+          <li>Douleurs articulaires ou musculaires.</li>
+          <li>Inflammations récurrentes, parfois par poussées.</li>
+          <li>Fièvre légère inexpliquée.</li>
+          <li>Troubles cutanés, digestifs ou neurologiques selon l’organe touché.</li>
+        </ul>
+
+        <h3>2) Analyses sanguines</h3>
+        <ul class="list">
+          <li>Marqueurs de l’inflammation (CRP, VS).</li>
+          <li>Auto-anticorps (ANA, anti-ADN, anti-TPO, etc.), selon la suspicion.</li>
+          <li>Bilan d’organe (foie, reins, thyroïde, numération, etc.) selon les symptômes.</li>
+        </ul>
+        <div class="note" style="margin-top:10px">
+          <strong>Important :</strong> un auto-anticorps positif ne suffit pas à prouver une maladie. L’interprétation dépend du contexte.
+        </div>
+
+        <h3>3) Examens complémentaires</h3>
+        <ul class="list">
+          <li>Imagerie (échographie, IRM, radiographie) si nécessaire.</li>
+          <li>Biopsie dans certains cas.</li>
+          <li>Tests fonctionnels selon l’organe (respiration, nerfs, digestion, etc.).</li>
+        </ul>
+
+        <h3>4) Avis spécialisé</h3>
+        <ul class="list">
+          <li>Interniste, rhumatologue, neurologue, gastro-entérologue, endocrinologue… selon le tableau.</li>
+          <li>Le diagnostic est parfois progressif, surtout au début.</li>
+        </ul>
+
         <h2 id="diagnostic" style="margin-top:18px">Diagnostic</h2>
         <ul class="list">
-          <li><strong>Examen clinique</strong> + histoire des symptômes.</li>
+          <li><strong>Examen clinique</strong> et histoire des symptômes.</li>
           <li><strong>Biologie</strong> : inflammation, auto-anticorps, bilan d’organe.</li>
-          <li><strong>Imagerie</strong> si besoin (échographie, IRM, radiographie).</li>
-          <li><strong>Consultations spécialisées</strong> (rhumatologie, gastro-entérologie, endocrinologie, neurologie…).</li>
+          <li><strong>Imagerie</strong> si besoin.</li>
+          <li><strong>Consultations spécialisées</strong> selon l’atteinte.</li>
         </ul>
 
         <h2 id="traitements" style="margin-top:18px">Prise en charge</h2>
@@ -438,19 +426,19 @@
         </p>
         <ul class="list">
           <li><strong>Traitements symptomatiques</strong> : antalgiques, anti-inflammatoires (selon indication médicale).</li>
-          <li><strong>Corticoïdes</strong> : efficaces sur les poussées, mais à surveiller.</li>
-          <li><strong>Traitements de fond</strong> : immunomodulateurs / immunosuppresseurs, biothérapies, selon la maladie.</li>
-          <li><strong>Hygiène de vie</strong> : sommeil, activité physique adaptée, arrêt du tabac, gestion du stress, alimentation équilibrée.</li>
+          <li><strong>Corticoïdes</strong> : utiles sur les poussées, avec surveillance.</li>
+          <li><strong>Traitements de fond</strong> : immunomodulateurs, immunosuppresseurs, biothérapies, selon la maladie.</li>
+          <li><strong>Hygiène de vie</strong> : sommeil, activité adaptée, arrêt du tabac, gestion du stress, alimentation équilibrée.</li>
         </ul>
 
         <div class="alert">
-          <strong>À ne pas faire :</strong> “booster” l’immunité au hasard (compléments, cures, plantes) est une mauvaise idée quand on suspecte une auto-immunité.
-          Le problème n’est pas une immunité trop faible, mais une immunité mal réglée.
+          <strong>À éviter :</strong> “booster l’immunité” au hasard (compléments, cures, plantes) est une mauvaise idée en cas de suspicion d’auto-immunité.
+          Le problème est une immunité mal réglée, pas une immunité trop faible.
         </div>
 
         <h3>Quand consulter rapidement</h3>
         <ul class="list">
-          <li>Douleur importante + perte de force, troubles neurologiques, baisse de vision.</li>
+          <li>Troubles neurologiques, perte de force, baisse de vision.</li>
           <li>Fièvre persistante, amaigrissement, fatigue extrême.</li>
           <li>Sang dans les selles, diarrhée prolongée, douleurs abdominales fortes.</li>
           <li>Essoufflement, douleur thoracique, gonflement brutal d’un membre.</li>
@@ -460,27 +448,22 @@
       <aside class="card side" aria-label="Sommaire et repères">
         <p class="miniTitle"><strong>Sommaire</strong></p>
         <div class="toc">
+          <a href="#causes">Causes <span class="badge">facteurs</span></a>
           <a href="#comprendre">Comprendre <span class="badge">mécanisme</span></a>
           <a href="#exemples">Exemples <span class="badge">maladies</span></a>
           <a href="#signes">Signes <span class="badge">symptômes</span></a>
-          <a href="#diagnostic">Diagnostic <span class="badge">examens</span></a>
+          <a href="#detection">Détection <span class="badge">examens</span></a>
+          <a href="#diagnostic">Diagnostic <span class="badge">bilan</span></a>
           <a href="#traitements">Prise en charge <span class="badge">traitements</span></a>
         </div>
 
         <div class="alert" style="margin-top:14px">
           <strong>Repère simple :</strong><br>
-          Auto-immun : le corps est pris pour l’ennemi.<br>
+          Auto-immune : le corps est pris pour l’ennemi.<br>
           Allergie : une substance externe banale déclenche une réaction excessive.
         </div>
 
-        <p class="muted" style="margin-top:12px">
-          Images à prévoir dans <code>assets/img/</code> :
-          <br>• <code>autoimmune-hero.jpg</code>
-          <br>• <code>autoimmune-joints.jpg</code>
-          <br>• <code>autoimmune-skin.jpg</code>
-          <br>(sinon <code>default.jpg</code> sera utilisée)
-        </p>
-      </aside>
+f      </aside>
 
     </div>
   </div>
