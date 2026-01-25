@@ -7,7 +7,7 @@
 
   <style>
     :root{
-      /* ✅ Thème bleu nuit */
+      /* Thème bleu nuit */
       --bg:#070b1a;
       --panel:#0b1228;
       --card:#0f1a35;
@@ -21,6 +21,8 @@
       --border:rgba(255,255,255,.14);
       --shadow:0 14px 40px rgba(0,0,0,.55);
       --radius:18px;
+
+      --barH: 140px; /* sera mis à jour en JS */
     }
 
     *{box-sizing:border-box}
@@ -28,6 +30,7 @@
 
     body{
       margin:0;
+      padding-top: calc(var(--barH) + 16px); /* évite que la barre fixe masque les liens */
       font-family:
         "Comic Sans MS",
         "Segoe Print",
@@ -49,16 +52,31 @@
       padding:22px 16px 34px;
     }
 
-    header.hero{
+    /* ✅ Barre fixe (températures + recherche) */
+    .fixed-bar{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:50;
+      padding:12px 0;
+      background:linear-gradient(180deg, rgba(7,11,26,.92), rgba(7,11,26,.72));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+
+    .bar-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    .hero{
       background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:16px 14px;
-      position:sticky;
-      top:0;
-      z-index:10;
-      backdrop-filter: blur(6px);
+      padding:14px 14px;
     }
 
     .top{
@@ -82,7 +100,7 @@
       font-size:1rem;
     }
 
-    /* ✅ Bandeau températures */
+    /* ✅ Bandeau températures (fixe car dans la barre fixe) */
     .temps-wrap{
       margin-top:10px;
       display:flex;
@@ -270,34 +288,40 @@
 </head>
 
 <body>
-  <div class="container">
-    <header class="hero">
-      <div class="top">
-        <div>
-          <h1>🌞 Météo & Journaux</h1>
-          <p class="subtitle">Des liens rapides, des titres un peu drôles, et zéro perte de temps.</p>
+  <!-- ✅ Barre fixe : températures + filtre -->
+  <div class="fixed-bar" id="fixedBar">
+    <div class="bar-inner">
+      <div class="hero">
+        <div class="top">
+          <div>
+            <h1>🌞 Météo & Journaux</h1>
+            <p class="subtitle">Des liens rapides, des titres un peu drôles, et zéro perte de temps.</p>
 
-          <!-- ✅ Températures au début -->
-          <div class="temps-wrap" id="tempsWrap" aria-label="Températures par pays">
-            <span class="temp-pill"><strong>Températures</strong> <span class="small">chargement…</span></span>
+            <div class="temps-wrap" id="tempsWrap" aria-label="Températures par pays">
+              <span class="temp-pill"><strong>Températures</strong> <span class="small">chargement…</span></span>
+            </div>
+          </div>
+
+          <div class="search">
+            <label for="q">Filtrer les liens (ex. « sport », « Espagne », « BBC »)</label>
+            <input id="q" type="text" placeholder="Tape pour filtrer…">
           </div>
         </div>
-
-        <div class="search">
-          <label for="q">Filtrer les liens (ex. « sport », « Espagne », « BBC »)</label>
-          <input id="q" type="text" placeholder="Tape pour filtrer…">
-        </div>
       </div>
-    </header>
+    </div>
+  </div>
 
+  <div class="container">
     <main>
-      <!-- METEO -->
-      <section class="section" data-section="meteo">
+      <!-- ✅ UNE SEULE SECTION POUR TOUT -->
+      <section class="section" data-section="liens">
         <div class="section-head">
-          <h2>🌦️ Météo : “Dis-moi si je sors ou si je reste vivant”</h2>
-          <span class="pill">Officiel</span>
+          <h2>🔎 Tous les liens</h2>
+          <span class="pill">Météo • PMU • Presse • Autres</span>
         </div>
+
         <div class="grid">
+          <!-- MÉTÉO -->
           <a class="link-card" href="https://meteo.gc.ca/city/pages/qc-133_metric_f.html" target="_blank" rel="noopener noreferrer"
              data-keywords="meteo météo canada gouvernement qc-133">
             <div class="left">
@@ -321,16 +345,8 @@
               <span class="tag">Loto</span>
             </div>
           </a>
-        </div>
-      </section>
 
-      <!-- PMU -->
-      <section class="section" data-section="pmu">
-        <div class="section-head">
-          <h2>🐎 Courses PMU : “La logique, puis le hasard, puis les regrets”</h2>
-          <span class="pill">Pronostics & rapports</span>
-        </div>
-        <div class="grid">
+          <!-- PMU -->
           <a class="link-card" href="https://www.pronostics-turf.info/fg-pronostics-presse.php" target="_blank" rel="noopener noreferrer"
              data-keywords="pmu pronostics turf presse">
             <div class="left">
@@ -354,17 +370,8 @@
               <span class="tag">Résultats</span>
             </div>
           </a>
-        </div>
-      </section>
 
-      <!-- JOURNAUX / PRESSE -->
-      <section class="section" data-section="presse">
-        <div class="section-head">
-          <h2>📰 Journaux : “Une dose d’info, pas une perfusion”</h2>
-          <span class="pill">France • UK • Espagne • Russie • Allemagne • Monde arabe</span>
-        </div>
-
-        <div class="grid">
+          <!-- PRESSE -->
           <a class="link-card" href="https://www.monde-diplomatique.fr/" target="_blank" rel="noopener noreferrer"
              data-keywords="france presse monde diplomatique analyse">
             <div class="left">
@@ -572,13 +579,13 @@
             <div class="tags"><span class="tag">UK</span><span class="tag">Éco</span></div>
           </a>
 
-          <a class="link-card" href="https://elpais.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne el pais presse">
+          <a class="link-card" href="https://elpais.com/argentina/" target="_blank" rel="noopener noreferrer"
+             data-keywords="espagne el pais presse argentina">
             <div class="left">
-              <div class="title">El País</div>
-              <div class="desc">Actualités, Espagne, international.</div>
+              <div class="title">El País (Argentine)</div>
+              <div class="desc">Actualités d’Argentine et international.</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span></div>
+            <div class="tags"><span class="tag">Argentine</span><span class="tag">Espagnol</span></div>
           </a>
 
           <a class="link-card" href="https://www.elmundo.es/" target="_blank" rel="noopener noreferrer"
@@ -607,18 +614,7 @@
             </div>
             <div class="tags"><span class="tag">Espagne</span></div>
           </a>
-        </div>
-         <!-- ✅ Argentine : El País -->
-          <a class="link-card" href="https://www.elpais.com.ar/" target="_blank" rel="noopener noreferrer"
-             data-keywords="argentine el pais argentina journal presse">
-            <div class="left">
-              <div class="title">El País (Argentine)</div>
-              <div class="desc">Actualités d’Argentine et international.</div>
-            </div>
-            <div class="tags"><span class="tag">Argentine</span><span class="tag">Espagnol</span></div>
-          </a>
 
-          <!-- ✅ Colombie : journal populaire -->
           <a class="link-card" href="https://www.eltiempo.com/" target="_blank" rel="noopener noreferrer"
              data-keywords="colombie colombia el tiempo journal presse populaire">
             <div class="left">
@@ -626,19 +622,10 @@
               <div class="desc">Grand quotidien colombien (actualité générale).</div>
             </div>
             <div class="tags"><span class="tag">Colombie</span><span class="tag">Espagnol</span></div>
-          </a>		
-		
+          </a>
 
-      </section>
-
-      <!-- AUTRES LIENS -->
-      <section class="section" data-section="autres">
-        <div class="section-head">
-          <h2>🔗 Autres liens : “Le tiroir fourre-tout assumé”</h2>
-          <span class="pill">À compléter</span>
-        </div>
-        <div class="grid">
-          <div class="link-card" style="grid-column:span 12;">
+          <!-- AUTRES -->
+          <div class="link-card" style="grid-column:span 12;" data-keywords="autres perso espace libre">
             <div class="left">
               <div class="title">Espace libre</div>
               <div class="desc">Ajoute ici tes liens personnels.</div>
@@ -654,11 +641,21 @@
     </footer>
   </div>
 
+<!--
   <script>
     (function(){
+      // Ajuster la hauteur de la barre fixe pour éviter tout masquage
+      const bar = document.getElementById('fixedBar');
+      function setBarH(){
+        const h = Math.ceil(bar.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--barH', h + 'px');
+      }
+      window.addEventListener('resize', setBarH);
+      setBarH();
+
       // Filtre
       const input = document.getElementById('q');
-      const cards = Array.from(document.querySelectorAll('.link-card[href]'));
+      const cards = Array.from(document.querySelectorAll('.link-card[href], .link-card[data-keywords]'));
 
       function normalize(s){
         return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -682,7 +679,7 @@
 
       input.addEventListener('input', applyFilter);
 
-      // ✅ Températures par pays (villes repères)
+      // Températures par pays (villes repères)
       const places = [
         { label: "Canada", city: "Québec", lat: 46.8139, lon: -71.2080 },
         { label: "France", city: "Paris", lat: 48.8566, lon: 2.3522 },
@@ -715,7 +712,6 @@
         if(!r.ok) throw new Error("HTTP " + r.status);
         const data = await r.json();
 
-        // Compatibilité : current_weather.temperature (classique) sinon current.temperature_2m (autre format)
         const t =
           (data && data.current_weather && typeof data.current_weather.temperature === "number" && data.current_weather.temperature)
           ?? (data && data.current && typeof data.current.temperature_2m === "number" && data.current.temperature_2m);
@@ -740,10 +736,15 @@
           const obj = r.value || { p: {label:"", city:""}, t:"—" };
           return pillHTML(obj.p, obj.t);
         }).join("");
+
+        // Recalcul hauteur (au cas où les pilules passent sur plusieurs lignes)
+        setBarH();
       }
 
       loadTemps();
     })();
   </script>
+  
+ -->
 </body>
 </html>
