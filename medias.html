@@ -7,19 +7,20 @@
 
   <style>
     :root{
-      /* Thème bleu nuit */
-      --bg:#070b1a;
-      --panel:#0b1228;
-      --card:#0f1a35;
+      /* ✅ Thème clair élégant */
+      --bg:#f7fbff;
+      --panel:#ffffff;
+      --card:#ffffff;
 
-      --txt:#eef2ff;
-      --muted:#c7d2fe;
+      --txt:#0f172a;
+      --muted:#475569;
 
-      --accent:#7dd3fc;
-      --accent2:#a5b4fc;
+      --accent:#2563eb;   /* bleu */
+      --accent2:#7c3aed;  /* violet */
 
-      --border:rgba(255,255,255,.14);
-      --shadow:0 14px 40px rgba(0,0,0,.55);
+      --border:rgba(15,23,42,.12);
+      --shadow:0 16px 40px rgba(2,6,23,.10);
+      --shadow2:0 10px 26px rgba(2,6,23,.08);
       --radius:18px;
 
       --barH: 140px; /* sera mis à jour en JS */
@@ -30,18 +31,14 @@
 
     body{
       margin:0;
-      padding-top: calc(var(--barH) + 16px); /* évite que la barre fixe masque les liens */
-      font-family:
-        "Comic Sans MS",
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Neue",
-        cursive;
+      padding-top: calc(var(--barH) + 16px);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
       color:var(--txt);
       background:
-        radial-gradient(900px 450px at 10% 10%, rgba(125,211,252,.18), transparent 60%),
-        radial-gradient(900px 450px at 90% 20%, rgba(165,180,252,.14), transparent 55%),
-        linear-gradient(180deg, #050816, var(--bg));
+        radial-gradient(900px 520px at 12% 10%, rgba(37,99,235,.14), transparent 60%),
+        radial-gradient(900px 520px at 90% 18%, rgba(124,58,237,.12), transparent 55%),
+        radial-gradient(900px 520px at 40% 95%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, #ffffff, var(--bg));
     }
 
     a{color:inherit; text-decoration:none}
@@ -52,7 +49,7 @@
       padding:22px 16px 34px;
     }
 
-    /* ✅ Barre fixe (températures + recherche) */
+    /* ✅ Barre fixe (températures + recherche + tri langue) */
     .fixed-bar{
       position:fixed;
       top:0;
@@ -60,9 +57,9 @@
       right:0;
       z-index:50;
       padding:12px 0;
-      background:linear-gradient(180deg, rgba(7,11,26,.92), rgba(7,11,26,.72));
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
     }
 
     .bar-inner{
@@ -72,7 +69,7 @@
     }
 
     .hero{
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -96,11 +93,11 @@
 
     .subtitle{
       margin:6px 0 0;
-      color:rgba(238,242,255,.8);
+      color:var(--muted);
       font-size:1rem;
     }
 
-    /* ✅ Bandeau températures (fixe car dans la barre fixe) */
+    /* ✅ Bandeau températures (dans la barre fixe) */
     .temps-wrap{
       margin-top:10px;
       display:flex;
@@ -108,6 +105,7 @@
       flex-wrap:wrap;
       align-items:center;
     }
+
     .temp-pill{
       display:flex;
       align-items:center;
@@ -115,51 +113,65 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.07);
-      box-shadow:0 10px 26px rgba(0,0,0,.18);
+      background:rgba(255,255,255,.85);
+      box-shadow:var(--shadow2);
       font-size:.92rem;
-      color:rgba(238,242,255,.92);
+      color:var(--txt);
       white-space:nowrap;
     }
+
     .temp-pill strong{
       color:var(--accent2);
       font-weight:800;
     }
+
     .temp-pill .t{
       font-weight:900;
       color:var(--txt);
     }
+
     .temp-pill .small{
-      color:rgba(238,242,255,.78);
+      color:var(--muted);
       font-size:.86rem;
     }
 
-    .search{
-      min-width:260px;
+    .controls{
+      min-width:280px;
       flex:1;
-      max-width:420px;
+      max-width:520px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
     }
 
-    .search label{
+    .control label{
       display:block;
       font-size:.9rem;
-      color:rgba(238,242,255,.85);
+      color:var(--muted);
       margin-bottom:6px;
     }
 
-    .search input{
+    .control input,
+    .control select{
       width:100%;
       padding:12px 12px;
       border-radius:14px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.88);
       color:var(--txt);
       outline:none;
     }
 
-    .search input:focus{
-      border-color:rgba(125,211,252,.55);
-      box-shadow:0 0 0 3px rgba(125,211,252,.18);
+    .control input:focus,
+    .control select:focus{
+      border-color:rgba(37,99,235,.45);
+      box-shadow:0 0 0 3px rgba(37,99,235,.15);
+    }
+
+    @media (min-width: 860px){
+      .controls{
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     main{
@@ -171,7 +183,7 @@
 
     .section{
       grid-column:span 12;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -180,7 +192,7 @@
 
     .section-head{
       padding:14px 14px 10px;
-      border-bottom:1px dashed rgba(255,255,255,.12);
+      border-bottom:1px dashed rgba(15,23,42,.14);
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -196,11 +208,11 @@
 
     .pill{
       font-size:.9rem;
-      color:rgba(238,242,255,.85);
+      color:var(--muted);
       border:1px solid var(--border);
       padding:6px 10px;
       border-radius:999px;
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.88);
     }
 
     .grid{
@@ -214,19 +226,20 @@
       grid-column:span 12;
       border:1px solid var(--border);
       border-radius:16px;
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.92);
       padding:12px 12px;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:10px;
-      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
     }
 
     .link-card:hover{
-      transform:translateY(-2px) rotate(-0.2deg);
-      border-color:rgba(125,211,252,.45);
-      background:rgba(255,255,255,.10);
+      transform:translateY(-2px);
+      border-color:rgba(37,99,235,.35);
+      box-shadow: 0 14px 34px rgba(2,6,23,.10);
     }
 
     .left{
@@ -238,14 +251,14 @@
 
     .title{
       font-weight:800;
-      font-size:1.08rem;
+      font-size:1.06rem;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
     .desc{
-      color:rgba(199,210,254,.9);
+      color:var(--muted);
       font-size:.95rem;
       line-height:1.35;
     }
@@ -263,8 +276,8 @@
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.07);
-      color:rgba(238,242,255,.85);
+      background:rgba(255,255,255,.92);
+      color:var(--muted);
       white-space:nowrap;
     }
 
@@ -272,7 +285,7 @@
 
     footer{
       margin-top:14px;
-      color:rgba(238,242,255,.8);
+      color:var(--muted);
       font-size:.95rem;
       text-align:center;
       padding:10px 0 0;
@@ -288,23 +301,38 @@
 </head>
 
 <body>
-  <!-- ✅ Barre fixe : températures + filtre -->
+  <!-- ✅ Barre fixe : températures + filtre + tri langue -->
   <div class="fixed-bar" id="fixedBar">
     <div class="bar-inner">
       <div class="hero">
         <div class="top">
           <div>
             <h1>🌞 Météo & Journaux</h1>
-            <p class="subtitle">Des liens rapides, des titres un peu drôles, et zéro perte de temps.</p>
+            <p class="subtitle">Liens rapides, tri par langue, et filtre instantané.</p>
 
             <div class="temps-wrap" id="tempsWrap" aria-label="Températures par pays">
               <span class="temp-pill"><strong>Températures</strong> <span class="small">chargement…</span></span>
             </div>
           </div>
 
-          <div class="search">
-            <label for="q">Filtrer les liens (ex. « sport », « Espagne », « BBC »)</label>
-            <input id="q" type="text" placeholder="Tape pour filtrer…">
+          <div class="controls">
+            <div class="control">
+              <label for="lang">Trier par langue</label>
+              <select id="lang">
+                <option value="toutes">Toutes les langues</option>
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+                <option value="es">Espagnol</option>
+                <option value="de">Allemand</option>
+                <option value="ru">Russe</option>
+                <option value="ar">Arabe</option>
+              </select>
+            </div>
+
+            <div class="control">
+              <label for="q">Filtrer les liens (ex. « sport », « Espagne », « BBC »)</label>
+              <input id="q" type="text" placeholder="Tape pour filtrer…">
+            </div>
           </div>
         </div>
       </div>
@@ -313,17 +341,17 @@
 
   <div class="container">
     <main>
-      <!-- ✅ UNE SEULE SECTION POUR TOUT -->
       <section class="section" data-section="liens">
         <div class="section-head">
           <h2>🔎 Tous les liens</h2>
-          <span class="pill">Météo • PMU • Presse • Autres</span>
+          <span class="pill" id="countPill">0 lien</span>
         </div>
 
-        <div class="grid">
+        <div class="grid" id="gridLinks">
           <!-- MÉTÉO -->
-          <a class="link-card" href="https://meteo.gc.ca/city/pages/qc-133_metric_f.html" target="_blank" rel="noopener noreferrer"
-             data-keywords="meteo météo canada gouvernement qc-133">
+          <a class="link-card" data-lang="fr"
+             href="https://meteo.gc.ca/city/pages/qc-133_metric_f.html" target="_blank" rel="noopener noreferrer"
+             data-keywords="meteo météo canada gouvernement qc-133 français">
             <div class="left">
               <div class="title">Météo Canada (Québec)</div>
               <div class="desc">Prévisions officielles (températures, vent, alertes).</div>
@@ -331,11 +359,13 @@
             <div class="tags">
               <span class="tag">Météo</span>
               <span class="tag">Canada</span>
+              <span class="tag">Français</span>
             </div>
           </a>
 
-          <a class="link-card" href="http://localhost:8700/banco/index.php" target="_blank" rel="noopener noreferrer"
-             data-keywords="loto québec résultats local localhost banco">
+          <a class="link-card" data-lang="fr"
+             href="http://localhost:8700/banco/index.php" target="_blank" rel="noopener noreferrer"
+             data-keywords="loto québec résultats local localhost banco français">
             <div class="left">
               <div class="title">Résultats Loto Québec (local)</div>
               <div class="desc">Accès direct à ta page locale.</div>
@@ -343,12 +373,14 @@
             <div class="tags">
               <span class="tag">Local</span>
               <span class="tag">Loto</span>
+              <span class="tag">Français</span>
             </div>
           </a>
 
           <!-- PMU -->
-          <a class="link-card" href="https://www.pronostics-turf.info/fg-pronostics-presse.php" target="_blank" rel="noopener noreferrer"
-             data-keywords="pmu pronostics turf presse">
+          <a class="link-card" data-lang="fr"
+             href="https://www.pronostics-turf.info/fg-pronostics-presse.php" target="_blank" rel="noopener noreferrer"
+             data-keywords="pmu pronostics turf presse français">
             <div class="left">
               <div class="title">Pronostics PMU</div>
               <div class="desc">Synthèse des pronostics presse.</div>
@@ -356,11 +388,13 @@
             <div class="tags">
               <span class="tag">PMU</span>
               <span class="tag">Pronostics</span>
+              <span class="tag">Français</span>
             </div>
           </a>
 
-          <a class="link-card" href="https://www.canalturf.com/courses_liste_resultats_rapports.php/" target="_blank" rel="noopener noreferrer"
-             data-keywords="pmu quinte rapports résultats canalturf">
+          <a class="link-card" data-lang="fr"
+             href="https://www.canalturf.com/courses_liste_resultats_rapports.php/" target="_blank" rel="noopener noreferrer"
+             data-keywords="pmu quinte rapports résultats canalturf français">
             <div class="left">
               <div class="title">Rapports du Quinté</div>
               <div class="desc">Résultats et rapports.</div>
@@ -368,219 +402,260 @@
             <div class="tags">
               <span class="tag">PMU</span>
               <span class="tag">Résultats</span>
+              <span class="tag">Français</span>
             </div>
           </a>
 
-          <!-- PRESSE -->
-          <a class="link-card" href="https://www.monde-diplomatique.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse monde diplomatique analyse">
+          <!-- PRESSE (FR) -->
+          <a class="link-card" data-lang="fr"
+             href="https://www.monde-diplomatique.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse monde diplomatique analyse français">
             <div class="left">
               <div class="title">Le Monde diplomatique</div>
               <div class="desc">Analyses, géopolitique, dossiers.</div>
             </div>
-            <div class="tags"><span class="tag">France</span><span class="tag">Analyse</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.humanite.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse humanité">
+          <a class="link-card" data-lang="fr"
+             href="https://www.humanite.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse humanité français">
             <div class="left">
               <div class="title">L’Humanité</div>
               <div class="desc">Actualités et société.</div>
             </div>
-            <div class="tags"><span class="tag">France</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.leparisien.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse le parisien">
+          <a class="link-card" data-lang="fr"
+             href="https://www.leparisien.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse le parisien français">
             <div class="left">
               <div class="title">Le Parisien</div>
               <div class="desc">Actu, régions, faits divers.</div>
             </div>
-            <div class="tags"><span class="tag">France</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lepoint.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse le point">
+          <a class="link-card" data-lang="fr"
+             href="https://www.lepoint.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse le point français">
             <div class="left">
               <div class="title">Le Point</div>
               <div class="desc">Actualités et dossiers.</div>
             </div>
-            <div class="tags"><span class="tag">France</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.rfi.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="rfi radio france international">
+          <a class="link-card" data-lang="fr"
+             href="https://www.rfi.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="rfi radio france international français">
             <div class="left">
               <div class="title">RFI</div>
               <div class="desc">International, direct, radio.</div>
             </div>
-            <div class="tags"><span class="tag">Radio</span><span class="tag">Monde</span></div>
+            <div class="tags"><span class="tag">Radio</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lefigaro.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse le figaro">
+          <a class="link-card" data-lang="fr"
+             href="https://www.lefigaro.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse le figaro français">
             <div class="left">
               <div class="title">Le Figaro</div>
               <div class="desc">Actualités, économie, culture.</div>
             </div>
-            <div class="tags"><span class="tag">France</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.courrierinternational.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="courrier international presse monde">
+          <a class="link-card" data-lang="fr"
+             href="https://www.courrierinternational.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="courrier international presse monde français">
             <div class="left">
               <div class="title">Courrier international</div>
               <div class="desc">Presse étrangère sélectionnée.</div>
             </div>
-            <div class="tags"><span class="tag">Monde</span></div>
+            <div class="tags"><span class="tag">Monde</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lematin.ch/" target="_blank" rel="noopener noreferrer"
-             data-keywords="suisse le matin presse">
+          <a class="link-card" data-lang="fr"
+             href="https://www.lematin.ch/" target="_blank" rel="noopener noreferrer"
+             data-keywords="suisse le matin presse français">
             <div class="left">
               <div class="title">Le Matin (Suisse)</div>
               <div class="desc">Actualités suisses et internationales.</div>
             </div>
-            <div class="tags"><span class="tag">Suisse</span></div>
+            <div class="tags"><span class="tag">Suisse</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lequipe.fr/Football/Directs/" target="_blank" rel="noopener noreferrer"
-             data-keywords="sport football lequipe direct">
+          <a class="link-card" data-lang="fr"
+             href="https://www.lequipe.fr/Football/Directs/" target="_blank" rel="noopener noreferrer"
+             data-keywords="sport football lequipe direct français">
             <div class="left">
               <div class="title">L’Équipe (Le Direct)</div>
               <div class="desc">Matches en direct et résultats.</div>
             </div>
-            <div class="tags"><span class="tag">Sport</span><span class="tag">Direct</span></div>
+            <div class="tags"><span class="tag">Sport</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.leprogres.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse le progres région lyon auvergne-rhône-alpes">
+          <a class="link-card" data-lang="fr"
+             href="https://www.leprogres.fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="france presse le progres région lyon français">
             <div class="left">
               <div class="title">Le Progrès</div>
               <div class="desc">Actualités locales et régionales (Auvergne-Rhône-Alpes).</div>
             </div>
-            <div class="tags"><span class="tag">France</span><span class="tag">Régions</span></div>
+            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://lapresse.tn/" target="_blank" rel="noopener noreferrer"
-             data-keywords="tunisie presse la presse tunisie">
+          <a class="link-card" data-lang="fr"
+             href="https://lapresse.tn/" target="_blank" rel="noopener noreferrer"
+             data-keywords="tunisie presse la presse tunisie français">
             <div class="left">
               <div class="title">La Presse (Tunisie)</div>
               <div class="desc">Actualités tunisiennes et internationales.</div>
             </div>
-            <div class="tags"><span class="tag">Tunisie</span></div>
+            <div class="tags"><span class="tag">Tunisie</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.le360.ma/" target="_blank" rel="noopener noreferrer"
-             data-keywords="maroc presse le360 maroc">
+          <a class="link-card" data-lang="fr"
+             href="https://www.le360.ma/" target="_blank" rel="noopener noreferrer"
+             data-keywords="maroc presse le360 maroc français">
             <div class="left">
               <div class="title">Le360 (Maroc)</div>
               <div class="desc">Actualités marocaines et internationales.</div>
             </div>
-            <div class="tags"><span class="tag">Maroc</span></div>
+            <div class="tags"><span class="tag">Maroc</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://tass.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="russie russe presse actualités tass">
+          <!-- RU -->
+          <a class="link-card" data-lang="ru"
+             href="https://tass.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="russie russe presse actualités tass russe">
             <div class="left">
               <div class="title">TASS</div>
               <div class="desc">Agence de presse (actualité Russie et international).</div>
             </div>
-            <div class="tags"><span class="tag">Russie</span><span class="tag">Monde</span></div>
+            <div class="tags"><span class="tag">Russie</span><span class="tag">Russe</span></div>
           </a>
 
-          <a class="link-card" href="https://ria.ru/" target="_blank" rel="noopener noreferrer"
-             data-keywords="russie russe presse actualités ria novosti">
+          <a class="link-card" data-lang="ru"
+             href="https://ria.ru/" target="_blank" rel="noopener noreferrer"
+             data-keywords="russie russe presse actualités ria novosti russe">
             <div class="left">
               <div class="title">RIA Novosti</div>
               <div class="desc">Actualités Russie et international.</div>
             </div>
-            <div class="tags"><span class="tag">Russie</span></div>
+            <div class="tags"><span class="tag">Russie</span><span class="tag">Russe</span></div>
           </a>
 
-          <a class="link-card" href="https://www.kommersant.ru/" target="_blank" rel="noopener noreferrer"
-             data-keywords="russie russe presse économique politique kommersant">
+          <a class="link-card" data-lang="ru"
+             href="https://www.kommersant.ru/" target="_blank" rel="noopener noreferrer"
+             data-keywords="russie russe presse économique politique kommersant russe">
             <div class="left">
               <div class="title">Kommersant</div>
               <div class="desc">Économie, politique, société.</div>
             </div>
-            <div class="tags"><span class="tag">Russie</span><span class="tag">Éco</span></div>
+            <div class="tags"><span class="tag">Russie</span><span class="tag">Russe</span></div>
           </a>
 
-          <a class="link-card" href="https://www.spiegel.de/" target="_blank" rel="noopener noreferrer"
-             data-keywords="allemagne allemand presse actualités spiegel">
+          <!-- DE -->
+          <a class="link-card" data-lang="de"
+             href="https://www.spiegel.de/" target="_blank" rel="noopener noreferrer"
+             data-keywords="allemagne allemand presse actualités spiegel allemand">
             <div class="left">
               <div class="title">Der Spiegel</div>
               <div class="desc">Actualités allemandes et internationales.</div>
             </div>
-            <div class="tags"><span class="tag">Allemagne</span></div>
+            <div class="tags"><span class="tag">Allemagne</span><span class="tag">Allemand</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lorientlejour.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="liban presse l'orient-le jour francophone beyrouth">
+          <!-- FR (Liban) -->
+          <a class="link-card" data-lang="fr"
+             href="https://www.lorientlejour.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="liban presse l'orient-le jour francophone beyrouth français">
             <div class="left">
               <div class="title">L’Orient-Le Jour</div>
               <div class="desc">Presse libanaise francophone (actualité et analyses).</div>
             </div>
-            <div class="tags"><span class="tag">Liban</span></div>
+            <div class="tags"><span class="tag">Liban</span><span class="tag">Français</span></div>
           </a>
 
-          <a class="link-card" href="https://www.alriyadh.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="arabie saoudite presse arabe الرياض">
+          <!-- AR -->
+          <a class="link-card" data-lang="ar"
+             href="https://www.alriyadh.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="arabie saoudite presse arabe الرياض العربية">
             <div class="left">
               <div class="title">الرياض</div>
               <div class="desc">Actualités d’Arabie saoudite et international (en arabe).</div>
             </div>
-            <div class="tags"><span class="tag">Arabie saoudite</span><span class="tag">العربية</span></div>
+            <div class="tags"><span class="tag">Arabie saoudite</span><span class="tag">Arabe</span></div>
           </a>
 
-          <a class="link-card" href="https://www.albayan.ae/" target="_blank" rel="noopener noreferrer"
-             data-keywords="emirats presse arabe البيان الإمارات">
+          <a class="link-card" data-lang="ar"
+             href="https://www.albayan.ae/" target="_blank" rel="noopener noreferrer"
+             data-keywords="emirats presse arabe البيان الإمارات العربية">
             <div class="left">
               <div class="title">البيان</div>
               <div class="desc">Actualités des Émirats et international (en arabe).</div>
             </div>
-            <div class="tags"><span class="tag">Émirats</span><span class="tag">العربية</span></div>
+            <div class="tags"><span class="tag">Émirats</span><span class="tag">Arabe</span></div>
           </a>
 
-          <a class="link-card" href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk royaume-uni bbc news">
+          <!-- EN -->
+          <a class="link-card" data-lang="en"
+             href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer"
+             data-keywords="uk royaume-uni bbc news anglais">
             <div class="left">
               <div class="title">BBC News</div>
               <div class="desc">Actualités UK et monde.</div>
             </div>
-            <div class="tags"><span class="tag">UK</span></div>
+            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
           </a>
 
-          <a class="link-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk the guardian presse">
+          <a class="link-card" data-lang="en"
+             href="https://www.theguardian.com/international" target="_blank" rel="noopener noreferrer"
+             data-keywords="uk the guardian presse anglais">
             <div class="left">
               <div class="title">The Guardian</div>
               <div class="desc">Actualités et enquêtes.</div>
             </div>
-            <div class="tags"><span class="tag">UK</span></div>
+            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
           </a>
 
-          <a class="link-card" href="https://www.independent.co.uk/" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk independent presse">
+          <a class="link-card" data-lang="en"
+             href="https://www.independent.co.uk/" target="_blank" rel="noopener noreferrer"
+             data-keywords="uk independent presse anglais">
             <div class="left">
               <div class="title">The Independent</div>
               <div class="desc">Actualités UK et monde.</div>
             </div>
-            <div class="tags"><span class="tag">UK</span></div>
+            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
           </a>
 
-          <a class="link-card" href="https://www.ft.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk financial times économie finance">
+          <a class="link-card" data-lang="en"
+             href="https://www.ft.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="uk financial times économie finance anglais">
             <div class="left">
               <div class="title">Financial Times</div>
               <div class="desc">Économie, marchés, entreprises.</div>
             </div>
-            <div class="tags"><span class="tag">UK</span><span class="tag">Éco</span></div>
+            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
           </a>
 
-          <a class="link-card" href="https://elpais.com/argentina/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne el pais presse argentina">
+          <a class="link-card" data-lang="en"
+             href="https://montrealgazette.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="canada québec montreal gazette presse anglophone anglais">
+            <div class="left">
+              <div class="title">The Gazette (Montréal)</div>
+              <div class="desc">Grand quotidien anglophone montréalais.</div>
+            </div>
+            <div class="tags"><span class="tag">Canada</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- ES -->
+          <a class="link-card" data-lang="es"
+             href="https://elpais.com/argentina/" target="_blank" rel="noopener noreferrer"
+             data-keywords="espagne el pais presse argentina espagnol">
             <div class="left">
               <div class="title">El País (Argentine)</div>
               <div class="desc">Actualités d’Argentine et international.</div>
@@ -588,40 +663,55 @@
             <div class="tags"><span class="tag">Argentine</span><span class="tag">Espagnol</span></div>
           </a>
 
-          <a class="link-card" href="https://www.elmundo.es/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne el mundo presse">
+          <a class="link-card" data-lang="es"
+             href="https://www.elmundo.es/" target="_blank" rel="noopener noreferrer"
+             data-keywords="espagne el mundo presse espagnol">
             <div class="left">
               <div class="title">El Mundo</div>
               <div class="desc">Actualités Espagne et monde.</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span></div>
+            <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
           </a>
 
-          <a class="link-card" href="https://www.abc.es/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne abc presse">
+          <a class="link-card" data-lang="es"
+             href="https://www.abc.es/" target="_blank" rel="noopener noreferrer"
+             data-keywords="espagne abc presse espagnol">
             <div class="left">
               <div class="title">ABC</div>
               <div class="desc">Actualités et Espagne.</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span></div>
+            <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
           </a>
 
-          <a class="link-card" href="https://www.lavanguardia.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne la vanguardia presse">
+          <a class="link-card" data-lang="es"
+             href="https://www.lavanguardia.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="espagne la vanguardia presse espagnol">
             <div class="left">
               <div class="title">La Vanguardia</div>
               <div class="desc">Actualités, dossiers.</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span></div>
+            <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
           </a>
 
-          <a class="link-card" href="https://www.eltiempo.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="colombie colombia el tiempo journal presse populaire">
+          <a class="link-card" data-lang="es"
+             href="https://www.eltiempo.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="colombie colombia el tiempo journal presse populaire espagnol">
             <div class="left">
               <div class="title">El Tiempo (Colombie)</div>
               <div class="desc">Grand quotidien colombien (actualité générale).</div>
             </div>
             <div class="tags"><span class="tag">Colombie</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <!-- FR (Canada) -->
+          <a class="link-card" data-lang="fr"
+             href="https://www.journaldemontreal.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="canada québec montréal journal de montréal presse populaire français">
+            <div class="left">
+              <div class="title">Journal de Montréal</div>
+              <div class="desc">Quotidien québécois populaire (actualité, société, sports).</div>
+            </div>
+            <div class="tags"><span class="tag">Canada</span><span class="tag">Français</span></div>
           </a>
 
           <!-- AUTRES -->
@@ -637,11 +727,10 @@
     </main>
 
     <footer>
-      Astuce : utilise le filtre en haut pour masquer le bruit.
+      Astuce : choisis une langue, puis utilise la recherche si nécessaire.
     </footer>
   </div>
 
-<!--
   <script>
     (function(){
       // Ajuster la hauteur de la barre fixe pour éviter tout masquage
@@ -653,31 +742,104 @@
       window.addEventListener('resize', setBarH);
       setBarH();
 
-      // Filtre
+      // Filtre + tri langue
       const input = document.getElementById('q');
-      const cards = Array.from(document.querySelectorAll('.link-card[href], .link-card[data-keywords]'));
+      const selectLang = document.getElementById('lang');
+      const grid = document.getElementById('gridLinks');
+      const countPill = document.getElementById('countPill');
+
+      const allCards = Array.from(grid.querySelectorAll('.link-card'));
+      const anchorCards = allCards.filter(el => el.tagName.toLowerCase() === 'a');
+      const fixedCards = allCards.filter(el => el.tagName.toLowerCase() !== 'a'); // ex: "Espace libre"
 
       function normalize(s){
         return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       }
 
-      function applyFilter(){
-        const q = normalize(input.value.trim());
-        if(!q){
-          cards.forEach(c => c.classList.remove('hidden'));
-          return;
+      function labelLang(code){
+        switch(code){
+          case 'fr': return 'Français';
+          case 'en': return 'Anglais';
+          case 'es': return 'Espagnol';
+          case 'de': return 'Allemand';
+          case 'ru': return 'Russe';
+          case 'ar': return 'Arabe';
+          default: return 'Toutes';
         }
-        cards.forEach(card => {
+      }
+
+      function applyFilterAndSort(){
+        const q = normalize(input.value.trim());
+        const lang = (selectLang.value || 'toutes').trim();
+
+        // 1) Filtrer l'affichage
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+          // Les "div" non-liens ne sont pas soumis à la langue (on les garde visibles)
+          if(card.tagName.toLowerCase() !== 'a'){
+            card.classList.remove('hidden');
+            return;
+          }
+
+          const cardLang = (card.getAttribute('data-lang') || '').trim();
+          const okLang = (lang === 'toutes') ? true : (cardLang === lang);
+
           const text = normalize(
             (card.querySelector('.title')?.textContent || '') + ' ' +
             (card.querySelector('.desc')?.textContent || '') + ' ' +
             (card.getAttribute('data-keywords') || '')
           );
-          card.classList.toggle('hidden', !text.includes(q));
+          const okText = (!q) ? true : text.includes(q);
+
+          const ok = okLang && okText;
+          card.classList.toggle('hidden', !ok);
+          if(ok) visibleCount++;
         });
+
+        // 2) Trier (réordonner) : la langue choisie en tête, puis titre (A→Z)
+        const preferred = (lang === 'toutes') ? null : lang;
+
+        const sorted = anchorCards.slice().sort((a,b) => {
+          const la = (a.getAttribute('data-lang') || '');
+          const lb = (b.getAttribute('data-lang') || '');
+
+          if(preferred){
+            const pa = (la === preferred) ? 0 : 1;
+            const pb = (lb === preferred) ? 0 : 1;
+            if(pa !== pb) return pa - pb;
+          }else{
+            // Si "toutes", on regroupe par langue (fr, en, es, de, ru, ar, autres)
+            const order = { fr:0, en:1, es:2, de:3, ru:4, ar:5 };
+            const pa = (order[la] ?? 99);
+            const pb = (order[lb] ?? 99);
+            if(pa !== pb) return pa - pb;
+          }
+
+          const ta = (a.querySelector('.title')?.textContent || '').trim().toLowerCase();
+          const tb = (b.querySelector('.title')?.textContent || '').trim().toLowerCase();
+          return ta.localeCompare(tb, 'fr');
+        });
+
+        // Réinjecter dans la grille en conservant les blocs non-liens à la fin
+        grid.innerHTML = '';
+        sorted.forEach(el => grid.appendChild(el));
+        fixedCards.forEach(el => grid.appendChild(el));
+
+        // Mise à jour compteur
+        const suffix = visibleCount <= 1 ? 'lien' : 'liens';
+        const langTxt = (lang === 'toutes') ? 'Toutes langues' : labelLang(lang);
+        countPill.textContent = visibleCount + ' ' + suffix + ' • ' + langTxt;
+
+        // Recalcul hauteur barre fixe (si le texte du compteur change sur 2 lignes)
+        setBarH();
       }
 
-      input.addEventListener('input', applyFilter);
+      input.addEventListener('input', applyFilterAndSort);
+      selectLang.addEventListener('change', applyFilterAndSort);
+
+      // Appliquer au chargement
+      applyFilterAndSort();
 
       // Températures par pays (villes repères)
       const places = [
@@ -737,14 +899,11 @@
           return pillHTML(obj.p, obj.t);
         }).join("");
 
-        // Recalcul hauteur (au cas où les pilules passent sur plusieurs lignes)
         setBarH();
       }
 
       loadTemps();
     })();
   </script>
-  
- -->
 </body>
 </html>
