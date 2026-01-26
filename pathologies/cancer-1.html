@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    h1{margin:0;font-size:30px;color:var(--green)}
+    .sub{color:var(--yellow);margin-top:6px}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:22px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    /* Images à droite dans chaque section */
+    .card img{
+      float:right;
+      max-width:200px;
+      margin-left:14px;
+      margin-bottom:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    .card:after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    h2{margin:0 0 8px;font-size:20px;color:var(--green)}
+    h3{margin:12px 0 6px;font-size:16px;color:var(--yellow)}
+
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:520px){
+      .card img{
+        float:none;
+        display:block;
+        margin:0 auto 12px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Cancer</h1>
+    <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
+
+    <nav aria-label="Navigation principale">
+      <a href="/yourhealth/index.php">Accueil</a>
+      <a href="/yourhealth/ressources.php">Ressources</a>
+      <a href="/yourhealth/contact.php">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <img src="/yourhealth/assets/img/cancer-definition.jfif" alt="Définition du cancer">
+      <h2>Définition</h2>
+      <p>
+        Le cancer correspond à une multiplication anormale de certaines cellules. Ces cellules peuvent former
+        une tumeur et parfois se propager à distance (métastases). Les cancers ne sont pas une seule maladie :
+        il en existe de nombreux types, avec des mécanismes et des traitements différents.
+      </p>
+      <p>
+        Un diagnostic précoce améliore souvent les chances de traitement efficace.
+      </p>
+    </section>
+
+    <section class="card" id="types">
+      <img src="/yourhealth/assets/img/cancer-types.jfif" alt="Types de cancer">
+      <h2>Types de cancer</h2>
+      <p>
+        On classe souvent les cancers selon le tissu d’origine. Cette classification aide à comprendre les examens
+        utiles et les traitements possibles.
+      </p>
+      <ul>
+        <li><strong>Carcinomes</strong> : issus des tissus de revêtement (peau, poumon, sein, côlon).</li>
+        <li><strong>Sarcomes</strong> : issus des tissus de soutien (os, muscle, cartilage).</li>
+        <li><strong>Leucémies</strong> : cancers des cellules sanguines (moelle osseuse).</li>
+        <li><strong>Lymphomes</strong> : cancers du système lymphatique (ganglions).</li>
+        <li><strong>Mélanomes</strong> : cancers des cellules pigmentaires de la peau.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="signes">
+      <img src="/yourhealth/assets/img/cancer-signes.jfif" alt="Signes d’alerte">
+      <h2>Signes possibles</h2>
+      <p>
+        Les symptômes varient selon l’organe atteint. Un signe isolé ne veut pas dire « cancer », mais certains
+        signes qui persistent doivent conduire à consulter.
+      </p>
+      <ul>
+        <li>Perte de poids inexpliquée, fatigue persistante.</li>
+        <li>Masse, boule, ganglion qui persiste.</li>
+        <li>Saignements anormaux (digestifs, urinaires, gynécologiques).</li>
+        <li>Toux ou enrouement qui dure, essoufflement inhabituel.</li>
+        <li>Changement d’un grain de beauté (forme, couleur, taille).</li>
+        <li>Troubles digestifs persistants, douleur inhabituelle durable.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <img src="/yourhealth/assets/img/cancer-diagnostic.jfif" alt="Diagnostic du cancer">
+      <h2>Diagnostic</h2>
+      <p>
+        Le diagnostic repose sur un ensemble d’étapes : examen clinique, imagerie, analyses et confirmation
+        par prélèvement lorsque nécessaire.
+      </p>
+      <ul>
+        <li><strong>Consultation et examen clinique</strong> : symptômes, antécédents, examen physique.</li>
+        <li><strong>Imagerie</strong> : radiographie, échographie, scanner, IRM, TEP-scan selon le cas.</li>
+        <li><strong>Biologie</strong> : analyses sanguines, marqueurs selon indication.</li>
+        <li><strong>Biopsie</strong> : prélèvement indispensable pour confirmer et typer le cancer.</li>
+        <li><strong>Bilan d’extension</strong> : évaluer la présence ou non de métastases.</li>
+      </ul>
+      <p class="note">
+        Le dépistage (sein, côlon, col de l’utérus, etc.) permet parfois de détecter des lésions plus tôt, avant
+        l’apparition de symptômes.
+      </p>
+    </section>
+
+    <section class="card" id="traitements">
+      <img src="/yourhealth/assets/img/cancer-traitements.jfif" alt="Traitements du cancer">
+      <h2>Traitements</h2>
+      <p>
+        Le traitement dépend du type de cancer, du stade, de l’état général et des objectifs (guérir, contrôler,
+        soulager). Il est souvent décidé en équipe pluridisciplinaire.
+      </p>
+      <ul>
+        <li><strong>Chirurgie</strong> : retirer la tumeur quand c’est possible.</li>
+        <li><strong>Radiothérapie</strong> : détruire des cellules cancéreuses par rayonnements ciblés.</li>
+        <li><strong>Chimiothérapie</strong> : traitements qui agissent sur les cellules qui se divisent rapidement.</li>
+        <li><strong>Thérapies ciblées</strong> : viser des anomalies spécifiques des cellules tumorales.</li>
+        <li><strong>Immunothérapie</strong> : aider le système immunitaire à mieux lutter contre la tumeur.</li>
+        <li><strong>Hormonothérapie</strong> : utile pour certains cancers hormono-dépendants.</li>
+        <li><strong>Soins de support</strong> : douleur, nutrition, fatigue, santé mentale, rééducation.</li>
+      </ul>
+      <p class="note">
+        Les “remèdes naturels” ne remplacent pas les traitements validés. Certains compléments peuvent interagir
+        avec la chimiothérapie ou d’autres traitements : demander un avis médical.
+      </p>
+    </section>
+
+    <section class="card" id="prevention">
+      <img src="/yourhealth/assets/img/cancer-prevention.jfif" alt="Prévention du cancer">
+      <h2>Prévention</h2>
+      <p>
+        Une partie des cancers est liée à des facteurs modifiables. La prévention ne garantit pas d’éviter un cancer,
+        mais réduit le risque et améliore la santé globale.
+      </p>
+      <ul>
+        <li><strong>Tabac</strong> : facteur majeur. Arrêter est la mesure la plus efficace.</li>
+        <li><strong>Alcool</strong> : limiter au maximum.</li>
+        <li><strong>Poids</strong> : viser un poids stable, éviter le surpoids prolongé.</li>
+        <li><strong>Alimentation</strong> : plus de fruits/légumes, fibres ; limiter ultra-transformés et charcuteries.</li>
+        <li><strong>Activité physique</strong> : bouger régulièrement.</li>
+        <li><strong>Soleil</strong> : protection solaire, éviter les brûlures et les UV artificiels.</li>
+        <li><strong>Vaccins</strong> : HPV et hépatite B selon recommandations.</li>
+        <li><strong>Dépistage</strong> : suivre les programmes selon l’âge et les facteurs de risque.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="quand-consulter">
+      <img src="/yourhealth/assets/img/cancer-consulter.jfif" alt="Quand consulter">
+      <h2>Quand consulter rapidement</h2>
+      <ul>
+        <li>Saignement anormal persistant.</li>
+        <li>Masse qui augmente ou ganglion qui persiste.</li>
+        <li>Perte de poids inexpliquée, fatigue majeure durable.</li>
+        <li>Toux persistante, essoufflement inhabituel, douleur durable.</li>
+        <li>Modification suspecte d’un grain de beauté.</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical.
+      En cas de symptômes persistants, consulte un professionnel de santé.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>

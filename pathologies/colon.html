@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Côlon | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --accent:#7dd3fc;
+      --border:rgba(255,255,255,.12);
+
+      --title:#22c55e;
+      --subtitle:#facc15;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+    }
+
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(6px);
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+
+    .header-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .header-image{
+      max-width:180px;
+      height:auto;
+      flex-shrink:0;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    h1{margin:0;font-size:28px;line-height:1.2;color:var(--title)}
+    .sub{color:var(--subtitle);margin:6px 0 0;font-size:16px}
+
+    .crumbs{margin-top:6px}
+    .crumbs a{color:var(--accent);text-decoration:none}
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+    nav a:hover{border-color:rgba(125,211,252,.55)}
+
+    main{padding:18px 16px}
+
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+    .card:first-child{margin-top:0}
+
+    .card img{
+      float:right;
+      max-width:190px;
+      margin:0 0 12px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+    }
+
+    h2{margin:0 0 8px;font-size:20px;color:var(--title)}
+    p,li{color:var(--muted);line-height:1.6}
+    ul{margin:8px 0 0 18px}
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    @media (max-width:700px){
+      .header-top{flex-direction:column;}
+      .header-image{max-width:140px;}
+    }
+
+    @media (max-width:520px){
+      h1{font-size:24px}
+      .card img{float:none;display:block;margin:0 auto 12px auto;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-top">
+      <div>
+        <h1>Côlon</h1>
+        <p class="sub">Comprendre, repérer, agir.</p>
+
+        <div class="crumbs">
+          <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Côlon
+        </div>
+
+        <nav aria-label="Navigation principale">
+          <a href="/yourhealth/index.html">Accueil</a>
+          <a href="/yourhealth/ressources.html">Ressources</a>
+          <a href="/yourhealth/contact.html">Contact</a>
+          <a href="javascript:history.back()">Retour</a>
+        </nav>
+      </div>
+
+      <img src="/yourhealth/assets/img/colon.jfif" alt="Côlon" class="header-image">
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="definition">
+      <img src="/yourhealth/assets/img/colon-definition.jfif" alt="Définition côlon">
+      <h2>Définition</h2>
+      <p>
+        Le côlon (gros intestin) participe à la digestion en réabsorbant l’eau et en hébergeant
+        un microbiote important. Certaines maladies (polypes, inflammations, cancer) peuvent
+        s’y développer et nécessitent un dépistage.
+      </p>
+    </section>
+
+    <section class="card" id="causes">
+      <img src="/yourhealth/assets/img/colon-causes.jfif" alt="Causes et facteurs de risque">
+      <h2>Causes et facteurs de risque</h2>
+      <ul>
+        <li>Âge (risque en hausse avec le temps).</li>
+        <li>Antécédents familiaux de polypes/cancer colorectal.</li>
+        <li>Alimentation pauvre en fibres, riche en produits ultra-transformés.</li>
+        <li>Sédentarité, surpoids, tabac, alcool.</li>
+        <li>Maladies inflammatoires de l’intestin (selon cas).</li>
+      </ul>
+    </section>
+
+    <section class="card" id="diagnostic">
+      <img src="/yourhealth/assets/img/colon-diagnostic.jfif" alt="Diagnostic côlon">
+      <h2>Diagnostic</h2>
+      <ul>
+        <li>Discussion des symptômes (sang dans les selles, douleurs, transit modifié).</li>
+        <li>Test de dépistage (selon programme de santé local).</li>
+        <li>Coloscopie si test positif, symptômes persistants ou risque élevé.</li>
+        <li>Biopsie/analyse si lésion suspecte.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="remedes">
+      <img src="/yourhealth/assets/img/colon-remedes.jfif" alt="Prise en charge côlon">
+      <h2>Remèdes et prise en charge</h2>
+      <ul>
+        <li>Hygiène de vie : fibres, hydratation, activité physique.</li>
+        <li>Traitement selon la cause (inflammation, infection, polypes, etc.).</li>
+        <li>Ablation de polypes lors d’une coloscopie si nécessaire.</li>
+        <li>Prise en charge spécialisée si cancer (selon stade).</li>
+      </ul>
+    </section>
+
+    <section class="card" id="prevention">
+      <img src="/yourhealth/assets/img/colon-prevention.jfif" alt="Prévention côlon">
+      <h2>Prévention</h2>
+      <ul>
+        <li>Augmenter les fibres (légumes, fruits, légumineuses, céréales complètes).</li>
+        <li>Limiter charcuteries, excès de viandes rouges et ultra-transformés.</li>
+        <li>Activité physique régulière et contrôle du poids.</li>
+        <li>Arrêt tabac, alcool modéré.</li>
+        <li>Participer au dépistage selon l’âge et les risques.</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations sont générales et ne remplacent pas un avis médical.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>
