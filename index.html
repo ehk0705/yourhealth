@@ -3,34 +3,71 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Votre santé</title>
+    <title>Votre santé – Hocine Korichi, ingénieur physicien et informaticien</title>
 
     <!-- CSS principal (GitHub Pages : chemin relatif) -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-      /* Ajustements du header (repris de ton header.html) */
+      :root{
+        /* ✅ Même palette que la page précédente (fond clair élégant) */
+        --bg:#f7fbff;
+        --panel:#ffffff;
+        --card:#ffffff;
+
+        --txt:#0f172a;
+        --muted:#475569;
+
+        --accent:#2563eb;   /* bleu */
+        --accent2:#7c3aed;  /* violet */
+
+        --border:rgba(15,23,42,.12);
+        --shadow:0 16px 40px rgba(2,6,23,.10);
+        --shadow2:0 10px 26px rgba(2,6,23,.08);
+        --radius:18px;
+      }
+
       header.topbar{
         margin-bottom:0;
         padding-bottom:0;
       }
+
       body{
+        margin:0;
         margin-top:0;
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        color:var(--txt);
+        background:
+          radial-gradient(900px 520px at 12% 10%, rgba(37,99,235,.14), transparent 60%),
+          radial-gradient(900px 520px at 90% 18%, rgba(124,58,237,.12), transparent 55%),
+          radial-gradient(900px 520px at 40% 95%, rgba(34,197,94,.10), transparent 60%),
+          linear-gradient(180deg, #ffffff, var(--bg));
       }
+
       main.container{
         margin-top:0;
         padding-top:8px;
+        max-width:1100px;
+        margin-left:auto;
+        margin-right:auto;
+        padding-left:16px;
+        padding-right:16px;
+        padding-bottom:16px;
       }
 
+      a{color:var(--accent); text-decoration:none}
+      a:hover{opacity:.92}
+
       .hero{
-        background:linear-gradient(180deg,#0b1220,#1a2233);
-        color:#eef2ff;
-        border-radius:18px;
+        background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+        color:var(--txt);
+        border-radius:var(--radius);
+        border:1px solid var(--border);
+        box-shadow:var(--shadow);
         margin:0 0 20px 0;
         padding:16px;
       }
 
-      /* Haut du hero */
       .hero-top{
         display:flex;
         align-items:flex-start;
@@ -45,44 +82,75 @@
         margin:0 auto 12px;
         max-width:180px;
         border-radius:14px;
-        border:2px solid #3b82f6;
+        border:2px solid rgba(37,99,235,.55);
+        box-shadow:var(--shadow2);
+        background:#fff;
       }
 
-      .hero__text h1{font-size:32px;color:#22c55e;margin:0 0 8px}
-      .hero__text p{font-size:16px;color:#facc15;margin:0}
+      .hero__text h1{
+        font-size:32px;
+        color:var(--accent);
+        margin:0 0 10px;
+        line-height:1.15;
+      }
 
-      .hero__box-sante{
-        max-width:260px;
+      .hero__text p{
+        font-size:15px;
+        color:var(--muted);
         margin:0;
-        padding:16px;
-        font-family:Verdana,sans-serif;
-        font-size:12px;
-        color:#fff;
-        background-color:rgba(11,18,32,.95);
-        border-radius:12px;
-        border:2px solid #22d3ee;
-        border-left:6px solid #3b82f6;
-        box-shadow:0 8px 20px rgba(0,0,0,.55);
+        line-height:1.55;
         text-align:left;
       }
 
-      .hero__box-sante h4{font-size:14px;color:#22c55e;margin:0 0 6px}
-      .hero__box-sante h5{font-size:12px;color:#facc15;margin:6px 0 4px}
-      .hero__box-sante ul{margin:0;padding-left:16px}
-      .hero__box-sante li{margin-bottom:4px}
+      .hero__box-sante{
+        max-width:300px;
+        margin:0;
+        padding:16px;
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        font-size:13px;
+        color:var(--txt);
+        background:rgba(255,255,255,.92);
+        border-radius:14px;
+        border:1px solid var(--border);
+        border-left:6px solid var(--accent);
+        box-shadow:var(--shadow2);
+        text-align:left;
+      }
 
-      .cards-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
+      .hero__box-sante h4{
+        font-size:15px;
+        color:var(--accent2);
+        margin:0 0 8px;
+      }
+
+      .hero__box-sante h5{
+        font-size:13px;
+        color:var(--accent);
+        margin:10px 0 6px;
+      }
+
+      .hero__box-sante ul{margin:0;padding-left:18px}
+      .hero__box-sante li{margin-bottom:6px;color:var(--muted)}
+
+      .cards-container{
+        display:flex;
+        flex-wrap:wrap;
+        gap:20px;
+        justify-content:center;
+        margin-top:20px
+      }
 
       .card-patho{
         display:block;
         width:220px;
         text-align:center;
-        background:rgba(11,18,32,.9);
-        border:1px solid #22d3ee;
+        background:rgba(255,255,255,.92);
+        border:1px solid var(--border);
         border-radius:16px;
         overflow:hidden;
-        transition:transform .3s,box-shadow .3s;
+        transition:transform .2s, box-shadow .2s, border-color .2s;
         text-decoration:none;
+        box-shadow: 0 10px 24px rgba(2,6,23,.06);
       }
 
       .card-patho img{
@@ -90,62 +158,71 @@
         height:140px;
         object-fit:cover;
         display:block;
+        background:#fff;
       }
 
-      .card-patho h3{margin:12px 8px 6px;font-size:18px;color:#22c55e}
-      .card-patho p{padding:0 8px 12px;font-size:14px;color:#b9c2d6;margin:0}
-      .card-patho:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+      .card-patho h3{
+        margin:12px 8px 6px;
+        font-size:17px;
+        color:var(--accent2);
+      }
+
+      .card-patho p{
+        padding:0 10px 12px;
+        font-size:14px;
+        color:var(--muted);
+        margin:0;
+        line-height:1.35;
+      }
+
+      .card-patho:hover{
+        transform:translateY(-6px);
+        border-color:rgba(37,99,235,.35);
+        box-shadow: 0 14px 34px rgba(2,6,23,.10);
+      }
 
       .container{margin-top:20px}
-
-      /* Remonter légèrement Pathologies principales */
       .container-pathologies{margin-top:8px}
 
-      /* Mise en page minimale si ton CSS global ne couvre pas tout */
-      body{
-        margin:0;
-        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-        background:linear-gradient(180deg,#070b14,#0b1220);
-        color:#eef2ff;
-      }
+      h2{margin:18px 0 8px;color:var(--accent2)}
 
-      main.container{
-        max-width:1100px;
-        margin:0 auto;
-        padding:16px;
-      }
-
-      h2{margin:18px 0 8px}
-      a{color:#7dd3fc}
-      a:hover{opacity:.9}
-
-      /* Footer simple */
       footer.site-footer{
         margin-top:28px;
         padding:14px 0 10px;
-        border-top:1px solid rgba(255,255,255,.12);
-        color:#b9c2d6;
+        border-top:1px solid var(--border);
+        color:var(--muted);
         font-size:13px;
         text-align:center;
       }
 
-      /* Bloc compteur (visible) */
       .compteur-visites{
         display:inline-block;
         margin:10px auto 6px;
         padding:10px 12px;
-        border:1px solid rgba(255,255,255,.14);
+        border:1px solid var(--border);
         border-radius:12px;
-        background:rgba(0,0,0,.18);
-        color:#eef2ff;
+        background:rgba(255,255,255,.92);
+        box-shadow:var(--shadow2);
+        color:var(--txt);
         min-width:220px;
       }
-      .compteur-visites .label{display:block;color:#b9c2d6;font-size:12px;margin-bottom:6px}
-      .compteur-visites #compteur-visites{font-weight:700;color:#eef2ff}
+
+      .compteur-visites .label{
+        display:block;
+        color:var(--muted);
+        font-size:12px;
+        margin-bottom:6px;
+      }
+
+      .compteur-visites #compteur-visites{
+        font-weight:700;
+        color:var(--txt);
+      }
 
       @media (max-width:800px){
         .hero-top{flex-direction:column}
         .hero__box-sante{max-width:100%}
+        .hero__text p{text-align:left}
       }
     </style>
   </head>
@@ -154,7 +231,7 @@
     <!-- HEADER (statique, compatible GitHub Pages) -->
     <header class="topbar">
       <div class="container topbar__inner">
-        <a class="brand" href="index.html">Votre santé</a>
+        <a class="brand" href="index.html">Votre santé – Hocine Korichi</a>
         <nav class="nav">
           <a href="index.html">Accueil</a>
           <a href="sport-sante.html">Sport</a>
@@ -179,9 +256,10 @@
 
             <div class="hero__text">
               <h1>La santé, pour mieux comprendre et mieux prévenir</h1>
-              <p>Comprendre les maladies actuelles, leurs causes et leurs mécanismes est essentiel pour les prévenir efficacement.
-			 Ce site met à disposition des informations claires et accessibles, fondées sur des repères fiables, afin de mieux comprendre le fonctionnement du corps et les enjeux de la santé actuelle.
-			 Il propose également des conseils concrets pour adopter une hygiène de vie plus saine, faire des choix éclairés et agir durablement sur sa santé au quotidien.
+              <p>
+                Comprendre les maladies actuelles, leurs causes et leurs mécanismes est essentiel pour les prévenir efficacement.
+                Ce site met à disposition des informations claires et accessibles, fondées sur des repères fiables, afin de mieux comprendre le fonctionnement du corps et les enjeux de la santé actuelle.
+                Il propose également des conseils concrets pour adopter une hygiène de vie plus saine, faire des choix éclairés et agir durablement sur sa santé au quotidien.
               </p>
             </div>
           </div>
@@ -214,7 +292,7 @@
         <h2 class="patho-title">Conseils de prévention et description de pathologies</h2>
 
         <div class="cards-container">
-          <!-- Existant -->
+          <!-- (Cartes inchangées : je garde ton contenu tel quel) -->
           <a href="bilan-annuel.html" class="card-patho">
             <img data-slug="bilan-sante" alt="Bilan de santé annuel">
             <h3>Bilan de santé annuel</h3>
@@ -251,7 +329,6 @@
             <p>Tension élevée durable, risque cardiovasculaire accru.</p>
           </a>
 
-          <!-- Nouveaux thèmes du pack (/yourhealth/pathologies/*.html) -->
           <a href="/yourhealth/pathologies/prediabete.html" class="card-patho">
             <img data-slug="prediabete" alt="Prédiabète">
             <h3>Prédiabète</h3>
@@ -345,14 +422,12 @@
             <p>Alimentation, poids, sommeil.</p>
           </a>
 
-          <!-- Thyroïde -->
           <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
             <img data-slug="thyroide" alt="Maladies de la thyroïde">
             <h3>Maladies de la thyroïde</h3>
             <p>Hypothyroïdie, hyperthyroïdie, nodules.</p>
           </a>
 
-          <!-- AJOUT : Parkinson -->
           <a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
             <img src="assets/img/tremblements.gif"
                  alt="Maladie de Parkinson"
@@ -369,7 +444,6 @@
             <p>Sucre, sel, additifs, repères.</p>
           </a>
 
-          <!-- Tes autres cartes déjà présentes -->
           <a href="/yourhealth/pathologies/anxiete.html" class="card-patho">
             <img data-slug="anxiete" alt="Anxiété">
             <h3>Anxiété</h3>
@@ -381,7 +455,6 @@
             <h3>Antidepresseurs</h3>
             <p>Effets indésirables possibles, risque de sevrage, interactions, et alternatives d’accompagnement.</p>
           </a>
-
 
           <a href="/yourhealth/pathologies/depression.html" class="card-patho">
             <img data-slug="depression" alt="Dépression">
@@ -400,7 +473,7 @@
             <h3>Burn-out</h3>
             <p>Épuisement lié au stress chronique, baisse d’énergie.</p>
           </a>
-		  
+
           <a href="/yourhealth/pathologies/palpitations.html" class="card-patho">
             <img data-slug="palpitations" alt="Palpitations du cœur">
             <h3>Palpitations du cœur</h3>
@@ -510,8 +583,7 @@
             <img data-slug="syndrome-intestin-irritable"  alt="Syndrome de l’intestin irritable">
             <h3>Syndrome de l’intestin irritable</h3>
             <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
-          </a>		  
-		  
+          </a>
         </div>
       </section>
 
@@ -522,7 +594,7 @@
         <p><a href="sante-alimentaion-ref.html">Alimentation équilibrée</a></p>
         <p><a href="sport-sante.html">Bienfaits du sport sur la santé</a></p>
         <p><a href="/yourhealth/pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
-        <p><a href="medias.html">Quelques journaux de presse de différents pays</a></p>		
+        <p><a href="medias.html">Quelques journaux de presse de différents pays</a></p>
       </section>
 
       <!-- RESSOURCES : LIENS EXTERNES -->
@@ -579,10 +651,11 @@
             </a>
           </li>
 
+          <!-- ✅ CORRECTION ICI : ce lien n'est pas l'OMS -->
           <li>
             <a href="https://www.ameli.fr/assure/sante/themes/anemie-par-carence-en-fer/comprendre-anemie-carence-fer"
                target="_blank" rel="noopener">
-              Carence en fer et anémie – Organisation mondiale de la santé (OMS)
+              Carence en fer et anémie – Assurance Maladie (Ameli)
             </a>
           </li>
         </ul>
@@ -592,7 +665,6 @@
         <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
         <p><strong>Auteur :</strong> Site développé par Hocine Korichi, ingénieur physicien et informaticien.</p>
 
-        <!-- COMPTEUR VISITEURS (visible) -->
         <div class="compteur-visites" aria-live="polite">
           <span class="label">Nombre de visites</span>
           <div id="compteur-visites">Chargement…</div>
@@ -620,7 +692,6 @@
 
         function trySetImage(imgEl, slug) {
           let i = 0;
-
           function attempt() {
             if (i >= EXTS.length) {
               setFallback(imgEl);
@@ -630,7 +701,6 @@
             imgEl.onerror = attempt;
             imgEl.src = url;
           }
-
           slug = (slug || "").trim();
           if (!slug) {
             setFallback(imgEl);
@@ -646,18 +716,16 @@
           trySetImage(img, slug);
         });
 
-        /* Compteur visible (ne dépend pas de visit_count, donc ne disparaît pas) */
         const el = document.getElementById('compteur-visites');
         if (el) {
           el.innerHTML =
             '<img src="https://ehk0705.goatcounter.com/counter/TOTAL.svg?no_branding=1" ' +
-            'alt="Compteur de visites(TOTAL" ' +
+            'alt="Compteur de visites (TOTAL)" ' +
             'loading="lazy" style="max-width:100%;height:auto">';
         }
       })();
     </script>
 
-    <!-- GoatCounter (suivi des visites) -->
     <script data-goatcounter="https://ehk0705.goatcounter.com/count"
             src="https://gc.zgo.at/count.js"></script>
   </body>
