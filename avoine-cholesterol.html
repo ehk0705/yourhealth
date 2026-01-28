@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avoine et cholestérol – ce que dit une étude récente</title>
+
+  <style>
+    :root{
+      --bg:#070b1a;
+      --panel:#0b1228;
+      --card:#0f1a35;
+
+      --txt:#eef2ff;
+      --muted:#c7d2fe;
+
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+
+      --border:rgba(255,255,255,.14);
+      --shadow:0 14px 40px rgba(0,0,0,.55);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:radial-gradient(circle at top left,#121a36, var(--bg) 55%);
+      color:var(--txt);
+      line-height:1.7;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px}
+
+    /* Topbar */
+    header.topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(7,11,26,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 0;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .brand .dot{
+      width:34px;height:34px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+    }
+
+    nav.menu{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--txt);
+      font-weight:650;
+    }
+    .chip:hover{background:rgba(255,255,255,.07)}
+    .chip.active{
+      border-color:rgba(125,211,252,.55);
+      box-shadow:0 0 0 3px rgba(125,211,252,.12);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:18px 0;
+    }
+    .hero h1{margin:0 0 10px 0;font-size:28px;line-height:1.2}
+    .hero p{margin:0;color:var(--muted)}
+    .badge{
+      display:inline-flex;align-items:center;
+      margin-top:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(125,211,252,.35);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-weight:700;
+      width:fit-content;
+    }
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      min-height:210px;
+      display:flex;
+      align-items:stretch;
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .hero-media .ph{
+      padding:14px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      text-align:center;
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+      margin:16px 0 26px 0;
+    }
+    .card{
+      grid-column:span 6;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      padding:16px;
+    }
+    .card h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .card ul{margin:10px 0 0 20px;color:var(--muted)}
+    .card p{margin:0;color:var(--muted)}
+    .kpi{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
+    }
+    .pill{
+      border:1px solid rgba(165,180,252,.35);
+      background:rgba(165,180,252,.08);
+      border-radius:999px;
+      padding:6px 10px;
+      color:var(--txt);
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .wide{grid-column:span 12}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:16px 0 28px 0;
+      margin-top:18px;
+      font-size:14px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .card{grid-column:span 12}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Votre santé</span>
+      </a>
+
+      <nav class="menu" aria-label="Menu principal">
+        <a class="chip" href="index.html">Accueil</a>
+        <a class="chip active" href="avoine-cholesterol.html">Avoine & cholestérol</a>
+        <a class="chip" href="alimentation.html">Alimentation</a>
+        <a class="chip" href="pathologies.html">Pathologies</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Avoine et cholestérol</h1>
+        <p>
+          Une étude récente suggère qu’une consommation d’avoine, sur une courte période,
+          peut s’accompagner d’une baisse du cholestérol LDL chez certains participants.
+          Cela ne remplace pas un avis médical, ni un traitement prescrit.
+        </p>
+        <div class="badge">Objectif : comprendre, sans exagérer</div>
+      </div>
+
+      <div class="hero-media">
+        <!-- ✅ Mets ton image ici :
+             Exemple : assets/img/avoine_cholesterol.jfif
+        -->
+        <img src="assets/img/avoine_cholesterol.jfif" alt="Bol d’avoine (illustration)">
+        <!-- Si tu n’as pas encore l’image, remplace le <img> par :
+        <div class="ph">Ajoute une image .jfif dans assets/img/ (ex : avoine_cholesterol.jfif)</div>
+        -->
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Ce que l’on peut retenir</h2>
+        <ul>
+          <li>L’avoine est riche en fibres solubles, notamment les bêta-glucanes.</li>
+          <li>Chez certains profils, cela peut contribuer à améliorer le bilan lipidique.</li>
+          <li>Le résultat dépend du contexte : alimentation globale, poids, activité, traitements.</li>
+        </ul>
+        <div class="kpi">
+          <span class="pill">Fibres solubles</span>
+          <span class="pill">Bêta-glucanes</span>
+          <span class="pill">LDL</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Comment l’intégrer (simplement)</h2>
+        <p>
+          Une option pratique : porridge, flocons dans un yaourt, ou son d’avoine.
+          Éviter d’ajouter trop de sucre ; préférer fruits, cannelle, noix, graines.
+        </p>
+        <div class="kpi">
+          <span class="pill">Sans sucre ajouté</span>
+          <span class="pill">Fruits / noix</span>
+          <span class="pill">Régularité</span>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <h2>Points de prudence</h2>
+        <ul>
+          <li>Une baisse du LDL observée dans une étude ne garantit pas le même effet pour tous.</li>
+          <li>Si tu prends des statines ou un autre traitement, ne change rien sans avis médical.</li>
+          <li>Le meilleur effet vient souvent d’un ensemble : fibres + moins de gras saturés + activité.</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Source</h2>
+        <p>
+          Article de presse : Forbes (24 janvier 2026).  
+          Pour une page publique “Source”, ajoute un lien externe dans ton site si tu le souhaites.
+        </p>
+      </article>
+    </section>
+
+    <footer>
+      <div>© Votre santé — Page : Avoine & cholestérol</div>
+    </footer>
+  </main>
+</body>
+</html>
