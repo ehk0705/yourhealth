@@ -566,3 +566,16 @@ header * { pointer-events: auto; }
 .nav a:hover{
   color:var(--accent);
 }
+.img-surveiller{
+  display:block;
+  margin:20px auto;
+  width:50%;        /* desktop */
+  height:auto;
+  border-radius:12px;
+}
+
+@media (max-width: 520px){
+  .img-surveiller{
+    width:90%;      /* mobile */
+  }
+}
