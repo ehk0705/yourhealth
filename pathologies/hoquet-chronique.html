@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoquet chronique – Votre santé</title>
+
+    <!-- CSS principal (GitHub Pages : chemin relatif) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+      :root{
+        --bg:#f7fbff;
+        --panel:#ffffff;
+        --card:#ffffff;
+
+        --txt:#0f172a;
+        --muted:#475569;
+
+        --accent:#2563eb;
+        --accent2:#7c3aed;
+
+        --border:rgba(15,23,42,.12);
+        --shadow:0 16px 40px rgba(2,6,23,.10);
+        --shadow2:0 10px 26px rgba(2,6,23,.08);
+        --radius:18px;
+      }
+
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        background:linear-gradient(180deg,#eef6ff,var(--bg));
+        color:var(--txt);
+        line-height:1.65;
+      }
+
+      /* Topbar */
+      header.topbar{
+        position:sticky;
+        top:0;
+        z-index:50;
+        backdrop-filter:blur(10px);
+        background:rgba(247,251,255,.85);
+        border-bottom:1px solid var(--border);
+      }
+      .topbar .wrap{
+        max-width:1100px;
+        margin:0 auto;
+        padding:12px 16px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+      }
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        text-decoration:none;
+        color:inherit;
+        white-space:nowrap;
+      }
+      .brand .logo{
+        width:38px;height:38px;
+        border-radius:12px;
+        background:linear-gradient(135deg,var(--accent),var(--accent2));
+        box-shadow:var(--shadow2);
+      }
+      .brand .txt{
+        display:flex;flex-direction:column;
+        line-height:1.1;
+      }
+      .brand .txt strong{font-size:14px}
+      .brand .txt span{font-size:12px;color:var(--muted)}
+
+      nav.menu{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        justify-content:flex-end;
+      }
+      nav.menu a{
+        text-decoration:none;
+        font-size:13px;
+        padding:8px 10px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        color:var(--txt);
+        background:#fff;
+        transition:.15s ease;
+      }
+      nav.menu a:hover{
+        transform:translateY(-1px);
+        box-shadow:var(--shadow2);
+        border-color:rgba(37,99,235,.25);
+      }
+      nav.menu a.active{
+        color:#fff;
+        background:linear-gradient(135deg,var(--accent),var(--accent2));
+        border-color:transparent;
+      }
+
+      /* Layout */
+      main.container{
+        max-width:1100px;
+        margin:0 auto;
+        padding:18px 16px 40px;
+      }
+
+      .hero{
+        background:linear-gradient(135deg,#0b1220,#18233a);
+        color:#eef2ff;
+        border-radius:var(--radius);
+        overflow:hidden;
+        box-shadow:var(--shadow);
+        border:1px solid rgba(255,255,255,.10);
+      }
+      .hero .inner{
+        display:grid;
+        grid-template-columns:1.2fr .8fr;
+        gap:16px;
+        padding:18px;
+        align-items:center;
+      }
+      .hero h1{
+        margin:0 0 8px 0;
+        font-size:24px;
+        letter-spacing:.2px;
+      }
+      .hero p{
+        margin:0;
+        color:rgba(238,242,255,.86);
+        font-size:14px;
+      }
+      .hero .badge{
+        display:inline-flex;
+        gap:8px;
+        align-items:center;
+        margin-top:10px;
+        padding:8px 10px;
+        border-radius:999px;
+        background:rgba(255,255,255,.10);
+        border:1px solid rgba(255,255,255,.14);
+        font-size:12px;
+        width:max-content;
+      }
+      .hero .imgbox{
+        background:rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:16px;
+        overflow:hidden;
+        min-height:160px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .hero .imgbox img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
+
+      .grid{
+        margin-top:18px;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .card{
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        box-shadow:var(--shadow2);
+        padding:16px;
+      }
+      .card h2{
+        margin:0 0 10px 0;
+        font-size:18px;
+      }
+
+      .kpi{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+      }
+      .pill{
+        border:1px solid var(--border);
+        border-radius:16px;
+        padding:10px 12px;
+        background:linear-gradient(180deg,#ffffff,#f7fbff);
+      }
+      .pill strong{display:block;font-size:13px}
+      .pill span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+
+      .two{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+      }
+
+      ul.clean{
+        margin:0;
+        padding-left:18px;
+      }
+      ul.clean li{margin:6px 0}
+
+      .notice{
+        border-left:4px solid var(--accent);
+        background:linear-gradient(180deg,#f2f7ff,#ffffff);
+        padding:12px 12px;
+        border-radius:14px;
+        border:1px solid rgba(37,99,235,.20);
+      }
+
+      .danger{
+        border-left:4px solid #dc2626;
+        background:linear-gradient(180deg,#fff5f5,#ffffff);
+        padding:12px 12px;
+        border-radius:14px;
+        border:1px solid rgba(220,38,38,.18);
+      }
+
+      .imgrow{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+        margin-top:10px;
+      }
+      figure{
+        margin:0;
+        border-radius:16px;
+        overflow:hidden;
+        border:1px solid var(--border);
+        background:#fff;
+      }
+      figure img{
+        width:100%;
+        height:180px;
+        object-fit:cover;
+        display:block;
+      }
+      figcaption{
+        padding:10px 12px;
+        font-size:12px;
+        color:var(--muted);
+      }
+
+      footer{
+        max-width:1100px;
+        margin:0 auto;
+        padding:16px;
+        color:var(--muted);
+        font-size:12px;
+      }
+
+      @media (max-width: 860px){
+        .hero .inner{grid-template-columns:1fr}
+        .kpi{grid-template-columns:1fr}
+        .two{grid-template-columns:1fr}
+        .imgrow{grid-template-columns:1fr}
+        nav.menu{justify-content:flex-start}
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- MENU + TOPBAR -->
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="index.html">
+          <span class="logo" aria-hidden="true"></span>
+          <span class="txt">
+            <strong>Votre santé</strong>
+            <span>Informations et repères simples</span>
+          </span>
+        </a>
+
+        <nav class="menu" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="pathologies.html">Pathologies</a>
+          <a href="alimentation.html">Alimentation</a>
+          <a href="analyses.html">Analyses</a>
+          <a class="active" href="hoquet-chronique.html">Hoquet</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" aria-label="Présentation">
+        <div class="inner">
+          <div>
+            <h1>Hoquet chronique</h1>
+            <p>
+              Un hoquet qui dure plus de 48 heures n’est pas banal.
+              Il peut révéler une cause digestive, nerveuse, métabolique ou médicamenteuse.
+            </p>
+            <div class="badge">Repère : &gt; 48 heures = consultation</div>
+          </div>
+
+          <div class="imgbox" aria-label="Image illustrative">
+            <!-- Image à ajouter dans ton dépôt : /yourhealth/assets/img/hoquet-hero.jfif -->
+            <img src="/yourhealth/assets/img/hoquet-hero.jfif" alt="Illustration hoquet chronique">
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <!-- Définition -->
+        <article class="card">
+          <h2>Définition</h2>
+          <div class="kpi" role="list">
+            <div class="pill" role="listitem">
+              <strong>Hoquet chronique</strong>
+              <span>Durée &gt; 48 heures</span>
+            </div>
+            <div class="pill" role="listitem">
+              <strong>Hoquet persistant</strong>
+              <span>Durée &gt; 1 mois</span>
+            </div>
+            <div class="pill" role="listitem">
+              <strong>À retenir</strong>
+              <span>Les “trucs” habituels ne suffisent pas</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Causes + Signes -->
+        <section class="two">
+          <article class="card">
+            <h2>Causes possibles</h2>
+            <ul class="clean">
+              <li>Irritation des nerfs phrénique ou vague.</li>
+              <li>Reflux gastro-œsophagien.</li>
+              <li>Troubles digestifs : distension, gastrite.</li>
+              <li>Causes neurologiques : accident vasculaire cérébral, tumeur, sclérose en plaques.</li>
+              <li>Causes métaboliques : insuffisance rénale, déséquilibres biologiques.</li>
+              <li>Médicaments : corticoïdes, benzodiazépines, chimiothérapie (entre autres).</li>
+            </ul>
+
+            <div class="notice" style="margin-top:12px">
+              Si le hoquet est fréquent après les repas, le reflux est une piste fréquente.
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Quand consulter</h2>
+            <div class="danger">
+              <ul class="clean">
+                <li>Hoquet qui dure plus de 48 heures.</li>
+                <li>Perte de poids, douleurs, vomissements, difficulté à avaler.</li>
+                <li>Fatigue importante ou troubles du sommeil.</li>
+                <li>Signes neurologiques : faiblesse d’un côté, troubles de la parole, troubles de la vision.</li>
+              </ul>
+            </div>
+
+            <div class="notice" style="margin-top:12px">
+              L’objectif est de rechercher une cause traitable, puis de soulager les symptômes.
+            </div>
+          </article>
+        </section>
+
+        <!-- Traitement -->
+        <article class="card">
+          <h2>Traitement</h2>
+          <ul class="clean">
+            <li>Priorité : traiter la cause si elle est identifiée.</li>
+            <li>Si nécessaire, médicaments sur prescription (exemples) :
+              baclofène, gabapentine, chlorpromazine, métoclopramide.</li>
+          </ul>
+
+          <div class="notice" style="margin-top:12px">
+            Évite l’automédication : le traitement dépend du contexte et des antécédents.
+          </div>
+
+          <div class="imgrow" aria-label="Images">
+            <!-- Images à ajouter dans ton dépôt :
+                 /yourhealth/assets/img/reflux.jfif
+                 /yourhealth/assets/img/consultation.jfif
+            -->
+            <figure>
+              <img src="/yourhealth/assets/img/reflux.jfif" alt="Illustration reflux">
+              <figcaption>Reflux : cause fréquente à vérifier si le hoquet est lié aux repas.</figcaption>
+            </figure>
+            <figure>
+              <img src="/yourhealth/assets/img/consultation-hoquet.jfif" alt="Illustration consultation médicale">
+              <figcaption>Si le hoquet dépasse 48 heures, une évaluation médicale est indiquée.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Résumé -->
+        <article class="card">
+          <h2>Résumé</h2>
+          <ul class="clean">
+            <li>Hoquet chronique = durée &gt; 48 heures.</li>
+            <li>Ce n’est pas banal : une cause peut exister (digestive, nerveuse, métabolique, médicaments).</li>
+            <li>Consulter si cela dure, s’il y a douleur, amaigrissement, ou signes neurologiques.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      © Votre santé — Page d’information générale. En cas de symptômes persistants, un avis médical est nécessaire.
+    </footer>
+  </body>
+</html>
