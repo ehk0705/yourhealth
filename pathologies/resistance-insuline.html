@@ -1,55 +1,395 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Résistance à l’insuline | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Résistance à l’insuline | Santé et alimentation</title>
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Résistance à l’insuline</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/resistance-insuline.jfif" alt="Résistance à l’insuline" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <section class="card">
-          <h2>Comprendre</h2>
-<p>La résistance à l’insuline signifie que les cellules répondent moins bien à l’insuline. Le pancréas compense, puis s’épuise parfois.</p>
-<h2>Signes possibles</h2>
-<p>Prise de poids abdominale, fatigue après repas, triglycérides élevés, baisse du HDL, tension élevée.</p>
-<h2>Alimentation</h2>
-<p>Limiter sucres ajoutés, privilégier protéines et fibres, répartir les glucides, éviter grignotage.</p>
-<h2>Hygiène de vie</h2>
-<p>Renforcement musculaire et activité régulière, sommeil, gestion du stress.</p>
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1220;
+      --panel:rgba(11,18,32,.96);
 
-        </section>
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --green:#22c55e;
+
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 650px at 10% 10%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(900px 540px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      line-height:1.65;
+    }
+
+    /* ===== MENU ===== */
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,11,20,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    header.topbar .bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .brand::before{
+      content:"";
+      width:34px;height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      display:inline-block;
+    }
+    nav.nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    nav.nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      transition:.15s ease;
+      font-size:14px;
+    }
+    nav.nav a:hover{
+      border-color:rgba(125,211,252,.45);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    nav.nav a.active{
+      border-color:transparent;
+      background:linear-gradient(135deg, rgba(125,211,252,.35), rgba(165,180,252,.25));
+    }
+
+    .crumbs{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    .hero{
+      padding:0;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(34,197,94,.08)),
+        var(--panel);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:16px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:clamp(22px,3.2vw,34px);
+      color:var(--green);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.25);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:14px;
+    }
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      min-height:210px;
+    }
+    .hero-media img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      color:var(--accent);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    p{color:var(--muted)}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(125,211,252,.22);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+    }
+    .warn{
+      border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.10);
+    }
+    .danger{
+      border:1px solid rgba(239,68,68,.28);
+      background:rgba(239,68,68,.10);
+    }
+
+    footer.site-footer{
+      border-top:1px solid var(--border);
+      margin-top:18px;
+      padding:14px 0 18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-media img{height:210px}
+      .grid2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="bar">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/pathologies.html">Pathologies</a>
+        <a href="/yourhealth/analyses.html">Analyses</a>
+        <a class="active" href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+    </div>
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> › <a href="/yourhealth/ressources.html">Ressources</a> › Résistance à l’insuline
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Résistance à l’insuline</h1>
+          <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+          <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+        </div>
+        <div class="hero-media">
+          <img src="/yourhealth/assets/img/resistance-insuline.jfif" alt="Résistance à l’insuline" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- AJOUT : explication simple -->
+    <section class="card">
+      <h2>Idée simple</h2>
+      <p>
+        L’insuline aide le sucre (glucose) à entrer dans les cellules. En cas de résistance à l’insuline, le corps a besoin de plus d’insuline
+        pour obtenir le même effet. Pendant un temps, le pancréas compense, puis il peut se fatiguer, ce qui augmente le risque de prédiabète
+        et de diabète de type 2.
+      </p>
+      <div class="callout">
+        <b>Objectif :</b> améliorer la sensibilité à l’insuline par des gestes simples (alimentation, activité, sommeil), avant que le problème ne s’installe.
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) + enrichissements -->
+    <section class="card">
+      <h2>Comprendre</h2>
+      <p>La résistance à l’insuline signifie que les cellules répondent moins bien à l’insuline. Le pancréas compense, puis s’épuise parfois.</p>
+
+      <h3>Pourquoi c’est important</h3>
+      <ul>
+        <li>Augmente le risque de <b>prédiabète</b> et de <b>diabète de type 2</b>.</li>
+        <li>Souvent associée à un risque cardiovasculaire plus élevé (tension, lipides, inflammation).</li>
+        <li>Peut s’intégrer dans un “syndrome métabolique” (tour de taille, triglycérides, HDL, tension, glycémie).</li>
+      </ul>
+
+      <h2>Signes possibles</h2>
+      <p>Prise de poids abdominale, fatigue après repas, triglycérides élevés, baisse du HDL, tension élevée.</p>
+
+      <h3>Autres indices fréquents</h3>
+      <ul>
+        <li>Envies de sucre, grignotage, somnolence après un repas riche en glucides.</li>
+        <li>Stéatose hépatique (foie gras) possible.</li>
+        <li>Chez certaines personnes : acanthosis nigricans (zones de peau plus foncées au cou/aisselles) : avis médical.</li>
+      </ul>
+
+      <h2>Alimentation</h2>
+      <p>Limiter sucres ajoutés, privilégier protéines et fibres, répartir les glucides, éviter grignotage.</p>
+
+      <h3>Stratégies simples qui marchent souvent</h3>
+      <div class="grid2">
+        <div>
           <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
+            <li>Boissons : supprimer les boissons sucrées (sodas, jus, cafés sucrés).</li>
+            <li>À chaque repas : <b>protéines</b> + <b>fibres</b> (légumes, légumineuses).</li>
+            <li>Privilégier les glucides “lents” : céréales complètes, légumineuses.</li>
           </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+        </div>
+        <div>
+          <ul>
+            <li>Réduire les produits ultra-transformés (snacks, biscuits, céréales sucrées).</li>
+            <li>Garder les desserts sucrés pour des occasions, pas en routine.</li>
+            <li>Si faim : collation “protéines + fibres” (yaourt nature + noix, fruit + fromage).</li>
+          </ul>
+        </div>
+      </div>
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+      <h3>Exemples de repas “stables”</h3>
+      <ul>
+        <li>Assiette : légumes + poulet/poisson/tofu + lentilles/quinoa + huile d’olive.</li>
+        <li>Petit-déjeuner : œufs ou yaourt nature + fruit + noix (plutôt que viennoiseries).</li>
+        <li>Sandwich : pain complet + protéines + crudités (limiter sauces sucrées).</li>
+      </ul>
+
+      <h2>Hygiène de vie</h2>
+      <p>Renforcement musculaire et activité régulière, sommeil, gestion du stress.</p>
+
+      <h3>Les leviers les plus efficaces</h3>
+      <ul>
+        <li><b>Marche</b> 10–20 minutes après un repas : aide souvent la glycémie.</li>
+        <li><b>Renforcement musculaire</b> 2 à 3 fois par semaine : améliore la sensibilité à l’insuline.</li>
+        <li><b>Sommeil</b> régulier : le manque de sommeil augmente les envies de sucre et la résistance.</li>
+        <li><b>Stress</b> chronique : peut aggraver les symptômes (cortisol).</li>
+      </ul>
+
+      <div class="callout warn">
+        <b>À éviter :</b> vouloir tout changer d’un coup. Deux habitudes solides valent mieux que dix tentatives abandonnées.
+      </div>
+    </section>
+
+    <!-- AJOUT : bilan et suivi -->
+    <section class="card">
+      <h2>Bilan et suivi (à discuter avec le médecin)</h2>
+      <p>
+        Le diagnostic dépend du contexte. Le médecin peut s’appuyer sur la glycémie, l’HbA1c, parfois une hyperglycémie provoquée,
+        et sur les marqueurs associés (triglycérides, HDL, tour de taille, tension).
+      </p>
+      <div class="grid2">
+        <div>
+          <h3>Signaux biologiques associés</h3>
+          <ul>
+            <li>Triglycérides élevés, HDL bas.</li>
+            <li>Glycémie à jeun limite, HbA1c limite.</li>
+            <li>Foie gras (enzymes hépatiques parfois élevées).</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Quand consulter</h3>
+          <ul>
+            <li>Soif inhabituelle, urines fréquentes, fatigue intense.</li>
+            <li>Perte de poids involontaire.</li>
+            <li>Antécédents familiaux + prise de poids abdominale.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout danger" style="margin-top:14px">
+        <b>Consulter rapidement</b>
+        <ul>
+          <li>Symptômes de diabète franc (soif, urines fréquentes, amaigrissement, vision trouble).</li>
+          <li>Vomissements, grande fatigue, confusion : avis médical urgent.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) -->
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+
+</body>
+</html>

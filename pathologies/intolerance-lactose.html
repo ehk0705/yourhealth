@@ -1,53 +1,400 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Intolérance au lactose | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intolérance au lactose | Santé et alimentation</title>
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Intolérance au lactose</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/intolerance-lactose.jfif" alt="Intolérance au lactose" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <section class="card">
-          <h2>Mécanisme</h2>
-<p>Déficit en lactase entraînant ballonnements, gaz, diarrhée après produits laitiers.</p>
-<h2>Stratégie</h2>
-<p>Tester la tolérance, choisir yaourts/fromages affinés, lait sans lactose, calcium par alternatives.</p>
-<h2>À ne pas confondre</h2>
-<p>Allergie aux protéines du lait (réaction immunitaire) : plus rare, parfois sévère.</p>
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1220;
+      --panel:rgba(11,18,32,.96);
 
-        </section>
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --green:#22c55e;
+
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 650px at 10% 10%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(900px 540px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      line-height:1.65;
+    }
+
+    /* ===== MENU ===== */
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,11,20,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    header.topbar .bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .brand::before{
+      content:"";
+      width:34px;height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      display:inline-block;
+    }
+    nav.nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    nav.nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      transition:.15s ease;
+      font-size:14px;
+    }
+    nav.nav a:hover{
+      border-color:rgba(125,211,252,.45);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    nav.nav a.active{
+      border-color:transparent;
+      background:linear-gradient(135deg, rgba(125,211,252,.35), rgba(165,180,252,.25));
+    }
+
+    .crumbs{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    .hero{
+      padding:0;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(34,197,94,.08)),
+        var(--panel);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:16px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:clamp(22px,3.2vw,34px);
+      color:var(--green);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.25);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:14px;
+    }
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      min-height:210px;
+    }
+    .hero-media img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      color:var(--accent);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    p{color:var(--muted)}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(125,211,252,.22);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+    }
+    .warn{
+      border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.10);
+    }
+    .danger{
+      border:1px solid rgba(239,68,68,.28);
+      background:rgba(239,68,68,.10);
+    }
+
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin-top:10px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.02);
+    }
+    .table th,.table td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      text-align:left;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .table th{color:var(--txt);font-weight:700}
+    .table tr:last-child td{border-bottom:none}
+
+    footer.site-footer{
+      border-top:1px solid var(--border);
+      margin-top:18px;
+      padding:14px 0 18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-media img{height:210px}
+      .grid2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="bar">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/pathologies.html">Pathologies</a>
+        <a href="/yourhealth/analyses.html">Analyses</a>
+        <a class="active" href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+    </div>
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> › <a href="/yourhealth/ressources.html">Ressources</a> › Intolérance au lactose
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Intolérance au lactose</h1>
+          <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+          <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+        </div>
+        <div class="hero-media">
+          <img src="/yourhealth/assets/img/intolerance-lactose.jfif" alt="Intolérance au lactose" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- AJOUT : explication simple -->
+    <section class="card">
+      <h2>Idée simple</h2>
+      <p>
+        Le lactose est le sucre du lait. Pour le digérer, l’intestin fabrique une enzyme : la <b>lactase</b>.
+        Si la lactase est insuffisante, le lactose arrive dans le côlon, fermente et provoque des symptômes digestifs.
+      </p>
+      <div class="callout">
+        <b>Important :</b> l’intolérance au lactose est fréquente et se gère souvent par des ajustements, sans supprimer tout le “laitier”.
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) + enrichissements -->
+    <section class="card">
+      <h2>Mécanisme</h2>
+      <p>Déficit en lactase entraînant ballonnements, gaz, diarrhée après produits laitiers.</p>
+
+      <h3>Signes typiques</h3>
+      <ul>
+        <li>Ballonnements, gaz, douleurs abdominales.</li>
+        <li>Diarrhée ou selles molles, parfois urgence après un produit laitier.</li>
+        <li>Symptômes variables selon la dose et le type d’aliment.</li>
+      </ul>
+
+      <h2>Stratégie</h2>
+      <p>Tester la tolérance, choisir yaourts/fromages affinés, lait sans lactose, calcium par alternatives.</p>
+
+      <h3>Ce qui est souvent mieux toléré</h3>
+      <div class="grid2">
+        <div>
           <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
+            <li><b>Yaourts</b> (fermentation : moins de lactose).</li>
+            <li><b>Fromages affinés</b> (souvent très peu de lactose).</li>
+            <li><b>Lait sans lactose</b>.</li>
           </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+        </div>
+        <div>
+          <ul>
+            <li>Petites quantités, prises avec un repas (tolérance meilleure).</li>
+            <li>Répartition : éviter une grande dose d’un coup.</li>
+            <li>Étiquettes : repérer “lactose” (lait, poudre de lait, lactosérum).</li>
+          </ul>
+        </div>
+      </div>
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+      <h3>Tester sa tolérance (méthode simple)</h3>
+      <ul>
+        <li>Réduire le lactose 7 à 10 jours, puis réintroduire progressivement.</li>
+        <li>Observer la relation “dose → symptômes”.</li>
+        <li>Éviter de conclure sur un seul épisode (repas gras, stress, infection digestive peuvent confondre).</li>
+      </ul>
+
+      <h3>Calcium et vitamine D : alternatives</h3>
+      <ul>
+        <li>Boissons végétales <b>enrichies</b> (calcium, vitamine D) si disponibles.</li>
+        <li>Poissons avec arêtes (sardines), légumes verts, amandes (apport variable).</li>
+        <li>Si éviction large : discuter avec le médecin/dietétiste (risque de carences).</li>
+      </ul>
+
+      <h2>À ne pas confondre</h2>
+      <p>Allergie aux protéines du lait (réaction immunitaire) : plus rare, parfois sévère.</p>
+
+      <h3>Différences rapides (très utile)</h3>
+      <table class="table" aria-label="Différence intolérance au lactose et allergie aux protéines du lait">
+        <thead>
+          <tr>
+            <th>Situation</th>
+            <th>Ce qui se passe</th>
+            <th>Signes fréquents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Intolérance au lactose</td>
+            <td>Défaut d’enzyme (lactase)</td>
+            <td>Ballonnements, gaz, diarrhée (digestif)</td>
+          </tr>
+          <tr>
+            <td>Allergie aux protéines du lait</td>
+            <td>Réaction immunitaire</td>
+            <td>Urticaire, gonflement, gêne respiratoire, vomissements (peut être grave)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout danger">
+        <b>Consulter rapidement</b>
+        <ul>
+          <li>Urticaire, gonflement du visage/lèvres, gêne respiratoire après laitages.</li>
+          <li>Sang dans les selles, amaigrissement, fièvre, douleurs importantes.</li>
+          <li>Diarrhée persistante, déshydratation, symptômes nocturnes.</li>
+        </ul>
+      </div>
+
+      <div class="callout warn">
+        <b>Si les symptômes persistent malgré l’arrêt du lactose :</b> ce n’est peut-être pas le lactose (intestin irritable, maladie cœliaque, infection, etc.). Avis médical utile.
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) -->
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+
+</body>
+</html>

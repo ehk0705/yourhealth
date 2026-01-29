@@ -1,55 +1,372 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Reflux gastro-œsophagien | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflux gastro-œsophagien | Santé et alimentation</title>
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Reflux gastro-œsophagien</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/reflux.jfif" alt="Reflux gastro-œsophagien" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <section class="card">
-          <h2>Symptômes</h2>
-<p>Brûlures derrière le sternum, remontées acides, toux nocturne, enrouement.</p>
-<h2>Déclencheurs</h2>
-<p>Repas gras, alcool, menthe, chocolat, café, repas tardifs, surpoids.</p>
-<h2>Mesures</h2>
-<p>Petits repas, éviter s’allonger 2–3 h après repas, surélever la tête du lit, perte de poids si besoin.</p>
-<h2>Quand consulter</h2>
-<p>Difficulté à avaler, amaigrissement, vomissements sanglants, symptômes persistants.</p>
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1220;
+      --panel:rgba(11,18,32,.96);
 
-        </section>
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --green:#22c55e;
+
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 650px at 10% 10%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(900px 540px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      line-height:1.65;
+    }
+
+    /* ===== MENU ===== */
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,11,20,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    header.topbar .bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .brand::before{
+      content:"";
+      width:34px;height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      display:inline-block;
+    }
+    nav.nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    nav.nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      transition:.15s ease;
+      font-size:14px;
+    }
+    nav.nav a:hover{
+      border-color:rgba(125,211,252,.45);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    nav.nav a.active{
+      border-color:transparent;
+      background:linear-gradient(135deg, rgba(125,211,252,.35), rgba(165,180,252,.25));
+    }
+
+    .crumbs{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    .hero{
+      padding:0;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(34,197,94,.08)),
+        var(--panel);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:16px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:clamp(22px,3.2vw,34px);
+      color:var(--green);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.25);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:14px;
+    }
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      min-height:210px;
+    }
+    .hero-media img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      color:var(--accent);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    p{color:var(--muted)}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(125,211,252,.22);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+    }
+    .warn{
+      border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.10);
+    }
+    .danger{
+      border:1px solid rgba(239,68,68,.28);
+      background:rgba(239,68,68,.10);
+    }
+
+    footer.site-footer{
+      border-top:1px solid var(--border);
+      margin-top:18px;
+      padding:14px 0 18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-media img{height:210px}
+      .grid2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="bar">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/pathologies.html">Pathologies</a>
+        <a href="/yourhealth/analyses.html">Analyses</a>
+        <a class="active" href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+    </div>
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> › <a href="/yourhealth/ressources.html">Ressources</a> › Reflux gastro-œsophagien
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Reflux gastro-œsophagien</h1>
+          <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+          <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+        </div>
+        <div class="hero-media">
+          <img src="/yourhealth/assets/img/reflux.jfif" alt="Reflux gastro-œsophagien" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- AJOUT : explication simple -->
+    <section class="card">
+      <h2>Comprendre simplement</h2>
+      <p>
+        Le reflux gastro-œsophagien correspond à la remontée du contenu de l’estomac vers l’œsophage.
+        Cela irrite la muqueuse de l’œsophage et peut provoquer des brûlures, une gêne ou une toux, surtout la nuit.
+      </p>
+      <div class="callout">
+        <b>Idée simple :</b> ce n’est pas toujours “trop d’acide”, mais souvent un problème de <b>remontée</b> (pression abdominale, sphincter, repas, posture).
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) + enrichissement -->
+    <section class="card">
+      <h2>Symptômes</h2>
+      <p>Brûlures derrière le sternum, remontées acides, toux nocturne, enrouement.</p>
+
+      <h3>Autres signes possibles</h3>
+      <ul>
+        <li>Régurgitations après les repas, goût acide dans la bouche.</li>
+        <li>Gêne ou douleur dans la poitrine (si doute : avis médical, surtout si douleur atypique).</li>
+        <li>Gorge irritée, raclements de gorge, sensation de “boule”.</li>
+        <li>Sommeil perturbé (symptômes majorés en position allongée).</li>
+      </ul>
+
+      <h2>Déclencheurs</h2>
+      <p>Repas gras, alcool, menthe, chocolat, café, repas tardifs, surpoids.</p>
+
+      <h3>Déclencheurs fréquents (selon les personnes)</h3>
+      <ul>
+        <li>Plats très épicés, tomate/coulis, agrumes, boissons gazeuses.</li>
+        <li>Portions trop importantes, grignotage tardif.</li>
+        <li>Tabac.</li>
+        <li>Vêtements très serrés au niveau du ventre.</li>
+      </ul>
+
+      <h2>Mesures</h2>
+      <p>Petits repas, éviter s’allonger 2–3 h après repas, surélever la tête du lit, perte de poids si besoin.</p>
+
+      <h3>Mesures pratiques qui aident souvent</h3>
+      <div class="grid2">
+        <div>
           <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
+            <li>Repas plus légers le soir, éviter les plats gras.</li>
+            <li>Éviter l’alcool le soir.</li>
+            <li>Ne pas se pencher en avant juste après un repas.</li>
           </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+        </div>
+        <div>
+          <ul>
+            <li>Surélever la tête du lit (cales sous les pieds du lit, plus efficace que plusieurs oreillers).</li>
+            <li>Identifier ses déclencheurs (journal 7 jours : repas + symptômes).</li>
+            <li>Si surpoids : une perte modérée peut suffire à améliorer nettement.</li>
+          </ul>
+        </div>
+      </div>
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+      <h2>Quand consulter</h2>
+      <p>Difficulté à avaler, amaigrissement, vomissements sanglants, symptômes persistants.</p>
+
+      <div class="callout danger" style="margin-top:14px">
+        <b>Consulter rapidement (signes d’alerte)</b>
+        <ul>
+          <li>Difficulté à avaler, sensation que la nourriture “bloque”.</li>
+          <li>Amaigrissement involontaire, perte d’appétit.</li>
+          <li>Vomissements sanglants, selles noires (méléna).</li>
+          <li>Douleur thoracique importante, malaise, essoufflement : avis médical urgent.</li>
+          <li>Symptômes qui persistent malgré les mesures simples, ou qui réveillent souvent la nuit.</li>
+        </ul>
+      </div>
+
+      <div class="callout warn">
+        <b>À savoir :</b> si tu prends souvent des antiacides/alginate sans amélioration durable, il faut en parler au médecin (diagnostic et traitement adaptés).
+      </div>
+    </section>
+
+    <!-- AJOUT : “aider sans se priver de tout” -->
+    <section class="card">
+      <h2>Stratégie simple sur 10 jours</h2>
+      <p>
+        L’objectif est d’identifier ce qui déclenche <b>chez toi</b>, sans supprimer inutilement trop d’aliments.
+      </p>
+      <ol class="small" style="color:var(--muted); margin:10px 0 0 18px">
+        <li>Soir : repas plus léger + pas d’aliment déclencheur “classique”.</li>
+        <li>Ne pas s’allonger 2–3 heures après le repas.</li>
+        <li>Boissons : eau, éviter gazeux/alcool le soir.</li>
+        <li>Surélever la tête du lit si symptômes nocturnes.</li>
+        <li>Réintroduire ensuite 1 élément à la fois (café, chocolat, tomate) pour repérer le vrai déclencheur.</li>
+      </ol>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) -->
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+
+</body>
+</html>

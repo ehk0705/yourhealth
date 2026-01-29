@@ -1,55 +1,388 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Carence en fer | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carence en fer | Santé et alimentation</title>
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Carence en fer</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/carence-fer.jfif" alt="Carence en fer" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <section class="card">
-          <h2>Signes</h2>
-<p>Fatigue, pâleur, essoufflement à l’effort, ongles fragiles.</p>
-<h2>Causes</h2>
-<p>Apports insuffisants, pertes (règles), saignement digestif, mauvaise absorption.</p>
-<h2>Bilan</h2>
-<p>Ferritine, hémogramme. Une ferritine basse suggère une réserve faible.</p>
-<h2>Alimentation</h2>
-<p>Viande/poisson, légumineuses; associer vitamine C; éviter thé/café au repas.</p>
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1220;
+      --panel:rgba(11,18,32,.96);
 
-        </section>
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --green:#22c55e;
+
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 650px at 10% 10%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(900px 540px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      line-height:1.65;
+    }
+
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,11,20,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    header.topbar .bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .brand::before{
+      content:"";
+      width:34px;height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      display:inline-block;
+    }
+    nav.nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    nav.nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      transition:.15s ease;
+      font-size:14px;
+    }
+    nav.nav a:hover{
+      border-color:rgba(125,211,252,.45);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    nav.nav a.active{
+      border-color:transparent;
+      background:linear-gradient(135deg, rgba(125,211,252,.35), rgba(165,180,252,.25));
+    }
+
+    .crumbs{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    .hero{
+      padding:0;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(34,197,94,.08)),
+        var(--panel);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:16px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:clamp(22px,3.2vw,34px);
+      color:var(--green);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.25);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:14px;
+    }
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      min-height:210px;
+    }
+    .hero-media img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      color:var(--accent);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    p{color:var(--muted)}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:0;
+    }
+
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(34,197,94,.22);
+      background:rgba(34,197,94,.08);
+      color:var(--txt);
+    }
+    .warn{
+      border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.10);
+    }
+
+    footer.site-footer{
+      border-top:1px solid var(--border);
+      margin-top:18px;
+      padding:14px 0 18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-media img{height:210px}
+      .grid2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="bar">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/pathologies.html">Pathologies</a>
+        <a href="/yourhealth/analyses.html">Analyses</a>
+        <a class="active" href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+    </div>
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> › <a href="/yourhealth/ressources.html">Ressources</a> › Carence en fer
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Carence en fer</h1>
+          <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+          <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+        </div>
+        <div class="hero-media">
+          <img src="/yourhealth/assets/img/carence-fer.jfif" alt="Carence en fer" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- AJOUT : repère simple -->
+    <section class="card">
+      <h2>À quoi sert le fer ?</h2>
+      <p>
+        Le fer est indispensable à la fabrication de l’hémoglobine (transport de l’oxygène) et au bon fonctionnement
+        des muscles et du système immunitaire. Une carence peut d’abord être silencieuse, puis entraîner une anémie.
+      </p>
+      <div class="callout">
+        <b>Idée simple :</b> on peut manquer de fer <b>avant</b> d’être anémique. C’est souvent la <b>ferritine</b> qui baisse en premier.
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé, repris tel quel) + enrichissements -->
+    <section class="card">
+      <h2>Signes</h2>
+      <p>Fatigue, pâleur, essoufflement à l’effort, ongles fragiles.</p>
+
+      <h3>Autres signes possibles</h3>
+      <ul>
+        <li>Palpitations, baisse des performances, difficultés de concentration.</li>
+        <li>Maux de tête, vertiges, irritabilité.</li>
+        <li>Chute de cheveux, peau sèche, fissures aux commissures des lèvres.</li>
+        <li>Envies inhabituelles (pica : glace, argile) dans certains cas.</li>
+      </ul>
+
+      <h2>Causes</h2>
+      <p>Apports insuffisants, pertes (règles), saignement digestif, mauvaise absorption.</p>
+
+      <h3>Situations à risque</h3>
+      <ul>
+        <li>Règles abondantes, grossesse, post-partum.</li>
+        <li>Adolescence, croissance rapide.</li>
+        <li>Régimes restrictifs, végétarisme/végétalisme non planifiés.</li>
+        <li>Sport d’endurance intensif.</li>
+        <li>Maladies digestives (maladie cœliaque, inflammations), chirurgie bariatrique.</li>
+        <li>Pertes digestives (ulcère, polypes, cancer) : surtout chez l’homme et après la ménopause.</li>
+      </ul>
+
+      <div class="callout warn">
+        <b>Important :</b> chez l’homme et chez la femme ménopausée, une carence en fer impose souvent de rechercher une cause de saignement digestif.
+      </div>
+
+      <h2>Bilan</h2>
+      <p>Ferritine, hémogramme. Une ferritine basse suggère une réserve faible.</p>
+
+      <h3>Analyses souvent utiles</h3>
+      <ul>
+        <li><b>Hémogramme (NFS)</b> : hémoglobine, VGM, indices des globules rouges.</li>
+        <li><b>Ferritine</b> : reflet des réserves (mais peut augmenter en cas d’inflammation/infection).</li>
+        <li><b>Fer sérique / transferrine / saturation</b> : aide à préciser le profil.</li>
+        <li><b>CRP</b> si doute d’inflammation (pour interpréter la ferritine).</li>
+      </ul>
+
+      <h2>Alimentation</h2>
+      <p>Viande/poisson, légumineuses; associer vitamine C; éviter thé/café au repas.</p>
+
+      <h3>Fer “héminique” (mieux absorbé)</h3>
+      <ul>
+        <li>Viande rouge (sans excès), volaille, abats (foie), poisson, fruits de mer.</li>
+      </ul>
+
+      <h3>Fer “non héminique” (végétal)</h3>
+      <ul>
+        <li>Lentilles, pois chiches, haricots, tofu.</li>
+        <li>Épinards, brocoli, quinoa, graines (courge, sésame), noix.</li>
+        <li>Céréales enrichies (selon les produits).</li>
+      </ul>
+
+      <h3>Optimiser l’absorption</h3>
+      <ul>
+        <li>Associer une source de <b>vitamine C</b> : agrumes, kiwi, poivron, tomate, fraises.</li>
+        <li>Éloigner <b>thé/café/cacao</b> des repas riches en fer (idéalement 1 à 2 heures).</li>
+        <li>Limiter le <b>calcium</b> au même moment si tu vises une meilleure absorption (produits laitiers/compléments).</li>
+      </ul>
+
+      <h3>Exemples simples</h3>
+      <ul>
+        <li>Lentilles + poivron/tomate + citron.</li>
+        <li>Viande/poisson + légumes + fruit riche en vitamine C.</li>
+        <li>Sandwich houmous + crudités + orange.</li>
+      </ul>
+    </section>
+
+    <!-- AJOUT : conseils pratiques -->
+    <section class="card">
+      <h2>Conseils pratiques</h2>
+      <div class="grid2">
+        <div>
+          <h3>Si un complément est prescrit</h3>
           <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
+            <li>Suivre la dose et la durée indiquées.</li>
+            <li>Effets possibles : nausées, constipation, selles foncées.</li>
+            <li>Parfois mieux toléré avec un petit repas (selon avis médical).</li>
           </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+        </div>
+        <div>
+          <h3>Quand recontrôler</h3>
+          <ul>
+            <li>Souvent après quelques semaines, selon le médecin.</li>
+            <li>L’objectif est de corriger l’hémoglobine et reconstituer les réserves.</li>
+            <li>Arrêter trop tôt expose aux rechutes.</li>
+          </ul>
+        </div>
+      </div>
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+      <div class="callout">
+        <b>À retenir :</b> corriger la cause (pertes, absorption, apports) est aussi important que corriger le taux.
+      </div>
+    </section>
+
+    <!-- CONTENU D’ORIGINE (inchangé) -->
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+
+</body>
+</html>
