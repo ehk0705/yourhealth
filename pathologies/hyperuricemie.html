@@ -1,53 +1,259 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Hyperuricémie et goutte | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hyperuricémie et goutte | Santé et alimentation</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Hyperuricémie et goutte</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/hyperuricemie-goutte.jfif" alt="Hyperuricémie et goutte" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <style>
+    :root{
+      /* Palette cohérente “YourHealth” (douce + lisible) */
+      --bg:#f7fbff;
+      --panel:#ffffff;
+      --card:#ffffff;
 
-        <section class="card">
-          <h2>Comprendre</h2>
-<p>Acide urique élevé pouvant provoquer crises de goutte (douleur et inflammation articulaire).</p>
-<h2>Facteurs</h2>
-<p>Alcool, fructose, excès viandes/abats, surpoids, certains médicaments.</p>
-<h2>Mesures</h2>
-<p>Hydratation, perte de poids, limiter alcool et boissons sucrées, suivi médical.</p>
+      --txt:#0f172a;
+      --muted:#475569;
 
-        </section>
+      --accent:#0ea5e9;   /* bleu ciel */
+      --accent2:#22c55e;  /* vert */
+      --border:rgba(15,23,42,.12);
+      --shadow:0 16px 40px rgba(2,6,23,.10);
+      --shadow2:0 10px 26px rgba(2,6,23,.08);
+      --radius:18px;
+    }
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
-          <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
-          </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 10% 8%, rgba(14,165,233,.16), transparent 60%),
+        radial-gradient(900px 520px at 90% 18%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      line-height:1.65;
+    }
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+    /* Topbar : mêmes classes + rendu “propre” */
+    header.topbar{
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(140%) blur(8px);
+    }
+    header.topbar .nav{
+      display:flex;
+      gap:14px;
+      padding:12px 16px;
+      max-width:1100px;
+      margin:0 auto;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    header.topbar .nav a{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    header.topbar .nav a:hover{
+      border-color:rgba(14,165,233,.25);
+      background:rgba(14,165,233,.08);
+    }
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 16px 34px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow2);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:center;
+      background:linear-gradient(135deg, rgba(14,165,233,.10), rgba(34,197,94,.10));
+      box-shadow:var(--shadow);
+    }
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size:clamp(22px,3vw,32px);
+      color:var(--txt);
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(14,165,233,.18);
+      background:rgba(14,165,233,.06);
+      color:var(--txt);
+      font-weight:600;
+    }
+
+    .hero-media{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+    .hero-media img{
+      display:block;
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    h2{
+      margin:0 0 6px 0;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .card p{margin:0 0 10px 0;color:var(--txt)}
+    .card p:last-child{margin-bottom:0}
+
+    .card ul{margin:10px 0 0 18px;color:var(--muted)}
+    .card li{margin:6px 0}
+
+    /* Ajouts “grand public” */
+    .callout{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px solid rgba(34,197,94,.22);
+      background:rgba(34,197,94,.08);
+      padding:12px 14px;
+    }
+    .callout b{display:block;margin-bottom:6px}
+
+    .warnbox{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px solid rgba(245,158,11,.30);
+      background:rgba(245,158,11,.10);
+      padding:12px 14px;
+    }
+    .warnbox b{display:block;margin-bottom:6px}
+
+    .small{color:var(--muted);font-size:13px;margin-top:10px}
+
+    footer.site-footer{
+      margin-top:26px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:14px 0 10px;
+      text-align:center;
+      font-size:13px;
+    }
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .hero-media img{height:200px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <div class="hero-text">
+        <h1>Hyperuricémie et goutte</h1>
+        <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+        <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+      </div>
+      <div class="hero-media">
+        <img src="/yourhealth/assets/img/hyperuricemie-goutte.jfif" alt="Hyperuricémie et goutte" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Comprendre</h2>
+      <p>Acide urique élevé pouvant provoquer crises de goutte (douleur et inflammation articulaire).</p>
+
+      <!-- ✅ ENRICHISSEMENT (sans modifier le contenu existant) -->
+      <div class="callout">
+        <b>En clair</b>
+        <p style="margin:0;color:var(--txt)">
+          La goutte survient quand l’acide urique forme des cristaux qui s’accumulent dans une articulation.
+          Cela déclenche une inflammation brutale : douleur très forte, articulation chaude et gonflée (souvent le gros orteil, mais pas seulement).
+        </p>
+      </div>
+
+      <h2>Facteurs</h2>
+      <p>Alcool, fructose, excès viandes/abats, surpoids, certains médicaments.</p>
+
+      <!-- ✅ ENRICHISSEMENT -->
+      <div class="callout">
+        <b>Déclencheurs fréquents</b>
+        <ul>
+          <li>Boissons sucrées (dont celles au sirop de maïs / fructose) et excès d’alcool (bière souvent citée).</li>
+          <li>Repas très riches (abats, charcuteries, grosses portions de viande) surtout si répétitifs.</li>
+          <li>Déshydratation (chaleur, sport sans boire, fièvre) et jeûnes drastiques.</li>
+        </ul>
+      </div>
+
+      <h2>Mesures</h2>
+      <p>Hydratation, perte de poids, limiter alcool et boissons sucrées, suivi médical.</p>
+
+      <!-- ✅ ENRICHISSEMENT -->
+      <div class="callout">
+        <b>Gestes utiles au quotidien</b>
+        <ul>
+          <li>Boire régulièrement sur la journée (l’objectif est une urine plutôt claire, sauf avis médical contraire).</li>
+          <li>Perdre du poids doucement : les régimes “coup de fouet” peuvent aggraver temporairement.</li>
+          <li>Réduire fortement les boissons sucrées : c’est un point important.</li>
+          <li>Privilégier légumes, légumineuses, céréales complètes, produits laitiers nature si tolérés.</li>
+        </ul>
+      </div>
+
+      <!-- ✅ AJOUT : section “quand consulter” (grand public) -->
+      <div class="warnbox">
+        <b>Quand consulter rapidement</b>
+        <ul>
+          <li>Fièvre, frissons, malaise (pour éliminer une infection articulaire).</li>
+          <li>Douleur intense avec articulation très rouge et très chaude.</li>
+          <li>Crises répétées, ou première crise si antécédents rénaux ou cardiovasculaires.</li>
+        </ul>
+      </div>
+
+      <p class="small">
+        Remarque : une hyperuricémie peut exister sans crise. La décision de traiter dépend du contexte (crises, reins, calculs, autres risques).
+      </p>
+      <!-- ✅ FIN ENRICHISSEMENT -->
+    </section>
+
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+</body>
+</html>

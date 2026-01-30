@@ -10,16 +10,16 @@
 
     <style>
       :root{
-        /* ✅ Même palette que la page précédente (fond clair élégant) */
-        --bg:#f7fbff;
+        /* ✅ Palette plus attrayante : turquoise + corail (tout le contenu reste identique) */
+        --bg:#f6fffe;               /* fond très clair */
         --panel:#ffffff;
         --card:#ffffff;
 
-        --txt:#0f172a;
+        --txt:#0b1220;
         --muted:#475569;
 
-        --accent:#2563eb;   /* bleu */
-        --accent2:#7c3aed;  /* violet */
+        --accent:#06b6d4;           /* turquoise */
+        --accent2:#f97316;          /* corail */
 
         --border:rgba(15,23,42,.12);
         --shadow:0 16px 40px rgba(2,6,23,.10);
@@ -38,8 +38,8 @@
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
         color:var(--txt);
         background:
-          radial-gradient(900px 520px at 12% 10%, rgba(37,99,235,.14), transparent 60%),
-          radial-gradient(900px 520px at 90% 18%, rgba(124,58,237,.12), transparent 55%),
+          radial-gradient(900px 520px at 12% 10%, rgba(6,182,212,.18), transparent 60%),
+          radial-gradient(900px 520px at 90% 18%, rgba(249,115,22,.14), transparent 55%),
           radial-gradient(900px 520px at 40% 95%, rgba(34,197,94,.10), transparent 60%),
           linear-gradient(180deg, #ffffff, var(--bg));
       }
@@ -59,7 +59,7 @@
       a:hover{opacity:.92}
 
       .hero{
-        background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+        background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.84));
         color:var(--txt);
         border-radius:var(--radius);
         border:1px solid var(--border);
@@ -82,7 +82,7 @@
         margin:0 auto 12px;
         max-width:180px;
         border-radius:14px;
-        border:2px solid rgba(37,99,235,.55);
+        border:2px solid rgba(6,182,212,.55);
         box-shadow:var(--shadow2);
         background:#fff;
       }
@@ -94,15 +94,15 @@
         line-height:1.15;
       }
 
-      /* ✅ AJOUT : style du slogan */
+      /* ✅ Style du slogan (plus vivant, sans changer le texte) */
       .hero__text .slogan{
         margin:0 0 12px;
         padding:10px 12px;
         border-radius:14px;
-        border:1px solid rgba(37,99,235,.18);
-        background:rgba(37,99,235,.06);
+        border:1px solid rgba(6,182,212,.22);
+        background:linear-gradient(90deg, rgba(6,182,212,.10), rgba(249,115,22,.10));
         color:var(--txt);
-        font-weight:700;
+        font-weight:800;
         text-align:center;
       }
 
@@ -121,10 +121,10 @@
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
         font-size:13px;
         color:var(--txt);
-        background:rgba(255,255,255,.92);
+        background:rgba(255,255,255,.94);
         border-radius:14px;
         border:1px solid var(--border);
-        border-left:6px solid var(--accent);
+        border-left:6px solid var(--accent2);
         box-shadow:var(--shadow2);
         text-align:left;
       }
@@ -156,7 +156,7 @@
         display:block;
         width:220px;
         text-align:center;
-        background:rgba(255,255,255,.92);
+        background:rgba(255,255,255,.94);
         border:1px solid var(--border);
         border-radius:16px;
         overflow:hidden;
@@ -189,7 +189,7 @@
 
       .card-patho:hover{
         transform:translateY(-6px);
-        border-color:rgba(37,99,235,.35);
+        border-color:rgba(6,182,212,.45);
         box-shadow:0 14px 34px rgba(2,6,23,.10);
       }
 
@@ -213,7 +213,7 @@
         padding:10px 12px;
         border:1px solid var(--border);
         border-radius:12px;
-        background:rgba(255,255,255,.92);
+        background:rgba(255,255,255,.94);
         box-shadow:var(--shadow2);
         color:var(--txt);
         min-width:220px;
@@ -270,7 +270,7 @@
               <h1>La santé, pour mieux comprendre et mieux prévenir</h1>
 
               <!-- ✅ AJOUT : slogan -->
-              <p class="slogan">Plus de fibres, moins de sucre : la base de la santé.</p>
+              <p class="slogan">Les fibres protègent. Le sucre abîme.<br>Vieillir n’est pas éviter le temps, mais limiter les pertes évitables..</br></p>
 
 <p>
   Comprendre les maladies actuelles, leurs causes et leurs mécanismes est essentiel pour les prévenir efficacement.
@@ -356,6 +356,7 @@ Un LDL bas et un HDL élevé sont associés à un risque cardiovasculaire rédui
 </div>
 
 		  
+
 
           <a href="sport-sante.html" class="card-patho">
             <img data-slug="sport-sante" alt="Santé et sport">
@@ -667,6 +668,14 @@ Un LDL bas et un HDL élevé sont associés à un risque cardiovasculaire rédui
             <h3>Côlon</h3>
             <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
           </a>
+<a href="/yourhealth/pathologies/vieillissement-esperance-vie.html" class="card-patho">
+  <img data-slug="vieillissement" alt="Vieillissement et espérance de vie">
+  <h3>Vieillissement & espérance de vie</h3>
+  <p>
+    Vivre plus longtemps, oui.  
+    Mais surtout vivre plus longtemps en bonne santé, avec autonomie et qualité de vie.
+  </p>
+</a>
 		  
 <article class="card">
   <h3>Avoine & cholestérol</h3>

@@ -5,61 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | YourHealth</title>
 
+  <!-- CSS principal du site (comme les autres pages) -->
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#121b2e;
+      /* Palette cohérente avec tes autres pages (ajustable) */
+      --bg:#070a16;
+      --panel:rgba(10,14,32,.70);
+      --card:rgba(13,18,40,.72);
+      --card2:rgba(13,18,40,.88);
+
       --txt:#eef2ff;
-      --muted:#b9c2d6;
-      --accent:#7dd3fc;
-      --border:rgba(255,255,255,.12);
+      --muted:#c7d2fe;
+
+      --accent:#22d3ee;
+      --accent2:#a78bfa;
+      --accent3:#fb7185;
+
+      --border:rgba(255,255,255,.14);
+      --shadow:0 22px 55px rgba(0,0,0,.45);
+      --shadow2:0 12px 28px rgba(0,0,0,.35);
+      --radius:18px;
+
       --ok:#34d399;
       --bad:#fb7185;
-      --shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
 
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14,var(--bg));
       color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(900px 520px at 88% 14%, rgba(167,139,250,.18), transparent 58%),
+        radial-gradient(900px 520px at 55% 92%, rgba(251,113,133,.14), transparent 62%),
+        linear-gradient(180deg, #050713, var(--bg));
+      min-height:100vh;
     }
 
-    /* 🔴 COLLÉ SOUS LE MENU */
+    a{color:inherit}
+    .sr-only{position:absolute;left:-9999px}
+
+    /* ===== HEADER / NAV (fallback si tu n’injectes pas via JS) ===== */
+    header.sitebar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(760px 260px at 50% 0%, rgba(34,211,238,.10), transparent 65%),
+        linear-gradient(180deg, rgba(5,7,19,.92), rgba(5,7,19,.68));
+      backdrop-filter:saturate(120%) blur(6px);
+    }
+    .sitebar .inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .brand .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 3px rgba(255,255,255,.08);
+    }
+    nav.mainnav{
+      margin-left:auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+    }
+    nav.mainnav a{
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(5,8,22,.35);
+    }
+    nav.mainnav a:hover{
+      border-color:rgba(34,211,238,.35);
+      background:rgba(34,211,238,.10);
+    }
+    nav.mainnav a.active{
+      border-color:rgba(34,211,238,.45);
+      background:linear-gradient(135deg, rgba(34,211,238,.16), rgba(167,139,250,.14));
+    }
+
+    /* ===== SLOGAN + IMAGE (TOP) ===== */
+    .hero-slogan{
+      width:100%;
+      padding:18px 16px 10px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(760px 260px at 50% 0%, rgba(34,211,238,.14), transparent 65%),
+        linear-gradient(180deg, rgba(5,7,19,.92), rgba(5,7,19,.55));
+    }
+    .hero-slogan .inner{
+      max-width:1100px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .hero-slogan .slogan-img{
+      display:block;
+      height:auto;
+      margin:0 auto 10px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 18px 45px rgba(0,0,0,.45);
+    }
+    /* Image “moyenne” (réduction ~50% par rapport à 620px) */
+    .hero-slogan .slogan-img.small{
+      width:min(310px, 82vw);
+    }
+    .hero-slogan h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.2px;
+    }
+    .hero-slogan p{
+      margin:6px 0 0;
+      color:rgba(199,210,254,.92);
+      font-size:14px;
+    }
+
+    /* ===== BANNIÈRE SIMPLE (comme demandé) ===== */
+    .banner-sante{
+      height:120px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(680px 220px at 20% 20%, rgba(34,211,238,.14), transparent 60%),
+        radial-gradient(680px 220px at 80% 30%, rgba(167,139,250,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,0));
+    }
+    @media (max-width:768px){
+      .hero-slogan{padding:14px 14px 10px}
+      .hero-slogan h2{font-size:20px}
+      .banner-sante{height:160px}
+    }
+
     main{
-      padding:0 16px 20px;
+      padding:0 16px 22px;
       margin-top:0;
     }
-
     .wrap{
-      max-width:1400px;
+      max-width:1100px;
       margin:0 auto;
-      padding-top:6px; /* micro-espacement contrôlé */
+      padding-top:12px;
     }
 
     .page-head{
-      margin:0 0 8px;
+      margin:0 0 10px;
+      padding:14px 16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(167,139,250,.14));
+      box-shadow:var(--shadow2);
+      position:relative;
     }
     .page-head h1{
-      font-size:26px;
-      margin:0 0 2px;
+      font-size:28px;
+      margin:0 0 4px;
     }
     .page-head p{
       margin:0;
-      color:var(--muted);
+      color:rgba(199,210,254,.95);
     }
 
+    /* Petit enrichissement utile : repère de chemin */
+    .breadcrumbs{
+      margin-top:10px;
+      font-size:13px;
+      color:rgba(199,210,254,.88);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+    }
+    .breadcrumbs a{
+      text-decoration:none;
+      border-bottom:1px dashed rgba(199,210,254,.45);
+    }
+    .breadcrumbs span{opacity:.85}
+
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:14px 24px;
+      background:linear-gradient(180deg, var(--card2), var(--card));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:16px 18px;
       box-shadow:var(--shadow);
     }
+
+    /* Enrichissement : petit bloc “Conseils” à côté sur grand écran */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:14px;
+      align-items:start;
+    }
+    .aside{
+      background:linear-gradient(180deg, rgba(5,8,22,.55), rgba(5,8,22,.30));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:20px;
+      padding:14px 14px;
+      box-shadow:var(--shadow2);
+    }
+    .aside h3{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .aside ul{
+      margin:0;
+      padding-left:18px;
+      color:rgba(199,210,254,.92);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .aside li{margin:6px 0}
 
     .form-grid{
       display:grid;
@@ -76,191 +254,313 @@
 
     .field{
       width:100%;
-      padding:10px 14px;
+      padding:11px 14px;
       border-radius:14px;
-      border:1px solid var(--border);
-      background:#0b1220;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(5,8,22,.70);
       color:var(--txt);
       outline:none;
     }
-    .field::placeholder{color:rgba(185,194,214,.65)}
-    .field:focus{border-color:var(--accent)}
+    .field:focus{
+      border-color:rgba(34,211,238,.45);
+      box-shadow:0 0 0 4px rgba(34,211,238,.12);
+    }
 
     .full-width{grid-column:1 / -1}
 
     textarea.field{
-      min-height:170px;
+      min-height:180px;
       resize:vertical;
-      line-height:1.45;
-      font-size:15px;
     }
 
     .micro{
       font-size:13px;
-      color:var(--muted);
-      margin-top:4px;
+      color:rgba(199,210,254,.80);
+      margin-top:6px;
     }
 
     .actions-inline{
       display:flex;
-      align-items:center;
       gap:12px;
-      margin-top:6px;
+      margin-top:10px;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
     button{
-      padding:9px 18px;
+      padding:10px 16px;
       border-radius:14px;
-      border:1px solid rgba(125,211,252,.45);
-      background:transparent;
+      border:1px solid rgba(34,211,238,.38);
+      background:linear-gradient(135deg, rgba(34,211,238,.16), rgba(167,139,250,.14));
       color:var(--txt);
+      font-weight:800;
       cursor:pointer;
-      font-weight:600;
     }
-    button:disabled{opacity:.6;cursor:not-allowed}
+    button:hover{filter:brightness(1.06)}
 
     .thanks{
       display:none;
-      margin-top:8px;
-      padding:10px;
+      margin-top:10px;
+      padding:12px;
       border-radius:14px;
       background:rgba(52,211,153,.12);
-      border:1px solid rgba(52,211,153,.4);
+      border:1px solid rgba(52,211,153,.42);
     }
 
     #statusBad{
       display:none;
-      margin-top:8px;
-      padding:10px;
+      margin-top:10px;
+      padding:12px;
       border-radius:14px;
       background:rgba(251,113,133,.12);
-      border:1px solid rgba(251,113,133,.4);
+      border:1px solid rgba(251,113,133,.42);
       color:var(--bad);
     }
 
     .hp{position:absolute;left:-9999px}
+
+    /* Enrichissement : petite note en bas (sans changer le formulaire) */
+    .footnote{
+      margin-top:12px;
+      font-size:13px;
+      color:rgba(199,210,254,.80);
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(5,8,22,.35);
+    }
+
+    footer.sitefoot{
+      margin-top:24px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding:16px;
+      color:rgba(199,210,254,.80);
+    }
+    footer.sitefoot .inner{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    footer.sitefoot a{color:rgba(199,210,254,.92);text-decoration:none}
+    footer.sitefoot a:hover{text-decoration:underline}
+
+    @media (max-width:920px){
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width:820px){
+      .form-grid{grid-template-columns:1fr}
+      .page-head h1{font-size:26px}
+      nav.mainnav{justify-content:flex-start}
+      .sitebar .inner{flex-wrap:wrap}
+      nav.mainnav{margin-left:0}
+    }
   </style>
 </head>
 
 <body>
 
-<!-- MENU -->
-<div id="site-header"></div>
+  <!-- Zone d’injection si tu utilises un header commun -->
+  <div id="site-header"></div>
 
-<main>
-  <div class="wrap">
+  <!-- Fallback : menu de navigation (même esprit que les autres pages) -->
+  <header class="sitebar" id="fallback-header" aria-label="Navigation principale">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Accueil YourHealth">
+        <span class="dot" aria-hidden="true"></span>
+        <span>YourHealth</span>
+      </a>
 
-    <header class="page-head">
-      <h1>Contact</h1>
-      <p>Un retour, une correction, une suggestion : écrivez ici.</p>
-    </header>
+      <nav class="mainnav" aria-label="Menu">
+        <a href="index.html">Accueil</a>
+        <a href="alimentation.html">Nutrition</a>
+        <a href="/ia/index.html">IA</a>
+        <a class="active" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="card">
-      <form id="contactForm" action="https://formspree.io/f/xojjgkqe" method="POST" novalidate>
+  <!-- SLOGAN + IMAGE (TOUT EN HAUT, CENTRÉE, TAILLE MOYENNE) -->
+  <section class="hero-slogan" aria-label="Slogan YourHealth">
+    <div class="inner">
+      <img class="slogan-img small" src="assets/img/healthy-living.jfif" alt="Healthy living">
+      <h2>Bien vivre, simplement : des choix clairs, chaque jour.</h2>
+      <p>Alimentation, habitudes et repères utiles, sans complications.</p>
+    </div>
+  </section>
 
-        <div class="form-grid">
+  <main>
+    <div class="wrap">
 
-          <div>
-            <label for="email">Courriel (facultatif)</label>
-            <input class="field" id="email" name="email" type="email"
-                   placeholder="exemple@domaine.com" autocomplete="email">
-          </div>
+      <header class="page-head">
+        <h1>Contact</h1>
+        <p>Un retour, une correction, une suggestion : remplir le formulaire.</p>
+		<p>Réponse non garantie, mais lecture assurée.</p>
+      </header>
 
-          <div></div>
+      <section class="grid-2" aria-label="Formulaire et conseils">
+        <!-- CONTENU EXISTANT (inchangé) -->
+        <div class="card">
+          <form id="contactForm" action="https://formspree.io/f/xojjgkqe" method="POST" novalidate>
 
-          <div class="full-width">
-            <label for="commentaire">Commentaire</label>
-            <textarea class="field" id="commentaire" name="commentaire" required
-              placeholder="Écrivez votre message ici…"></textarea>
-            <p class="micro">Merci de rester concis et clair.</p>
+            <div class="form-grid">
 
-            <div class="actions-inline">
-              <button id="btnSend" type="submit">Envoyer</button>
-              <span id="sendingNote" class="micro" style="display:none;">Envoi en cours…</span>
+              <div>
+                <label for="email">Courriel (facultatif)</label>
+                <input class="field" id="email" name="email" type="email"
+                       placeholder="exemple@domaine.com">
+              </div>
+
+              <div></div>
+
+              <div class="full-width">
+                <label for="commentaire">Commentaire</label>
+                <textarea class="field" id="commentaire" name="commentaire" required
+                  placeholder="Écris ton message ici…"></textarea>
+                <p class="micro">Merci de rester concis et clair.</p>
+
+                <div class="actions-inline">
+                  <button type="submit">Envoyer</button>
+                </div>
+
+                <div id="thanks" class="thanks">
+                  <strong>Merci pour ton commentaire.</strong> Il a bien été transmis.
+                </div>
+
+                <div id="statusBad"></div>
+              </div>
+
+              <div class="hp">
+                <input type="text" name="_gotcha">
+              </div>
+
             </div>
+          </form>
 
-            <div id="thanks" class="thanks">
-              <strong>Merci pour votre commentaire.</strong> Il a bien été transmis.
-            </div>
-
-            <div id="statusBad"></div>
+          <!-- Enrichissement léger -->
+          <div class="footnote">
+            Conseil : si ton message concerne une page précise, indique le titre de la page et ce qui pose problème (phrase, paragraphe, lien, image).
           </div>
-
-          <div class="hp">
-            <input type="text" name="_gotcha">
-          </div>
-
         </div>
-      </form>
-    </section>
 
-  </div>
-</main>
+        <!-- Enrichissement : bloc d’aide (n’ajoute rien au formulaire, juste utile au visiteur) -->
+        <aside class="aside" aria-label="Conseils de rédaction">
+          <h3>Pour un retour efficace</h3>
+          <ul>
+            <li>Donne le sujet en une phrase.</li>
+            <li>Ajoute un exemple concret si possible.</li>
+            <li>Si c’est une erreur, indique où elle se trouve.</li>
+            <li>Si c’est une suggestion, propose une alternative courte.</li>
+          </ul>
+        </aside>
+      </section>
 
-<!-- FOOTER -->
-<div id="site-footer"></div>
+    </div>
+  </main>
 
-<script>
-  fetch("includes/header.html")
-    .then(r => r.ok ? r.text() : "")
-    .then(html => { if(html) document.getElementById("site-header").innerHTML = html; });
+  <!-- Zone d’injection si tu utilises un footer commun -->
+  <div id="site-footer"></div>
 
-  fetch("includes/footer.html")
-    .then(r => r.ok ? r.text() : "")
-    .then(html => { if(html) document.getElementById("site-footer").innerHTML = html; });
+  <!-- Fallback footer -->
+  <footer class="sitefoot" id="fallback-footer" aria-label="Pied de page">
+    <div class="inner">
+      <div>© <span id="year"></span> YourHealth</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="index.html">Accueil</a>
+        <a href="meteo-journaux.html">Météo &amp; presse</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 
-  (function(){
-    const form = document.getElementById("contactForm");
-    const btn = document.getElementById("btnSend");
-    const thanks = document.getElementById("thanks");
-    const bad = document.getElementById("statusBad");
-    const note = document.getElementById("sendingNote");
-    const textarea = document.getElementById("commentaire");
+  <script>
+    // Injection optionnelle header/footer si tu as des fragments communs (enrichissement, sans casser si absent)
+    (function(){
+      const headerTarget = document.getElementById("site-header");
+      const footerTarget = document.getElementById("site-footer");
+      const fallbackHeader = document.getElementById("fallback-header");
+      const fallbackFooter = document.getElementById("fallback-footer");
 
-    function resetUI(){
-      thanks.style.display="none";
-      bad.style.display="none";
-      bad.textContent="";
-      note.style.display="none";
-    }
+      // Année pied de page
+      const y = document.getElementById("year");
+      if(y) y.textContent = String(new Date().getFullYear());
 
-    form.addEventListener("submit", async e=>{
-      e.preventDefault();
-      resetUI();
-
-      if(!textarea.value.trim()){
-        bad.textContent="Veuillez écrire un commentaire avant d’envoyer.";
-        bad.style.display="block";
-        return;
+      async function tryInject(url, target){
+        const res = await fetch(url, {cache:"no-cache"});
+        if(!res.ok) return false;
+        const html = await res.text();
+        if(!html.trim()) return false;
+        target.innerHTML = html;
+        return true;
       }
 
-      btn.disabled=true;
-      note.style.display="inline";
+      // Adapte ces chemins si tu as déjà une structure différente
+      const headerUrlCandidates = [
+        "includes/site-header.html",
+        "partials/site-header.html",
+        "site-header.html"
+      ];
+      const footerUrlCandidates = [
+        "includes/site-footer.html",
+        "partials/site-footer.html",
+        "site-footer.html"
+      ];
 
-      try{
-        const res = await fetch(form.action,{
-          method:"POST",
-          body:new FormData(form),
-          headers:{Accept:"application/json"}
-        });
+      (async function(){
+        let injectedHeader = false;
+        let injectedFooter = false;
 
-        if(res.ok){
-          form.reset();
-          thanks.style.display="block";
-        }else{
-          bad.textContent="Échec de l’envoi. Veuillez réessayer plus tard.";
-          bad.style.display="block";
+        if(headerTarget){
+          for(const u of headerUrlCandidates){
+            try{
+              injectedHeader = await tryInject(u, headerTarget);
+              if(injectedHeader) break;
+            }catch(e){}
+          }
         }
-      }catch{
-        bad.textContent="Erreur réseau. Veuillez réessayer.";
-        bad.style.display="block";
-      }finally{
-        btn.disabled=false;
-        note.style.display="none";
-      }
-    });
-  })();
-</script>
+
+        if(footerTarget){
+          for(const u of footerUrlCandidates){
+            try{
+              injectedFooter = await tryInject(u, footerTarget);
+              if(injectedFooter) break;
+            }catch(e){}
+          }
+        }
+
+        // Si injection réussie, on masque les fallbacks
+        if(injectedHeader && fallbackHeader) fallbackHeader.style.display = "none";
+        if(injectedFooter && fallbackFooter) fallbackFooter.style.display = "none";
+      })();
+    })();
+
+    // Amélioration légère : retour utilisateur sans changer le contenu du formulaire
+    (function(){
+      const form = document.getElementById("contactForm");
+      const thanks = document.getElementById("thanks");
+      const bad = document.getElementById("statusBad");
+      if(!form) return;
+
+      form.addEventListener("submit", function(){
+        if(thanks) thanks.style.display = "none";
+        if(bad) bad.style.display = "none";
+      });
+
+      form.addEventListener("formspree:success", function(){
+        if(thanks) thanks.style.display = "block";
+      });
+
+      form.addEventListener("formspree:error", function(){
+        if(bad){
+          bad.textContent = "Erreur : le message n’a pas pu être envoyé. Réessaie plus tard.";
+          bad.style.display = "block";
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

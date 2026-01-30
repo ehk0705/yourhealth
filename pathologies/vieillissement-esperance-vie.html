@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vieillissement et espérance de vie | YourHealth</title>
+
+  <!-- CSS principal du site -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <style>
+    :root{
+      /* ✅ Palette plus gaie, claire, “sénior-friendly” */
+      --bg:#f6fbff;
+      --card:rgba(255,255,255,.86);
+      --card2:rgba(255,255,255,.96);
+      --txt:#0f172a;
+      --muted:#475569;
+
+      --accent:#06b6d4;   /* cyan */
+      --accent2:#8b5cf6;  /* violet */
+      --accent3:#f97316;  /* orange */
+      --border:rgba(15,23,42,.14);
+
+      --shadow:0 18px 40px rgba(2,6,23,.12);
+      --shadow2:0 10px 26px rgba(2,6,23,.10);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(6,182,212,.16), transparent 60%),
+        radial-gradient(900px 520px at 88% 14%, rgba(139,92,246,.14), transparent 58%),
+        radial-gradient(900px 520px at 55% 92%, rgba(249,115,22,.12), transparent 62%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      min-height:100vh;
+    }
+
+    /* ===== MENU (cohérent, clair) ===== */
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    header.topbar .nav{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding:10px 16px;
+      align-items:center;
+      justify-content:flex-start;
+    }
+    header.topbar .nav a{
+      text-decoration:none;
+      color:var(--txt);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(255,255,255,.70);
+      transition:transform .12s, border-color .2s, background .2s, box-shadow .2s;
+      box-shadow:0 6px 16px rgba(2,6,23,.06);
+    }
+    header.topbar .nav a:hover{
+      border-color:rgba(6,182,212,.45);
+      background:rgba(6,182,212,.10);
+      transform:translateY(-1px);
+      box-shadow:0 10px 22px rgba(2,6,23,.10);
+    }
+
+    /* ===== CONTENEUR + CARDS (inchangés dans la structure) ===== */
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 16px 28px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, var(--card2), var(--card));
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:20px;
+      padding:16px 18px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      margin:0 0 14px 0;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(420px 220px at 15% 0%, rgba(6,182,212,.10), transparent 60%),
+        radial-gradient(420px 220px at 85% 25%, rgba(139,92,246,.09), transparent 60%),
+        radial-gradient(420px 220px at 55% 90%, rgba(249,115,22,.07), transparent 62%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .card > *{position:relative}
+
+    /* HERO layout */
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    .hero-media img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      box-shadow:var(--shadow2);
+      background:#fff;
+    }
+
+    .note{
+      color:var(--muted);
+      margin-top:10px;
+    }
+
+    h1,h2{margin:0 0 10px}
+    h1{font-size:28px; line-height:1.15; color:rgba(15,23,42,.96)}
+    h2{font-size:18px; color:rgba(15,23,42,.92)}
+    p,li{color:rgba(15,23,42,.88); line-height:1.55}
+    .small{opacity:.88; color:var(--muted)}
+
+    /* ===== Ton contenu existant (mêmes classes, même mise en forme) ===== */
+    .kpis{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .kpi{
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.72);
+    }
+    .kpi b{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+      color:rgba(15,23,42,.90);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .callout{
+      margin-top:14px;
+      padding:14px;
+      border-radius:16px;
+      border-left:6px solid rgba(6,182,212,.85);
+      background:rgba(6,182,212,.08);
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(255,255,255,.70);
+      margin:6px 6px 0 0;
+      font-size:13px;
+      color:rgba(15,23,42,.82);
+    }
+
+    .mini-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin-top:12px;
+      overflow:hidden;
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:16px;
+      background:rgba(255,255,255,.70);
+    }
+    .mini-table th,
+    .mini-table td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(15,23,42,.10);
+      vertical-align:top;
+    }
+    .mini-table th{
+      text-align:left;
+      font-weight:800;
+      background:rgba(6,182,212,.10);
+      color:rgba(15,23,42,.92);
+    }
+    .mini-table tr:last-child td{border-bottom:none}
+
+    .hr-soft{
+      height:1px;
+      border:0;
+      margin:14px 0;
+      background:linear-gradient(90deg, transparent, rgba(15,23,42,.14), transparent);
+    }
+
+    .checklist{margin:10px 0 0; padding-left:18px}
+    .checklist li{margin:7px 0}
+
+    .plan{
+      margin-top:14px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(139,92,246,.06);
+    }
+    .plan h3{margin:0 0 8px; font-size:16px; color:rgba(15,23,42,.92)}
+    .plan ol{margin:0; padding-left:20px}
+    .plan li{margin:7px 0}
+
+    /* ===== FOOTER ===== */
+    footer.site-footer{
+      border-top:1px solid rgba(15,23,42,.12);
+      color:var(--muted);
+      text-align:center;
+      padding:16px 0 18px;
+      margin-top:16px;
+    }
+    footer.site-footer .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    @media (max-width:900px){
+      .kpis{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <nav class="nav">
+    <a href="/yourhealth/index.html">Accueil</a>
+    <a href="/yourhealth/ressources.html">Ressources</a>
+    <a href="/yourhealth/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="card hero">
+    <div class="hero-text">
+      <h1>Vieillissement et espérance de vie</h1>
+      <p>
+        Le vieillissement est un processus naturel. L’enjeu n’est pas seulement de vivre plus longtemps,
+        mais de vivre plus longtemps <strong>en bonne santé</strong>, avec autonomie, mobilité et clarté mentale.
+      </p>
+      <p class="note">
+        Ces informations sont générales et ne remplacent pas un avis médical.
+      </p>
+
+      <div class="kpis">
+        <div class="kpi">
+          <b>Vieillissement</b>
+          Processus progressif et variable selon les individus.
+        </div>
+        <div class="kpi">
+          <b>Espérance de vie</b>
+          Durée de vie moyenne dans une population donnée.
+        </div>
+        <div class="kpi">
+          <b>Vie en bonne santé</b>
+          Années vécues sans perte majeure d’autonomie.
+        </div>
+        <div class="kpi">
+          <b>Objectif réel</b>
+          Préserver la qualité de vie, pas seulement la durée.
+        </div>
+      </div>
+
+      <!-- ✅ AJOUT : repères très simples, grand public -->
+      <table class="mini-table" role="table" aria-label="Repères simples">
+        <thead>
+          <tr>
+            <th scope="col">Notion</th>
+            <th scope="col">En clair</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Âge chronologique</strong></td>
+            <td>Ton âge en années.</td>
+          </tr>
+          <tr>
+            <td><strong>Âge “fonctionnel”</strong></td>
+            <td>Ta force, ton souffle, ton équilibre, ta mobilité, ton énergie au quotidien.</td>
+          </tr>
+          <tr>
+            <td><strong>Autonomie</strong></td>
+            <td>Capacité à faire seul les gestes de base (marcher, se lever, se laver, courses, cuisine).</td>
+          </tr>
+          <tr>
+            <td><strong>Prévention</strong></td>
+            <td>Garder ce qui marche bien avant que les problèmes ne s’installent.</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="hero-media">
+      <img src="/yourhealth/assets/img/vieillissement.jfif"
+           alt="Vieillissement et espérance de vie"
+           onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+    </div>
+  </section>
+
+  <!-- CONTENU -->
+  <section class="card">
+    <h2>Comprendre simplement</h2>
+    <p>
+      Avec l’âge, le corps change : masse musculaire en baisse, récupération plus lente,
+      rigidité articulaire, sommeil plus fragile. Ces évolutions ne sont pas une maladie,
+      mais elles peuvent être aggravées par le mode de vie.
+    </p>
+
+    <p>
+      La bonne nouvelle : une partie de ces changements se freine nettement avec des habitudes simples.
+      Même tard, on peut gagner en force, en équilibre et en endurance.
+    </p>
+
+    <div class="callout">
+      <b>Idée clé</b><br>
+      Vieillir n’est pas éviter le temps, mais limiter les pertes évitables.
+    </div>
+
+    <hr class="hr-soft">
+
+    <h2>Un repère pratique</h2>
+    <p>
+      Sans faire de calculs compliqués, pose-toi ces questions. Si plusieurs réponses sont “non”,
+      c’est un signal pour renforcer les bases (mouvement, sommeil, alimentation).
+    </p>
+    <ul class="checklist">
+      <li>Je peux monter un étage d’escaliers sans m’arrêter.</li>
+      <li>Je peux me relever d’une chaise sans m’aider des mains (ou presque).</li>
+      <li>Je marche au moins 20–30 minutes la plupart des jours.</li>
+      <li>Je dors suffisamment et je récupère correctement.</li>
+      <li>Je garde une vie sociale et des activités régulières.</li>
+    </ul>
+
+    <div class="grid-2">
+      <div>
+        <h2>Facteurs qui accélèrent le vieillissement</h2>
+        <ul>
+          <li>Sédentarité</li>
+          <li>Alimentation trop sucrée et ultra-transformée</li>
+          <li>Manque de sommeil</li>
+          <li>Stress chronique</li>
+          <li>Tabac et excès d’alcool</li>
+        </ul>
+
+        <p class="small">
+          Ces facteurs favorisent la perte musculaire, l’inflammation de bas grade, la hausse de la glycémie,
+          et fragilisent le cœur, les articulations et le cerveau.
+        </p>
+
+        <h2>Signes à surveiller</h2>
+        <ul>
+          <li>Perte de force ou d’équilibre</li>
+          <li>Fatigue persistante</li>
+          <li>Chutes répétées</li>
+          <li>Baisse de mémoire gênante</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Les piliers d’un vieillissement en santé</h2>
+        <ul>
+          <li>Mouvement quotidien</li>
+          <li>Renforcement musculaire régulier</li>
+          <li>Alimentation riche en fibres et protéines</li>
+          <li>Sommeil structuré</li>
+          <li>Vie sociale active</li>
+        </ul>
+
+        <div>
+          <span class="tag">Fibres</span>
+          <span class="tag">Muscles</span>
+          <span class="tag">Sommeil</span>
+          <span class="tag">Équilibre</span>
+          <span class="tag">Prévention</span>
+        </div>
+
+        <div class="plan">
+          <h3>Plan simple (7 jours)</h3>
+          <ol>
+            <li>Marcher 20 minutes par jour.</li>
+            <li>Deux séances de renforcement (15 minutes) : jambes, dos, gainage.</li>
+            <li>À chaque repas : une source de protéines + des légumes.</li>
+            <li>Couper les boissons sucrées (au quotidien).</li>
+            <li>Heure de coucher régulière.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Alimentation et longévité</h2>
+    <ul>
+      <li>Protéines suffisantes à chaque repas</li>
+      <li>Légumes et fruits variés chaque jour</li>
+      <li>Légumineuses et céréales complètes</li>
+      <li>Hydratation régulière</li>
+      <li>Réduction du sucre et des produits ultra-transformés</li>
+    </ul>
+
+    <p><strong>Exemples simples :</strong></p>
+    <ul>
+      <li>Petit-déjeuner : yaourt nature ou œufs + fruits + flocons d’avoine.</li>
+      <li>Déjeuner : légumineuses (lentilles/pois chiches) + légumes + huile d’olive.</li>
+      <li>Dîner : poisson/volaille/tofu + légumes + féculent complet.</li>
+    </ul>
+
+    <h2>Activité physique : l’essentiel</h2>
+    <p>
+      Même modérée, l’activité physique protège contre la perte musculaire,
+      les chutes, le diabète et les maladies cardiovasculaires.
+    </p>
+    <ul>
+      <li>Marche quotidienne</li>
+      <li>Renforcement 2–3 fois par semaine</li>
+      <li>Travail de l’équilibre</li>
+    </ul>
+
+    <p class="small">
+      Le renforcement musculaire n’est pas réservé aux jeunes : c’est l’un des meilleurs “médicaments”
+      de prévention du vieillissement fonctionnel.
+    </p>
+
+    <div class="callout">
+      <b>Erreur fréquente</b><br>
+      Chercher un complément « anti-âge » au lieu d’agir sur les bases.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Prévention et suivi</h2>
+    <ul>
+      <li>Tension artérielle</li>
+      <li>Glycémie et lipides selon le contexte</li>
+      <li>Poids, force, équilibre</li>
+      <li>Vision, audition, dents</li>
+    </ul>
+
+    <h2>Deux priorités souvent négligées</h2>
+    <ul>
+      <li><strong>Prévenir les chutes :</strong> renforcement des jambes + équilibre + correction de la vision.</li>
+      <li><strong>Préserver les muscles :</strong> protéines + activité + éviter l’inactivité prolongée.</li>
+    </ul>
+
+    <h2>Quand consulter rapidement</h2>
+    <ul>
+      <li>Douleur thoracique ou essoufflement</li>
+      <li>Troubles neurologiques soudains</li>
+      <li>Chutes avec douleur importante</li>
+      <li>Amaigrissement inexpliqué</li>
+    </ul>
+
+    <p class="small">Dernière mise à jour : 30/01/2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Conseils alimentaires rapides</h2>
+    <ul>
+      <li>Privilégier les aliments peu transformés</li>
+      <li>Réduire fortement le sucre</li>
+      <li>Rester actif chaque jour</li>
+    </ul>
+
+    <p class="small">
+      Objectif : garder autonomie, force et clarté mentale le plus longtemps possible.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap small">YourHealth — Santé et alimentation</div>
+</footer>
+
+</body>
+</html>

@@ -1,53 +1,228 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Calculs rénaux | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculs rénaux | Santé et alimentation</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Calculs rénaux</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/calculs-renaux.jfif" alt="Calculs rénaux" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <style>
+    :root{
+      /* Palette cohérente et plus attrayante */
+      --bg:#f7fbff;
+      --panel:#ffffff;
+      --card:#ffffff;
 
-        <section class="card">
-          <h2>Causes</h2>
-<p>Déshydratation, excès sel, certaines prédispositions, alimentation très riche en oxalates selon cas.</p>
-<h2>Prévention</h2>
-<p>Boire assez, réduire sel, protéines animales adaptées, suivi médical si récidive.</p>
-<h2>Quand consulter</h2>
-<p>Douleur intense, fièvre, sang dans les urines.</p>
+      --txt:#0f172a;
+      --muted:#475569;
 
-        </section>
+      --accent:#0ea5e9;   /* bleu ciel */
+      --accent2:#22c55e;  /* vert */
+      --border:rgba(15,23,42,.12);
+      --shadow:0 16px 40px rgba(2,6,23,.10);
+      --shadow2:0 10px 26px rgba(2,6,23,.08);
+      --radius:18px;
+    }
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
-          <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
-          </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 10% 8%, rgba(14,165,233,.16), transparent 60%),
+        radial-gradient(900px 520px at 90% 18%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      line-height:1.65;
+    }
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+    /* Barre du haut : on garde tes classes */
+    header.topbar{
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(140%) blur(8px);
+    }
+    header.topbar .nav{
+      display:flex;
+      gap:14px;
+      padding:12px 16px;
+      max-width:1100px;
+      margin:0 auto;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    header.topbar .nav a{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    header.topbar .nav a:hover{
+      border-color:rgba(14,165,233,.25);
+      background:rgba(14,165,233,.08);
+    }
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 16px 34px;
+    }
+
+    /* Cartes */
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow2);
+      padding:16px;
+      margin-top:14px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:center;
+      background:linear-gradient(135deg, rgba(14,165,233,.10), rgba(34,197,94,.10));
+      box-shadow:var(--shadow);
+    }
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size:clamp(22px,3vw,32px);
+      color:var(--txt);
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(14,165,233,.18);
+      background:rgba(14,165,233,.06);
+      color:var(--txt);
+      font-weight:600;
+    }
+
+    .hero-media{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+    .hero-media img{
+      display:block;
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    /* Titres et texte */
+    h2{
+      margin:0 0 6px 0;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .card p{margin:0 0 10px 0;color:var(--txt)}
+    .card p:last-child{margin-bottom:0}
+
+    /* Liste */
+    .card ul{margin:10px 0 0 18px;color:var(--muted)}
+    .card li{margin:6px 0}
+
+    /* Encadré “grand public” */
+    .callout{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px solid rgba(34,197,94,.22);
+      background:rgba(34,197,94,.08);
+      padding:12px 14px;
+    }
+    .callout b{display:block;margin-bottom:6px}
+    .callout ul{margin:8px 0 0 18px}
+
+    .small{color:var(--muted);font-size:13px;margin-top:10px}
+
+    footer.site-footer{
+      margin-top:26px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:14px 0 10px;
+      text-align:center;
+      font-size:13px;
+    }
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .hero-media img{height:200px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/yourhealth/index.html">Accueil</a>
+      <a href="/yourhealth/ressources.html">Ressources</a>
+      <a href="/yourhealth/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <div class="hero-text">
+        <h1>Calculs rénaux</h1>
+        <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+        <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
+      </div>
+      <div class="hero-media">
+        <img src="/yourhealth/assets/img/calculs-renaux.jfif" alt="Calculs rénaux" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Causes</h2>
+      <p>Déshydratation, excès sel, certaines prédispositions, alimentation très riche en oxalates selon cas.</p>
+
+      <h2>Prévention</h2>
+      <p>Boire assez, réduire sel, protéines animales adaptées, suivi médical si récidive.</p>
+
+      <h2>Quand consulter</h2>
+      <p>Douleur intense, fièvre, sang dans les urines.</p>
+
+      <!-- ✅ AJOUT : section “ultrasons” (grand public) -->
+      <h2>Traitement par ultrasons (lithotritie)</h2>
+      <p>
+        Dans certains cas, le médecin peut proposer un traitement qui utilise des ondes (souvent appelées “ultrasons”)
+        pour casser le calcul en petits morceaux. L’objectif est ensuite de les éliminer naturellement dans les urines.
+      </p>
+
+      <div class="callout">
+        <b>À retenir</b>
+        <ul>
+          <li>Ce n’est pas une opération : il n’y a pas d’incision.</li>
+          <li>Ce traitement n’est pas adapté à tous les calculs (taille, endroit, type de calcul).</li>
+          <li>Après la séance, on peut ressentir des douleurs en éliminant les fragments.</li>
+          <li>Parfois, plusieurs séances sont nécessaires.</li>
+          <li>En cas de fièvre, frissons, douleur incontrôlable ou urines très rouges : consultation urgente.</li>
+        </ul>
+      </div>
+      <!-- ✅ FIN AJOUT -->
+    </section>
+
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+</body>
+</html>

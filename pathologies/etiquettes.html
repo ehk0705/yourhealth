@@ -1,53 +1,410 @@
-    <!doctype html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Lire les étiquettes alimentaires | Santé et alimentation</title>
-      <link rel="stylesheet" href="../../assets/css/style.css">
-    </head>
-    <body>
-      <header class="topbar">
-        <nav class="nav">
-          <a href="/yourhealth/index.html">Accueil</a><a href="/yourhealth/ressources.html">Ressources</a><a href="/yourhealth/contact.html">Contact</a>
-        </nav>
-      </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lire les étiquettes alimentaires | Santé et alimentation</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-      <main class="container">
-        <section class="card hero">
-          <div class="hero-text">
-            <h1>Lire les étiquettes alimentaires</h1>
-            <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
-            <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.</p>
-          </div>
-          <div class="hero-media">
-            <img src="/yourhealth/assets/img/etiquettes.jfif" alt="Lire les étiquettes alimentaires" onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
-          </div>
-        </section>
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --panel:#ffffff;
+      --txt:#0f172a;
+      --muted:#475569;
 
-        <section class="card">
-          <h2>À regarder</h2>
-<p>Liste d’ingrédients (plus courte = mieux), sucres ajoutés, sel, graisses saturées, portions.</p>
-<h2>Pièges</h2>
-<p>Allégations marketing, “sans sucre” mais riche en édulcorants et additifs.</p>
-<h2>Objectif</h2>
-<p>Choisir simple : aliments bruts, peu d’additifs, fibres.</p>
+      /* Couleurs (attrayantes, cohérentes) */
+      --accent:#0ea5e9;   /* bleu ciel */
+      --accent2:#8b5cf6;  /* violet */
+      --ok:#16a34a;
+      --warn:#f59e0b;
+      --no:#ef4444;
 
-        </section>
+      --border:rgba(15,23,42,.12);
+      --shadow:0 16px 40px rgba(2,6,23,.10);
+      --shadow2:0 10px 26px rgba(2,6,23,.08);
+      --radius:18px;
+    }
 
-        <section class="card">
-          <h2>Conseils alimentaires rapides</h2>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(14,165,233,.12), transparent 60%),
+        radial-gradient(900px 520px at 90% 18%, rgba(139,92,246,.12), transparent 55%),
+        radial-gradient(900px 520px at 40% 95%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      color:var(--txt);
+      line-height:1.6;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.92}
+
+    /* NAV (même menu) */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar__inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      font-weight:800;
+      color:var(--txt);
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    nav.nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    nav.nav a{
+      display:inline-block;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      color:var(--txt);
+      font-weight:600;
+      font-size:14px;
+      background:transparent;
+    }
+    nav.nav a:hover{
+      border-color:rgba(14,165,233,.22);
+      background:rgba(14,165,233,.08);
+    }
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px 16px 28px;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(14,165,233,.10), rgba(139,92,246,.10));
+      box-shadow:var(--shadow);
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size:clamp(22px,3.3vw,32px);
+      line-height:1.15;
+      color:var(--accent2);
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(14,165,233,.22);
+      background:rgba(255,255,255,.75);
+      width:fit-content;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .ico{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,#fff,rgba(255,255,255,.85));
+      flex:0 0 auto;
+      color:var(--accent);
+    }
+    .ico svg{width:18px;height:18px}
+
+    .hero figure{
+      margin:0;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow2);
+    }
+    .hero img{display:block;width:100%;height:230px;object-fit:cover}
+    .hero figcaption{padding:10px 12px;font-size:13px;color:var(--muted)}
+
+    /* CARDS */
+    .card{
+      margin-top:14px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(2,6,23,.08);
+      padding:16px;
+    }
+    .card h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      color:var(--accent2);
+    }
+    .card p{margin:0 0 10px 0;color:var(--txt)}
+    .card p:last-child{margin-bottom:0}
+
+    .grid{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .mini h3{
+      margin:0 0 8px 0;
+      font-size:16px;
+      color:var(--accent);
+    }
+    .mini ul{margin:0;padding-left:18px;color:var(--muted)}
+    .mini li{margin:6px 0}
+
+    .chips{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.75);
+      color:var(--txt);
+      font-size:13px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:rgba(14,165,233,.45);
+      box-shadow:0 6px 12px rgba(2,6,23,.10);
+    }
+    .dot.warn{background:rgba(245,158,11,.55)}
+    .dot.no{background:rgba(239,68,68,.50)}
+    .dot.ok{background:rgba(22,163,74,.55)}
+
+    .callout{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(139,92,246,.18);
+      background:rgba(139,92,246,.07);
+    }
+    .callout b{display:block;margin-bottom:6px;color:var(--txt)}
+    .callout p{margin:0;color:var(--muted)}
+
+    .note{
+      margin-top:14px;
+      background:rgba(14,165,233,.08);
+      border:1px solid rgba(14,165,233,.18);
+      border-radius:var(--radius);
+      padding:12px 14px;
+      color:var(--txt);
+    }
+    .note b{display:block;margin-bottom:6px}
+    .note ul{margin:8px 0 0 18px;color:var(--muted)}
+    .note li{margin:6px 0}
+
+    .footer{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .hero img{height:210px}
+      .grid{grid-template-columns:1fr}
+      .topbar__inner{flex-direction:column;align-items:flex-start}
+      nav.nav{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER (même menu de navigation) -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div>
+        <h1>Lire les étiquettes alimentaires</h1>
+        <p>Repères simples, causes, prévention et conseils pratiques liés à l’alimentation et à l’hygiène de vie.</p>
+
+        <div class="badge" aria-label="Objectif">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Objectif : repérer le sucre, le sel, les graisses et les additifs en 20 secondes.
+        </div>
+
+        <p class="note" style="margin-top:12px;">
+          <b>Note</b>
+          Ces informations ne remplacent pas un avis médical, surtout en cas de symptômes persistants.
+        </p>
+      </div>
+
+      <figure>
+        <img src="/yourhealth/assets/img/etiquettes.jfif" alt="Lire les étiquettes alimentaires"
+             onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+      </figure>
+    </section>
+
+    <!-- CONTENU EXISTANT (inchangé) -->
+    <section class="card">
+      <h2>À regarder</h2>
+      <p>Liste d’ingrédients (plus courte = mieux), sucres ajoutés, sel, graisses saturées, portions.</p>
+      <h2>Pièges</h2>
+      <p>Allégations marketing, “sans sucre” mais riche en édulcorants et additifs.</p>
+      <h2>Objectif</h2>
+      <p>Choisir simple : aliments bruts, peu d’additifs, fibres.</p>
+    </section>
+
+    <!-- AJOUT : enrichissement grand public -->
+    <section class="card">
+      <h2>Méthode simple en 5 étapes</h2>
+
+      <div class="grid">
+        <article class="card mini" style="margin:0;">
+          <h3>1) Commencer par la liste d’ingrédients</h3>
           <ul>
-            <li>Privilégier des aliments peu transformés et riches en fibres.</li>
-            <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
-            <li>Hydratation régulière et activité physique adaptée.</li>
+            <li>Plus la liste est <b>courte</b>, mieux c’est en général.</li>
+            <li>Les ingrédients sont classés du <b>plus présent</b> au moins présent.</li>
+            <li>Éviter si les <b>premiers</b> ingrédients sont : sucre, sirop, farine raffinée, huiles diverses.</li>
           </ul>
-          <p class="small">Dernière mise à jour : 19/01/2026</p>
-        </section>
-      </main>
+        </article>
 
-      <footer class="site-footer">
-        <div class="wrap small">YourHealth — Santé et alimentation</div>
-      </footer>
-    </body>
-    </html>
+        <article class="card mini" style="margin:0;">
+          <h3>2) Vérifier la portion</h3>
+          <ul>
+            <li>Beaucoup d’étiquettes affichent des valeurs pour une portion <b>petite</b>.</li>
+            <li>Comparer “par portion” et “pour 100 g” quand c’est possible.</li>
+            <li>Si tu manges <b>2 portions</b>, tu doubles tout.</li>
+          </ul>
+        </article>
+
+        <article class="card mini" style="margin:0;">
+          <h3>3) Traquer le sucre caché</h3>
+          <ul>
+            <li>Le sucre peut avoir plusieurs noms : sirop, dextrose, maltose, etc.</li>
+            <li>Une boisson “jus” peut être très sucrée, même si elle paraît “naturelle”.</li>
+            <li>Priorité : <b>eau</b> et aliments <b>peu sucrés</b>.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid" style="margin-top:14px;">
+        <article class="card mini" style="margin:0;">
+          <h3>4) Regarder sel et graisses saturées</h3>
+          <ul>
+            <li>Trop de sel favorise la <b>tension</b> chez beaucoup de personnes.</li>
+            <li>Les graisses saturées en excès augmentent le risque cardio-métabolique.</li>
+            <li>Comparer plusieurs marques du même produit : il y a souvent de grosses différences.</li>
+          </ul>
+        </article>
+
+        <article class="card mini" style="margin:0;">
+          <h3>5) Favoriser les fibres</h3>
+          <ul>
+            <li>Les fibres aident à la satiété et au transit.</li>
+            <li>Tu en trouves surtout dans : légumes, légumineuses, fruits, céréales complètes.</li>
+            <li>Un produit “complet” doit rester <b>simple</b> (pas une longue liste d’additifs).</li>
+          </ul>
+        </article>
+
+        <article class="card mini" style="margin:0;">
+          <h3>Repères faciles à retenir</h3>
+          <ul>
+            <li><b>Moins d’ingrédients</b> = souvent mieux.</li>
+            <li><b>Plus de fibres</b> = souvent mieux.</li>
+            <li><b>Moins de sucre ajouté</b> = souvent mieux.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout">
+        <b>Pièges fréquents (très courants)</b>
+        <p>
+          “0 %”, “léger”, “naturel”, “sans sucre” ne veut pas dire “bon pour la santé”.
+          Regarde toujours la <b>liste d’ingrédients</b> et la <b>portion</b>.
+        </p>
+
+        <div class="chips" aria-label="Exemples à repérer">
+          <span class="chip"><span class="dot no" aria-hidden="true"></span> Sucre / sirop en tête de liste</span>
+          <span class="chip"><span class="dot warn" aria-hidden="true"></span> Liste très longue d’additifs</span>
+          <span class="chip"><span class="dot warn" aria-hidden="true"></span> Portion “minuscule”</span>
+          <span class="chip"><span class="dot ok" aria-hidden="true"></span> Peu d’ingrédients + fibres</span>
+        </div>
+      </div>
+
+      <section class="note">
+        <b>Astuce rapide au supermarché</b>
+        <ul>
+          <li>Comparer 2 produits similaires : choisir celui avec la liste la plus courte et le moins de sucre ajouté.</li>
+          <li>Si tu ne comprends pas la moitié des ingrédients, ce n’est pas un bon signe.</li>
+          <li>Quand c’est possible : préférer l’aliment brut (fruit, yaourt nature, légumineuses, flocons d’avoine).</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- CONTENU EXISTANT (inchangé) -->
+    <section class="card">
+      <h2>Conseils alimentaires rapides</h2>
+      <ul>
+        <li>Privilégier des aliments peu transformés et riches en fibres.</li>
+        <li>Limiter les boissons sucrées, l’excès de sel et les graisses saturées.</li>
+        <li>Hydratation régulière et activité physique adaptée.</li>
+      </ul>
+      <p class="small">Dernière mise à jour : 19/01/2026</p>
+    </section>
+
+    <div class="footer">
+      Cette page est un mémo grand public. Pour un avis personnalisé, se référer à un professionnel de santé.
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
+</body>
+</html>
