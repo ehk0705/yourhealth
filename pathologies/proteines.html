@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protéines | YourHealth</title>
+
+  <!-- CSS principal du site -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root{
+      --bg:#070b1a;
+      --panel:rgba(255,255,255,.06);
+      --card:rgba(255,255,255,.08);
+      --txt:#eef2ff;
+      --muted:#c7d2fe;
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --border:rgba(255,255,255,.14);
+      --shadow:0 18px 50px rgba(0,0,0,.55);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:radial-gradient(1200px 600px at 18% 12%, rgba(125,211,252,.18), transparent 55%),
+                 radial-gradient(900px 500px at 78% 22%, rgba(165,180,252,.16), transparent 55%),
+                 linear-gradient(180deg, #050816, #070b1a 45%, #050816);
+      color:var(--txt);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(5,8,22,.72);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .brand .dot{
+      width:12px; height:12px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 4px rgba(125,211,252,.12);
+      display:inline-block;
+    }
+
+    .menu{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center; justify-content:flex-end;
+    }
+    .menu a{
+      text-decoration:none;
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      background: transparent;
+    }
+    .menu a:hover{
+      color:var(--txt);
+      border-color:var(--border);
+      background: rgba(255,255,255,.06);
+    }
+    .menu a.active{
+      color:var(--txt);
+      border-color:rgba(125,211,252,.35);
+      background: rgba(125,211,252,.10);
+    }
+
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      background: linear-gradient(135deg, rgba(125,211,252,.14), rgba(165,180,252,.10));
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      padding:18px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0; color:var(--muted)}
+    .hero .tags{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:12px;
+    }
+    .tag{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+    }
+    .hero-img{
+      width:100%;
+      height:220px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      object-fit:cover;
+      background: rgba(255,255,255,.06);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      padding:14px;
+    }
+    .card h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+    }
+    .card p{margin:0; color:var(--muted)}
+    .list{
+      margin:10px 0 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .list li{margin:6px 0}
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .kpi{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.06);
+      padding:12px;
+      min-height:88px;
+    }
+    .kpi b{display:block; margin-bottom:6px}
+    .kpi span{color:var(--muted); font-size:13px}
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    figure{
+      margin:0;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.06);
+    }
+    figure img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
+      background: rgba(255,255,255,.06);
+    }
+    figcaption{
+      padding:10px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .note{
+      margin-top:14px;
+      border:1px solid rgba(125,211,252,.28);
+      background: rgba(125,211,252,.10);
+      border-radius: var(--radius);
+      padding:12px 14px;
+      color: var(--muted);
+    }
+
+    .footer{
+      margin:18px 0 8px;
+      color: rgba(199,210,254,.85);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-img{height:200px}
+      .grid{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Barre de navigation -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="index.html">
+          <span class="dot" aria-hidden="true"></span>
+          <span>YourHealth</span>
+        </a>
+
+        <div class="menu">
+          <a href="../index.html">Accueil</a>
+          <a href="nutrition.html">Nutrition</a>
+          <a href="../contact.html">Contact</a>
+          <a class="active" href="proteines.html" aria-current="page">Protéines</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Présentation">
+      <div class="hero-inner">
+        <div>
+          <h1>Protéines</h1>
+          <p>
+            Les protéines servent à construire et réparer les tissus, soutenir l’immunité et produire des enzymes et hormones.
+            L’objectif est d’en consommer régulièrement, avec des sources variées.
+          </p>
+
+          <div class="tags" aria-label="Repères">
+            <span class="tag">Animal : œufs, produits laitiers, viandes, poissons</span>
+            <span class="tag">Végétal : légumineuses, soja, noix, graines</span>
+            <span class="tag">Qualité : variété + portions adaptées</span>
+          </div>
+        </div>
+
+        <!-- Image (à placer dans assets/img/) -->
+        <img
+          class="hero-img"
+          src="../assets/img/proteines-hero.jfif"
+          alt="Assiette équilibrée riche en protéines"
+          loading="lazy">
+      </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Résumé">
+      <div class="kpi">
+        <b>À quoi ça sert</b>
+        <span>Tissus, enzymes, hormones, immunité</span>
+      </div>
+      <div class="kpi">
+        <b>Bon réflexe</b>
+        <span>Répartir sur la journée</span>
+      </div>
+      <div class="kpi">
+        <b>Varier</b>
+        <span>Animal + végétal</span>
+      </div>
+      <div class="kpi">
+        <b>Attention</b>
+        <span>Ultra-transformés et excès de sel</span>
+      </div>
+    </section>
+
+    <!-- Types + Description -->
+    <section class="grid" aria-label="Types et description">
+
+      <article class="card">
+        <h2>Types</h2>
+        <ul class="list">
+          <li><b>Origine animale</b> : œufs, yaourt, fromage, lait, fruits de mer.</li>
+          <li><b>Origine végétale</b> : lentilles, pois chiches, haricots secs, tofu, tempeh.</li>
+          <li><b>Compléments utiles</b> : noix, amandes, graines (chia, lin, sésame), quinoa, avoine.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Description</h2>
+        <p>
+          Les sources animales apportent souvent tous les acides aminés essentiels.
+          Les sources végétales sont intéressantes pour la variété, les fibres et la satiété.
+          En pratique, l’équilibre vient surtout de la régularité et de la diversité.
+        </p>
+
+        <div class="note" role="note">
+          <b>Idée simple :</b> à chaque repas principal, ajouter une source de protéines (animal ou végétal) + légumes.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Exemples concrets -->
+    <section class="grid" aria-label="Exemples">
+      <article class="card">
+        <h2>Exemples rapides</h2>
+        <ul class="list">
+          <li>Omelette + salade + tranche de pain complet</li>
+          <li>Yaourt nature + avoine + noix</li>
+          <li>Lentilles + légumes + un filet d’huile d’olive</li>
+          <li>Tofu sauté + riz + légumes</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Points à surveiller</h2>
+        <ul class="list">
+          <li>Charcuteries : souvent trop salées et grasses</li>
+          <li>Panés, nuggets, plats prêts : souvent ultra-transformés</li>
+          <li>Portions : adaptées à l’âge, l’activité et l’appétit</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Galerie d'images -->
+    <section class="card" aria-label="Images">
+       <div class="gallery">
+        <figure>
+          <img src="../assets/img/proteines-oeufs.jfif" alt="Œufs" loading="lazy">
+          <figcaption>Œufs : simple et pratique</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../assets/img/proteines-legumineuses.jfif" alt="Légumineuses" loading="lazy">
+          <figcaption>Légumineuses : protéines + fibres</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../assets/img/proteines-tofu.jfif" alt="Tofu" loading="lazy">
+          <figcaption>Soja (tofu/tempeh) : très polyvalent</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p class="footer">
+      YourHealth — page « Protéines »
+    </p>
+
+  </main>
+
+</body>
+</html>
