@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OGM, pesticides et santé | YourHealth</title>
+
+  <!-- CSS principal du site -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    :root{
+      /* Palette cohérente (sobre, lisible) */
+      --bg:#070b1a;
+      --panel:rgba(255,255,255,.06);
+      --card:rgba(255,255,255,.08);
+      --txt:#eef2ff;
+      --muted:#c7d2fe;
+
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --ok:#34d399;
+      --warn:#fbbf24;
+
+      --border:rgba(255,255,255,.14);
+      --shadow:0 18px 50px rgba(0,0,0,.55);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 600px at 18% 12%, rgba(125,211,252,.18), transparent 55%),
+        radial-gradient(900px 500px at 78% 22%, rgba(165,180,252,.16), transparent 55%),
+        linear-gradient(180deg, #050816, #070b1a 45%, #050816);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
+
+    /* Barre de navigation */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(5,8,22,.72);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .brand .dot{
+      width:12px; height:12px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 4px rgba(125,211,252,.12);
+      display:inline-block;
+    }
+    .menu{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center; justify-content:flex-end;
+    }
+    .menu a{
+      text-decoration:none;
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      background: transparent;
+    }
+    .menu a:hover{
+      color:var(--txt);
+      border-color:var(--border);
+      background: rgba(255,255,255,.06);
+    }
+    .menu a.active{
+      color:var(--txt);
+      border-color:rgba(125,211,252,.35);
+      background: rgba(125,211,252,.10);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      background: linear-gradient(135deg, rgba(125,211,252,.14), rgba(165,180,252,.10));
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:18px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0; color:var(--muted)}
+    .hero .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+    .chip{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+    }
+    .hero-img{
+      width:100%;
+      height:240px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      object-fit:cover;
+      background: rgba(255,255,255,.06);
+    }
+
+    /* Grilles */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      padding:14px;
+    }
+    .card h2{margin:0 0 10px 0; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
+    .list{margin:10px 0 0 0; padding-left:18px; color:var(--muted)}
+    .list li{margin:6px 0}
+
+    .callout{
+      margin-top:12px;
+      border:1px solid rgba(251,191,36,.28);
+      background: rgba(251,191,36,.10);
+      border-radius: var(--radius);
+      padding:12px 14px;
+      color: var(--muted);
+    }
+    .callout b{color:var(--txt)}
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .kpi{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.06);
+      padding:12px;
+      min-height:92px;
+    }
+    .kpi b{display:block; margin-bottom:6px}
+    .kpi span{color:var(--muted); font-size:13px}
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    figure{
+      margin:0;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.06);
+    }
+    figure img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
+      background: rgba(255,255,255,.06);
+    }
+    figcaption{padding:10px 12px; color:var(--muted); font-size:13px}
+
+    .footer{
+      margin:18px 0 8px;
+      color: rgba(199,210,254,.85);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-img{height:210px}
+      .grid{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="index.html">
+          <span class="dot" aria-hidden="true"></span>
+          <span>YourHealth</span>
+        </a>
+
+        <div class="menu">
+          <a href="../index.html">Accueil</a>
+          <a href="../alimentation.html">Nutrition</a>
+          <a href="../contact.html">Contact</a>
+          <a class="active" href="ogm-pesticides.html" aria-current="page">OGM & pesticides</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Présentation">
+      <div class="hero-inner">
+        <div>
+          <h1>OGM, pesticides et impact sur la santé</h1>
+          <p>
+            Page de repères pratiques : définitions claires, voies d’exposition, effets possibles et actions simples
+            pour réduire l’exposition, sans alarmisme ni minimisation.
+          </p>
+
+          <div class="chips" aria-label="Points clés">
+            <span class="chip">Comprendre : OGM ≠ pesticides</span>
+            <span class="chip">Exposition : surtout alimentaire</span>
+            <span class="chip">Objectif : réduire, pas paniquer</span>
+          </div>
+        </div>
+
+        <!-- Images à placer dans ../assets/img/ (modifie les noms si besoin) -->
+        <img class="hero-img" src="../assets/img/ogm-pesticides.jfif" alt="Fruits et légumes sur un plan de travail" loading="lazy">
+      </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Résumé">
+      <div class="kpi">
+        <b>OGM</b>
+        <span>Modification génétique d’une plante ou d’un organisme</span>
+      </div>
+      <div class="kpi">
+        <b>Pesticides</b>
+        <span>Produits pour lutter contre insectes, champignons, “mauvaises herbes”</span>
+      </div>
+      <div class="kpi">
+        <b>Risque</b>
+        <span>Dépend du produit, de la dose et de la durée d’exposition</span>
+      </div>
+      <div class="kpi">
+        <b>Priorité</b>
+        <span>Réduire l’exposition évitable au quotidien</span>
+      </div>
+    </section>
+
+    <!-- Définitions -->
+    <section class="grid" aria-label="Définitions">
+      <article class="card">
+        <h2>Définitions simples</h2>
+        <ul class="list">
+          <li><b>OGM</b> : organisme dont le matériel génétique a été modifié pour obtenir un caractère (résistance, rendement, qualité, etc.).</li>
+          <li><b>Pesticides</b> : famille de substances utilisées en agriculture (et parfois à la maison) pour protéger les cultures.</li>
+          <li><b>Résidus</b> : traces de pesticides pouvant rester sur ou dans les aliments après récolte.</li>
+        </ul>
+        <div class="callout" role="note">
+          <b>Point important :</b> un aliment “OGM” n’est pas automatiquement plus traité ou plus “toxique”.
+          Le sujet santé se discute surtout en termes d’<b>exposition</b> (résidus) et de <b>produits</b> utilisés.
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Où se trouve l’exposition</h2>
+        <ul class="list">
+          <li><b>Alimentation</b> : fruits, légumes, céréales, produits transformés (selon les ingrédients).</li>
+          <li><b>Air et poussières</b> : surtout près des zones d’épandage (selon le contexte).</li>
+          <li><b>Eau</b> : variable selon la région, le traitement et la source.</li>
+          <li><b>Maison/jardin</b> : insecticides, antimoustiques, herbicides, traitements de pelouse.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Santé : ce qu’on peut dire sans exagérer -->
+    <section class="grid" aria-label="Santé et niveau de preuve">
+      <article class="card">
+        <h2>Impact sur la santé : ce qu’il faut retenir</h2>
+        <p>
+          On ne peut pas mettre tous les pesticides dans le même panier : certains sont plus préoccupants que d’autres.
+          Le risque dépend surtout de la <b>dose</b>, de la <b>durée</b> et de la <b>vulnérabilité</b> (grossesse, enfance, métiers exposés).
+        </p>
+        <ul class="list">
+          <li><b>Exposition élevée</b> (professionnelle) : sujet prioritaire, protection indispensable.</li>
+          <li><b>Exposition faible</b> (alimentation courante) : on vise surtout une réduction prudente et réaliste.</li>
+          <li><b>Effets possibles</b> (selon les substances) : irritations, effets neurologiques, perturbations hormonales, etc.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Ce que dit la recherche, en pratique</h2>
+        <ul class="list">
+          <li>Les études sont <b>complexes</b> : mélanges de substances, expositions répétées, facteurs de mode de vie.</li>
+          <li>Les évaluations officielles reposent souvent sur des <b>seuils</b> et des limites réglementaires.</li>
+          <li>Il existe des <b>débats</b> sur certains produits et sur la manière d’évaluer les risques à long terme.</li>
+        </ul>
+        <div class="callout" role="note">
+          <b>Position utile :</b> éviter les conclusions extrêmes (“aucun risque” ou “tout est dangereux”).
+          La bonne approche est la réduction ciblée de l’exposition, surtout chez les personnes vulnérables.
+        </div>
+      </article>
+    </section>
+
+    <!-- Réduction d’exposition -->
+    <section class="card" aria-label="Réduire l’exposition">
+      <h2>Réduire l’exposition : gestes simples</h2>
+      <div class="grid" style="margin-top:0">
+        <div>
+          <ul class="list">
+            <li><b>Laver</b> soigneusement fruits et légumes sous l’eau, en frottant si possible.</li>
+            <li><b>Éplucher</b> si pertinent (en acceptant la perte de fibres si la peau est retirée).</li>
+            <li><b>Varier</b> les sources (ne pas consommer toujours les mêmes aliments).</li>
+            <li><b>Privilégier</b> quand c’est possible des produits avec moins de traitements (souvent saison/local).</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list">
+            <li><b>Limiter</b> les usages domestiques (pelouse, jardin, insecticides “préventifs”).</li>
+            <li><b>Aérer</b> et nettoyer la poussière si environnement potentiellement exposé.</li>
+            <li><b>Chez les enfants</b> : vigilance sur les produits ménagers et les traitements à domicile.</li>
+            <li><b>Professionnels</b> : équipements, procédures, et formation (indispensable).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" role="note">
+        <b>Idée simple :</b> l’objectif n’est pas de supprimer fruits et légumes (ce serait une mauvaise idée),
+        mais de <b>réduire les résidus</b> quand c’est facile, et de limiter les usages non nécessaires.
+      </div>
+    </section>
+
+    <!-- OGM : points souvent confondus -->
+    <section class="grid" aria-label="OGM : points clés">
+      <article class="card">
+        <h2>OGM : questions fréquentes</h2>
+        <ul class="list">
+          <li><b>“OGM = plus de pesticides ?”</b> Pas forcément. Certains caractères peuvent réduire des traitements, d’autres peuvent en modifier l’usage. Cela dépend du cas.</li>
+          <li><b>“OGM = dangereux ?”</b> Impossible de généraliser : il faut évaluer au cas par cas (caractère introduit, usage, exposition).</li>
+          <li><b>“Pourquoi le débat existe ?”</b> Santé, environnement, agriculture, économie et choix de société se mélangent souvent.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Pesticides : ce qui augmente le risque</h2>
+        <ul class="list">
+          <li>Exposition répétée, mélange de produits, absence de protection (surtout métiers).</li>
+          <li>Utilisations à domicile mal contrôlées (pulvérisations, produits concentrés).</li>
+          <li>Vulnérabilités : grossesse, nourrisson, jeune enfant, personnes fragiles.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Images -->
+    <section class="card" aria-label="Images">
+      
+
+      <div class="gallery">
+        <figure>
+          <img src="../assets/img/ogm-1.jfif" alt="Champs et agriculture" loading="lazy">
+          <figcaption>OGM : notion scientifique, débat public</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/pesticides-1.jfif" alt="Pulvérisation agricole" loading="lazy">
+          <figcaption>Pesticides : familles diverses, risques variables</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/lavage-legumes.jfif" alt="Lavage de légumes" loading="lazy">
+          <figcaption>Réduction d’exposition : lavage, variété, bon sens</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p class="footer">YourHealth — page « OGM & pesticides »</p>
+
+  </main>
+
+</body>
+</html>
