@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dangers du vapotage | Santé</title>
+
+  <!-- CSS global du site -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Variables + styles légers, compatibles avec un CSS global existant -->
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+
+      --accent:#7dd3fc;
+      --accent2:#fb7185;
+
+      --border:rgba(255,255,255,.12);
+
+      --title:#22c55e;
+      --subtitle:#facc15;
+      --danger:#fb7185;
+      --ok:#34d399;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.55;
+    }
+
+    header{
+      padding:18px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.15);
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(6px);
+      z-index:10;
+    }
+
+    .wrap{max-width:1100px;margin:0 auto}
+
+    .top{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand .t{
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--title);
+      font-size:18px;
+    }
+    .brand .s{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:14px;
+      background:rgba(255,255,255,.04);
+    }
+    nav a:hover{border-color:rgba(125,211,252,.6)}
+
+    main{padding:18px 16px 40px}
+
+    .hero{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(125,211,252,.10),rgba(255,255,255,.03));
+      border-radius:16px;
+      padding:18px;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:26px;
+      color:var(--subtitle);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:13px;
+      background:rgba(255,255,255,.04);
+      color:var(--txt);
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:repeat(12,1fr);
+      margin-top:14px;
+    }
+    .card{
+      grid-column:span 12;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      padding:16px;
+    }
+    @media (min-width:900px){
+      .card.half{grid-column:span 6}
+      .card.third{grid-column:span 4}
+    }
+
+    h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      color:var(--title);
+    }
+    h3{
+      margin:14px 0 8px 0;
+      font-size:15px;
+      color:var(--accent);
+    }
+    ul{margin:0;padding-left:18px;color:var(--txt)}
+    li{margin:6px 0;color:var(--txt)}
+    .muted{color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:12px;
+      border:1px dashed rgba(250,204,21,.55);
+      border-radius:12px;
+      background:rgba(250,204,21,.08);
+      color:var(--txt);
+    }
+
+    .callout{
+      border-left:4px solid var(--accent2);
+      padding:12px 12px;
+      background:rgba(251,113,133,.10);
+      border-radius:12px;
+    }
+
+    .ok{
+      border-left:4px solid var(--ok);
+      padding:12px 12px;
+      background:rgba(52,211,153,.10);
+      border-radius:12px;
+    }
+
+    footer{
+      padding:18px 16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .small{font-size:13px}
+    .src a{color:var(--accent);text-decoration:none}
+    .src a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap top">
+      <div class="brand">
+        <div class="t">Votre santé</div>
+        <div class="s">Page pratique : dangers du vapotage</div>
+      </div>
+
+        <nav aria-label="Navigation principale">
+          <a href="/yourhealth/index.html">Accueil</a>
+          <a href="/yourhealth/ressources.html">Ressources</a>
+          <a href="/yourhealth/contact.html">Contact</a>
+          <a href="javascript:history.back()">Retour</a>
+        </nav>
+
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Dangers du vapotage : ce qu’il faut savoir</h1>
+      <p>
+        Le vapotage n’est pas “sans risque”. Des substances toxiques peuvent être inhalées, et la nicotine peut entraîner une dépendance.
+        Cette page résume l’essentiel et donne des repères simples.
+      </p>
+	  
+<!-- Image illustrant les dangers du vapotage -->
+<div style="margin:16px 0; text-align:center">
+  <img src="/yourhealth/assets/img/vapotage-dangers.jfif"
+       alt="Vapotage et risques pour la santé"
+       style="width:40%; max-width:50%; border-radius:16px; border:1px solid var(--border)">
+</div>	  
+      <div class="chips" aria-label="Points clés">
+        <div class="chip">Toxiques inhalés</div>
+        <div class="chip">Risque de dépendance</div>
+        <div class="chip">Jeunes et non-fumeurs : éviter</div>
+        <div class="chip">Usage transitoire si sevrage tabac</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card half">
+        <h2>Ce que dit l’Anses (idée centrale)</h2>
+        <ul>
+          <li>Des substances émises et inhalées lors du vapotage peuvent être toxiques, y compris cancérogènes, même sans combustion.</li>
+          <li>Le recul scientifique est plus limité que pour le tabac et l’analyse est compliquée par le fait que la plupart des adultes vapoteurs sont (ou ont été) fumeurs.</li>
+          <li>L’agence recommande : information des consommateurs, responsabilité des fabricants, encadrement renforcé des ingrédients.</li>
+          <li>Elle recommande aussi d’éviter tout ce qui encourage l’initiation, surtout chez les non-fumeurs et les jeunes.</li>
+        </ul>
+        <div class="note small">
+          Source : article du 04/02/2026 basé sur un rapport de l’Anses.
+        </div>
+      </article>
+
+      <article class="card half">
+        <h2>Substances citées (exemples)</h2>
+        <p class="muted">
+          Le rapport mentionne plusieurs aldéhydes pouvant être émis et inhalés.
+        </p>
+        <ul>
+          <li>Acétaldéhyde</li>
+          <li>Acroléine</li>
+          <li>Formaldéhyde</li>
+          <li>Furfural</li>
+          <li>Glyoxal</li>
+          <li>Propionaldéhyde</li>
+        </ul>
+        <div class="callout small" style="margin-top:10px">
+          Message à retenir : “moins nocif que fumer” ne veut pas dire “sans danger”.
+        </div>
+      </article>
+
+      <article class="card third">
+        <h2>Risque de dépendance</h2>
+        <ul>
+          <li>La nicotine (si présente) peut créer ou entretenir une dépendance.</li>
+          <li>Chez les adolescents, la mode et les goûts sucrés/fruités favorisent l’usage.</li>
+        </ul>
+      </article>
+
+      <article class="card third">
+        <h2>Ce qui est une mauvaise idée</h2>
+        <ul>
+          <li>Commencer à vapoter en étant non-fumeur.</li>
+          <li>Vapoter “pour essayer”, surtout avec nicotine.</li>
+          <li>Banaliser le geste (usage social, “ce n’est rien”).</li>
+        </ul>
+      </article>
+
+      <article class="card third">
+        <h2>Si tu fumes déjà</h2>
+        <div class="ok">
+          <p style="margin:0">
+            La cigarette électronique peut être envisagée comme une option <strong>transitoire</strong> pour les personnes qui n’arrivent pas à arrêter,
+            à condition que cela s’inscrive dans une démarche de sevrage et avec un accompagnement.
+          </p>
+        </div>
+        <p class="muted small" style="margin-top:10px">
+          Objectif : réduire puis arrêter, pas remplacer une dépendance par une autre.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Plan simple “réduction des risques”</h2>
+
+        <h3>1) Fixer un objectif clair</h3>
+        <ul>
+          <li><strong>Non-fumeur :</strong> ne pas commencer.</li>
+          <li><strong>Fumeur :</strong> plan de sevrage (date, étapes, suivi).</li>
+        </ul>
+
+        <h3>2) Éviter les facteurs qui accrochent</h3>
+        <ul>
+          <li>Nicotine si ce n’est pas nécessaire au sevrage.</li>
+          <li>Usage “récréatif” et permanent.</li>
+          <li>Produits attractifs pour l’initiation (gouts très sucrés chez les jeunes).</li>
+        </ul>
+
+        <h3>3) Demander de l’aide si besoin</h3>
+        <ul>
+          <li>Parler à un médecin, un pharmacien ou un spécialiste du sevrage tabagique.</li>
+          <li>Combiner avec des dispositifs d’accompagnement existants.</li>
+        </ul>
+
+        <div class="note">
+          Si tu veux, donne-moi les liens exacts de ton menu (tes pages “référence”) et je te réécris le menu à l’identique, au caractère près.
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Sources</h2>
+        <p class="src small" style="margin:0">
+          Article : Le Progrès, 04/02/2026 — « Des substances toxiques, notamment cancérogènes : non, vapoter n’est pas sans risque ».
+        </p>
+        <p class="src small" style="margin:8px 0 0 0">
+          Page consultée : <a href="https://www.leprogres.fr/sante/2026/02/04/des-substances-toxiques-notamment-cancerogenes-non-vapoter-n-est-pas-sans-risque" target="_blank" rel="noopener">lien vers l’article</a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© Votre santé — Page informative, non destinée à remplacer un avis médical.</div>
+    </div>
+  </footer>
+</body>
+</html>
