@@ -3,193 +3,464 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Troubles du sommeil | Pathologie</title>
+  <title>Troubles du sommeil | Santé et alimentation</title>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
   <style>
-    :root {
-      --bg:#0b1220; --card:#121b2e; --txt:#eef2ff; --muted:#b9c2d6; --accent:#7dd3fc;
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1220;
+      --panel:rgba(11,18,32,.96);
+
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+
+      --accent:#7dd3fc;
+      --accent2:#a5b4fc;
+      --green:#22c55e;
+
       --border:rgba(255,255,255,.12);
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --radius:18px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14, var(--bg));
-      color:var(--txt)
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 650px at 10% 10%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(900px 540px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      line-height:1.65;
     }
-    header{
-      padding:18px 16px;
+
+    header.topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,11,20,.72);
+      backdrop-filter:blur(10px);
       border-bottom:1px solid var(--border);
-      background:rgba(0,0,0,.25);
-      backdrop-filter:blur(6px)
     }
-    .wrap{max-width:980px;margin:0 auto}
-
-    .header-top{
+    header.topbar .bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       justify-content:space-between;
-      gap:20px;
+      gap:12px;
+      flex-wrap:wrap;
     }
-
-    .header-image{
-      max-width:180px;
-      height:auto;
-      flex-shrink:0;
+    .brand{
+      text-decoration:none;
+      color:var(--txt);
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
     }
-
-    h1{margin:0;font-size:28px;line-height:1.2}
-    .sub{color:var(--muted);margin:6px 0 0}
-
-    .crumbs{margin-top:6px}
-    .crumbs a{color:var(--accent);text-decoration:none}
-
-    nav{
+    .brand::before{
+      content:"";
+      width:34px;height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      display:inline-block;
+    }
+    nav.nav{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:6px;
+      align-items:center;
     }
-    nav a{
+    nav.nav a{
       color:var(--txt);
       text-decoration:none;
-      padding:6px 10px;
+      padding:7px 10px;
       border:1px solid var(--border);
-      border-radius:12px
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      transition:.15s ease;
+      font-size:14px;
+    }
+    nav.nav a:hover{
+      border-color:rgba(125,211,252,.45);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    nav.nav a.active{
+      border-color:transparent;
+      background:linear-gradient(135deg, rgba(125,211,252,.35), rgba(165,180,252,.25));
     }
 
-    main{padding:18px 16px}
+    .crumbs{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    main.container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px;
+    }
 
     .card{
-      margin-top:18px;
-      background:var(--card);
+      background:var(--panel);
       border:1px solid var(--border);
-      border-radius:18px;
-      padding:16px
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+      margin-top:14px;
     }
 
-    /* Première carte remontée */
-    .card:first-child{
+    .hero{
+      padding:0;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(34,197,94,.08)),
+        var(--panel);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding:16px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:clamp(22px,3.2vw,34px);
+      color:var(--green);
+      letter-spacing:.2px;
+    }
+    .hero p{margin:0;color:var(--muted)}
+    .note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(125,211,252,.25);
+      background:rgba(125,211,252,.08);
+      color:var(--txt);
+      font-size:14px;
+    }
+
+    .hero-media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      min-height:180px;
+    }
+    /* ✅ Image hero réduite */
+    .hero-media img{
+      width:100%;
+      height:190px; /* réduit (au lieu de ~240) */
+      object-fit:cover;
+      display:block;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      color:var(--accent);
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    p{color:var(--muted)}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
       margin-top:0;
     }
 
-    h2{margin:0 0 8px;font-size:18px}
-    p, li{color:var(--muted);line-height:1.6}
-    ul{margin:8px 0 0 18px}
-    .note{
-      margin-top:18px;
-      font-size:13px;
-      color:var(--muted);
-      border-left:3px solid var(--accent);
-      padding-left:10px
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(34,197,94,.22);
+      background:rgba(34,197,94,.08);
+      color:var(--txt);
     }
-    footer{
-      padding:18px 16px;
-      border-top:1px solid var(--border);
-      color:var(--muted)
+    .warn{
+      border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.10);
+    }
+    .danger{
+      border:1px solid rgba(239,68,68,.25);
+      background:rgba(239,68,68,.10);
     }
 
-    @media (max-width:700px){
-      .header-top{flex-direction:column;}
-      .header-image{max-width:140px;}
+    /* ✅ Images dans le contenu réduites et propres */
+    .img-box{
+      margin:12px 0 6px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      max-width:520px;        /* limite la largeur */
     }
-    @media (max-width:520px){h1{font-size:24px}}
+    .img-box img{
+      width:100%;
+      height:170px;          /* réduit */
+      object-fit:cover;
+      display:block;
+    }
+
+    footer.site-footer{
+      border-top:1px solid var(--border);
+      margin-top:18px;
+      padding:14px 0 18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-media img{height:170px}
+      .grid2{grid-template-columns:1fr}
+      .img-box{max-width:100%}
+      .img-box img{height:160px}
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="wrap">
+  <header class="topbar">
+    <div class="bar">
+      <a class="brand" href="/yourhealth/index.html">Votre santé</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/yourhealth/index.html">Accueil</a>
+        <a href="/yourhealth/ressources.html">Ressources</a>
+        <a href="/yourhealth/contact.html">Contact</a>
+        <a href="javascript:history.back()">Retour</a>
+      </nav>
+    </div>
+    <div class="crumbs">
+      <a href="/yourhealth/index.html">Accueil</a> › <a href="/yourhealth/pathologies.html">Pathologies</a> › Troubles du sommeil
+    </div>
+  </header>
 
-    <div class="header-top">
+  <main class="container">
 
-      <!-- Bloc texte -->
-      <div>
-        <h1>Troubles du sommeil</h1>
-        <p class="sub">Fiche pratique : comprendre, repérer, agir.</p>
-
-        <div class="crumbs">
-          <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Troubles du sommeil
+    <section class="card hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Troubles du sommeil</h1>
+          <p>Comprendre les causes, améliorer les habitudes, et connaître les options de prise en charge (sans automatisme de somnifères).</p>
+          <p class="note">Ces informations ne remplacent pas un avis médical, surtout en cas de somnolence dangereuse, d’apnée suspectée ou de symptômes persistants.</p>
         </div>
+        <div class="hero-media">
+          <img src="/yourhealth/assets/img/sommeil.jfif" alt="Troubles du sommeil"
+               onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+        </div>
+      </div>
+    </section>
 
-        <nav aria-label="Navigation principale">
-          <a href="/yourhealth/index.html">Accueil</a>
-          <a href="/yourhealth/ressources.html">Ressources</a>
-          <a href="/yourhealth/contact.html">Contact</a>
-        </nav>
+    <section class="card">
+      <h2>Ce que recouvrent les troubles du sommeil</h2>
+      <p>
+        Les troubles du sommeil peuvent se manifester par des difficultés d’endormissement, des réveils nocturnes,
+        un réveil trop tôt, un sommeil non réparateur, ou une somnolence diurne. Ils peuvent être isolés ou liés
+        à une cause précise (apnée du sommeil, douleurs, stress, médicaments, rythme décalé, etc.).
+      </p>
+
+      <div class="grid2">
+        <div>
+          <h3>Formes fréquentes</h3>
+          <ul>
+            <li><b>Insomnie</b> : difficulté à dormir, fatigue, irritabilité.</li>
+            <li><b>Rythme décalé</b> : coucher tardif, horaires irréguliers.</li>
+            <li><b>Apnée du sommeil</b> : ronflements, pauses respiratoires, fatigue.</li>
+            <li><b>Jambes sans repos</b> : gêne le soir, besoin de bouger.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Impact possible</h3>
+          <ul>
+            <li>Baisse d’énergie, troubles de l’attention et de la mémoire.</li>
+            <li>Humeur (anxiété, irritabilité) et baisse de motivation.</li>
+            <li>Augmentation du risque d’accidents (conduite, chutes).</li>
+            <li>Aggravation de certaines maladies (tension, diabète, douleur).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Signaux d’alerte</h2>
+      <p>Il faut être plus vigilant si l’un de ces points est présent.</p>
+      <div class="callout danger">
+        <ul>
+          <li><b>Somnolence au volant</b>, endormissements involontaires.</li>
+          <li><b>Ronflements + pauses respiratoires</b> observées, réveils en suffocation.</li>
+          <li>Insomnie <b>plus de 3 nuits par semaine</b> depuis <b>plus de 3 mois</b>.</li>
+          <li>Usage régulier de somnifères, augmentation des doses, mélange avec alcool.</li>
+          <li>Dépression marquée, anxiété importante, idées noires.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Causes possibles (repères)</h2>
+      <div class="grid2">
+        <div>
+          <h3>Facteurs très courants</h3>
+          <ul>
+            <li>Stress, rumination, anxiété.</li>
+            <li>Douleurs, reflux, toux, troubles urinaires nocturnes.</li>
+            <li>Caféine tardive, nicotine, alcool le soir.</li>
+            <li>Écrans et lumière forte en soirée.</li>
+            <li>Siestes longues ou tardives.</li>
+            <li>Horaires irréguliers.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Causes à dépister</h3>
+          <ul>
+            <li>Apnée du sommeil.</li>
+            <li>Dépression ou trouble anxieux.</li>
+            <li>Jambes sans repos (souvent lié au fer).</li>
+            <li>Effets secondaires de certains médicaments.</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Image à droite -->
-      <img src="../assets/img/troubles-sommeil.jfif"
-           alt="Troubles du sommeil"
-           class="header-image">
-
-    </div>
-
-  </div>
-</header>
-
-<main>
-  <div class="wrap">
-
-    <section class="card" id="definition">
-      <h2>Définition de la pathologie</h2>
-      <p>Difficultés à s’endormir, à rester endormi, sommeil non réparateur ou troubles comme l’apnée du sommeil.</p>
+      <div class="callout warn">
+        <b>Important :</b> l’alcool peut aider à s’endormir, mais il fragmente le sommeil et aggrave les réveils nocturnes.
+      </div>
     </section>
 
-    <section class="card" id="diagnostic">
-      <h2>Diagnostic</h2>
+    <section class="card">
+      <h2>Agenda du sommeil (outil simple)</h2>
+      <p>
+        Pendant 7 à 14 jours, note : heure du coucher, temps d’endormissement, réveils, heure de lever, siestes,
+        caféine/alcool, activité physique. Cela aide à comprendre le problème et à choisir les mesures efficaces.
+      </p>
+      <div class="callout">
+        <b>Repère utile :</b> un lever régulier est souvent plus important qu’un coucher “parfait”.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Conseils efficaces (hygiène du sommeil)</h2>
+
+      <div class="grid2">
+        <div>
+          <h3>Les priorités</h3>
+          <ul>
+            <li><b>Heure de lever fixe</b> (même le week-end).</li>
+            <li><b>Lumière du matin</b> 10 à 20 minutes si possible.</li>
+            <li><b>Écrans</b> : réduire 60 à 90 minutes avant le coucher.</li>
+            <li><b>Caféine</b> : éviter après le début d’après-midi.</li>
+            <li><b>Chambre</b> : fraîche, sombre, silencieuse.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Si tu ne dors pas</h3>
+          <ul>
+            <li>Si éveillé &gt; 20–30 min : sortir du lit, lumière faible, activité calme, puis retour au lit quand la somnolence revient.</li>
+            <li>Éviter de regarder l’heure la nuit.</li>
+            <li>Éviter de rester au lit à ruminer (cela entretient l’insomnie).</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Routine du soir (exemple)</h3>
       <ul>
-        <li>Entretien médical : symptômes, antécédents, facteurs de risque</li>
-        <li>Examen clinique adapté</li>
-        <li>Examens complémentaires selon le cas</li>
-        <li>Évaluation de la sévérité et des complications</li>
+        <li>90 min avant : écrans réduits, lumière plus douce.</li>
+        <li>60 min avant : douche tiède, boisson non caféinée.</li>
+        <li>30 min avant : lecture papier, respiration lente 5 minutes.</li>
+      </ul>
+
+      <div class="img-box">
+        <img src="/yourhealth/assets/img/rituel-sommeil.jfif" alt="Routine simple du soir"
+             onerror="this.onerror=null;this.src='../../assets/img/default.svg';">
+      </div>
+
+    </section>
+
+    <section class="card">
+      <h2>Traitements (selon la cause)</h2>
+
+      <h3>1) Approches non médicamenteuses (souvent les meilleures à long terme)</h3>
+      <ul>
+        <li><b>TCC-I</b> (thérapie cognitivo-comportementale de l’insomnie) : référence pour l’insomnie chronique.</li>
+        <li><b>Contrôle du stimulus</b> : lit réservé au sommeil (et à l’intimité), pas au téléphone ni au travail.</li>
+        <li><b>Restriction du temps au lit</b> : méthode structurée pour renforcer la pression de sommeil (à faire correctement).</li>
+        <li><b>Gestion du stress</b> : relaxation, respiration lente, écriture des préoccupations plus tôt dans la journée.</li>
+      </ul>
+
+      <h3>2) Médicaments (prudence)</h3>
+      <ul>
+        <li><b>Mélatonine</b> : utile surtout pour rythme décalé, parfois dans certains contextes.</li>
+        <li><b>Somnifères</b> : parfois en courte durée, cas ciblés, surveillance (tolérance, dépendance, chutes).</li>
+      </ul>
+      <div class="callout warn">
+        <b>Idée simple :</b> les somnifères peuvent endormir, mais ne corrigent pas la cause. Une utilisation prolongée est une mauvaise idée.
+      </div>
+
+      <h3>3) Situations particulières</h3>
+      <ul>
+        <li><b>Apnée du sommeil</b> : dépistage, mesures hygiéno-diététiques, parfois orthèse, et souvent CPAP.</li>
+        <li><b>Jambes sans repos</b> : rechercher carence en fer (ferritine), corriger, adapter les facteurs aggravants.</li>
+        <li><b>Douleurs / reflux</b> : traiter la cause améliore souvent le sommeil.</li>
       </ul>
     </section>
 
-    <section class="card" id="remedes">
-      <h2>Remèdes</h2>
-      <ul>
-        <li>Prise en charge adaptée au diagnostic et à la gravité</li>
-        <li>Mesures non médicamenteuses</li>
-        <li>Traitements si indiqués</li>
-        <li>Suivi régulier</li>
-      </ul>
-    </section>
-
-    <section class="card" id="conseils">
-      <h2>Conseils</h2>
-      <ul>
-        <li>Horaires réguliers de coucher et de lever</li>
-        <li>Limiter caféine, alcool et écrans le soir</li>
-        <li>Lumière le matin et activité physique en journée</li>
-        <li>Consulter en cas de ronflements ou somnolence excessive</li>
-      </ul>
-    </section>
-
-    <section class="card" id="prevention">
+    <section class="card">
       <h2>Prévention</h2>
-      <ul>
-        <li>Mode de vie sain</li>
-        <li>Réduction des facteurs de risque</li>
-        <li>Suivi et dépistage</li>
-        <li>Prévention des infections si pertinent</li>
-      </ul>
+      <div class="grid2">
+        <div>
+          <h3>Habitudes protectrices</h3>
+          <ul>
+            <li>Activité physique régulière (plutôt en journée).</li>
+            <li>Exposition à la lumière le matin.</li>
+            <li>Horaires stables, surtout l’heure de lever.</li>
+            <li>Limiter alcool le soir et caféine tardive.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>À surveiller</h3>
+          <ul>
+            <li>Somnolence diurne, fatigue matinale persistante.</li>
+            <li>Ronflement fort, pauses respiratoires.</li>
+            <li>Besoin fréquent d’uriner la nuit.</li>
+            <li>Anxiété élevée ou humeur très basse.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small">Dernière mise à jour : 06/02/2026</p>
     </section>
 
-    <p class="note">
-      Information générale. En cas de symptômes persistants ou aggravation, consulte un professionnel de santé.
-    </p>
+  </main>
 
-  </div>
-</main>
-
-<footer>
-  <div class="wrap">
-    © 2026 — Fiches pathologies
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="wrap small">YourHealth — Santé et alimentation</div>
+  </footer>
 
 </body>
 </html>

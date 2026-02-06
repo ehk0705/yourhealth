@@ -358,6 +358,27 @@
       .sitebar .inner{flex-wrap:wrap}
       nav.mainnav{margin-left:0}
     }
+.form-with-image{
+  display:grid;
+  grid-template-columns: 1fr 320px; /* formulaire | image */
+  gap:18px;
+  align-items:flex-start;
+}
+
+.form-image{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+}
+
+.form-image img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+
   </style>
 </head>
 
@@ -398,6 +419,7 @@
       <header class="page-head">
         <h1>Contact</h1>
         <p>Un retour, une correction, une suggestion : remplir le formulaire.</p>
+		<p>Conseil : Indique le titre de la page et ce qui pose problème (phrase, paragraphe, lien, image).</p>
 		<p>Réponse non garantie, mais lecture assurée.</p>
       </header>
 
@@ -439,11 +461,6 @@
 
             </div>
           </form>
-
-          <!-- Enrichissement léger -->
-          <div class="footnote">
-            Conseil : si ton message concerne une page précise, indique le titre de la page et ce qui pose problème (phrase, paragraphe, lien, image).
-          </div>
         </div>
 
         <!-- Enrichissement : bloc d’aide (n’ajoute rien au formulaire, juste utile au visiteur) -->
@@ -468,11 +485,7 @@
   <footer class="sitefoot" id="fallback-footer" aria-label="Pied de page">
     <div class="inner">
       <div>© <span id="year"></span> YourHealth</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="index.html">Accueil</a>
-        <a href="meteo-journaux.html">Météo &amp; presse</a>
-        <a href="contact.html">Contact</a>
-      </div>
+
     </div>
   </footer>
 
