@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prescription d’insuline par un médecin généraliste</title>
+  <meta name="description" content="Un médecin généraliste peut-il prescrire de l’insuline avec un protocole ? Réponse claire, limites, et bonnes pratiques." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a31;
+      --text:#e9eefc;
+      --muted:#b9c6ea;
+      --accent:#35c6c6;
+      --accent2:#ff7a70;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 420px at 18% 8%, rgba(53,198,198,.22), transparent 55%),
+                  radial-gradient(900px 460px at 85% 12%, rgba(255,122,112,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:18px}
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{display:flex; align-items:center; gap:10px; padding:12px 0}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+    }
+    .brand-title{font-weight:750; letter-spacing:.2px}
+    .brand-sub{display:block; font-weight:500; color:var(--muted); font-size:12px; margin-top:2px}
+    .nav-links{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{
+      padding:10px 12px; border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+    }
+    .nav-links a:hover{border-color:var(--line); color:var(--text)}
+    /* HERO */
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-main{padding:22px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      background: rgba(15,26,49,.40);
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:var(--accent)}
+    h1{margin:14px 0 10px; font-size:28px; line-height:1.2}
+    .lead{color:var(--muted); margin:0 0 14px; font-size:16px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chip{
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(15,26,49,.45);
+      color:var(--text);
+      font-size:13px;
+    }
+    .hero-side{padding:18px}
+    .side-title{font-weight:700; margin:0 0 10px}
+    .side-box{
+      border:1px solid var(--line);
+      background: rgba(15,26,49,.55);
+      border-radius:14px;
+      padding:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    /* CONTENT */
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    .card{padding:18px}
+    h2{margin:0 0 10px; font-size:18px}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    li{margin:8px 0}
+    .ok{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(53,198,198,.30);
+      background: rgba(53,198,198,.08);
+      color:var(--text);
+      margin-top:12px;
+    }
+    .warn{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,122,112,.28);
+      background: rgba(255,122,112,.08);
+      color:var(--text);
+      margin-top:12px;
+    }
+    .badge{
+      flex:0 0 auto;
+      width:28px; height:28px;
+      border-radius:10px;
+      display:grid; place-items:center;
+      font-weight:800;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+    }
+    .muted{color:var(--muted)}
+    .footer{
+      margin:18px 0 10px;
+      padding:14px 0;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">Diabète et traitement</div>
+          <span class="brand-sub">Prescription d’insuline – information pratique</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Navigation">
+        <a href="#reponse">Réponse</a>
+        <a href="#pratique">En pratique</a>
+        <a href="#limites">Limites</a>
+        <a href="#quebec">Québec</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="reponse">
+      <article class="panel hero-main">
+        <span class="kicker"><span class="dot"></span> Question : un généraliste peut-il prescrire de l’insuline avec un protocole ?</span>
+        <h1>Oui, un médecin généraliste peut prescrire de l’insuline, y compris avec un protocole.</h1>
+        <p class="lead">
+          En règle générale, un médecin généraliste peut prescrire l’insuline et définir un schéma (doses, horaires, ajustements),
+          surtout lorsque le diagnostic et le suivi sont clairs.
+        </p>
+
+        <div class="chips" aria-label="Points clés">
+          <span class="chip">Prescription possible</span>
+          <span class="chip">Protocole écrit possible</span>
+          <span class="chip">Suivi recommandé si complexe</span>
+        </div>
+
+        <div class="ok">
+          <div class="badge" aria-hidden="true">✓</div>
+          <div>
+            <strong>Conclusion courte</strong><br />
+            <span class="muted">Autorisé et fréquent. La collaboration avec un spécialiste est surtout utile si la situation est complexe.</span>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel hero-side">
+        <h2 class="side-title">Ce que signifie “avec un protocole”</h2>
+        <div class="side-box">
+          Un protocole est un cadre écrit : type d’insuline (basale, rapide), doses de départ,
+          règles d’ajustement (par exemple selon la glycémie), conduite à tenir en cas d’hypoglycémie,
+          et plan de suivi.
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <article class="panel card" id="pratique">
+        <h2>En pratique</h2>
+        <ul>
+          <li>Le médecin généraliste peut prescrire l’insuline et rédiger un schéma (basale seule, basal-bolus, corrections).</li>
+          <li>C’est courant si le traitement est déjà connu et stable.</li>
+          <li>Un protocole doit rester simple, clair et adapté au patient (objectif glycémique, prévention des hypoglycémies).</li>
+        </ul>
+
+        <div class="ok">
+          <div class="badge" aria-hidden="true">✓</div>
+          <div>
+            <strong>Bonne pratique</strong><br />
+            <span class="muted">Prévoir un contrôle régulier et des consignes écrites en cas d’hypoglycémie.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel card" id="limites">
+        <h2>Limites et situations où l’avis spécialisé est recommandé</h2>
+        <ul>
+          <li>Initiation complexe (schémas multiples, objectifs difficiles à atteindre).</li>
+          <li>Diabète atypique ou secondaire, ou grande variabilité des glycémies.</li>
+          <li>Hypoglycémies répétées, hospitalisations, complications, ou comorbidités importantes.</li>
+          <li>Besoin d’un ajustement fin (grosses variations, travail de nuit, insuffisance rénale, etc.).</li>
+        </ul>
+
+        <div class="warn">
+          <div class="badge" aria-hidden="true">!</div>
+          <div>
+            <strong>Point important</strong><br />
+            <span class="muted">Si la situation est complexe, une coordination avec une clinique du diabète ou un endocrinologue est préférable.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel card" id="quebec" style="margin-top:16px; padding:18px;">
+      <h2>Cadre au Québec (rappel simple)</h2>
+      <ul>
+        <li>Un médecin (y compris généraliste) peut prescrire l’insuline.</li>
+        <li>Dans certains milieux, des règles internes existent (protocole validé, suivi spécialisé, formulaire).</li>
+        <li>En cas de diabète complexe, l’orientation vers une clinique du diabète facilite l’ajustement et la sécurité.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      Document informatif. Pour une décision médicale, se baser sur la situation clinique et le suivi.
+    </footer>
+  </main>
+</body>
+</html>

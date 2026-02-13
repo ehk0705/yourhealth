@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diabète secondaire (type 3c) – Comprendre simplement</title>
+  <meta name="description" content="Différences entre diabète de type 1, type 2 et diabète secondaire (type 3c). Causes, particularités, points clés." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#101b2e;
+      --panel2:#0f223b;
+      --txt:#eef2f7;
+      --muted:#b7c3d6;
+      --border:rgba(255,255,255,.14);
+      --shadow:0 12px 34px rgba(0,0,0,.35);
+
+      --accent:#2dd4bf;     /* turquoise */
+      --accent2:#ff7a18;    /* orange */
+      --danger:#ff4d4d;
+      --ok:#22c55e;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1000px 500px at 20% -10%, rgba(45,212,191,.20), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(255,122,24,.18), transparent 55%),
+                  var(--bg);
+      color:var(--txt);
+      line-height:1.55;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:1100px; margin:0 auto; padding:18px; }
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      max-width:1100px; margin:0 auto; padding:12px 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand-mark{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+    .nav-links{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(16,27,46,.65);
+      transition: transform .15s ease, border-color .15s ease;
+      font-size:14px;
+    }
+    .pill:hover{ transform: translateY(-1px); border-color: rgba(45,212,191,.6); }
+
+    /* HERO */
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(16,27,46,.92), rgba(15,34,59,.86));
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .h-title{
+      margin:0 0 8px 0;
+      font-size:28px;
+      line-height:1.2;
+    }
+    .h-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .badges{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.55);
+    }
+    .badge strong{ color: var(--accent); font-weight:700; }
+
+    .hero-img{
+      overflow:hidden;
+      padding:0;
+    }
+    .hero-img img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      border-radius:18px;
+      filter: contrast(1.02) saturate(1.05);
+    }
+    .caption{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* SECTIONS */
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:14px;
+    }
+    .card{
+      background: rgba(16,27,46,.82);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow: var(--shadow);
+      padding:14px;
+      min-height: 230px;
+    }
+    .card h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .k{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin:10px 0 0;
+      padding:8px 10px;
+      border:1px dashed rgba(255,255,255,.22);
+      border-radius:12px;
+      color:var(--muted);
+      font-size:14px;
+      background: rgba(11,18,32,.35);
+    }
+    .k b{ color: var(--txt); }
+    .small{ color: var(--muted); font-size:14px; }
+
+    .imgbox{
+      margin-top:10px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.35);
+    }
+    .imgbox img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* COMPARAISON */
+    .section{
+      margin-top:18px;
+      background: rgba(16,27,46,.82);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .section h3{
+      margin:0 0 10px 0;
+      font-size:18px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+    th, td{
+      padding:12px 10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      vertical-align:top;
+      font-size:14px;
+    }
+    th{
+      text-align:left;
+      background: rgba(15,34,59,.75);
+      color: var(--txt);
+    }
+    tr:last-child td{ border-bottom:none; }
+    .tag{
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-size:12px;
+      color:var(--muted);
+      background: rgba(11,18,32,.35);
+    }
+
+    /* FOOTER */
+    .footer{
+      margin:18px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns:1fr; }
+      .grid{ grid-template-columns:1fr; }
+      .card{ min-height:auto; }
+      .hero-img img{ height:280px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Diabète : comprendre</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Navigation">
+        <a class="pill" href="index.html">Accueil</a>
+        <a class="pill" href="#types">Types 1 / 2 / secondaire</a>
+        <a class="pill" href="#comparaison">Comparaison</a>
+        <a class="pill" href="#cas">Exemple après pancréatectomie</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="h-title">Diabète secondaire (type 3c)</h1>
+        <p class="h-sub">
+          Un diabète causé par une autre maladie ou par un traitement.
+          Ce n’est ni un type 1, ni un type 2 classique.
+        </p>
+
+        <div class="badges">
+          <span class="badge"><strong>Cause :</strong> atteinte du pancréas ou hormones</span>
+          <span class="badge"><strong>Souvent :</strong> insulinodépendant</span>
+          <span class="badge"><strong>Risque :</strong> glycémies instables</span>
+        </div>
+
+        <p class="k"><b>Idée clé</b> : le type 1 = auto-immun ; le type 2 = résistance ; le secondaire = pancréas endommagé.</p>
+      </div>
+
+      <div class="hero-card hero-img">
+        <img src="/yourhealth/assets/img/diab-sec1.jfif" alt="Illustration du pancréas" />
+      </div>
+    </section>
+
+    <p class="caption">
+      Images : mets tes fichiers dans <b>/yourhealyhassets/img/</b> (exemples : pancreas-hero.jfif, type1.jfif, type2.jfif, type3c.jfif).
+    </p>
+
+    <!-- 3 CARTES -->
+    <section id="types" class="grid" aria-label="Types de diabète">
+      <article class="card">
+        <h2>Diabète de type 1</h2>
+        <p class="small"><span class="tag">Auto-immun</span></p>
+        <p><b>Cause :</b> destruction des cellules du pancréas par le système immunitaire.</p>
+        <p><b>Insuline :</b> production presque nulle → insuline obligatoire.</p>
+        <p><b>Début :</b> souvent rapide.</p>
+
+        <div class="imgbox">
+          <img src="/yourhealth/assets/img/diab-sec2.jfif" alt="Illustration du diabète de type 1" />
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Diabète de type 2</h2>
+        <p class="small"><span class="tag">Résistance à l’insuline</span></p>
+        <p><b>Cause :</b> résistance à l’insuline + production insuffisante.</p>
+        <p><b>Insuline :</b> pas toujours nécessaire au début.</p>
+        <p><b>Début :</b> progressif.</p>
+
+        <div class="imgbox">
+          <img src="/yourhealh/assets/img/diab-sec3.jfif" alt="Illustration du diabète de type 2" />
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Diabète secondaire (type 3c)</h2>
+        <p class="small"><span class="tag">Pancréas atteint</span></p>
+        <p><b>Cause :</b> chirurgie, pancréatite, cancer du pancréas, etc.</p>
+        <p><b>Insuline :</b> souvent nécessaire rapidement.</p>
+        <p><b>Particularité :</b> glycémies souvent plus difficiles à équilibrer.</p>
+
+        <div class="imgbox">
+          <img src="/yourhealth/assets/img/type3c.jfif" alt="Illustration du diabète secondaire (type 3c)" />
+        </div>
+      </article>
+    </section>
+
+    <!-- COMPARAISON -->
+    <section id="comparaison" class="section">
+      <h3>Comparaison simple</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Cause principale</th>
+            <th>Insuline</th>
+            <th>Début</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Type 1</b></td>
+            <td>Auto-immun : destruction des cellules</td>
+            <td>Obligatoire</td>
+            <td>Rapide</td>
+          </tr>
+          <tr>
+            <td><b>Type 2</b></td>
+            <td>Résistance à l’insuline</td>
+            <td>Pas toujours au début</td>
+            <td>Progressif</td>
+          </tr>
+          <tr>
+            <td><b>Secondaire (3c)</b></td>
+            <td>Atteinte du pancréas (ou hormones / médicaments)</td>
+            <td>Souvent nécessaire tôt</td>
+            <td>Variable</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- CAS -->
+    <section id="cas" class="section">
+      <h3>Exemple typique : après pancréatectomie</h3>
+      <p>
+        Après une <b>ablation partielle ou totale du pancréas</b>, le corps ne produit plus assez d’insuline.
+        Le diabète qui en résulte est un <b>diabète secondaire</b>, souvent appelé <b>diabète pancréatogène (type 3c)</b>.
+      </p>
+      <p class="k">
+        <b>Point important</b> : ce diabète est fréquemment <b>insulinodépendant</b>.
+      </p>
+    </section>
+
+    <div class="footer">
+      Page éducative. Pour un suivi médical, seul un médecin (endocrinologue) peut adapter le traitement.
+    </div>
+  </main>
+
+</body>
+</html>

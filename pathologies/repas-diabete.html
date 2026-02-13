@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Repas diabète – matin, midi, soir (menu 7 jours)</title>
+  <meta name="description" content="Repères simples pour organiser les repas d’un diabétique : petit-déjeuner, déjeuner, dîner, règles clés et menu type sur 7 jours." />
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#0f1b33;
+      --card:#121f3d;
+      --card2:#0f1b33;
+      --txt:#e9eef9;
+      --muted:#b8c3dc;
+      --accent:#2dd4bf;   /* turquoise */
+      --accent2:#fb7185;  /* corail */
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(45,212,191,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(251,113,133,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; height:auto; display:block; }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(45,212,191,.95), rgba(45,212,191,.15) 60%),
+        radial-gradient(circle at 70% 70%, rgba(251,113,133,.85), rgba(251,113,133,.10) 62%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+    }
+    .navlink{
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      color:var(--txt);
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .navlink:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* Layout */
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 14px 40px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:stretch;
+      margin-top:12px;
+    }
+    .hero-card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(18,31,61,.85), rgba(15,27,51,.70));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-left{
+      padding:18px 18px 14px;
+      position:relative;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(45,212,191,.15);
+    }
+    h1{
+      margin:12px 0 8px;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height:1.15;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15.5px;
+    }
+    .chips{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      font-size:13.5px;
+      color:var(--txt);
+    }
+    .chip b{ color:var(--accent); font-weight:800; }
+
+    .hero-right{
+      display:flex;
+      flex-direction:column;
+    }
+    .hero-figure{
+      height:100%;
+      min-height:220px;
+      background:
+        radial-gradient(220px 160px at 30% 30%, rgba(45,212,191,.25), transparent 60%),
+        radial-gradient(240px 170px at 70% 60%, rgba(251,113,133,.20), transparent 65%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+      border-left:1px solid rgba(255,255,255,.10);
+      position:relative;
+    }
+    .hero-figure .label{
+      position:absolute;
+      left:14px; bottom:14px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(11,18,32,.55);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Section titles */
+    .section{
+      margin-top:18px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+    .sub{
+      margin:0 0 12px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14.5px;
+    }
+
+    /* Cards grid */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      background: rgba(18,31,61,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.22);
+      padding:14px 14px 12px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .badge{
+      width:26px; height:26px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--txt);
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    ul{
+      margin:8px 0 0;
+      padding-left:18px;
+      color:var(--txt);
+      line-height:1.55;
+      font-size:14.5px;
+    }
+    li{ margin:6px 0; }
+    .avoid{
+      margin-top:10px;
+      border-top:1px dashed rgba(255,255,255,.14);
+      padding-top:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .avoid b{ color:var(--accent2); }
+
+    /* Menu 7 jours */
+    .grid-7{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+    }
+    .day{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(18,31,61,.60), rgba(15,27,51,.45));
+      padding:14px;
+    }
+    .day-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:6px;
+    }
+    .day-title h3{
+      margin:0;
+      font-size:16px;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+    .lines{
+      margin:8px 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--txt);
+      font-size:14.5px;
+      line-height:1.55;
+    }
+    .lines li{
+      margin:8px 0;
+      padding:8px 10px;
+      border-radius:14px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .lines b{
+      color:var(--accent);
+      font-weight:800;
+    }
+
+    /* Règles */
+    .rules{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:12px;
+    }
+    .note{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      background: rgba(18,31,61,.45);
+      padding:14px;
+    }
+    .note h3{ margin:0 0 8px; font-size:16px; }
+    .warn{
+      border-left:4px solid var(--accent2);
+      padding-left:10px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14.5px;
+    }
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(45,212,191,.12);
+      color:var(--txt);
+      font-weight:800;
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(45,212,191,.16); }
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      font-weight:700;
+      color:var(--muted);
+    }
+    .btn.secondary:hover{ background: rgba(255,255,255,.09); color:var(--txt); }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      padding:16px 0 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero-figure{ border-left:none; border-top:1px solid rgba(255,255,255,.10); min-height:180px; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .rules{ grid-template-columns: 1fr; }
+      .grid-7{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="VotreHealth">
+        <span class="logo" aria-hidden="true"></span>
+        <span>YourHealth</span>
+      </div>
+
+      <nav aria-label="Navigation principale">
+        <a class="navlink" href="../index.html">Accueil</a>
+        <a class="navlink" href="diabete-secondaire.html">Diabète</a>
+        <a class="navlink" href="#repas">Repas</a>
+        <a class="navlink" href="#menu7">Menu 7 jours</a>
+        <a class="navlink" href="#regles">Règles</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-card hero-left">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span>Repères alimentaires – diabète</div>
+        <h1>Que manger matin, midi et soir<br>quand on est diabétique</h1>
+        <p class="lead">
+          Cette page donne des repères simples pour construire des repas stables.
+          Ce ne sont pas des prescriptions médicales : il faut ajuster selon le traitement (insuline ou non),
+          les glycémies et les conseils médicaux.
+        </p>
+
+        <div class="chips" aria-label="Points rapides">
+          <div class="chip"><b>Matin</b> : éviter le pic</div>
+          <div class="chip"><b>Midi</b> : assiette équilibrée</div>
+          <div class="chip"><b>Soir</b> : plus léger</div>
+          <div class="chip"><b>Zéro</b> jus et sodas</div>
+        </div>
+      </div>
+
+<div class="hero-card hero-right">
+  <div class="hero-figure">
+    <img src="/yourhealth/assets/img/repas-glycemie.jfif"
+         alt="Repas équilibré et contrôle de la glycémie"
+         style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+    <div class="label">
+      Conseil pratique : mesurer la glycémie 2 heures après un repas
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- REPAS -->
+    <section id="repas" class="section">
+      <h2>Matin, midi, soir : structure simple</h2>
+      <p class="sub">
+        Objectif : limiter les pics glycémiques en combinant <b>glucides lents + protéines + fibres</b>.
+      </p>
+
+      <div class="grid-3">
+        <!-- Petit-déjeuner -->
+        <article class="card">
+          <h3><span class="badge">1</span> Petit-déjeuner</h3>
+          <ul>
+            <li><b>Protéines</b> : œufs, fromage blanc, yaourt nature</li>
+            <li><b>Fibres</b> : pain complet ou flocons d’avoine</li>
+            <li><b>Bon gras</b> : noix, amandes</li>
+            <li><b>Boisson</b> : eau, thé, café sans sucre</li>
+            <li><b>Fruit entier</b> possible (pas de jus)</li>
+          </ul>
+          <div class="avoid"><b>À éviter</b> : viennoiseries, céréales sucrées, jus de fruits</div>
+        </article>
+
+        <!-- Déjeuner -->
+        <article class="card">
+          <h3><span class="badge">2</span> Déjeuner</h3>
+          <ul>
+            <li><b>Légumes</b> : grande quantité</li>
+            <li><b>Protéines</b> : poisson, poulet, œufs, légumineuses</li>
+            <li><b>Féculents</b> (IG bas) : riz complet, quinoa, lentilles</li>
+            <li><b>Matières grasses</b> : huile d’olive</li>
+            <li><b>Boisson</b> : eau</li>
+          </ul>
+          <div class="avoid"><b>À éviter</b> : frites, pain blanc, sodas</div>
+        </article>
+
+        <!-- Dîner -->
+        <article class="card">
+          <h3><span class="badge">3</span> Dîner</h3>
+          <ul>
+            <li><b>Légumes</b> : soupe ou salade</li>
+            <li><b>Protéines</b> : poisson, œufs</li>
+            <li><b>Peu</b> ou pas de féculents</li>
+            <li><b>Yaourt nature</b> possible</li>
+          </ul>
+          <div class="avoid"><b>À éviter</b> : repas lourds, sucreries, grignotage tardif</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MENU 7 JOURS -->
+    <section id="menu7" class="section">
+      <h2>Menu type sur 7 jours (base simple)</h2>
+      <p class="sub">
+        Idée générale : féculents surtout <b>matin</b> et <b>midi</b>, et repas plus léger le <b>soir</b>.
+        Si tu es sous insuline, ajuste selon tes glycémies et les consignes médicales.
+      </p>
+
+      <div class="grid-7">
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 1</h3><span class="pill">Équilibré</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Œufs + pain complet + yaourt nature</li>
+            <li><b>Midi</b> : Poulet + légumes + riz complet</li>
+            <li><b>Soir</b> : Soupe de légumes + poisson</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 2</h3><span class="pill">Fibres</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Fromage blanc + flocons d’avoine + noix</li>
+            <li><b>Midi</b> : Poisson + lentilles + légumes</li>
+            <li><b>Soir</b> : Omelette + salade</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 3</h3><span class="pill">Simple</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Yaourt nature + pain complet + fruit</li>
+            <li><b>Midi</b> : Dinde + quinoa + légumes</li>
+            <li><b>Soir</b> : Légumes vapeur + fromage blanc</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 4</h3><span class="pill">Portions</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Œufs + pain complet</li>
+            <li><b>Midi</b> : Viande maigre + haricots verts + pommes de terre (petite portion)</li>
+            <li><b>Soir</b> : Soupe + yaourt</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 5</h3><span class="pill">Léger</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Fromage blanc + amandes</li>
+            <li><b>Midi</b> : Poisson + riz complet + légumes</li>
+            <li><b>Soir</b> : Salade + œufs</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 6</h3><span class="pill">Légumineuses</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Yaourt nature + flocons d’avoine</li>
+            <li><b>Midi</b> : Poulet + pois chiches + légumes</li>
+            <li><b>Soir</b> : Légumes + poisson</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Jour 7</h3><span class="pill">Souple</span>
+          </div>
+          <ul class="lines">
+            <li><b>Matin</b> : Œufs + pain complet + fruit</li>
+            <li><b>Midi</b> : Repas libre raisonnable (sans sucre)</li>
+            <li><b>Soir</b> : Repas léger, surtout légumes</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-title">
+            <h3>Astuce</h3><span class="pill">Pratique</span>
+          </div>
+          <ul class="lines">
+            <li><b>Si faim</b> : yaourt nature ou quelques noix</li>
+            <li><b>Boisson</b> : eau en priorité</li>
+            <li><b>Éviter</b> : jus, sodas, desserts sucrés</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGLES -->
+    <section id="regles" class="section">
+      <h2>Règles clés</h2>
+      <p class="sub">Quelques règles simples qui réduisent souvent les variations de glycémie.</p>
+
+      <div class="rules">
+        <div class="note">
+          <h3>À faire</h3>
+          <ul>
+            <li>Manger à heures régulières.</li>
+            <li>Associer les glucides à des protéines et des fibres.</li>
+            <li>Privilégier les aliments bruts (peu transformés).</li>
+            <li>Contrôler la glycémie 2 heures après un repas (utile pour ajuster).</li>
+          </ul>
+
+          <div class="cta">
+            <a class="btn" href="#menu7">Voir le menu 7 jours</a>
+            <a class="btn secondary" href="#repas">Voir matin/midi/soir</a>
+          </div>
+        </div>
+
+        <div class="note">
+          <h3>Attention</h3>
+          <p class="warn">
+            Si les glycémies montent souvent (exemple : autour de 13), ce menu seul ne suffit pas forcément :
+            il faut vérifier les portions, les féculents, l’activité, et surtout l’ajustement du traitement avec l’équipe médicale.
+          </p>
+          <p class="small">
+            En cas de malaise, symptômes importants, ou hyperglycémie persistante, contacte un professionnel de santé.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <b>Note</b> : page d’information générale. Elle ne remplace pas un avis médical.
+      </div>
+      <div class="small">
+        Dernière mise à jour : février 2026.
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
