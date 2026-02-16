@@ -49,17 +49,17 @@
       padding:22px 16px 34px;
     }
 
-    /* ✅ Barre fixe */
-    .fixed-bar{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:50;
-      padding:12px 0;
+    /* ✅ Barre fixe (compacte) */
+    .top-bar{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
       backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding:10px 0;
     }
 
     .bar-inner{
@@ -73,25 +73,25 @@
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:14px 14px;
+      padding:12px 12px;
     }
 
     .top{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
     }
 
     .bar-title{
-      min-width:260px;
+      min-width:240px;
       flex:1;
     }
 
     h1{
       margin:0;
-      font-size:2rem;
+      font-size:1.55rem;
       color:var(--accent);
       line-height:1.15;
     }
@@ -99,14 +99,14 @@
     .subtitle{
       margin:6px 0 0;
       color:var(--muted);
-      font-size:1rem;
+      font-size:.98rem;
     }
 
-    /* ✅ Températures */
+    /* ✅ Températures (compact) */
     .temps-wrap{
       margin-top:10px;
       display:flex;
-      gap:8px;
+      gap:6px;
       flex-wrap:wrap;
       align-items:center;
     }
@@ -115,12 +115,12 @@
       display:flex;
       align-items:center;
       gap:8px;
-      padding:8px 10px;
+      padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--border);
       background:rgba(255,255,255,.85);
       box-shadow:var(--shadow2);
-      font-size:.92rem;
+      font-size:.9rem;
       color:var(--txt);
       white-space:nowrap;
     }
@@ -159,7 +159,7 @@
     .control input,
     .control select{
       width:100%;
-      padding:12px 12px;
+      padding:10px 12px;
       border-radius:14px;
       border:1px solid var(--border);
       background:rgba(255,255,255,.88);
@@ -221,30 +221,32 @@
     }
 
     .grid{
-      padding:12px;
+      padding:10px;          /* ✅ réduit */
       display:grid;
       grid-template-columns:repeat(12, 1fr);
-      gap:10px;
+      gap:8px;               /* ✅ réduit */
     }
 
+    /* ✅ Cartes liens : cadre plus fin + pas de troncature */
     .link-card{
       grid-column:span 12;
-      border:1px solid var(--border);
-      border-radius:16px;
+      border:1px solid rgba(15,23,42,.10); /* ✅ un peu plus fin */
+      border-radius:14px;                 /* ✅ réduit */
       background:rgba(255,255,255,.92);
-      padding:12px 12px;
+      padding:10px 10px;                  /* ✅ réduit */
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:10px;
       transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+      box-shadow: 0 8px 18px rgba(2,6,23,.06); /* ✅ réduit */
+      min-height:auto;
     }
 
     .link-card:hover{
       transform:translateY(-2px);
-      border-color:rgba(37,99,235,.35);
-      box-shadow: 0 14px 34px rgba(2,6,23,.10);
+      border-color:rgba(37,99,235,.28);
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
     }
 
     .left{
@@ -252,20 +254,25 @@
       flex-direction:column;
       gap:4px;
       min-width:0;
+      flex:1;
     }
 
+    /* ✅ Ne rien tronquer */
     .title{
       font-weight:800;
-      font-size:1.06rem;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-size:1.02rem;
+      white-space:normal;    /* ✅ */
+      overflow:visible;      /* ✅ */
+      text-overflow:clip;    /* ✅ */
+      line-height:1.25;
+      word-break:break-word;
     }
 
     .desc{
       color:var(--muted);
       font-size:.95rem;
       line-height:1.35;
+      word-break:break-word;
     }
 
     .tags{
@@ -273,12 +280,13 @@
       gap:6px;
       flex-wrap:wrap;
       justify-content:flex-end;
-      align-items:center;
+      align-items:flex-start;
+      max-width:48%;
     }
 
     .tag{
       font-size:.82rem;
-      padding:6px 10px;
+      padding:5px 9px;       /* ✅ réduit */
       border-radius:999px;
       border:1px solid var(--border);
       background:rgba(255,255,255,.92);
@@ -306,21 +314,21 @@
 </head>
 
 <body>
-
-  <!-- ✅ Barre fixe + titre -->
-  <header class="fixed-bar" id="fixedBar" role="banner">
+  <!-- ✅ Ajout id="fixedBar" + contrôles manquants (sans rien supprimer) -->
+  <header class="top-bar" id="fixedBar">
     <div class="bar-inner">
       <div class="hero">
         <div class="top">
           <div class="bar-title">
-            <h1>Presse mondiale, quelques journaux</h1>
-            <p class="subtitle">Météo rapide + accès direct à la presse (filtre par langue et recherche).</p>
+            <h1>Presse / News</h1>
+            <p class="subtitle">Météo, devises, ONG et journaux (filtre + tri par langue).</p>
+            <div class="temps-wrap" id="tempsWrap"></div>
           </div>
 
           <div class="controls">
             <div class="control">
               <label for="q">Recherche</label>
-              <input id="q" type="search" placeholder="ex. météo, Maroc, BBC, devises…" autocomplete="off">
+              <input id="q" type="search" placeholder="Ex. météo, corruption, France, BBC, etc.">
             </div>
 
             <div class="control">
@@ -337,8 +345,6 @@
             </div>
           </div>
         </div>
-
-        <div class="temps-wrap" id="tempsWrap"></div>
       </div>
     </div>
   </header>
@@ -938,6 +944,7 @@
       // Ajuster la hauteur de la barre fixe pour éviter tout masquage
       const bar = document.getElementById('fixedBar');
       function setBarH(){
+        if(!bar) return;
         const h = Math.ceil(bar.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--barH', h + 'px');
       }
@@ -971,8 +978,8 @@
       }
 
       function applyFilterAndSort(){
-        const q = normalize(input.value.trim());
-        const lang = (selectLang.value || 'toutes').trim();
+        const q = normalize((input?.value || '').trim());
+        const lang = ((selectLang?.value) || 'toutes').trim();
 
         // 1) Filtrer l'affichage
         let visibleCount = 0;
@@ -1035,8 +1042,8 @@
         setBarH();
       }
 
-      input.addEventListener('input', applyFilterAndSort);
-      selectLang.addEventListener('change', applyFilterAndSort);
+      input?.addEventListener('input', applyFilterAndSort);
+      selectLang?.addEventListener('change', applyFilterAndSort);
       applyFilterAndSort();
 
       // ✅ Températures (liste courte)
@@ -1081,6 +1088,8 @@
       }
 
       async function loadTemps(){
+        if(!wrap) return;
+
         wrap.innerHTML = `<span class="temp-pill"><strong>Températures</strong> <span class="small">mise à jour…</span></span>`;
 
         const results = await Promise.allSettled(places.map(async p => {
