@@ -49,7 +49,7 @@
       padding:22px 16px 34px;
     }
 
-    /* ✅ Barre fixe (températures + recherche + tri langue) */
+    /* ✅ Barre fixe */
     .fixed-bar{
       position:fixed;
       top:0;
@@ -84,6 +84,11 @@
       flex-wrap:wrap;
     }
 
+    .bar-title{
+      min-width:260px;
+      flex:1;
+    }
+
     h1{
       margin:0;
       font-size:2rem;
@@ -97,7 +102,7 @@
       font-size:1rem;
     }
 
-    /* ✅ Bandeau températures (dans la barre fixe) */
+    /* ✅ Températures */
     .temps-wrap{
       margin-top:10px;
       display:flex;
@@ -301,25 +306,27 @@
 </head>
 
 <body>
-  <!-- ✅ Barre fixe : températures + filtre + tri langue -->
-  <div class="fixed-bar" id="fixedBar">
+
+  <!-- ✅ Barre fixe + titre -->
+  <header class="fixed-bar" id="fixedBar" role="banner">
     <div class="bar-inner">
       <div class="hero">
         <div class="top">
-          <div>
-            <h1>🌞 Météo & Journaux</h1>
-            <p class="subtitle">Liens rapides, tri par langue, et filtre instantané.</p>
-
-            <div class="temps-wrap" id="tempsWrap" aria-label="Températures par pays">
-              <span class="temp-pill"><strong>Températures</strong> <span class="small">chargement…</span></span>
-            </div>
+          <div class="bar-title">
+            <h1>Presse mondiale, quelques journaux</h1>
+            <p class="subtitle">Météo rapide + accès direct à la presse (filtre par langue et recherche).</p>
           </div>
 
           <div class="controls">
             <div class="control">
-              <label for="lang">Trier par langue</label>
+              <label for="q">Recherche</label>
+              <input id="q" type="search" placeholder="ex. météo, Maroc, BBC, devises…" autocomplete="off">
+            </div>
+
+            <div class="control">
+              <label for="lang">Langue</label>
               <select id="lang">
-                <option value="toutes">Toutes les langues</option>
+                <option value="toutes">Toutes</option>
                 <option value="fr">Français</option>
                 <option value="en">Anglais</option>
                 <option value="es">Espagnol</option>
@@ -328,16 +335,13 @@
                 <option value="ar">Arabe</option>
               </select>
             </div>
-
-            <div class="control">
-              <label for="q">Filtrer les liens (ex. « sport », « Espagne », « BBC »)</label>
-              <input id="q" type="text" placeholder="Tape pour filtrer…">
-            </div>
           </div>
         </div>
+
+        <div class="temps-wrap" id="tempsWrap"></div>
       </div>
     </div>
-  </div>
+  </header>
 
   <div class="container">
     <main>
@@ -348,31 +352,59 @@
         </div>
 
         <div class="grid" id="gridLinks">
-          <!-- MÉTÉO -->
+          <!-- ✅ Météo mondiale + devises + ONG -->
           <a class="link-card" data-lang="fr"
-             href="https://meteo.gc.ca/city/pages/qc-133_metric_f.html" target="_blank" rel="noopener noreferrer"
-             data-keywords="meteo météo canada gouvernement qc-133 français">
+             href="https://www.meteoblue.com/fr/meteo/cartes/index" target="_blank" rel="noopener noreferrer"
+             data-keywords="météo mondiale carte météo monde températures radar prévisions">
             <div class="left">
-              <div class="title">Météo Canada (Québec)</div>
-              <div class="desc">Prévisions officielles (températures, vent, alertes).</div>
+              <div class="title">Météo mondiale (cartes)</div>
+              <div class="desc">Cartes météo globales : températures, vent, pluie, etc.</div>
             </div>
             <div class="tags">
               <span class="tag">Météo</span>
-              <span class="tag">Canada</span>
+              <span class="tag">Monde</span>
               <span class="tag">Français</span>
             </div>
           </a>
 
           <a class="link-card" data-lang="fr"
-             href="http://localhost:8700/banco/index.php" target="_blank" rel="noopener noreferrer"
-             data-keywords="loto québec résultats local localhost banco français">
+             href="https://www.xe.com/fr/currencyconverter/" target="_blank" rel="noopener noreferrer"
+             data-keywords="cours de change devises convertisseur monnaie euro dollar dinar dirham riyal">
             <div class="left">
-              <div class="title">Résultats Loto Québec (local)</div>
-              <div class="desc">Accès direct à ta page locale.</div>
+              <div class="title">Cours de change (devises)</div>
+              <div class="desc">Convertisseur et taux de change des principales monnaies.</div>
             </div>
             <div class="tags">
-              <span class="tag">Local</span>
-              <span class="tag">Loto</span>
+              <span class="tag">Devises</span>
+              <span class="tag">Taux</span>
+              <span class="tag">Français</span>
+            </div>
+          </a>
+
+          <a class="link-card" data-lang="fr"
+             href="https://www.hrw.org/fr" target="_blank" rel="noopener noreferrer"
+             data-keywords="human rights watch droits humains rapports pays enquêtes">
+            <div class="left">
+              <div class="title">Human Rights Watch</div>
+              <div class="desc">Rapports et enquêtes sur les droits humains.</div>
+            </div>
+            <div class="tags">
+              <span class="tag">Droits</span>
+              <span class="tag">Rapports</span>
+              <span class="tag">Français</span>
+            </div>
+          </a>
+
+          <a class="link-card" data-lang="fr"
+             href="https://www.transparency.org/fr/" target="_blank" rel="noopener noreferrer"
+             data-keywords="transparency international corruption indice perception transparence gouvernance">
+            <div class="left">
+              <div class="title">Transparency International</div>
+              <div class="desc">Transparence, corruption, indices et publications.</div>
+            </div>
+            <div class="tags">
+              <span class="tag">Transparence</span>
+              <span class="tag">Corruption</span>
               <span class="tag">Français</span>
             </div>
           </a>
@@ -498,16 +530,6 @@
           </a>
 
           <a class="link-card" data-lang="fr"
-             href="https://www.leprogres.fr/" target="_blank" rel="noopener noreferrer"
-             data-keywords="france presse le progres région lyon français">
-            <div class="left">
-              <div class="title">Le Progrès</div>
-              <div class="desc">Actualités locales et régionales (Auvergne-Rhône-Alpes).</div>
-            </div>
-            <div class="tags"><span class="tag">France</span><span class="tag">Français</span></div>
-          </a>
-
-          <a class="link-card" data-lang="fr"
              href="https://lapresse.tn/" target="_blank" rel="noopener noreferrer"
              data-keywords="tunisie presse la presse tunisie français">
             <div class="left">
@@ -548,16 +570,6 @@
             <div class="tags"><span class="tag">Russie</span><span class="tag">Russe</span></div>
           </a>
 
-          <a class="link-card" data-lang="ru"
-             href="https://www.kommersant.ru/" target="_blank" rel="noopener noreferrer"
-             data-keywords="russie russe presse économique politique kommersant russe">
-            <div class="left">
-              <div class="title">Kommersant</div>
-              <div class="desc">Économie, politique, société.</div>
-            </div>
-            <div class="tags"><span class="tag">Russie</span><span class="tag">Russe</span></div>
-          </a>
-
           <!-- DE -->
           <a class="link-card" data-lang="de"
              href="https://www.spiegel.de/" target="_blank" rel="noopener noreferrer"
@@ -569,64 +581,12 @@
             <div class="tags"><span class="tag">Allemagne</span><span class="tag">Allemand</span></div>
           </a>
 
-          <!-- FR (Liban) -->
-          <a class="link-card" data-lang="fr"
-             href="https://www.lorientlejour.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="liban presse l'orient-le jour francophone beyrouth français">
-            <div class="left">
-              <div class="title">L’Orient-Le Jour</div>
-              <div class="desc">Presse libanaise francophone (actualité et analyses).</div>
-            </div>
-            <div class="tags"><span class="tag">Liban</span><span class="tag">Français</span></div>
-          </a>
-
-          <!-- AR -->
-          <a class="link-card" data-lang="ar"
-             href="https://www.alriyadh.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="arabie saoudite presse arabe الرياض العربية">
-            <div class="left">
-              <div class="title">الرياض</div>
-              <div class="desc">Actualités d’Arabie saoudite et international (en arabe).</div>
-            </div>
-            <div class="tags"><span class="tag">Arabie saoudite</span><span class="tag">Arabe</span></div>
-          </a>
-
-          <a class="link-card" data-lang="ar"
-             href="https://www.albayan.ae/" target="_blank" rel="noopener noreferrer"
-             data-keywords="emirats presse arabe البيان الإمارات العربية">
-            <div class="left">
-              <div class="title">البيان</div>
-              <div class="desc">Actualités des Émirats et international (en arabe).</div>
-            </div>
-            <div class="tags"><span class="tag">Émirats</span><span class="tag">Arabe</span></div>
-          </a>
-
           <!-- EN -->
           <a class="link-card" data-lang="en"
              href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer"
              data-keywords="uk royaume-uni bbc news anglais">
             <div class="left">
               <div class="title">BBC News</div>
-              <div class="desc">Actualités UK et monde.</div>
-            </div>
-            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
-          </a>
-
-          <a class="link-card" data-lang="en"
-             href="https://www.theguardian.com/international" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk the guardian presse anglais">
-            <div class="left">
-              <div class="title">The Guardian</div>
-              <div class="desc">Actualités et enquêtes.</div>
-            </div>
-            <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
-          </a>
-
-          <a class="link-card" data-lang="en"
-             href="https://www.independent.co.uk/" target="_blank" rel="noopener noreferrer"
-             data-keywords="uk independent presse anglais">
-            <div class="left">
-              <div class="title">The Independent</div>
               <div class="desc">Actualités UK et monde.</div>
             </div>
             <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
@@ -642,27 +602,7 @@
             <div class="tags"><span class="tag">UK</span><span class="tag">Anglais</span></div>
           </a>
 
-          <a class="link-card" data-lang="en"
-             href="https://montrealgazette.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="canada québec montreal gazette presse anglophone anglais">
-            <div class="left">
-              <div class="title">The Gazette (Montréal)</div>
-              <div class="desc">Grand quotidien anglophone montréalais.</div>
-            </div>
-            <div class="tags"><span class="tag">Canada</span><span class="tag">Anglais</span></div>
-          </a>
-
           <!-- ES -->
-          <a class="link-card" data-lang="es"
-             href="https://elpais.com/argentina/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne el pais presse argentina espagnol">
-            <div class="left">
-              <div class="title">El País (Argentine)</div>
-              <div class="desc">Actualités d’Argentine et international.</div>
-            </div>
-            <div class="tags"><span class="tag">Argentine</span><span class="tag">Espagnol</span></div>
-          </a>
-
           <a class="link-card" data-lang="es"
              href="https://www.elmundo.es/" target="_blank" rel="noopener noreferrer"
              data-keywords="espagne el mundo presse espagnol">
@@ -673,34 +613,296 @@
             <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
           </a>
 
-          <a class="link-card" data-lang="es"
-             href="https://www.abc.es/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne abc presse espagnol">
+          <!-- ✅ PRESSE INTERNATIONALE (AJOUTS DEMANDÉS) -->
+
+          <!-- Suède -->
+          <a class="link-card" data-lang="en"
+             href="https://www.dn.se/" target="_blank" rel="noopener noreferrer"
+             data-keywords="suède sweden presse journal dagens nyheter stockholm">
             <div class="left">
-              <div class="title">ABC</div>
-              <div class="desc">Actualités et Espagne.</div>
+              <div class="title">Dagens Nyheter (Suède)</div>
+              <div class="desc">Grand quotidien suédois (Stockholm).</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
+            <div class="tags"><span class="tag">Suède</span><span class="tag">Langue locale</span></div>
           </a>
 
-          <a class="link-card" data-lang="es"
-             href="https://www.lavanguardia.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="espagne la vanguardia presse espagnol">
+          <a class="link-card" data-lang="en"
+             href="https://www.aftonbladet.se/" target="_blank" rel="noopener noreferrer"
+             data-keywords="suède sweden presse journal aftonbladet">
             <div class="left">
-              <div class="title">La Vanguardia</div>
-              <div class="desc">Actualités, dossiers.</div>
+              <div class="title">Aftonbladet (Suède)</div>
+              <div class="desc">Actualités suédoises (site très consulté).</div>
             </div>
-            <div class="tags"><span class="tag">Espagne</span><span class="tag">Espagnol</span></div>
+            <div class="tags"><span class="tag">Suède</span><span class="tag">Langue locale</span></div>
           </a>
 
+          <!-- Italie -->
+          <a class="link-card" data-lang="en"
+             href="https://www.corriere.it/" target="_blank" rel="noopener noreferrer"
+             data-keywords="italie italy presse journal corriere della sera">
+            <div class="left">
+              <div class="title">Corriere della Sera (Italie)</div>
+              <div class="desc">Grand quotidien italien (Milan).</div>
+            </div>
+            <div class="tags"><span class="tag">Italie</span><span class="tag">Italien</span></div>
+          </a>
+
+          <a class="link-card" data-lang="en"
+             href="https://www.repubblica.it/" target="_blank" rel="noopener noreferrer"
+             data-keywords="italie italy presse journal la repubblica">
+            <div class="left">
+              <div class="title">La Repubblica (Italie)</div>
+              <div class="desc">Actualités italiennes (généraliste).</div>
+            </div>
+            <div class="tags"><span class="tag">Italie</span><span class="tag">Italien</span></div>
+          </a>
+
+          <!-- Serbie -->
+          <a class="link-card" data-lang="en"
+             href="https://www.politika.rs/" target="_blank" rel="noopener noreferrer"
+             data-keywords="serbie serbia presse journal politika belgrade">
+            <div class="left">
+              <div class="title">Politika (Serbie)</div>
+              <div class="desc">Quotidien serbe (Belgrade).</div>
+            </div>
+            <div class="tags"><span class="tag">Serbie</span><span class="tag">Langue locale</span></div>
+          </a>
+
+          <!-- Slovénie -->
+          <a class="link-card" data-lang="en"
+             href="https://www.delo.si/" target="_blank" rel="noopener noreferrer"
+             data-keywords="slovenie slovenia presse journal delo ljubljana">
+            <div class="left">
+              <div class="title">Delo (Slovénie)</div>
+              <div class="desc">Quotidien slovène (Ljubljana).</div>
+            </div>
+            <div class="tags"><span class="tag">Slovénie</span><span class="tag">Langue locale</span></div>
+          </a>
+
+          <!-- Bosnie -->
+          <a class="link-card" data-lang="en"
+             href="https://www.oslobodjenje.ba/" target="_blank" rel="noopener noreferrer"
+             data-keywords="bosnie bosnia presse journal oslobodjenje sarajevo">
+            <div class="left">
+              <div class="title">Oslobođenje (Bosnie)</div>
+              <div class="desc">Presse bosnienne (Sarajevo).</div>
+            </div>
+            <div class="tags"><span class="tag">Bosnie</span><span class="tag">Langue locale</span></div>
+          </a>
+
+          <!-- Danemark -->
+          <a class="link-card" data-lang="en"
+             href="https://politiken.dk/" target="_blank" rel="noopener noreferrer"
+             data-keywords="danemark denmark presse journal politiken copenhague">
+            <div class="left">
+              <div class="title">Politiken (Danemark)</div>
+              <div class="desc">Quotidien danois (Copenhague).</div>
+            </div>
+            <div class="tags"><span class="tag">Danemark</span><span class="tag">Langue locale</span></div>
+          </a>
+
+          <a class="link-card" data-lang="en"
+             href="https://jyllands-posten.dk/" target="_blank" rel="noopener noreferrer"
+             data-keywords="danemark denmark presse journal jyllands posten">
+            <div class="left">
+              <div class="title">Jyllands-Posten (Danemark)</div>
+              <div class="desc">Presse danoise (généraliste).</div>
+            </div>
+            <div class="tags"><span class="tag">Danemark</span><span class="tag">Langue locale</span></div>
+          </a>
+
+          <!-- Pays-Bas -->
+          <a class="link-card" data-lang="en"
+             href="https://www.nrc.nl/" target="_blank" rel="noopener noreferrer"
+             data-keywords="pays-bas netherlands presse journal nrc amsterdam">
+            <div class="left">
+              <div class="title">NRC (Pays-Bas)</div>
+              <div class="desc">Quotidien néerlandais.</div>
+            </div>
+            <div class="tags"><span class="tag">Pays-Bas</span><span class="tag">Néerlandais</span></div>
+          </a>
+
+          <a class="link-card" data-lang="en"
+             href="https://www.telegraaf.nl/" target="_blank" rel="noopener noreferrer"
+             data-keywords="pays-bas netherlands presse journal de telegraaf">
+            <div class="left">
+              <div class="title">De Telegraaf (Pays-Bas)</div>
+              <div class="desc">Presse néerlandaise (très lue).</div>
+            </div>
+            <div class="tags"><span class="tag">Pays-Bas</span><span class="tag">Néerlandais</span></div>
+          </a>
+
+          <!-- Chili -->
+          <a class="link-card" data-lang="es"
+             href="https://www.elmercurio.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="chili chile presse journal el mercurio santiago">
+            <div class="left">
+              <div class="title">El Mercurio (Chili)</div>
+              <div class="desc">Grand quotidien chilien.</div>
+            </div>
+            <div class="tags"><span class="tag">Chili</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <!-- Cuba -->
+          <a class="link-card" data-lang="es"
+             href="https://www.granma.cu/" target="_blank" rel="noopener noreferrer"
+             data-keywords="cuba presse journal granma havane">
+            <div class="left">
+              <div class="title">Granma (Cuba)</div>
+              <div class="desc">Presse cubaine (site officiel).</div>
+            </div>
+            <div class="tags"><span class="tag">Cuba</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <a class="link-card" data-lang="en"
+             href="https://en.granma.cu/" target="_blank" rel="noopener noreferrer"
+             data-keywords="cuba press granma english">
+            <div class="left">
+              <div class="title">Granma (Cuba) — version anglaise</div>
+              <div class="desc">Accès en anglais.</div>
+            </div>
+            <div class="tags"><span class="tag">Cuba</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Colombie -->
           <a class="link-card" data-lang="es"
              href="https://www.eltiempo.com/" target="_blank" rel="noopener noreferrer"
-             data-keywords="colombie colombia el tiempo journal presse populaire espagnol">
+             data-keywords="colombie colombia presse journal el tiempo bogota">
             <div class="left">
               <div class="title">El Tiempo (Colombie)</div>
-              <div class="desc">Grand quotidien colombien (actualité générale).</div>
+              <div class="desc">Grand quotidien colombien.</div>
             </div>
             <div class="tags"><span class="tag">Colombie</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <a class="link-card" data-lang="es"
+             href="https://www.elespectador.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="colombie colombia presse journal el espectador">
+            <div class="left">
+              <div class="title">El Espectador (Colombie)</div>
+              <div class="desc">Actualités colombiennes.</div>
+            </div>
+            <div class="tags"><span class="tag">Colombie</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <!-- Venezuela -->
+          <a class="link-card" data-lang="es"
+             href="https://www.elnacional.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="venezuela presse journal el nacional caracas">
+            <div class="left">
+              <div class="title">El Nacional (Venezuela)</div>
+              <div class="desc">Actualités vénézuéliennes.</div>
+            </div>
+            <div class="tags"><span class="tag">Venezuela</span><span class="tag">Espagnol</span></div>
+          </a>
+
+          <!-- Irak -->
+          <a class="link-card" data-lang="ar"
+             href="https://alsabaah.iq/" target="_blank" rel="noopener noreferrer"
+             data-keywords="irak iraq presse journal al-sabah arabe bagdad">
+            <div class="left">
+              <div class="title">Al-Sabah (Irak)</div>
+              <div class="desc">Presse irakienne (arabe).</div>
+            </div>
+            <div class="tags"><span class="tag">Irak</span><span class="tag">Arabe</span></div>
+          </a>
+
+          <!-- Yémen -->
+          <a class="link-card" data-lang="en"
+             href="https://www.yementimes.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="yemen presse journal yemen times">
+            <div class="left">
+              <div class="title">Yemen Times (Yémen)</div>
+              <div class="desc">Presse yéménite (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Yémen</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Qatar -->
+          <a class="link-card" data-lang="en"
+             href="https://www.gulf-times.com/homepage" target="_blank" rel="noopener noreferrer"
+             data-keywords="qatar presse journal gulf times doha">
+            <div class="left">
+              <div class="title">Gulf Times (Qatar)</div>
+              <div class="desc">Quotidien (anglais) au Qatar.</div>
+            </div>
+            <div class="tags"><span class="tag">Qatar</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Iran -->
+          <a class="link-card" data-lang="en"
+             href="https://www.tehrantimes.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="iran presse journal tehran times">
+            <div class="left">
+              <div class="title">Tehran Times (Iran)</div>
+              <div class="desc">Presse iranienne (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Iran</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Inde -->
+          <a class="link-card" data-lang="en"
+             href="https://www.thehindu.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="inde india presse journal the hindu">
+            <div class="left">
+              <div class="title">The Hindu (Inde)</div>
+              <div class="desc">Quotidien indien (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Inde</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <a class="link-card" data-lang="en"
+             href="https://timesofindia.indiatimes.com/" target="_blank" rel="noopener noreferrer"
+             data-keywords="inde india presse journal times of india">
+            <div class="left">
+              <div class="title">The Times of India (Inde)</div>
+              <div class="desc">Presse indienne (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Inde</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Bangladesh -->
+          <a class="link-card" data-lang="en"
+             href="https://www.thedailystar.net/" target="_blank" rel="noopener noreferrer"
+             data-keywords="bangladesh presse journal the daily star dhaka">
+            <div class="left">
+              <div class="title">The Daily Star (Bangladesh)</div>
+              <div class="desc">Quotidien bangladais (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Bangladesh</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Chine -->
+          <a class="link-card" data-lang="en"
+             href="https://www.chinadaily.com.cn/" target="_blank" rel="noopener noreferrer"
+             data-keywords="chine china presse journal china daily english">
+            <div class="left">
+              <div class="title">China Daily (Chine)</div>
+              <div class="desc">Presse chinoise (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Chine</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Vietnam -->
+          <a class="link-card" data-lang="en"
+             href="https://vietnamnews.vn/" target="_blank" rel="noopener noreferrer"
+             data-keywords="vietnam presse journal vietnam news english">
+            <div class="left">
+              <div class="title">Viet Nam News (Vietnam)</div>
+              <div class="desc">Presse vietnamienne (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Vietnam</span><span class="tag">Anglais</span></div>
+          </a>
+
+          <!-- Égypte -->
+          <a class="link-card" data-lang="en"
+             href="https://english.ahram.org.eg/" target="_blank" rel="noopener noreferrer"
+             data-keywords="egypte egypt presse journal ahram online english">
+            <div class="left">
+              <div class="title">Ahram Online (Égypte)</div>
+              <div class="desc">Presse égyptienne (anglais).</div>
+            </div>
+            <div class="tags"><span class="tag">Égypte</span><span class="tag">Anglais</span></div>
           </a>
 
           <!-- FR (Canada) -->
@@ -797,7 +999,7 @@
           if(ok) visibleCount++;
         });
 
-        // 2) Trier (réordonner) : la langue choisie en tête, puis titre (A→Z)
+        // 2) Trier : langue choisie en tête, puis titre (A→Z)
         const preferred = (lang === 'toutes') ? null : lang;
 
         const sorted = anchorCards.slice().sort((a,b) => {
@@ -809,7 +1011,6 @@
             const pb = (lb === preferred) ? 0 : 1;
             if(pa !== pb) return pa - pb;
           }else{
-            // Si "toutes", on regroupe par langue (fr, en, es, de, ru, ar, autres)
             const order = { fr:0, en:1, es:2, de:3, ru:4, ar:5 };
             const pa = (order[la] ?? 99);
             const pb = (order[lb] ?? 99);
@@ -826,22 +1027,19 @@
         sorted.forEach(el => grid.appendChild(el));
         fixedCards.forEach(el => grid.appendChild(el));
 
-        // Mise à jour compteur
+        // Compteur
         const suffix = visibleCount <= 1 ? 'lien' : 'liens';
         const langTxt = (lang === 'toutes') ? 'Toutes langues' : labelLang(lang);
         countPill.textContent = visibleCount + ' ' + suffix + ' • ' + langTxt;
 
-        // Recalcul hauteur barre fixe (si le texte du compteur change sur 2 lignes)
         setBarH();
       }
 
       input.addEventListener('input', applyFilterAndSort);
       selectLang.addEventListener('change', applyFilterAndSort);
-
-      // Appliquer au chargement
       applyFilterAndSort();
 
-      // Températures par pays (villes repères)
+      // ✅ Températures (liste courte)
       const places = [
         { label: "Canada", city: "Québec", lat: 46.8139, lon: -71.2080 },
         { label: "France", city: "Paris", lat: 48.8566, lon: 2.3522 },
