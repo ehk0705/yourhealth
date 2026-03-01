@@ -143,6 +143,63 @@
       .header-image{position:static;display:block;margin:0 auto 10px auto}
       .card img{float:none;margin:0 auto 10px auto; display:block;}
     }
+
+    /* =========================================================
+       AJOUT : styles pour la section "Hypertension et sport"
+       (n'altère pas tes styles existants)
+       ========================================================= */
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:10px;
+      white-space:nowrap;
+    }
+    .table{
+      width:100%;
+      border-collapse:collapse;
+      border:1px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(255,255,255,.02);
+      margin-top:10px;
+    }
+    .table th,.table td{
+      text-align:left;
+      padding:10px 10px;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .table th{color:var(--txt); background:rgba(125,211,252,.08);}
+    .note2{
+      margin-top:12px;
+      border-left:3px solid var(--orange);
+      padding-left:10px;
+      color:var(--muted);
+    }
+    .warning2{
+      margin-top:12px;
+      border-left:3px solid var(--red);
+      padding-left:10px;
+      color:var(--muted);
+    }
+    .kpi{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .kpi .tag{
+      border-color:rgba(125,211,252,.28);
+    }
   </style>
 </head>
 
@@ -330,6 +387,125 @@
         si LDL est élevé, l’inaction est une mauvaise idée.
         Le cholestérol élevé peut rester silencieux longtemps, puis se manifester brutalement (infarctus, AVC).
         <strong>Le bon moment pour agir, c’est maintenant.</strong>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         AJOUT : Hypertension et sport (intégré sans modifier l’existant)
+         ========================================================= -->
+    <section class="card" id="hypertension-sport">
+      <h2>Hypertension et sport</h2>
+
+      <span class="badge">Contexte</span>
+      <p>
+        L’hypertension artérielle est fréquente et augmente les risques cardiovasculaires.
+        L’activité physique régulière peut contribuer à faire baisser la tension.
+      </p>
+
+      <span class="badge">Résultats (ordres de grandeur)</span>
+
+      <div class="kpi" aria-label="Ordres de grandeur">
+        <span class="tag green"><b>Sport régulier</b> : ≈ -9 mmHg (systolique)</span>
+        <span class="tag yellow"><b>Endurance + musculation</b> : jusqu’à ≈ -13,5 mmHg</span>
+        <span class="tag red"><b>Isométrie seule</b> : ≈ -4,9 mmHg</span>
+      </div>
+
+      <table class="table" aria-label="Baisse de la pression systolique">
+        <thead>
+          <tr>
+            <th>Type d’activité</th>
+            <th>Effet observé (systolique)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sport régulier (hypertendus)</td>
+            <td>≈ <strong>-9 mmHg</strong> en moyenne</td>
+          </tr>
+          <tr>
+            <td>Endurance + musculation</td>
+            <td>jusqu’à ≈ <strong>-13,5 mmHg</strong></td>
+          </tr>
+          <tr>
+            <td>Isométrie seule</td>
+            <td>≈ <strong>-4,9 mmHg</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comparaison avec les médicaments (selon analyses)</h3>
+      <ul>
+        <li>Médicaments : baisse moyenne ≈ <strong>-8,8 mmHg</strong> (systolique)</li>
+        <li>Exercice seul : baisse moyenne ≈ <strong>-4,8 mmHg</strong> (systolique)</li>
+      </ul>
+
+      <div class="note2">
+        Une baisse de <strong>5 à 15 mmHg</strong> est rapportée selon les études et les profils.
+        L’effet dépend du niveau initial de tension et du type d’exercice.
+      </div>
+
+      <div class="warning2">
+        <strong>Important :</strong> ne jamais arrêter ou modifier un traitement antihypertenseur sans avis médical.
+      </div>
+
+      <h3>Programme simple après 70 ans (hypertension stable)</h3>
+      <div class="grid2">
+        <div class="mini">
+          <h3>Marche rapide</h3>
+          <ul class="checklist">
+            <li>30 à 40 minutes</li>
+            <li>5 jours par semaine</li>
+            <li>Respiration accélérée, mais parole encore possible</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Renforcement léger</h3>
+          <ul class="checklist">
+            <li>2 jours par semaine (non consécutifs), 15 à 20 minutes</li>
+            <li>Levers de chaise, flexions contre un mur, petits haltères ou bouteilles d’eau</li>
+            <li>Respirer normalement, ne jamais bloquer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top:14px">
+        <h3>Version très légère (10 minutes) – sans marche</h3>
+        <ul class="checklist">
+          <li><strong>Échauffement assis (2 min)</strong> : épaules, cou, chevilles.</li>
+          <li><strong>Renforcement doux (5 min)</strong> : lever de chaise lent × 6–8, pompes au mur × 8, bras avec bouteilles × 8.</li>
+          <li><strong>Isométrie légère (2 min)</strong> : gainage au mur 30 s × 2, serrage serviette 30 s × 2.</li>
+          <li><strong>Respiration lente (1 min)</strong> : inspirer 4 s, expirer 6 s.</li>
+        </ul>
+        <div class="warn">
+          <strong>Arrêter</strong> en cas de vertige, douleur thoracique ou essoufflement anormal.
+        </div>
+      </div>
+
+      <h3>Adaptations fréquentes</h3>
+      <div class="grid2">
+        <div class="mini">
+          <h3>Douleurs articulaires</h3>
+          <p>À privilégier : marche sur terrain plat, vélo d’appartement, natation/aquagym. À éviter : course, sauts, escaliers répétés.</p>
+        </div>
+        <div class="mini">
+          <h3>Diabète de type 2</h3>
+          <p>Bon choix : marche après les repas, vélo modéré, renforcement léger. Vigilance : surveiller la glycémie, prévoir une collation.</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="mini">
+          <h3>Fatigue / essoufflement rapide</h3>
+          <p>Séances courtes (10–15 min), 2 à 3 fois par jour, progression lente. Pouvoir parler sans être à bout de souffle.</p>
+        </div>
+        <div class="mini">
+          <h3>Surpoids</h3>
+          <p>Priorité : marche quotidienne, vélo doux, aquagym. Objectif : durée avant intensité, régularité avant performance.</p>
+        </div>
+      </div>
+
+      <div class="warning2">
+        <strong>Avis médical indispensable</strong> : hypertension non contrôlée, antécédent d’infarctus/AVC, douleur thoracique à l’effort, vertiges fréquents.
       </div>
     </section>
 

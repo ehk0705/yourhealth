@@ -71,6 +71,12 @@
       padding-left:10px;
     }
 
+    .aspirine-img{
+      max-width:220px;
+      display:block;
+      margin:12px auto 0 auto;
+    }
+
     footer{
       padding:18px 16px;
       border-top:1px solid var(--border);
@@ -79,17 +85,6 @@
 
     .crumbs{margin-top:10px}
     .crumbs a{color:var(--accent);text-decoration:none}
-
-    .btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      color:var(--txt);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:10px 12px;
-    }
-    .btn:hover{border-color:rgba(125,211,252,.55)}
 
     @media (max-width:520px){
       h1{font-size:24px}
@@ -120,7 +115,7 @@
       <a href="/yourhealth/ressources.html">Ressources</a>
       <a href="/yourhealth/contact.html">Contact</a>
     </nav>
-
+  </div>
 </header>
 
 <main>
@@ -172,6 +167,31 @@
         <li>Activité physique régulière</li>
         <li>Alimentation équilibrée</li>
       </ul>
+    </section>
+
+    <!-- Résumé de l’article Le Point -->
+    <section class="card">
+      <h2>Aspirine et prévention de l’AVC</h2>
+
+      <img src="../assets/img/aspirine.jfif"
+           alt="Comprimé d’aspirine"
+           class="aspirine-img">
+
+      <p>
+        L’aspirine est parfois utilisée pour réduire la formation de caillots
+        responsables d’un AVC ischémique ou d’un infarctus. Elle agit sur les
+        plaquettes sanguines, mais elle n’est pas un traitement préventif
+        universel. Chez les personnes ayant déjà eu un infarctus, un AVC
+        ischémique ou une pose de stent, une faible dose quotidienne peut
+        diminuer le risque de récidive.
+      </p>
+
+      <p>
+        En revanche, chez les personnes sans antécédent cardiovasculaire,
+        les bénéfices sont faibles et les risques de saignement, notamment
+        digestif ou cérébral, peuvent l’emporter. L’aspirine ne doit donc
+        jamais être prise régulièrement sans avis médical.
+      </p>
     </section>
 
     <p class="note">
