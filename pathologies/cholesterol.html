@@ -6,18 +6,23 @@
   <title>Cholestérol | Pathologie</title>
 
   <style>
-    :root {
-      --bg:#0b1220;
-      --card:#121b2e;
-      --txt:#eef2ff;
-      --muted:#b9c2d6;
-      --accent:#7dd3fc;
-      --border:rgba(255,255,255,.12);
-      --green:#22c55e;
-      --yellow:#facc15;
-      --red:#ef4444;
-      --orange:#fb923c;
-      --blue:#60a5fa;
+    :root{
+      /* Thème clair (noir sur blanc) */
+      --bg:#ffffff;
+      --card:#ffffff;
+      --txt:#0f172a;         /* texte principal (noir/bleu très foncé) */
+      --muted:#334155;       /* texte secondaire */
+      --accent:#1d4ed8;      /* bleu lisible */
+      --border:rgba(15,23,42,.15);
+
+      /* Couleurs d’état (lisibles en clair) */
+      --green:#166534;
+      --yellow:#854d0e;
+      --red:#b91c1c;
+      --orange:#9a3412;
+      --blue:#1d4ed8;
+
+      --shadow:0 8px 24px rgba(15,23,42,.08);
     }
 
     *{box-sizing:border-box}
@@ -25,15 +30,14 @@
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14,var(--bg));
-      color:var(--txt)
+      background:var(--bg);
+      color:var(--txt);
     }
 
     header{
       padding:22px 16px;
       border-bottom:1px solid var(--border);
-      background:rgba(0,0,0,.25);
-      backdrop-filter:blur(6px);
+      background:#ffffff;
       position:relative;
     }
 
@@ -44,19 +48,27 @@
       max-width:180px;
       height:auto;
       border-radius:12px;
-      border:1px solid var(--accent);
+      border:1px solid var(--border);
+      background:#fff;
     }
 
     .wrap{max-width:980px;margin:0 auto}
 
     nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    nav a{color:var(--txt);text-decoration:none;padding:8px 10px;border:1px solid var(--border);border-radius:12px}
-    nav a:hover{border-color:var(--accent)}
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:#fff;
+    }
+    nav a:hover{border-color:rgba(29,78,216,.35); box-shadow:0 2px 10px rgba(15,23,42,.06);}
 
     main{padding:22px 16px}
 
-    h1{margin:0;font-size:28px;line-height:1.2; color:var(--green);}
-    .sub{color:var(--yellow);margin:10px 0 0}
+    h1{margin:0;font-size:28px;line-height:1.2; color:var(--txt);}
+    .sub{color:var(--muted);margin:10px 0 0}
 
     .card{
       margin-top:18px;
@@ -65,54 +77,60 @@
       border-radius:18px;
       padding:16px;
       overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    h2{margin:0 0 8px;font-size:20px;color:var(--green)}
+    h2{margin:0 0 8px;font-size:20px;color:var(--txt)}
     h3{margin:14px 0 6px;font-size:16px;color:var(--accent)}
-    p,li{color:var(--muted);line-height:1.6}
+    p,li{color:var(--muted);line-height:1.65}
     ul{margin:8px 0 0 18px}
 
     .card img{
-      max-width:200px;
+      max-width:220px;
       border-radius:12px;
-      border:1px solid var(--accent);
+      border:1px solid var(--border);
       margin:0 0 10px 16px;
       float:right;
+      background:#fff;
     }
 
     .note{
       margin-top:18px;
       font-size:13px;
       color:var(--muted);
-      border-left:3px solid var(--accent);
-      padding-left:10px
+      border-left:4px solid rgba(29,78,216,.55);
+      padding-left:10px;
     }
 
     .crumbs{margin-top:10px}
     .crumbs a{color:var(--accent);text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
 
     .callout{
       margin-top:12px;
       padding:12px 12px;
       border:1px solid var(--border);
       border-radius:14px;
-      background:rgba(255,255,255,.03);
+      background:rgba(29,78,216,.04);
     }
     .callout strong{color:var(--txt)}
+
     .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .tag{
       display:inline-flex;align-items:center;gap:8px;
       padding:8px 10px;border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.02);
+      background:rgba(15,23,42,.02);
       color:var(--muted);
       font-size:13px;
       white-space:nowrap;
     }
     .tag b{color:var(--txt)}
-    .tag.green{border-color:rgba(34,197,94,.35)}
-    .tag.yellow{border-color:rgba(250,204,21,.35)}
-    .tag.red{border-color:rgba(239,68,68,.35)}
+    .tag.green{border-color:rgba(22,101,52,.28)}
+    .tag.yellow{border-color:rgba(133,77,14,.28)}
+    .tag.red{border-color:rgba(185,28,28,.28)}
+    .tag.blue{border-color:rgba(29,78,216,.28)}
+
     .grid2{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -123,16 +141,22 @@
       border:1px solid var(--border);
       border-radius:16px;
       padding:12px;
-      background:rgba(255,255,255,.02);
+      background:rgba(15,23,42,.015);
     }
     .mini h3{margin:0 0 6px}
     .mini p{margin:0}
     .checklist li{margin:6px 0}
+
     .warn{
-      border-left:3px solid var(--red);
+      border-left:4px solid rgba(185,28,28,.65);
       padding-left:10px;
       margin-top:12px;
       color:var(--muted);
+      background:rgba(185,28,28,.03);
+      border-radius:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      padding-right:10px;
     }
 
     @media (max-width:780px){
@@ -155,7 +179,7 @@
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
+      background:rgba(29,78,216,.05);
       color:var(--muted);
       font-size:13px;
       margin-bottom:10px;
@@ -167,7 +191,7 @@
       border:1px solid var(--border);
       border-radius:14px;
       overflow:hidden;
-      background:rgba(255,255,255,.02);
+      background:#fff;
       margin-top:10px;
     }
     .table th,.table td{
@@ -176,20 +200,33 @@
       border-bottom:1px solid var(--border);
       vertical-align:top;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.55;
     }
-    .table th{color:var(--txt); background:rgba(125,211,252,.08);}
+    .table th{
+      color:var(--txt);
+      background:rgba(29,78,216,.06);
+    }
     .note2{
       margin-top:12px;
-      border-left:3px solid var(--orange);
+      border-left:4px solid rgba(154,52,18,.60);
       padding-left:10px;
       color:var(--muted);
+      background:rgba(154,52,18,.03);
+      border-radius:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      padding-right:10px;
     }
     .warning2{
       margin-top:12px;
-      border-left:3px solid var(--red);
+      border-left:4px solid rgba(185,28,28,.65);
       padding-left:10px;
       color:var(--muted);
+      background:rgba(185,28,28,.03);
+      border-radius:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      padding-right:10px;
     }
     .kpi{
       display:flex;
@@ -198,7 +235,16 @@
       margin-top:10px;
     }
     .kpi .tag{
-      border-color:rgba(125,211,252,.28);
+      border-color:rgba(29,78,216,.22);
+      background:rgba(29,78,216,.03);
+    }
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      padding:16px;
+      color:var(--muted);
+      background:#fff;
     }
   </style>
 </head>
