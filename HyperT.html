@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hypertension artérielle | Pathologie</title>
+
+<style>
+:root{
+  --bg:#08111f;
+  --bg2:#0d1830;
+  --card:rgba(18,27,46,.82);
+  --card-strong:#16233d;
+  --txt:#eef4ff;
+  --muted:#c1cbe0;
+  --accent:#7dd3fc;
+  --accent2:#38bdf8;
+  --accent-soft:rgba(125,211,252,.14);
+  --border:rgba(255,255,255,.11);
+  --shadow:0 18px 45px rgba(0,0,0,.30);
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--txt);
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(125,211,252,.10), transparent 22%),
+    linear-gradient(180deg, #050914 0%, var(--bg) 42%, var(--bg2) 100%);
+  min-height:100vh;
+}
+
+a{
+  transition:.25s ease;
+}
+
+.wrap{
+  max-width:1040px;
+  margin:0 auto;
+  padding-left:8px;
+  padding-right:8px;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:18px 16px;
+  border-bottom:1px solid var(--border);
+  background:rgba(7,11,20,.68);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.header-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.header-top > div{
+  flex:1;
+}
+
+.header-image{
+  max-width:190px;
+  height:auto;
+  flex-shrink:0;
+  border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+  display:block;
+}
+
+.header-top a:hover .header-image{
+  transform:translateY(-2px) scale(1.01);
+  border-color:rgba(125,211,252,.45);
+  box-shadow:0 18px 34px rgba(0,0,0,.32);
+}
+
+h1{
+  margin:0;
+  font-size:32px;
+  line-height:1.15;
+  letter-spacing:.2px;
+}
+
+.sub{
+  color:var(--muted);
+  margin:8px 0 0;
+  font-size:15px;
+}
+
+.crumbs{
+  margin-top:10px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.crumbs a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.crumbs a:hover{
+  color:#b6e9ff;
+  text-decoration:underline;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+nav a{
+  color:var(--txt);
+  text-decoration:none;
+  padding:9px 14px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+nav a:hover{
+  border-color:rgba(125,211,252,.45);
+  background:var(--accent-soft);
+  transform:translateY(-1px);
+}
+
+/* MAIN */
+main{
+  padding:28px 16px 34px;
+}
+
+.card{
+  position:relative;
+  margin-top:22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px 20px 18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  background:linear-gradient(90deg, var(--accent2), transparent 70%);
+  opacity:.85;
+}
+
+.card:first-child{
+  margin-top:0;
+}
+
+.card:hover{
+  border-color:rgba(125,211,252,.22);
+  transform:translateY(-2px);
+}
+
+.card img{
+  float:right;
+  max-width:235px;
+  margin-left:18px;
+  margin-bottom:8px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  background:#0b1220;
+}
+
+.card a:hover img{
+  border-color:rgba(125,211,252,.42);
+  transform:scale(1.01);
+}
+
+h2{
+  margin:0 0 10px;
+  font-size:20px;
+  line-height:1.25;
+  color:#f7fbff;
+}
+
+p, li{
+  color:var(--muted);
+  line-height:1.72;
+  font-size:15.5px;
+}
+
+p{
+  margin:0;
+}
+
+.card p + p{
+  margin-top:12px;
+}
+
+ul{
+  margin:10px 0 0 20px;
+  padding:0;
+}
+
+li{
+  margin:7px 0;
+}
+
+.note{
+  margin-top:16px;
+  font-size:13.5px;
+  color:var(--muted);
+  border-left:4px solid var(--accent);
+  padding:10px 0 10px 12px;
+  background:rgba(125,211,252,.07);
+  border-radius:0 12px 12px 0;
+}
+
+main > .wrap > .note{
+  margin-top:22px;
+  padding:12px 14px;
+  border:1px solid rgba(125,211,252,.14);
+  border-left:4px solid var(--accent);
+  background:rgba(255,255,255,.035);
+  border-radius:14px;
+}
+
+/* FOOTER */
+footer{
+  padding:22px 16px 28px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  background:rgba(0,0,0,.14);
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media (max-width:700px){
+  header{
+    position:relative;
+  }
+
+  .header-top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .header-image{
+    max-width:155px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .card{
+    padding:18px 16px 16px;
+    border-radius:18px;
+  }
+
+  .card img{
+    float:none;
+    display:block;
+    margin:12px auto 14px;
+    max-width:100%;
+    width:100%;
+  }
+
+  nav a{
+    padding:8px 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+
+    <div class="header-top">
+      <div>
+        <h1>Hypertension artérielle</h1>
+        <p class="sub">Comprendre, repérer et agir simplement.</p>
+
+        <div class="crumbs">
+          <a href="/yourhealth/index.html">Accueil</a> › Pathologies › Hypertension
+        </div>
+
+        <nav>
+          <a href="/yourhealth/index.html">Accueil</a>
+          <a href="/yourhealth/ressources.html">Ressources</a>
+          <a href="/yourhealth/contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <a href="assets/img/hypertension.jfif" target="_blank">
+        <img src="assets/img/hypertension.jfif"
+             alt="Hypertension artérielle"
+             class="header-image">
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card">
+      <a href="assets/img/arteres.jfif" target="_blank">
+        <img src="assets/img/arteres.jfif" alt="Artères sous pression">
+      </a>
+      <h2>Définition</h2>
+      <p>
+        L’hypertension artérielle correspond à une pression trop élevée du sang
+        dans les artères. Elle évolue souvent sans symptôme, mais fatigue
+        progressivement le cœur et abîme les vaisseaux.
+        Sans prise en charge, elle augmente le risque d’infarctus,
+        d’accident vasculaire cérébral et d’insuffisance rénale.
+      </p>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/tensiometre.jfif" target="_blank">
+        <img src="assets/img/tensiometre.jfif" alt="Mesure de la tension">
+      </a>
+      <h2>Diagnostic</h2>
+      <p>
+        Le diagnostic repose sur plusieurs mesures de la tension,
+        au repos et à différents moments.
+        Une tension supérieure ou égale à 140/90 mmHg, de façon répétée,
+        indique une hypertension.
+      </p>
+      <ul>
+        <li>Mesure au cabinet médical</li>
+        <li>Auto-mesure à domicile</li>
+        <li>Enregistrement sur 24 heures si nécessaire</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/coeur_risque.jfif" target="_blank">
+        <img src="assets/img/coeur_risque.jfif" alt="Cœur et risques cardiovasculaires">
+      </a>
+      <h2>Pourquoi faut-il traiter ?</h2>
+      <p>
+        Une tension élevée impose un effort constant au cœur.
+        Avec le temps, cela épaissit le muscle cardiaque et fragilise
+        les artères du cerveau, des reins et des yeux.
+        Traiter l’hypertension réduit nettement le risque de complications graves.
+      </p>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/alimentation_sel.jfif" target="_blank">
+        <img src="assets/img/alimentation_sel.jfif" alt="Alimentation et sel">
+      </a>
+      <h2>Prise en charge au quotidien</h2>
+      <p>
+        Les premières mesures reposent sur l’hygiène de vie.
+        Elles sont souvent suffisantes aux débuts de la maladie.
+      </p>
+      <ul>
+        <li>Réduire le sel alimentaire</li>
+        <li>Limiter les produits industriels</li>
+        <li>Maintenir un poids stable</li>
+        <li>Arrêter le tabac</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/hypertension-sport.jfif" target="_blank">
+        <img src="assets/img/hypertension-sport.jfif" alt="Marche et activité physique">
+      </a>
+      <h2>Activité physique</h2>
+      <p>
+        Bouger régulièrement diminue naturellement la tension.
+        La marche rapide, le vélo ou la natation,
+        30 minutes par jour, sont très efficaces.
+      </p>
+
+      <p class="note">
+        Une activité physique régulière peut réduire la tension
+        autant qu’un traitement léger chez certaines personnes.
+      </p>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/stress_relaxation.jfif" target="_blank">
+        <img src="assets/img/stress_relaxation.jfif" alt="Gestion du stress">
+      </a>
+      <h2>Stress et sommeil</h2>
+      <p>
+        Le stress chronique et le manque de sommeil favorisent
+        l’élévation de la tension.
+        La relaxation, la respiration lente et un sommeil régulier
+        aident à mieux contrôler la pression artérielle.
+      </p>
+    </section>
+
+    <section class="card">
+      <a href="assets/img/medicaments.jfif" target="_blank">
+        <img src="assets/img/medicaments.jfif" alt="Traitement médical">
+      </a>
+      <h2>Traitement médicamenteux</h2>
+      <p>
+        Si les mesures naturelles ne suffisent pas,
+        le médecin prescrit un traitement adapté.
+        Il agit durablement et protège les organes.
+      </p>
+      <ul>
+        <li>Prise quotidienne régulière</li>
+        <li>Suivi médical indispensable</li>
+        <li>Ne jamais arrêter seul le traitement</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Conseils pratiques</h2>
+      <ul>
+        <li>Mesurer sa tension une à deux fois par semaine</li>
+        <li>Noter les valeurs pour le médecin</li>
+        <li>Éviter l’automédication</li>
+        <li>Consulter en cas de maux de tête ou vertiges inhabituels</li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Ces informations ne remplacent pas un avis médical.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 — Fiches pathologies
+  </div>
+</footer>
+
+</body>
+</html>
