@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Régime végétarien et risque de cancer</title>
+  <meta name="description" content="Une grande étude internationale montre qu’un régime végétarien est associé à un risque plus faible pour certains cancers, sans protéger totalement.">
+  <style>
+    :root {
+      --bg-1: #e8f7f5;
+      --bg-2: #f7fbfc;
+      --primary: #0f766e;
+      --primary-dark: #0b5e58;
+      --secondary: #14532d;
+      --accent: #f97316;
+      --danger: #b91c1c;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --card-border: rgba(15, 118, 110, 0.10);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 20px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 118, 110, 0.08);
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, #0f766e 0%, #14532d 100%);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 48px 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 50%;
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      position: relative;
+      margin: 0 0 18px;
+      font-size: 2.3rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      position: relative;
+      max-width: 850px;
+      margin: 0 0 22px;
+      font-size: 1.05rem;
+      opacity: 0.96;
+    }
+
+    .hero-badges {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+
+    /* Sections */
+    main {
+      padding-bottom: 50px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 28px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+    }
+
+    .lead {
+      font-size: 1.04rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .stat-card {
+      background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      border-radius: 18px;
+      padding: 22px 18px;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(15, 118, 110, 0.10);
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    /* Lists */
+    .list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .list li {
+      margin-bottom: 12px;
+    }
+
+    .list strong {
+      color: var(--primary-dark);
+    }
+
+    /* Warning box */
+    .warning-box {
+      margin-top: 18px;
+      padding: 20px;
+      background: #fef2f2;
+      border: 1px solid rgba(185, 28, 28, 0.16);
+      border-left: 6px solid var(--danger);
+      border-radius: 16px;
+    }
+
+    .warning-box p {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #7f1d1d;
+      font-weight: bold;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      background: linear-gradient(135deg, #ecfdf5 0%, #f8fffb 100%);
+      border: 1px solid rgba(20, 83, 45, 0.14);
+    }
+
+    .conclusion p {
+      margin: 0;
+      font-size: 1.04rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 10px 20px 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero-box {
+        padding: 34px 22px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">Santé & Prévention</div>
+        <div class="nav-links">
+          <a href="#resume">Résumé</a>
+          <a href="#resultats">Résultats</a>
+          <a href="#explications">Pourquoi</a>
+          <a href="#nuances">Nuances</a>
+          <a href="#conclusion">Conclusion</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <h1>Régime végétarien et risque de cancer</h1>
+        <p>
+          Une grande étude internationale montre qu’un régime végétarien est associé
+          à un risque plus faible pour certains cancers. Cela ne veut pas dire
+          qu’il protège contre tout, mais les résultats sont intéressants.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">1,8 million de personnes</span>
+          <span class="badge">Suivi d’environ 16 ans</span>
+          <span class="badge">Étude internationale</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section id="resume" class="section">
+      <div class="card">
+        <h2 class="section-title">Résumé simple de l’article</h2>
+        <p class="lead">
+          Une grande étude internationale montre que les personnes végétariennes
+          développent certains cancers moins souvent que les personnes qui mangent
+          de la viande. L’étude a analysé les données de 1,8 million de personnes
+          suivies pendant environ 16 ans.
+        </p>
+      </div>
+    </section>
+
+    <section id="resultats" class="section">
+      <div class="card">
+        <h2 class="section-title">Principaux résultats</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value">–21 %</span>
+            <div class="stat-label">Risque de cancer du pancréas</div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-value">–12 %</span>
+            <div class="stat-label">Risque de cancer de la prostate</div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-value">–9 %</span>
+            <div class="stat-label">Risque de cancer du sein</div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-value">–28 %</span>
+            <div class="stat-label">Risque de cancer du rein</div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-value">–31 %</span>
+            <div class="stat-label">Risque de myélome multiple</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="explications" class="section">
+      <div class="card">
+        <h2 class="section-title">Pourquoi cette différence ?</h2>
+        <ul class="list">
+          <li><strong>Plus de fruits, de légumes et de fibres</strong>, ce qui favorise une alimentation globalement plus protectrice.</li>
+          <li><strong>Absence de viande transformée</strong>, souvent associée à des risques plus élevés pour la santé.</li>
+          <li><strong>Poids corporel souvent plus faible</strong> chez les végétariens, ce qui peut jouer un rôle important.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="nuances" class="section">
+      <div class="card">
+        <h2 class="section-title">Mais l’étude nuance aussi</h2>
+        <p>
+          Les résultats ne signifient pas que le régime végétarien protège contre tous les cancers.
+        </p>
+
+        <div class="warning-box">
+          <p>Points de vigilance</p>
+          <ul class="list">
+            <li>Certains végétariens ont montré un risque plus élevé de cancer de l’œsophage.</li>
+            <li>Chez les végétaliens stricts, un risque plus élevé de cancer colorectal a été observé dans certaines analyses.</li>
+            <li>Cette hausse pourrait être liée, au moins en partie, à des carences nutritionnelles.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion" class="section">
+      <div class="card conclusion">
+        <h2 class="section-title">Conclusion</h2>
+        <p>
+          Le régime végétarien semble associé à un risque plus faible pour plusieurs cancers,
+          mais il ne protège pas totalement. Le point essentiel reste l’équilibre nutritionnel.
+          Un régime mal construit, même sans viande, n’est pas forcément bénéfique.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Page d’information santé • Alimentation • Prévention • Cancer
+  </footer>
+
+</body>
+</html>
