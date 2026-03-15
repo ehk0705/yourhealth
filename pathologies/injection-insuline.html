@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guide pratique sur les zones d’injection de l’insuline, l’angle d’injection selon l’aiguille et la rotation des sites.">
+<title>Injection d’insuline | YourHealth</title>
+
+<style>
+
+:root{
+--primary:#0f766e;
+--primary-dark:#0b5e57;
+--secondary:#f97316;
+--bg:#f4fbfa;
+--card:#ffffff;
+--text:#1f2937;
+--muted:#6b7280;
+--border:#dbe7e5;
+--shadow:0 10px 30px rgba(0,0,0,0.08);
+--radius:18px;
+--max-width:1100px;
+}
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#eefaf8 0%,#ffffff 100%);
+color:var(--text);
+line-height:1.65;
+}
+
+a{color:inherit;text-decoration:none;}
+
+header{
+background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+color:white;
+padding:20px 0 0;
+box-shadow:var(--shadow);
+}
+
+.topbar{
+max-width:var(--max-width);
+margin:auto;
+padding:0 20px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:1.6rem;
+font-weight:bold;
+}
+
+nav{
+display:flex;
+gap:14px;
+}
+
+nav a{
+color:white;
+font-weight:600;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+/* HERO */
+
+.hero{
+max-width:var(--max-width);
+margin:auto;
+padding:30px 20px 50px;
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+min-width:260px;
+}
+
+.hero h1{
+margin:0 0 12px;
+font-size:2.3rem;
+}
+
+.hero p{
+margin:0;
+max-width:600px;
+}
+
+.hero-img{
+flex:1;
+text-align:right;
+min-width:260px;
+}
+
+/* IMAGE RÉDUITE DE MOITIÉ */
+
+.hero-img img{
+max-width:160px;
+width:100%;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* MAIN */
+
+main{
+max-width:var(--max-width);
+margin:-25px auto 40px;
+padding:0 20px;
+}
+
+.intro-card,
+.section-card,
+.important-card{
+background:var(--card);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+border:1px solid var(--border);
+margin-bottom:24px;
+}
+
+.intro-card{padding:28px;}
+.section-card{padding:28px;}
+
+.intro-card h2,
+.section-card h2,
+.important-card h2{
+color:var(--primary);
+margin-top:0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.zone-card{
+background:#fbfefe;
+border:1px solid var(--border);
+border-left:6px solid var(--primary);
+border-radius:14px;
+padding:20px;
+}
+
+.zone-card h3{
+margin-top:0;
+margin-bottom:10px;
+color:var(--primary-dark);
+}
+
+.zone-card ul,
+.angle-box ul,
+.important-card ul{
+padding-left:20px;
+margin:0;
+}
+
+.angles{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.angle-box{
+background:#fffaf5;
+border:1px solid #fde2cf;
+border-radius:14px;
+padding:20px;
+}
+
+.angle-box h3{
+margin-top:0;
+color:#c2410c;
+}
+
+/* IMAGE AIGUILLES */
+
+.img-angle{
+display:block;
+max-width:420px;
+width:100%;
+margin:20px auto 30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.important-card{
+padding:28px;
+background:linear-gradient(135deg,#fff7ed,#ffffff);
+border-left:8px solid var(--secondary);
+}
+
+.highlight{
+color:var(--secondary);
+font-weight:bold;
+}
+
+.note{
+margin-top:18px;
+padding:16px;
+background:#f0fdfb;
+border:1px solid #ccebe6;
+border-radius:12px;
+}
+
+footer{
+text-align:center;
+color:var(--muted);
+padding:30px 20px 45px;
+font-size:0.95rem;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-img{
+text-align:center;
+}
+
+.hero h1{
+font-size:1.9rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="topbar">
+<div class="logo">YourHealth</div>
+
+<nav>
+<a href="../index.html">Accueil</a>
+<a href="../ressources.html">Ressources</a>
+<a href="../contact.html">Contact</a>
+</nav>
+</div>
+
+<div class="hero">
+
+<div class="hero-text">
+<h1>Injection d’insuline</h1>
+
+<p>
+Cette page présente les principales zones d’injection de l’insuline,
+l’angle à utiliser selon la longueur de l’aiguille et l’importance
+de la rotation des sites d’injection.
+</p>
+</div>
+
+<div class="hero-img">
+<img src="/yourhealth/assets/img/sites-injection-insuline.jfif"
+alt="Sites d'injection de l'insuline sur le corps humain">
+</div>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="intro-card">
+<h2>Pourquoi bien choisir la zone d’injection ?</h2>
+
+<p>
+Le site d’injection influence la vitesse d’absorption de l’insuline.
+Une bonne technique permet d’améliorer la régularité du traitement
+et de réduire les problèmes cutanés ou sous-cutanés.
+</p>
+
+</section>
+
+<section class="section-card">
+
+<h2>Où injecter l’insuline</h2>
+
+<div class="grid">
+
+<article class="zone-card">
+<h3>1. Abdomen (ventre)</h3>
+<ul>
+<li>Zone <strong>la plus utilisée</strong>.</li>
+<li>Absorption <strong>plus rapide et régulière</strong>.</li>
+<li>Injecter à <strong>au moins 2 à 3 cm du nombril</strong>.</li>
+</ul>
+</article>
+
+<article class="zone-card">
+<h3>2. Cuisses</h3>
+<ul>
+<li>Face <strong>avant ou externe</strong> de la cuisse.</li>
+<li>Absorption <strong>un peu plus lente</strong>.</li>
+</ul>
+</article>
+
+<article class="zone-card">
+<h3>3. Bras</h3>
+<ul>
+<li>Partie <strong>arrière du bras</strong>.</li>
+<li>Souvent plus difficile à faire seul.</li>
+</ul>
+</article>
+
+<article class="zone-card">
+<h3>4. Fesses</h3>
+<ul>
+<li>Zone <strong>supérieure externe</strong>.</li>
+<li>Absorption <strong>plus lente</strong>.</li>
+</ul>
+</article>
+
+</div>
+
+</section>
+
+<section class="section-card">
+
+<h2>Angle d’injection</h2>
+
+<img src="/yourhealth/assets/img/aiguilles-insuline.jfif"
+alt="Aiguilles d'insuline 4 mm et 8 mm"
+class="img-angle">
+
+<div class="angles">
+
+<article class="angle-box">
+<h3>Aiguille 4 mm</h3>
+<ul>
+<li>Injection <strong>à 90°</strong>.</li>
+<li>En général <strong>pas besoin de pincer la peau</strong>.</li>
+</ul>
+</article>
+
+<article class="angle-box">
+<h3>Aiguille 8 mm</h3>
+<ul>
+<li>Injection <strong>à 90° avec peau pincée</strong>.</li>
+<li><strong>à 45°</strong> pour éviter le muscle.</li>
+</ul>
+</article>
+
+</div>
+
+</section>
+
+<section class="important-card">
+
+<h2>Point important</h2>
+
+<ul>
+
+<li>
+<span class="highlight">
+Changer de point d’injection à chaque fois
+</span>
+</li>
+
+<li>
+Faire une <strong>rotation des sites</strong> permet de mieux répartir les injections.
+</li>
+
+<li>
+Sinon risque de <strong>lipodystrophie</strong>
+(petites bosses sous la peau) qui perturbent l’absorption de l’insuline.
+</li>
+
+</ul>
+
+<div class="note">
+<strong>Conseil :</strong> éviter d’injecter toujours au même endroit.
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© YourHealth — Page d’information sur l’injection d’insuline
+</footer>
+
+</body>
+</html>
