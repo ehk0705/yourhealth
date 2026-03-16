@@ -39,6 +39,7 @@
 
     html{
       scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
     }
 
     body{
@@ -47,6 +48,7 @@
         radial-gradient(circle at top right, #ffffff 0%, #f4fafb 42%, #edf7f8 100%);
       color:var(--text);
       line-height:1.7;
+      overflow-x:hidden;
     }
 
     a{
@@ -57,10 +59,11 @@
     img{
       max-width:100%;
       display:block;
+      height:auto;
     }
 
     .container{
-      width:92%;
+      width:min(92%, 1180px);
       max-width:var(--max-width);
       margin:0 auto;
     }
@@ -89,10 +92,16 @@
       font-weight:700;
       letter-spacing:0.3px;
       color:#ffffff;
+      flex:0 0 auto;
     }
 
     .logo span{
       color:#ffd7a8;
+    }
+
+    nav{
+      flex:1 1 680px;
+      min-width:0;
     }
 
     nav ul{
@@ -100,6 +109,7 @@
       list-style:none;
       gap:10px;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     nav a{
@@ -110,6 +120,7 @@
       border-radius:12px;
       transition:0.25s ease;
       font-size:0.97rem;
+      white-space:nowrap;
     }
 
     nav a:hover,
@@ -124,7 +135,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.15fr 0.85fr;
+      grid-template-columns:minmax(0, 1.15fr) minmax(280px, 0.85fr);
       gap:34px;
       align-items:center;
     }
@@ -135,6 +146,7 @@
       box-shadow:var(--shadow);
       border-radius:24px;
       padding:30px;
+      min-width:0;
     }
 
     .hero-badge{
@@ -153,6 +165,7 @@
       line-height:1.15;
       color:var(--primary-dark);
       margin-bottom:16px;
+      word-break:break-word;
     }
 
     .hero-text p{
@@ -174,6 +187,7 @@
       border-radius:12px;
       font-weight:700;
       transition:0.25s ease;
+      text-align:center;
     }
 
     .btn-primary{
@@ -201,6 +215,7 @@
       border-radius:24px;
       padding:20px;
       box-shadow:var(--shadow);
+      min-width:0;
     }
 
     .img-frame{
@@ -216,6 +231,7 @@
       transition:transform 0.25s ease, box-shadow 0.25s ease;
       background:#ffffff;
       border:3px solid #ffffff;
+      max-width:100%;
     }
 
     .img-clickable:hover{
@@ -241,7 +257,7 @@
     .toolbar{
       margin-top:18px;
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:18px;
     }
 
@@ -251,6 +267,7 @@
       border-radius:16px;
       padding:16px;
       box-shadow:var(--shadow);
+      min-width:0;
     }
 
     .control-box h3{
@@ -277,6 +294,7 @@
       width:100%;
       accent-color:var(--secondary);
       cursor:pointer;
+      min-height:40px;
     }
 
     /* Quick facts */
@@ -286,7 +304,7 @@
 
     .facts-grid{
       display:grid;
-      grid-template-columns:repeat(4, 1fr);
+      grid-template-columns:repeat(4, minmax(0, 1fr));
       gap:18px;
     }
 
@@ -296,6 +314,7 @@
       border-radius:18px;
       padding:18px;
       box-shadow:var(--shadow);
+      min-width:0;
     }
 
     .fact h3{
@@ -312,6 +331,7 @@
     /* Sections */
     section{
       padding:28px 0;
+      scroll-margin-top:95px;
     }
 
     .section-header{
@@ -322,6 +342,7 @@
       font-size:1.95rem;
       color:var(--primary-dark);
       margin-bottom:10px;
+      line-height:1.2;
     }
 
     .section-intro{
@@ -346,7 +367,7 @@
     /* Cards */
     .cards{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:22px;
     }
 
@@ -357,6 +378,7 @@
       padding:24px;
       box-shadow:var(--shadow);
       transition:transform 0.25s ease, box-shadow 0.25s ease;
+      min-width:0;
     }
 
     .card:hover{
@@ -383,6 +405,7 @@
 
     .card li{
       margin-bottom:8px;
+      word-break:break-word;
     }
 
     .card .note{
@@ -394,7 +417,7 @@
     /* Two columns */
     .two-cols{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:24px;
       align-items:start;
     }
@@ -402,7 +425,7 @@
     /* Food panel */
     .food-panel{
       display:grid;
-      grid-template-columns:1.05fr 0.95fr;
+      grid-template-columns:minmax(0, 1.05fr) minmax(260px, 0.95fr);
       gap:24px;
       align-items:center;
       background:#ffffff;
@@ -425,7 +448,7 @@
 
     .food-list{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:10px 18px;
       margin-top:14px;
     }
@@ -437,6 +460,8 @@
       padding:10px 12px;
       font-weight:600;
       color:var(--primary-dark);
+      min-width:0;
+      word-break:break-word;
     }
 
     .food-image{
@@ -449,7 +474,7 @@
     /* Advice strip */
     .advice-strip{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:18px;
     }
 
@@ -459,6 +484,7 @@
       box-shadow:var(--shadow);
       border:1px solid var(--border);
       background:#ffffff;
+      min-width:0;
     }
 
     .advice h3{
@@ -503,12 +529,14 @@
 
     .card-text{
       flex:1;
+      min-width:0;
     }
 
     .card-text h4{
       color:var(--primary-dark);
       font-size:1.3rem;
       margin-bottom:12px;
+      line-height:1.3;
     }
 
     .card-text p{
@@ -524,6 +552,7 @@
       border-radius:12px;
       font-weight:700;
       transition:0.25s ease;
+      text-align:center;
     }
 
     .card-text a:hover{
@@ -533,6 +562,7 @@
     .card-img{
       flex:0 0 auto;
       text-align:center;
+      min-width:0;
     }
 
     .mini-image{
@@ -638,13 +668,30 @@
     }
 
     /* Responsive */
+    @media (max-width:1100px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-image-wrap{
+        max-width:560px;
+        margin:0 auto;
+        width:100%;
+      }
+
+      .facts-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .advice-strip{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media (max-width:980px){
-      .hero-grid,
       .food-panel,
       .cards,
       .two-cols,
-      .advice-strip,
-      .facts-grid,
       .toolbar{
         grid-template-columns:1fr;
       }
@@ -669,38 +716,208 @@
     }
 
     @media (max-width:700px){
+      header{
+        position:sticky;
+      }
+
       .topbar{
         flex-direction:column;
         align-items:flex-start;
+        gap:14px;
+        padding:14px 0;
+      }
+
+      .logo{
+        font-size:1.35rem;
+      }
+
+      nav{
+        width:100%;
+        flex:1 1 auto;
       }
 
       nav ul{
-        flex-direction:column;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        overflow-y:hidden;
         width:100%;
+        gap:8px;
+        padding-bottom:4px;
+        justify-content:flex-start;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:thin;
+      }
+
+      nav ul::-webkit-scrollbar{
+        height:6px;
+      }
+
+      nav ul::-webkit-scrollbar-thumb{
+        background:rgba(255,255,255,0.28);
+        border-radius:999px;
+      }
+
+      nav li{
+        flex:0 0 auto;
       }
 
       nav a{
-        width:100%;
+        width:auto;
+        padding:10px 12px;
+        font-size:0.92rem;
       }
 
       .hero{
-        padding-top:34px;
+        padding-top:28px;
       }
 
       .hero-text{
-        padding:22px;
+        padding:20px;
+        border-radius:20px;
       }
 
       .hero-text h1{
         font-size:1.72rem;
       }
 
+      .hero-text p{
+        font-size:1rem;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .hero-image-wrap{
+        padding:16px;
+        border-radius:20px;
+      }
+
+      .toolbar{
+        margin-top:16px;
+      }
+
+      .control-box{
+        padding:14px;
+      }
+
       .section-title{
         font-size:1.6rem;
       }
 
+      .highlight,
+      .card,
+      .fact,
+      .advice,
+      .food-panel,
+      .mini-card{
+        padding:18px;
+        border-radius:18px;
+      }
+
       .food-list{
         grid-template-columns:1fr;
+      }
+
+      .mini-image{
+        width:min(var(--mini-img-width), 100%);
+      }
+
+      .back-top{
+        right:14px;
+        bottom:14px;
+        width:44px;
+        height:44px;
+      }
+
+      .lightbox{
+        padding:14px;
+      }
+
+      .lightbox-content{
+        max-width:96vw;
+      }
+
+      .lightbox img{
+        max-height:74vh;
+        border-radius:14px;
+      }
+
+      .lightbox-close{
+        top:-8px;
+        right:-4px;
+        width:38px;
+        height:38px;
+        font-size:1.25rem;
+      }
+    }
+
+    @media (max-width:480px){
+      .container{
+        width:94%;
+      }
+
+      .hero{
+        padding:22px 0 18px;
+      }
+
+      section{
+        padding:22px 0;
+        scroll-margin-top:118px;
+      }
+
+      .hero-badge{
+        font-size:0.88rem;
+        padding:7px 12px;
+      }
+
+      .hero-text h1{
+        font-size:1.5rem;
+      }
+
+      .section-title{
+        font-size:1.38rem;
+      }
+
+      .card h3,
+      .food-panel h3,
+      .card-text h4{
+        font-size:1.1rem;
+      }
+
+      .control-box h3,
+      .fact h3,
+      .advice h3{
+        font-size:1rem;
+      }
+
+      .hero-image{
+        width:min(var(--hero-img-width), 100%);
+      }
+
+      .food-image{
+        max-width:100%;
+      }
+
+      .facts-grid{
+        grid-template-columns:1fr;
+      }
+
+      .img-caption,
+      .mini-hint,
+      .control-box p,
+      .section-intro,
+      .card .note{
+        font-size:0.92rem;
+      }
+
+      footer{
+        padding:24px 0;
       }
     }
   </style>
@@ -1187,6 +1404,7 @@
         lightboxCaption.textContent = caption;
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
       });
     });
 
@@ -1194,6 +1412,7 @@
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden', 'true');
       lightboxImg.src = '';
+      document.body.style.overflow = '';
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
@@ -1225,7 +1444,7 @@
       let current = '';
 
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
+        const sectionTop = section.offsetTop - 140;
         if (window.scrollY >= sectionTop) {
           current = section.getAttribute('id');
         }
