@@ -29,6 +29,7 @@
 
       --hero-img-width: 390px;
       --mini-img-width: 180px;
+      --vitamin-img-height: 210px;
     }
 
     *{
@@ -412,6 +413,29 @@
       margin-top:12px;
       font-size:0.94rem;
       color:var(--muted);
+    }
+
+    /* Cartes vitamines avec image */
+    .card-media{
+      overflow:hidden;
+      padding:0;
+    }
+
+    .card-media .card-image-top{
+      width:100%;
+      height:var(--vitamin-img-height);
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-media .card-body{
+      padding:20px 22px 22px;
+    }
+
+    .card-media .img-caption{
+      padding:0 22px 16px;
+      text-align:left;
+      margin-top:8px;
     }
 
     /* Two columns */
@@ -820,6 +844,14 @@
         border-radius:18px;
       }
 
+      .card-media{
+        padding:0;
+      }
+
+      .card-media .card-body{
+        padding:18px;
+      }
+
       .food-list{
         grid-template-columns:1fr;
       }
@@ -990,12 +1022,6 @@
           <input type="range" id="heroSize" min="260" max="520" value="390">
         </div>
 
-        <div class="control-box">
-          <h3>Taille de l’image de la card</h3>
-          <p>Déplace ce curseur pour ajuster l’image de la carte d’intégration.</p>
-          <label for="miniSize">Largeur de l’image de la card</label>
-          <input type="range" id="miniSize" min="120" max="280" value="180">
-        </div>
       </div>
     </section>
 
@@ -1216,28 +1242,61 @@
         </div>
 
         <div class="cards">
-          <article class="card">
-            <h3>Vitamine B12</h3>
-            <p>
-              La vitamine B12 participe à la formation normale des globules rouges.
-              On la retrouve surtout dans la viande, le poisson, les œufs, le lait et le fromage.
-            </p>
+          <article class="card card-media">
+            <a href="/yourhealth/assets/img/vitamine-b12.jfif"
+               class="open-lightbox"
+               data-img="/yourhealth/assets/img/vitamine-b12.jfif"
+               data-caption="Aliments riches en vitamine B12">
+              <img src="/yourhealth/assets/img/vitamine-b12.jfif"
+                   alt="Aliments riches en vitamine B12"
+                   class="card-image-top">
+            </a>
+            <div class="card-body">
+              <h3>Vitamine B12</h3>
+              <p>
+                La vitamine B12 participe à la formation normale des globules rouges.
+                On la retrouve surtout dans la viande, le poisson, les œufs, le lait et le fromage.
+              </p>
+            </div>
+            <p class="img-caption">Cliquer sur l’image pour l’agrandir</p>
           </article>
 
-          <article class="card">
-            <h3>Folates</h3>
-            <p>
-              Les folates jouent aussi un rôle dans la fabrication des cellules sanguines.
-              Une carence peut contribuer à une anémie.
-            </p>
+          <article class="card card-media">
+            <a href="/yourhealth/assets/img/folates.jfif"
+               class="open-lightbox"
+               data-img="/yourhealth/assets/img/folates.jfif"
+               data-caption="Sources alimentaires de folates">
+              <img src="/yourhealth/assets/img/folates.jfif"
+                   alt="Sources alimentaires de folates"
+                   class="card-image-top">
+            </a>
+            <div class="card-body">
+              <h3>Folates</h3>
+              <p>
+                Les folates jouent aussi un rôle dans la fabrication des cellules sanguines.
+                Une carence peut contribuer à une anémie.
+              </p>
+            </div>
+            <p class="img-caption">Cliquer sur l’image pour l’agrandir</p>
           </article>
 
-          <article class="card">
-            <h3>Vitamine C</h3>
-            <p>
-              La vitamine C aide à mieux absorber le fer, surtout celui d’origine végétale.
-              Associer un repas riche en fer avec des fruits ou légumes riches en vitamine C est utile.
-            </p>
+          <article class="card card-media">
+            <a href="/yourhealth/assets/img/vitamine-c.jfif"
+               class="open-lightbox"
+               data-img="/yourhealth/assets/img/vitamine-c.jfif"
+               data-caption="Fruits et légumes riches en vitamine C">
+              <img src="/yourhealth/assets/img/vitamine-c.jfif"
+                   alt="Fruits et légumes riches en vitamine C"
+                   class="card-image-top">
+            </a>
+            <div class="card-body">
+              <h3>Vitamine C</h3>
+              <p>
+                La vitamine C aide à mieux absorber le fer, surtout celui d’origine végétale.
+                Associer un repas riche en fer avec des fruits ou légumes riches en vitamine C est utile.
+              </p>
+            </div>
+            <p class="img-caption">Cliquer sur l’image pour l’agrandir</p>
           </article>
 
           <article class="card">
