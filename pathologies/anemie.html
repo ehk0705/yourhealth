@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Comprendre l’anémie : définition, symptômes, causes, bilan, alimentation, vitamines, conseils et prévention." />
+  <title>Anémie | Guide santé</title>
+
+  <style>
+    :root{
+      --primary:#0f4c5c;
+      --primary-dark:#0b3944;
+      --secondary:#c1121f;
+      --secondary-dark:#9f0f19;
+      --accent:#f4a261;
+      --accent-soft:#fff4e7;
+      --bg:#f4fafb;
+      --bg-2:#edf7f8;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#667085;
+      --border:#d8e6ea;
+      --success:#1d7a5d;
+      --shadow:0 10px 28px rgba(15,76,92,0.10);
+      --shadow-hover:0 16px 36px rgba(15,76,92,0.16);
+      --radius:20px;
+      --radius-sm:14px;
+      --max-width:1180px;
+
+      --hero-img-width: 390px;
+      --mini-img-width: 180px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, #ffffff 0%, #f4fafb 42%, #edf7f8 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:92%;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:1.55rem;
+      font-weight:700;
+      letter-spacing:0.3px;
+      color:#ffffff;
+    }
+
+    .logo span{
+      color:#ffd7a8;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      display:block;
+      padding:10px 14px;
+      color:#ffffff;
+      font-weight:600;
+      border-radius:12px;
+      transition:0.25s ease;
+      font-size:0.97rem;
+    }
+
+    nav a:hover,
+    nav a.active{
+      background:rgba(255,255,255,0.16);
+    }
+
+    /* Hero */
+    .hero{
+      padding:56px 0 24px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .hero-text{
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(255,255,255,0.8);
+      box-shadow:var(--shadow);
+      border-radius:24px;
+      padding:30px;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#fdecea;
+      color:var(--secondary);
+      border:1px solid #f6c7cb;
+      font-weight:700;
+    }
+
+    .hero-text h1{
+      font-size:2.45rem;
+      line-height:1.15;
+      color:var(--primary-dark);
+      margin-bottom:16px;
+    }
+
+    .hero-text p{
+      color:var(--text);
+      margin-bottom:14px;
+      font-size:1.06rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:11px 16px;
+      border-radius:12px;
+      font-weight:700;
+      transition:0.25s ease;
+    }
+
+    .btn-primary{
+      background:var(--secondary);
+      color:#ffffff;
+    }
+
+    .btn-primary:hover{
+      background:var(--secondary-dark);
+    }
+
+    .btn-outline{
+      border:1px solid var(--border);
+      background:#ffffff;
+      color:var(--primary-dark);
+    }
+
+    .btn-outline:hover{
+      background:#f7fbfc;
+    }
+
+    .hero-image-wrap{
+      background:linear-gradient(180deg, #ffffff, #f7fbfc);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .img-frame{
+      position:relative;
+    }
+
+    .img-clickable{
+      display:inline-block;
+      cursor:pointer;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+      background:#ffffff;
+      border:3px solid #ffffff;
+    }
+
+    .img-clickable:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .hero-image{
+      width:var(--hero-img-width);
+      max-width:100%;
+      margin:0 auto;
+      border-radius:18px;
+    }
+
+    .img-caption{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:0.95rem;
+      text-align:center;
+    }
+
+    /* Toolbar */
+    .toolbar{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .control-box{
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+
+    .control-box h3{
+      color:var(--primary-dark);
+      margin-bottom:8px;
+      font-size:1rem;
+    }
+
+    .control-box p{
+      color:var(--muted);
+      font-size:0.94rem;
+      margin-bottom:10px;
+    }
+
+    .control-box label{
+      display:block;
+      font-weight:700;
+      color:var(--primary-dark);
+      margin-bottom:8px;
+      font-size:0.94rem;
+    }
+
+    input[type="range"]{
+      width:100%;
+      accent-color:var(--secondary);
+      cursor:pointer;
+    }
+
+    /* Quick facts */
+    .quick-facts{
+      padding:18px 0 8px;
+    }
+
+    .facts-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .fact{
+      background:linear-gradient(180deg, #ffffff, #f9fcfd);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .fact h3{
+      color:var(--secondary);
+      font-size:1rem;
+      margin-bottom:8px;
+    }
+
+    .fact p{
+      color:var(--text);
+      font-size:0.97rem;
+    }
+
+    /* Sections */
+    section{
+      padding:28px 0;
+    }
+
+    .section-header{
+      margin-bottom:20px;
+    }
+
+    .section-title{
+      font-size:1.95rem;
+      color:var(--primary-dark);
+      margin-bottom:10px;
+    }
+
+    .section-intro{
+      max-width:860px;
+      color:var(--muted);
+    }
+
+    /* Highlight */
+    .highlight{
+      background:linear-gradient(135deg, var(--accent-soft), #ffffff);
+      border:1px solid #f1d4b0;
+      border-left:6px solid var(--accent);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .highlight strong{
+      color:var(--primary-dark);
+    }
+
+    /* Cards */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .card h3{
+      color:var(--secondary);
+      margin-bottom:12px;
+      font-size:1.2rem;
+      line-height:1.3;
+    }
+
+    .card p{
+      color:var(--text);
+      margin-bottom:8px;
+    }
+
+    .card ul{
+      padding-left:20px;
+      margin-top:10px;
+    }
+
+    .card li{
+      margin-bottom:8px;
+    }
+
+    .card .note{
+      margin-top:12px;
+      font-size:0.94rem;
+      color:var(--muted);
+    }
+
+    /* Two columns */
+    .two-cols{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    /* Food panel */
+    .food-panel{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:24px;
+      align-items:center;
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .food-panel h3{
+      color:var(--primary-dark);
+      margin-bottom:10px;
+      font-size:1.35rem;
+    }
+
+    .food-panel p{
+      margin-bottom:10px;
+      color:var(--text);
+    }
+
+    .food-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:10px 18px;
+      margin-top:14px;
+    }
+
+    .food-list div{
+      background:#f7fbfc;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      font-weight:600;
+      color:var(--primary-dark);
+    }
+
+    .food-image{
+      width:100%;
+      max-width:360px;
+      margin:0 auto;
+      border-radius:18px;
+    }
+
+    /* Advice strip */
+    .advice-strip{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .advice{
+      border-radius:18px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      background:#ffffff;
+    }
+
+    .advice h3{
+      color:var(--primary-dark);
+      margin-bottom:10px;
+      font-size:1.08rem;
+    }
+
+    .advice p{
+      color:var(--text);
+      font-size:0.97rem;
+    }
+
+    .advice.good{
+      border-top:5px solid var(--success);
+    }
+
+    .advice.warn{
+      border-top:5px solid var(--accent);
+    }
+
+    .advice.alert{
+      border-top:5px solid var(--secondary);
+    }
+
+    /* Integration card */
+    .integration-wrap{
+      margin-top:10px;
+    }
+
+    .mini-card{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:26px;
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .card-text{
+      flex:1;
+    }
+
+    .card-text h4{
+      color:var(--primary-dark);
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+
+    .card-text p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .card-text a{
+      display:inline-block;
+      background:var(--secondary);
+      color:#ffffff;
+      padding:11px 15px;
+      border-radius:12px;
+      font-weight:700;
+      transition:0.25s ease;
+    }
+
+    .card-text a:hover{
+      background:var(--secondary-dark);
+    }
+
+    .card-img{
+      flex:0 0 auto;
+      text-align:center;
+    }
+
+    .mini-image{
+      width:var(--mini-img-width);
+      max-width:100%;
+      border-radius:16px;
+    }
+
+    .mini-hint{
+      margin-top:8px;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:44px;
+      background:linear-gradient(135deg, var(--primary-dark), #082b33);
+      color:#eaf6f7;
+      text-align:center;
+      padding:30px 0;
+    }
+
+    footer p{
+      margin:6px 0;
+    }
+
+    /* Back to top */
+    .back-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:50%;
+      background:var(--secondary);
+      color:#ffffff;
+      font-size:1.2rem;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      z-index:900;
+      transition:0.25s ease;
+    }
+
+    .back-top:hover{
+      background:var(--secondary-dark);
+      transform:translateY(-2px);
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(7, 20, 25, 0.86);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:2000;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox-content{
+      position:relative;
+      max-width:min(92vw, 1100px);
+      max-height:90vh;
+      text-align:center;
+    }
+
+    .lightbox img{
+      max-width:100%;
+      max-height:82vh;
+      border-radius:18px;
+      border:4px solid #ffffff;
+      box-shadow:0 20px 40px rgba(0,0,0,0.35);
+      background:#ffffff;
+    }
+
+    .lightbox-caption{
+      margin-top:12px;
+      color:#f2f6f7;
+      font-size:0.96rem;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-10px;
+      right:-10px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:#ffffff;
+      color:var(--primary-dark);
+      font-size:1.4rem;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-grid,
+      .food-panel,
+      .cards,
+      .two-cols,
+      .advice-strip,
+      .facts-grid,
+      .toolbar{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:2rem;
+      }
+
+      .food-list{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .mini-card{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .card-img{
+        width:100%;
+        text-align:left;
+      }
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      nav ul{
+        flex-direction:column;
+        width:100%;
+      }
+
+      nav a{
+        width:100%;
+      }
+
+      .hero{
+        padding-top:34px;
+      }
+
+      .hero-text{
+        padding:22px;
+      }
+
+      .hero-text h1{
+        font-size:1.72rem;
+      }
+
+      .section-title{
+        font-size:1.6rem;
+      }
+
+      .food-list{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container topbar">
+      <div class="logo">Guide <span>Santé</span></div>
+      <nav>
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#definition">Définition</a></li>
+          <li><a href="#symptomes">Symptômes</a></li>
+          <li><a href="#causes">Causes</a></li>
+          <li><a href="#alimentation">Alimentation</a></li>
+          <li><a href="#vitamines">Vitamines</a></li>
+          <li><a href="#conseils">Conseils</a></li>
+          <li><a href="#integration">Card</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <div class="hero-badge">Santé du sang</div>
+          <h1>Comprendre l’anémie simplement</h1>
+          <p>
+            L’anémie correspond à une baisse du taux d’hémoglobine dans le sang.
+            Le sang transporte alors moins bien l’oxygène vers les organes et les tissus.
+          </p>
+          <p>
+            Elle peut provoquer une fatigue importante, une pâleur, des vertiges,
+            un essoufflement et une sensation de faiblesse. Le diagnostic se confirme
+            par une prise de sang.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#bilan" class="btn btn-primary">Voir le bilan utile</a>
+            <a href="#alimentation" class="btn btn-outline">Voir l’alimentation</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <div class="img-frame">
+            <a href="/yourhealth/assets/img/anemie-main.jfif"
+               class="img-clickable open-lightbox"
+               data-img="/yourhealth/assets/img/anemie-main.jfif"
+               data-caption="Illustration médicale de l’anémie">
+              <img src="/yourhealth/assets/img/anemie-main.jfif"
+                   alt="Illustration médicale de l’anémie"
+                   class="hero-image">
+            </a>
+            <p class="img-caption">Cliquer sur l’image pour l’agrandir</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container toolbar">
+        <div class="control-box">
+          <h3>Taille de l’image principale</h3>
+          <p>Déplace ce curseur pour agrandir ou réduire l’image du haut de page.</p>
+          <label for="heroSize">Largeur de l’image principale</label>
+          <input type="range" id="heroSize" min="260" max="520" value="390">
+        </div>
+
+        <div class="control-box">
+          <h3>Taille de l’image de la card</h3>
+          <p>Déplace ce curseur pour ajuster l’image de la carte d’intégration.</p>
+          <label for="miniSize">Largeur de l’image de la card</label>
+          <input type="range" id="miniSize" min="120" max="280" value="180">
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-facts">
+      <div class="container">
+        <div class="facts-grid">
+          <div class="fact">
+            <h3>Définition</h3>
+            <p>Baisse de l’hémoglobine dans le sang.</p>
+          </div>
+          <div class="fact">
+            <h3>Causes fréquentes</h3>
+            <p>Carence en fer, B12, folates, saignements, maladies chroniques.</p>
+          </div>
+          <div class="fact">
+            <h3>Examen clé</h3>
+            <p>Numération sanguine avec dosage de l’hémoglobine.</p>
+          </div>
+          <div class="fact">
+            <h3>À retenir</h3>
+            <p>Il faut traiter la cause, pas seulement la fatigue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="definition">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Définition</h2>
+        </div>
+
+        <div class="highlight">
+          <p>
+            <strong>L’anémie</strong> est une diminution de l’hémoglobine dans le sang.
+            Quand l’hémoglobine baisse, le transport de l’oxygène devient moins efficace.
+            Cela peut expliquer une fatigue persistante, une pâleur ou un essoufflement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="symptomes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Symptômes fréquents</h2>
+          <p class="section-intro">
+            Les signes varient selon la gravité et la cause. Ils doivent faire penser à l’anémie,
+            mais ne suffisent pas à eux seuls pour poser un diagnostic.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Signes les plus courants</h3>
+            <ul>
+              <li>Fatigue anormale</li>
+              <li>Pâleur</li>
+              <li>Essoufflement à l’effort</li>
+              <li>Vertiges</li>
+              <li>Faiblesse</li>
+              <li>Maux de tête</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Quand il faut consulter plus vite</h3>
+            <ul>
+              <li>Essoufflement important</li>
+              <li>Douleur thoracique</li>
+              <li>Malaise</li>
+              <li>Fatigue très marquée</li>
+              <li>Sang dans les selles</li>
+            </ul>
+            <p class="note">
+              Une anémie importante peut révéler un problème plus sérieux.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="causes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Causes courantes</h2>
+          <p class="section-intro">
+            L’anémie n’a pas une seule cause. Il faut donc rechercher l’origine exacte avant de traiter.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Carence en fer</h3>
+            <p>
+              C’est une cause fréquente. Elle peut venir d’un apport insuffisant,
+              d’une mauvaise absorption ou d’une perte de sang répétée.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Saignements</h3>
+            <p>
+              Des pertes visibles ou cachées peuvent être en cause :
+              règles abondantes, saignement digestif, ulcère ou autre problème interne.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Carence en vitamines</h3>
+            <p>
+              Un manque de vitamine B12 ou de folates peut aussi provoquer une anémie.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Maladies chroniques</h3>
+            <p>
+              Certaines maladies rénales, inflammatoires ou digestives peuvent gêner
+              la production ou l’absorption normale.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bilan">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Bilan utile</h2>
+          <p class="section-intro">
+            Le bilan dépend du contexte, mais certains examens reviennent souvent.
+          </p>
+        </div>
+
+        <div class="two-cols">
+          <div class="card">
+            <h3>Examens souvent demandés</h3>
+            <ul>
+              <li>Hémoglobine</li>
+              <li>Numération formule sanguine</li>
+              <li>Ferritine</li>
+              <li>Vitamine B12</li>
+              <li>Folates</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>But du bilan</h3>
+            <ul>
+              <li>Confirmer l’anémie</li>
+              <li>Évaluer sa gravité</li>
+              <li>Rechercher une carence</li>
+              <li>Détecter un saignement</li>
+              <li>Identifier une cause chronique</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alimentation">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Alimentation conseillée</h2>
+          <p class="section-intro">
+            Une alimentation adaptée ne remplace pas un bilan médical, mais elle peut aider
+            surtout en cas de carence en fer ou d’apports insuffisants.
+          </p>
+        </div>
+
+        <div class="food-panel">
+          <div>
+            <h3>Aliments intéressants en cas d’anémie</h3>
+            <p>
+              Les sources de fer comprennent notamment les viandes, poissons, fruits de mer,
+              légumineuses, noix, céréales enrichies, jaune d’œuf et légumes verts.
+            </p>
+            <p>
+              Le fer d’origine animale est en général mieux absorbé que le fer d’origine végétale.
+            </p>
+
+            <div class="food-list">
+              <div>Viande</div>
+              <div>Poisson</div>
+              <div>Légumineuses</div>
+              <div>Noix</div>
+              <div>Jaune d’œuf</div>
+              <div>Légumes verts</div>
+              <div>Céréales enrichies</div>
+              <div>Fruits secs</div>
+            </div>
+          </div>
+
+          <div>
+            <a href="/yourhealth/assets/img/anemie-main.jfif"
+               class="img-clickable open-lightbox"
+               data-img="/yourhealth/assets/img/anemie-main.jfif"
+               data-caption="Illustration de la page anémie">
+              <img src="/yourhealth/assets/img/anemie-main.jfif"
+                   alt="Illustration liée à l’anémie"
+                   class="food-image">
+            </a>
+            <p class="img-caption">Image cliquable et agrandissable</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vitamines">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Vitamines et absorption</h2>
+          <p class="section-intro">
+            Le fer n’est pas le seul point important. Certaines vitamines et certaines habitudes
+            alimentaires influencent aussi la situation.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Vitamine B12</h3>
+            <p>
+              La vitamine B12 participe à la formation normale des globules rouges.
+              On la retrouve surtout dans la viande, le poisson, les œufs, le lait et le fromage.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Folates</h3>
+            <p>
+              Les folates jouent aussi un rôle dans la fabrication des cellules sanguines.
+              Une carence peut contribuer à une anémie.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Vitamine C</h3>
+            <p>
+              La vitamine C aide à mieux absorber le fer, surtout celui d’origine végétale.
+              Associer un repas riche en fer avec des fruits ou légumes riches en vitamine C est utile.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Ce qui peut gêner l’absorption du fer</h3>
+            <p>
+              Le thé, le café et parfois le calcium pris au même moment peuvent réduire
+              l’absorption du fer. Il vaut mieux éviter de les prendre en même temps qu’un apport riche en fer.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="conseils">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Conseils et recommandations</h2>
+          <p class="section-intro">
+            Voici des conseils simples, utiles et prudents. Ils ne remplacent pas un avis médical.
+          </p>
+        </div>
+
+        <div class="advice-strip">
+          <article class="advice good">
+            <h3>Bon réflexe</h3>
+            <p>
+              En cas de fatigue inhabituelle, pâleur ou essoufflement, demande un bilan sanguin
+              plutôt que de supposer une simple fatigue passagère.
+            </p>
+          </article>
+
+          <article class="advice warn">
+            <h3>À surveiller</h3>
+            <p>
+              Si tu prends déjà un complément en fer, respecte la prescription.
+              En prendre au hasard est une mauvaise idée si la cause n’est pas connue.
+            </p>
+          </article>
+
+          <article class="advice alert">
+            <h3>Urgence relative</h3>
+            <p>
+              Si tu as douleur thoracique, essoufflement marqué, malaise ou sang dans les selles,
+              il faut consulter rapidement.
+            </p>
+          </article>
+        </div>
+
+        <div class="two-cols" style="margin-top:22px;">
+          <div class="card">
+            <h3>Exemples de gestes utiles</h3>
+            <ul>
+              <li>Associer fer et vitamine C au repas</li>
+              <li>Éviter thé et café au même moment</li>
+              <li>Manger varié et régulièrement</li>
+              <li>Suivre le traitement si un médecin l’a prescrit</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Prévention</h3>
+            <ul>
+              <li>Ne pas négliger une fatigue qui dure</li>
+              <li>Surveiller les saignements inhabituels</li>
+              <li>Être attentif à l’alimentation</li>
+              <li>Faire contrôler les carences si besoin</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="integration">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Card d’intégration</h2>
+          <p class="section-intro">
+            Cette carte est prête à être intégrée dans une autre page du site.
+          </p>
+        </div>
+
+        <div class="integration-wrap">
+          <div class="mini-card">
+
+            <div class="card-text">
+              <h4>Anémie : signes à connaître</h4>
+              <p>
+                Fatigue, pâleur, vertiges, essoufflement. Une prise de sang permet
+                de confirmer le diagnostic et d’en rechercher la cause.
+              </p>
+              <a href="anemie.html">Lire la page complète</a>
+            </div>
+
+            <div class="card-img">
+              <a href="/yourhealth/assets/img/anemie-card.jfif"
+                 class="img-clickable open-lightbox"
+                 data-img="/yourhealth/assets/img/anemie-card.jfif"
+                 data-caption="Carte visuelle sur l’anémie">
+                <img src="/yourhealth/assets/img/anemie-card.jfif"
+                     alt="Carte visuelle sur l’anémie"
+                     class="mini-image">
+              </a>
+              <div class="mini-hint">Cliquer pour agrandir</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Guide Santé</strong></p>
+      <p>Page d’information générale sur l’anémie</p>
+      <p>Cette page ne remplace pas un avis médical.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Retour en haut">↑</button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">×</button>
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    /* Redimensionnement des images */
+    const heroSize = document.getElementById('heroSize');
+    const miniSize = document.getElementById('miniSize');
+
+    if (heroSize) {
+      heroSize.addEventListener('input', function () {
+        document.documentElement.style.setProperty('--hero-img-width', this.value + 'px');
+      });
+    }
+
+    if (miniSize) {
+      miniSize.addEventListener('input', function () {
+        document.documentElement.style.setProperty('--mini-img-width', this.value + 'px');
+      });
+    }
+
+    /* Lightbox */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxTriggers = document.querySelectorAll('.open-lightbox');
+
+    lightboxTriggers.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imgSrc = this.getAttribute('data-img');
+        const caption = this.getAttribute('data-caption') || '';
+        const imgAlt = this.querySelector('img') ? this.querySelector('img').alt : caption;
+
+        lightboxImg.src = imgSrc;
+        lightboxImg.alt = imgAlt;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    /* Bouton retour en haut */
+    const backTop = document.getElementById('backTop');
+
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* Mise en évidence simple du menu selon l’ancre */
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
