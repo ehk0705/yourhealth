@@ -19,6 +19,10 @@
 
     *{box-sizing:border-box}
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -31,6 +35,9 @@
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(6px);
+      position:sticky;
+      top:0;
+      z-index:10;
     }
 
     .wrap{max-width:980px;margin:0 auto}
@@ -51,11 +58,37 @@
       padding:6px 10px;
       border:1px solid var(--border);
       border-radius:12px;
+      transition:.2s ease;
     }
 
-    nav a:hover{border-color:rgba(125,211,252,.55)}
+    nav a:hover{
+      border-color:rgba(125,211,252,.55);
+      background:rgba(255,255,255,.04);
+    }
 
     main{padding:22px 16px}
+
+    .intro{
+      margin-bottom:10px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .sommaire{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .sommaire a{
+      text-decoration:none;
+      color:var(--accent);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:12px;
+      font-size:14px;
+    }
 
     .card{
       margin-top:18px;
@@ -63,16 +96,29 @@
       border:1px solid var(--border);
       border-radius:18px;
       padding:16px;
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
     }
 
-    /* Images à droite dans chaque section */
     .card img{
       float:right;
       max-width:200px;
+      width:100%;
       margin-left:14px;
       margin-bottom:12px;
       border-radius:14px;
       border:1px solid var(--border);
+    }
+
+    /* Images cliquables */
+    .img-clickable{
+      cursor:zoom-in;
+      transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    }
+
+    .img-clickable:hover{
+      transform:scale(1.06);
+      box-shadow:0 12px 28px rgba(0,0,0,.35);
+      opacity:.96;
     }
 
     .card:after{
@@ -95,6 +141,33 @@
       padding-left:10px;
     }
 
+    .warning{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(250,204,21,.35);
+      background:rgba(250,204,21,.08);
+      color:var(--txt);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .mini-box{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .mini-box h3{
+      margin-top:0;
+    }
+
     footer{
       padding:18px 16px;
       border-top:1px solid var(--border);
@@ -102,11 +175,93 @@
       font-size:13px;
     }
 
+    /* Fenêtre modale image */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background:rgba(0,0,0,.92);
+      padding:30px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal.open{
+      display:flex;
+    }
+
+    .modal-content{
+      position:relative;
+      max-width:95vw;
+      max-height:95vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal img{
+      display:block;
+      max-width:92vw;
+      max-height:88vh;
+      width:auto;
+      height:auto;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      background:#111827;
+    }
+
+    .modal-close{
+      position:absolute;
+      top:-12px;
+      right:-6px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      font-size:28px;
+      line-height:42px;
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .modal-close:hover{
+      background:rgba(255,255,255,.24);
+    }
+
+    @media (max-width:760px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media (max-width:520px){
+      header{
+        position:static;
+      }
+
       .card img{
         float:none;
         display:block;
         margin:0 auto 12px auto;
+        max-width:100%;
+      }
+
+      .modal{
+        padding:14px;
+      }
+
+      .modal img{
+        max-width:95vw;
+        max-height:82vh;
+      }
+
+      .modal-close{
+        top:-8px;
+        right:-2px;
       }
     }
   </style>
@@ -130,8 +285,27 @@
 <main>
   <div class="wrap">
 
+    <section class="card">
+      <h2>Vue d’ensemble</h2>
+      <p class="intro">
+        Cette page présente les notions générales sur les cancers, puis un focus sur le cancer du sein :
+        signes d’alerte, facteurs de risque, examens, traitements et accompagnement.
+      </p>
+
+      <div class="sommaire">
+        <a href="#definition">Définition</a>
+        <a href="#types">Types</a>
+        <a href="#signes">Signes</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#traitements">Traitements</a>
+        <a href="#cancer-sein">Cancer du sein</a>
+        <a href="#prevention">Prévention</a>
+        <a href="#quand-consulter">Quand consulter</a>
+      </div>
+    </section>
+
     <section class="card" id="definition">
-      <img src="/yourhealth/assets/img/cancer-definition.jfif" alt="Définition du cancer">
+      <img src="/yourhealth/assets/img/cancer-definition.jfif" alt="Définition du cancer" class="img-clickable" onclick="openModal(this)">
       <h2>Définition</h2>
       <p>
         Le cancer correspond à une multiplication anormale de certaines cellules. Ces cellules peuvent former
@@ -144,7 +318,7 @@
     </section>
 
     <section class="card" id="types">
-      <img src="/yourhealth/assets/img/cancer-types.jfif" alt="Types de cancer">
+      <img src="/yourhealth/assets/img/cancer-types.jfif" alt="Types de cancer" class="img-clickable" onclick="openModal(this)">
       <h2>Types de cancer</h2>
       <p>
         On classe souvent les cancers selon le tissu d’origine. Cette classification aide à comprendre les examens
@@ -160,7 +334,7 @@
     </section>
 
     <section class="card" id="signes">
-      <img src="/yourhealth/assets/img/cancer-signes.jfif" alt="Signes d’alerte">
+      <img src="/yourhealth/assets/img/cancer-signes.jfif" alt="Signes d’alerte" class="img-clickable" onclick="openModal(this)">
       <h2>Signes possibles</h2>
       <p>
         Les symptômes varient selon l’organe atteint. Un signe isolé ne veut pas dire « cancer », mais certains
@@ -177,7 +351,7 @@
     </section>
 
     <section class="card" id="diagnostic">
-      <img src="/yourhealth/assets/img/cancer-diagnostic.jfif" alt="Diagnostic du cancer">
+      <img src="/yourhealth/assets/img/cancer-diagnostic.jfif" alt="Diagnostic du cancer" class="img-clickable" onclick="openModal(this)">
       <h2>Diagnostic</h2>
       <p>
         Le diagnostic repose sur un ensemble d’étapes : examen clinique, imagerie, analyses et confirmation
@@ -191,35 +365,121 @@
         <li><strong>Bilan d’extension</strong> : évaluer la présence ou non de métastases.</li>
       </ul>
       <p class="note">
-        Le dépistage (sein, côlon, col de l’utérus, etc.) permet parfois de détecter des lésions plus tôt, avant
-        l’apparition de symptômes.
+        Le dépistage permet parfois de détecter certaines lésions plus tôt, avant l’apparition de symptômes.
       </p>
     </section>
 
     <section class="card" id="traitements">
-      <img src="/yourhealth/assets/img/cancer-traitements.jfif" alt="Traitements du cancer">
+      <img src="/yourhealth/assets/img/cancer-traitements.jfif" alt="Traitements du cancer" class="img-clickable" onclick="openModal(this)">
       <h2>Traitements</h2>
       <p>
-        Le traitement dépend du type de cancer, du stade, de l’état général et des objectifs (guérir, contrôler,
-        soulager). Il est souvent décidé en équipe pluridisciplinaire.
+        Le traitement dépend du type de cancer, du stade, de l’état général et des objectifs : guérir, contrôler
+        la maladie ou soulager les symptômes. Il est souvent décidé en équipe pluridisciplinaire.
       </p>
       <ul>
         <li><strong>Chirurgie</strong> : retirer la tumeur quand c’est possible.</li>
         <li><strong>Radiothérapie</strong> : détruire des cellules cancéreuses par rayonnements ciblés.</li>
-        <li><strong>Chimiothérapie</strong> : traitements qui agissent sur les cellules qui se divisent rapidement.</li>
-        <li><strong>Thérapies ciblées</strong> : viser des anomalies spécifiques des cellules tumorales.</li>
-        <li><strong>Immunothérapie</strong> : aider le système immunitaire à mieux lutter contre la tumeur.</li>
+        <li><strong>Chimiothérapie</strong> : agir sur les cellules qui se divisent rapidement.</li>
+        <li><strong>Thérapies ciblées</strong> : viser certaines anomalies des cellules tumorales.</li>
+        <li><strong>Immunothérapie</strong> : aider le système immunitaire à lutter contre la tumeur.</li>
         <li><strong>Hormonothérapie</strong> : utile pour certains cancers hormono-dépendants.</li>
-        <li><strong>Soins de support</strong> : douleur, nutrition, fatigue, santé mentale, rééducation.</li>
+        <li><strong>Soins de support</strong> : douleur, nutrition, fatigue, soutien psychologique, rééducation.</li>
       </ul>
       <p class="note">
-        Les “remèdes naturels” ne remplacent pas les traitements validés. Certains compléments peuvent interagir
-        avec la chimiothérapie ou d’autres traitements : demander un avis médical.
+        Les remèdes dits naturels ne remplacent pas les traitements validés. Certains produits ou compléments
+        peuvent interagir avec les traitements anticancéreux.
+      </p>
+    </section>
+
+    <section class="card" id="cancer-sein">
+      <img src="/yourhealth/assets/img/cancer-sein.jfif" alt="Cancer du sein" class="img-clickable" onclick="openModal(this)">
+      <h2>Cancer du sein</h2>
+      <p>
+        Le cancer du sein se développe à partir de cellules mammaires devenues anormales. Il peut débuter dans
+        les canaux ou dans les lobules du sein. C’est l’un des cancers les plus fréquents chez la femme, mais il
+        peut aussi toucher plus rarement l’homme.
+      </p>
+
+      <h3>Signes d’alerte possibles</h3>
+      <ul>
+        <li>Boule ou zone dure dans un sein ou sous l’aisselle.</li>
+        <li>Modification de la taille ou de la forme d’un sein.</li>
+        <li>Rétraction du mamelon ou changement inhabituel du mamelon.</li>
+        <li>Écoulement mamelonnaire, surtout s’il est sanglant.</li>
+        <li>Rougeur, épaississement, peau d’orange ou modification de la peau du sein.</li>
+        <li>Douleur persistante localisée, même si la douleur seule n’est pas le signe le plus fréquent.</li>
+      </ul>
+
+      <div class="grid-2">
+        <div class="mini-box">
+          <h3>Facteurs de risque</h3>
+          <ul>
+            <li>Âge plus avancé.</li>
+            <li>Antécédents personnels ou familiaux de cancer du sein.</li>
+            <li>Certaines prédispositions génétiques.</li>
+            <li>Exposition hormonale prolongée au cours de la vie.</li>
+            <li>Surpoids après la ménopause.</li>
+            <li>Consommation d’alcool.</li>
+            <li>Antécédent d’irradiation thoracique.</li>
+            <li>Sédentarité et tabagisme parmi les facteurs associés au risque.</li>
+          </ul>
+        </div>
+
+        <div class="mini-box">
+          <h3>Diagnostic</h3>
+          <ul>
+            <li>Examen clinique des seins et des aires ganglionnaires.</li>
+            <li>Mammographie.</li>
+            <li>Échographie mammaire selon le contexte.</li>
+            <li>IRM dans certains cas.</li>
+            <li>Biopsie pour confirmer la nature de la lésion.</li>
+            <li>Analyse de la tumeur pour préciser son type et guider le traitement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Traitements possibles</h3>
+      <p>
+        Le traitement dépend du type de tumeur, de sa taille, de l’atteinte éventuelle des ganglions, de la présence
+        ou non de métastases et des caractéristiques biologiques de la tumeur.
+      </p>
+      <ul>
+        <li><strong>Chirurgie</strong> : tumorectomie ou mastectomie selon les cas.</li>
+        <li><strong>Chirurgie ganglionnaire</strong> : ganglion sentinelle ou curage axillaire si nécessaire.</li>
+        <li><strong>Radiothérapie</strong> : souvent proposée après chirurgie conservatrice, parfois après mastectomie.</li>
+        <li><strong>Chimiothérapie</strong> : avant ou après la chirurgie selon la situation.</li>
+        <li><strong>Hormonothérapie</strong> : pour les tumeurs hormono-sensibles.</li>
+        <li><strong>Thérapies ciblées</strong> : dans certaines formes, par exemple si des marqueurs particuliers sont présents.</li>
+        <li><strong>Soins de support</strong> : prise en charge de la douleur, fatigue, nutrition, soutien psychologique, kinésithérapie.</li>
+      </ul>
+
+      <h3>Remèdes et accompagnement</h3>
+      <p>
+        Il n’existe pas de remède maison capable de traiter un cancer du sein. En revanche, certaines mesures
+        d’accompagnement peuvent aider à mieux vivre les traitements :
+      </p>
+      <ul>
+        <li>Alimentation équilibrée adaptée à l’état général.</li>
+        <li>Activité physique régulière, selon tolérance médicale.</li>
+        <li>Soutien psychologique ou groupes de parole.</li>
+        <li>Prévention et traitement du lymphœdème si besoin.</li>
+        <li>Soins de la peau pendant certains traitements.</li>
+        <li>Discussion médicale avant toute prise de plantes, vitamines ou compléments.</li>
+      </ul>
+
+      <div class="warning">
+        Toute boule du sein, rétraction du mamelon, écoulement anormal ou changement de la peau doit conduire à
+        consulter sans tarder. Attendre est une mauvaise idée.
+      </div>
+
+      <p class="note">
+        Le dépistage organisé du cancer du sein s’adresse en France aux femmes de 50 à 74 ans sans autre facteur
+        de risque particulier, avec une mammographie tous les 2 ans.
       </p>
     </section>
 
     <section class="card" id="prevention">
-      <img src="/yourhealth/assets/img/cancer-prevention.jfif" alt="Prévention du cancer">
+      <img src="/yourhealth/assets/img/cancer-prevention.jfif" alt="Prévention du cancer" class="img-clickable" onclick="openModal(this)">
       <h2>Prévention</h2>
       <p>
         Une partie des cancers est liée à des facteurs modifiables. La prévention ne garantit pas d’éviter un cancer,
@@ -229,7 +489,7 @@
         <li><strong>Tabac</strong> : facteur majeur. Arrêter est la mesure la plus efficace.</li>
         <li><strong>Alcool</strong> : limiter au maximum.</li>
         <li><strong>Poids</strong> : viser un poids stable, éviter le surpoids prolongé.</li>
-        <li><strong>Alimentation</strong> : plus de fruits/légumes, fibres ; limiter ultra-transformés et charcuteries.</li>
+        <li><strong>Alimentation</strong> : plus de fruits et légumes, plus de fibres, moins d’ultra-transformés.</li>
         <li><strong>Activité physique</strong> : bouger régulièrement.</li>
         <li><strong>Soleil</strong> : protection solaire, éviter les brûlures et les UV artificiels.</li>
         <li><strong>Vaccins</strong> : HPV et hépatite B selon recommandations.</li>
@@ -238,7 +498,7 @@
     </section>
 
     <section class="card" id="quand-consulter">
-      <img src="/yourhealth/assets/img/cancer-consulter.jfif" alt="Quand consulter">
+      <img src="/yourhealth/assets/img/cancer-consulter.jfif" alt="Quand consulter" class="img-clickable" onclick="openModal(this)">
       <h2>Quand consulter rapidement</h2>
       <ul>
         <li>Saignement anormal persistant.</li>
@@ -246,12 +506,13 @@
         <li>Perte de poids inexpliquée, fatigue majeure durable.</li>
         <li>Toux persistante, essoufflement inhabituel, douleur durable.</li>
         <li>Modification suspecte d’un grain de beauté.</li>
+        <li>Boule dans le sein, écoulement du mamelon, rougeur ou rétraction du sein.</li>
       </ul>
     </section>
 
     <p class="note">
       Ces informations sont générales et ne remplacent pas un avis médical.
-      En cas de symptômes persistants, consulte un professionnel de santé.
+      En cas de symptôme persistant, de boule ou de doute, consulte un professionnel de santé.
     </p>
 
   </div>
@@ -262,6 +523,46 @@
     © 2026 — Fiches pathologies
   </div>
 </footer>
+
+<!-- Fenêtre modale pour afficher les images en grand -->
+<div id="imageModal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Fermer" onclick="closeModal()">&times;</button>
+    <img id="modalImage" src="" alt="Image agrandie">
+  </div>
+</div>
+
+<script>
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+
+  function openModal(img){
+    modalImage.src = img.src;
+    modalImage.alt = img.alt || 'Image agrandie';
+    imageModal.classList.add('open');
+    imageModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    imageModal.classList.remove('open');
+    imageModal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    document.body.style.overflow = '';
+  }
+
+  imageModal.addEventListener('click', function(e){
+    if(e.target === imageModal){
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && imageModal.classList.contains('open')){
+      closeModal();
+    }
+  });
+</script>
 
 </body>
 </html>
