@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Méningite virale et bactérienne : définition, symptômes, diagnostic, traitement, prévention, signes d’urgence et vaccination." />
+  <title>Méningite | Pathologie</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --txt:#eef2ff;
+      --muted:#b9c2d6;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --accent:#7dd3fc;
+      --danger:#f87171;
+      --border:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,var(--bg));
+      color:var(--txt);
+      line-height:1.7;
+    }
+
+    header{
+      padding:22px 16px;
+      border-bottom:1px solid var(--border);
+      background:rgba(7,11,20,.88);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+
+    .wrap{
+      width:min(1100px,92%);
+      margin:auto;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      font-size:1.05rem;
+      letter-spacing:.2px;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:var(--txt);
+      text-decoration:none;
+      padding:10px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      font-size:.95rem;
+    }
+
+    nav a:hover{
+      background:rgba(125,211,252,.10);
+    }
+
+    .hero{
+      padding:38px 0 20px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .hero-card,
+    .panel,
+    .alert-box,
+    .mini-card{
+      background:linear-gradient(180deg,rgba(18,27,46,.96),rgba(13,20,35,.98));
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .hero-card{
+      padding:28px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(1.9rem,4vw,3rem);
+      line-height:1.1;
+      color:#fff;
+    }
+
+    .hero p{
+      margin:0 0 16px;
+      color:var(--muted);
+    }
+
+    .badge{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(125,211,252,.14);
+      border:1px solid rgba(125,211,252,.22);
+      color:#dff4ff;
+      font-weight:700;
+      font-size:.92rem;
+    }
+
+    .hero-image{
+      width:100%;
+      border-radius:20px;
+      display:block;
+      border:1px solid var(--border);
+      object-fit:cover;
+      min-height:320px;
+      max-height:380px;
+      background:#0f172a;
+    }
+
+    .section{
+      padding:12px 0;
+    }
+
+    .section h2{
+      margin:0 0 14px;
+      font-size:1.55rem;
+      color:#fff;
+    }
+
+    .panel{
+      padding:22px;
+      margin:18px 0;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .mini-card{
+      padding:20px;
+    }
+
+    .mini-card h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      color:#fff;
+    }
+
+    .mini-card p,
+    .panel p{
+      margin:0 0 12px;
+      color:var(--muted);
+    }
+
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+    }
+
+    li{
+      margin:7px 0;
+      color:var(--muted);
+    }
+
+    .accent{
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .ok{
+      color:var(--green);
+      font-weight:700;
+    }
+
+    .warn{
+      color:var(--yellow);
+      font-weight:700;
+    }
+
+    .danger{
+      color:var(--danger);
+      font-weight:700;
+    }
+
+    .alert-box{
+      padding:22px;
+      border-left:6px solid var(--danger);
+      margin:18px 0;
+    }
+
+    .alert-box h3{
+      margin:0 0 10px;
+      color:#fff;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid var(--border);
+      border-radius:18px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:700px;
+      background:rgba(255,255,255,.02);
+    }
+
+    th,td{
+      padding:14px 14px;
+      border-bottom:1px solid var(--border);
+      text-align:left;
+      vertical-align:top;
+    }
+
+    th{
+      color:#fff;
+      background:rgba(125,211,252,.08);
+      font-size:.96rem;
+    }
+
+    td{
+      color:var(--muted);
+    }
+
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    .anchor-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .anchor-links a{
+      text-decoration:none;
+      color:#eaf6ff;
+      background:rgba(125,211,252,.10);
+      border:1px solid rgba(125,211,252,.18);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.94rem;
+    }
+
+    footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+      text-align:center;
+      font-size:.95rem;
+    }
+
+    @media (max-width:900px){
+      .hero-grid,
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .hero-image{
+        min-height:220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap topbar">
+      <a href="../index.html" class="brand">YourHealth</a>
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="#definition">Définition</a>
+        <a href="#symptomes">Symptômes</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#traitement">Traitement</a>
+        <a href="#prevention">Prévention</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <article class="hero-card">
+          <span class="badge">Méningite virale et bactérienne</span>
+          <h1>Méningite : reconnaître l’urgence, comprendre les différences</h1>
+          <p>
+            La méningite est une inflammation des méninges, les membranes qui entourent
+            le cerveau et la moelle épinière. Elle peut être <span class="accent">virale</span>,
+            souvent moins grave, ou <span class="danger">bactérienne</span>, beaucoup plus urgente.
+          </p>
+          <p>
+            Les signes classiques sont la fièvre, les maux de tête intenses, les vomissements,
+            la raideur de la nuque, la gêne à la lumière, une grande fatigue, parfois une confusion
+            ou des convulsions.
+          </p>
+          <p>
+            Une méningite bactérienne peut évoluer vite et mettre la vie en danger.
+            Il faut donc consulter immédiatement en cas de suspicion.
+          </p>
+
+          <div class="anchor-links">
+            <a href="#definition">Définition</a>
+            <a href="#symptomes">Symptômes</a>
+            <a href="#diagnostic">Diagnostic</a>
+            <a href="#traitement">Traitement</a>
+            <a href="#prevention">Prévention</a>
+          </div>
+        </article>
+
+        <div>
+          <img
+            src="../assets/img/meningite.jfif"
+            alt="Illustration de la méningite"
+            class="hero-image"
+            loading="lazy"
+            decoding="async"
+            onerror="this.onerror=null;this.src='../assets/img/default.jpg';"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="definition" class="section">
+      <div class="panel">
+        <h2>Définition</h2>
+        <p>
+          La méningite correspond à une inflammation des méninges.
+          Elle est le plus souvent d’origine infectieuse.
+        </p>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <h3>Méningite virale</h3>
+            <p>
+              Elle est généralement la forme la plus fréquente et le plus souvent la moins sévère.
+              Dans beaucoup de cas, la guérison survient sans séquelles majeures.
+            </p>
+            <ul>
+              <li>Souvent liée à un virus</li>
+              <li>Évolution souvent favorable</li>
+              <li>Les antibiotiques sont inutiles contre un virus</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Méningite bactérienne</h3>
+            <p>
+              C’est une urgence médicale.
+              Elle peut être causée notamment par le méningocoque, le pneumocoque
+              ou d’autres bactéries.
+            </p>
+            <ul>
+              <li>Évolution parfois très rapide</li>
+              <li>Risque de complications graves</li>
+              <li>Traitement antibiotique urgent</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="symptomes" class="section">
+      <div class="panel">
+        <h2>Symptômes</h2>
+
+        <div class="grid-3">
+          <div class="mini-card">
+            <h3>Signes fréquents</h3>
+            <ul>
+              <li>Fièvre</li>
+              <li>Maux de tête intenses</li>
+              <li>Vomissements</li>
+              <li>Raideur de la nuque</li>
+              <li>Photophobie</li>
+              <li>Grande fatigue</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Signes neurologiques possibles</h3>
+            <ul>
+              <li>Somnolence</li>
+              <li>Confusion</li>
+              <li>Difficulté à rester éveillé</li>
+              <li>Convulsions</li>
+              <li>Agitation inhabituelle</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Chez le nourrisson</h3>
+            <ul>
+              <li>Pleurs inhabituels</li>
+              <li>Refus de boire</li>
+              <li>Hypotonie ou raideur</li>
+              <li>Somnolence anormale</li>
+              <li>Bombement de la fontanelle</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert-box">
+          <h3>Urgence absolue</h3>
+          <p>
+            Il faut appeler les secours ou aller aux urgences en cas de fièvre avec raideur de nuque,
+            forte altération de l’état général, taches violacées sur la peau, confusion, convulsions,
+            ou aggravation rapide en quelques heures.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Différences entre méningite virale et bactérienne</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Point comparé</th>
+                <th>Méningite virale</th>
+                <th>Méningite bactérienne</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fréquence</td>
+                <td>Souvent plus fréquente</td>
+                <td>Moins fréquente, mais plus grave</td>
+              </tr>
+              <tr>
+                <td>Gravité</td>
+                <td>Souvent modérée</td>
+                <td>Urgence médicale</td>
+              </tr>
+              <tr>
+                <td>Traitement</td>
+                <td>Le plus souvent symptomatique</td>
+                <td>Antibiotiques urgents</td>
+              </tr>
+              <tr>
+                <td>Évolution</td>
+                <td>Souvent favorable</td>
+                <td>Risque de séquelles ou décès sans prise en charge rapide</td>
+              </tr>
+              <tr>
+                <td>Prévention</td>
+                <td>Hygiène, prudence selon le virus en cause</td>
+                <td>Vaccination pour certaines bactéries, prise en charge de l’entourage selon les cas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          Une éruption cutanée n’est pas systématique. Son absence n’élimine donc pas une méningite.
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostic" class="section">
+      <div class="panel">
+        <h2>Diagnostic</h2>
+        <p>
+          Le diagnostic repose sur l’examen clinique, l’état général du patient
+          et des examens hospitaliers rapides.
+        </p>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <h3>Examens utilisés</h3>
+            <ul>
+              <li>Examen médical</li>
+              <li>Prise de température et surveillance neurologique</li>
+              <li>Analyses sanguines</li>
+              <li>Ponction lombaire</li>
+              <li>Parfois imagerie selon le contexte</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Rôle de la ponction lombaire</h3>
+            <p>
+              La ponction lombaire permet d’analyser le liquide céphalo-rachidien.
+              C’est un examen central pour confirmer la méningite
+              et orienter vers une cause virale ou bactérienne.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="traitement" class="section">
+      <div class="panel">
+        <h2>Traitement</h2>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <h3>Méningite virale</h3>
+            <ul>
+              <li>Repos</li>
+              <li>Hydratation</li>
+              <li>Traitement de la fièvre et de la douleur</li>
+              <li>Surveillance médicale</li>
+              <li>Antiviraux seulement dans certaines formes graves particulières</li>
+            </ul>
+            <p><span class="ok">Important :</span> les antibiotiques ne traitent pas une infection virale.</p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Méningite bactérienne</h3>
+            <ul>
+              <li>Hospitalisation urgente</li>
+              <li>Antibiothérapie rapide</li>
+              <li>Surveillance étroite</li>
+              <li>Traitement des complications si besoin</li>
+              <li>Mesures autour des proches selon la bactérie en cause</li>
+            </ul>
+            <p><span class="danger">Important :</span> chaque heure compte.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          Ne jamais s’automédiquer avec des antibiotiques restants.
+          Un antibiotique mal choisi peut retarder la vraie prise en charge.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Complications possibles</h2>
+
+        <div class="grid-3">
+          <div class="mini-card">
+            <h3>Complications neurologiques</h3>
+            <ul>
+              <li>Convulsions</li>
+              <li>Troubles de conscience</li>
+              <li>Séquelles neurologiques</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Complications sensorielles</h3>
+            <ul>
+              <li>Baisse de l’audition</li>
+              <li>Troubles visuels dans certains cas</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Complications générales</h3>
+            <ul>
+              <li>Septicémie</li>
+              <li>Défaillance d’organes</li>
+              <li>Décès dans les formes graves non traitées rapidement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prevention" class="section">
+      <div class="panel">
+        <h2>Prévention</h2>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <h3>Prévention générale</h3>
+            <ul>
+              <li>Lavage régulier des mains</li>
+              <li>Éviter le partage d’objets en cas d’infection</li>
+              <li>Consulter vite en cas de symptômes inquiétants</li>
+              <li>Protéger les nourrissons et personnes fragiles</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Vaccination</h3>
+            <ul>
+              <li>Certains vaccins protègent contre des bactéries responsables de méningites</li>
+              <li>Notamment contre certains méningocoques</li>
+              <li>Mais aussi contre d’autres bactéries selon le calendrier vaccinal</li>
+              <li>Vérifier que les vaccins sont à jour</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert-box">
+          <h3>Autour d’un cas confirmé</h3>
+          <p>
+            Dans certaines méningites bactériennes, des mesures sont prises pour l’entourage :
+            traitement préventif, surveillance, parfois vaccination ou consignes spécifiques.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Quand consulter immédiatement</h2>
+        <ul>
+          <li>Fièvre élevée avec mal de tête brutal</li>
+          <li>Raideur de la nuque</li>
+          <li>Vomissements répétés</li>
+          <li>Gêne à la lumière</li>
+          <li>Confusion, somnolence, convulsions</li>
+          <li>Taches violacées ou marbrures</li>
+          <li>Nourrisson anormalement mou, très irritable ou difficile à réveiller</li>
+        </ul>
+
+        <div class="note">
+          Cette page informe, mais ne remplace pas une consultation.
+          En cas de doute, il faut considérer la méningite comme une urgence.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Page d’information générale. Ne remplace pas un avis médical.</p>
+  </footer>
+
+</body>
+</html>
