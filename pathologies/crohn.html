@@ -77,6 +77,43 @@
       box-shadow:var(--shadow);
     }
 
+    .crohn-intro{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .crohn-intro .card{
+      flex:1 1 620px;
+    }
+
+    .crohn-image{
+      flex:0 1 340px;
+      text-align:right;
+    }
+
+    .crohn-image img{
+      width:100%;
+      max-width:340px;
+      height:auto;
+      display:block;
+      margin-left:auto;
+      border-radius:18px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      object-fit:cover;
+    }
+
+    .crohn-image figcaption{
+      margin-top:10px;
+      font-size:0.92rem;
+      color:var(--muted);
+      text-align:right;
+    }
+
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
@@ -170,6 +207,23 @@
       .card{
         padding:18px;
       }
+
+      .crohn-intro{
+        gap:18px;
+      }
+
+      .crohn-image{
+        flex:1 1 100%;
+        text-align:center;
+      }
+
+      .crohn-image img{
+        margin:0 auto;
+      }
+
+      .crohn-image figcaption{
+        text-align:center;
+      }
     }
   </style>
 </head>
@@ -192,7 +246,7 @@
       et préserver une bonne qualité de vie.
     </div>
 
-    <section class="grid">
+    <section class="crohn-intro">
       <article class="card">
         <h2>Explication</h2>
         <p>
@@ -205,6 +259,13 @@
         </p>
       </article>
 
+      <figure class="crohn-image">
+        <img src="assets/img/crohn-douleurs-ventre.jfif" alt="Douleurs au ventre liées à la maladie de Crohn" />
+        <figcaption>Illustration : douleurs abdominales associées à la maladie de Crohn.</figcaption>
+      </figure>
+    </section>
+
+    <section class="grid">
       <article class="card">
         <h2>Symptômes fréquents</h2>
         <ul>
