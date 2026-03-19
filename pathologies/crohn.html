@@ -40,6 +40,52 @@
       line-height:1.7;
     }
 
+    .topnav{
+      background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .topnav-inner{
+      width:min(100%, var(--max));
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .site-title{
+      color:#ffffff;
+      font-size:1.05rem;
+      font-weight:bold;
+      letter-spacing:0.2px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#ffffff;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:bold;
+      transition:background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover{
+      background:rgba(255,255,255,0.14);
+      transform:translateY(-1px);
+    }
+
     .crohn-page{
       width:min(100%, var(--max));
       margin:auto;
@@ -224,10 +270,30 @@
       .crohn-image figcaption{
         text-align:center;
       }
+
+      .topnav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        width:100%;
+      }
     }
   </style>
 </head>
 <body>
+
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <div class="site-title">Guide santé</div>
+      <div class="nav-links">
+        <a href="../index.html">Accueil</a>
+        <a href="../ressources.html">Ressources</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
 
   <main class="crohn-page">
 
@@ -410,9 +476,10 @@
       </ul>
     </section>
 
-    <div class="footer-note">
-      Cette page est informative et ne remplace pas un avis médical.
+    <div class="footer-note">    
       En cas de symptômes persistants ou inquiétants, il faut consulter un professionnel de santé.
+	  Avertissement : informations générales, ne remplace pas un avis médical.
+	  Auteur : Site développé par Hocine Korichi, ingénieur physicien et informaticien.
     </div>
 
   </main>
