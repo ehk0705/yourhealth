@@ -7,30 +7,35 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#121b2e;
-      --txt:#eef2ff;
-      --muted:#b9c2d6;
-      --accent:#7dd3fc;
-      --border:rgba(255,255,255,.12);
+      --bg:#eef4f8;
+      --bg-soft:#f8fbfd;
+      --card:#ffffff;
+      --txt:#1f2a37;
+      --muted:#4b5b6b;
+      --accent:#2f9fd8;
+      --border:rgba(31,42,55,.14);
+      --shadow:0 10px 24px rgba(31,42,55,.08);
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14,var(--bg));
+      background:linear-gradient(180deg,#f9fcfe,var(--bg));
       color:var(--txt);
       line-height:1.55;
     }
 
     header{
       border-bottom:1px solid var(--border);
-      background:rgba(0,0,0,.25);
+      background:rgba(255,255,255,.88);
       backdrop-filter:blur(6px);
       position:sticky;
       top:0;
       z-index:10;
     }
+
     .topbar{
       max-width:1000px;
       margin:auto;
@@ -40,11 +45,13 @@
       gap:10px;
       align-items:center;
     }
+
     nav{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
     }
+
     nav a{
       color:var(--txt);
       text-decoration:none;
@@ -52,63 +59,184 @@
       border:1px solid var(--border);
       border-radius:12px;
       transition:.2s ease;
-    }
-    nav a:hover{
-      border-color:rgba(125,211,252,.55);
-      background:rgba(125,211,252,.08);
+      background:#ffffff;
     }
 
-    .wrap{max-width:1000px;margin:auto;padding:18px}
+    nav a:hover{
+      border-color:rgba(47,159,216,.45);
+      background:rgba(47,159,216,.08);
+    }
+
+    .wrap{
+      max-width:1000px;
+      margin:auto;
+      padding:18px;
+    }
+
     .card{
-      background:rgba(18,27,46,.9);
+      background:var(--card);
       border:1px solid var(--border);
       border-radius:14px;
       padding:16px;
       margin:14px 0;
-      box-shadow:0 10px 22px rgba(0,0,0,.35);
+      box-shadow:var(--shadow);
     }
-    h1{margin:0 0 6px;font-size:28px}
-    h2{margin:18px 0 8px;font-size:18px;color:#cfe9ff}
-    h3{margin:14px 0 8px;font-size:15px;color:#cfe9ff}
-    p{margin:8px 0;color:var(--muted)}
-    .note{font-size:13px;color:var(--muted)}
+
+    h1{
+      margin:0 0 6px;
+      font-size:28px;
+      color:#102030;
+    }
+
+    h2{
+      margin:18px 0 8px;
+      font-size:18px;
+      color:#1c5d85;
+    }
+
+    h3{
+      margin:14px 0 8px;
+      font-size:15px;
+      color:#1c5d85;
+    }
+
+    p{
+      margin:8px 0;
+      color:var(--muted);
+    }
+
+    .note{
+      font-size:13px;
+      color:var(--muted);
+    }
+
     .pill{
       display:inline-block;
       padding:4px 10px;
       border-radius:999px;
-      background:rgba(125,211,252,.12);
-      border:1px solid rgba(125,211,252,.25);
-      color:#dff3ff;
+      background:rgba(47,159,216,.10);
+      border:1px solid rgba(47,159,216,.25);
+      color:#15577d;
       font-size:12px;
       margin-right:8px;
     }
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    th,td{border:1px solid var(--border);padding:10px;vertical-align:top}
-    th{background:rgba(255,255,255,.04);text-align:left}
-    ul{margin:8px 0 8px 18px;color:var(--muted)}
-    .warn{color:#ffd6a6}
-    .good{color:#b7f7c6}
-    .bad{color:#ffb4b4}
-    .grid{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
-    .hr{height:1px;background:var(--border);margin:12px 0}
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      background:#ffffff;
+    }
+
+    th,td{
+      border:1px solid var(--border);
+      padding:10px;
+      vertical-align:top;
+    }
+
+    th{
+      background:#f2f7fb;
+      text-align:left;
+      color:#17384d;
+    }
+
+    ul{
+      margin:8px 0 8px 18px;
+      color:var(--muted);
+    }
+
+    .warn{color:#a15c00}
+    .good{color:#1f7a38}
+    .bad{color:#b42318}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    @media(min-width:900px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    .hr{
+      height:1px;
+      background:var(--border);
+      margin:12px 0;
+    }
+
     .mini-nav{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
       margin-top:10px;
     }
+
     .mini-nav a{
       font-size:13px;
-      color:#dff3ff;
+      color:#15577d;
       text-decoration:none;
       padding:5px 9px;
       border-radius:999px;
-      border:1px solid rgba(125,211,252,.22);
-      background:rgba(125,211,252,.08);
+      border:1px solid rgba(47,159,216,.22);
+      background:rgba(47,159,216,.08);
     }
+
     .mini-nav a:hover{
-      background:rgba(125,211,252,.14);
+      background:rgba(47,159,216,.14);
+    }
+
+    .hero-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1 1 580px;
+      min-width:280px;
+    }
+
+    .hero-image{
+      flex:0 0 220px;
+      text-align:right;
+    }
+
+    .hero-image img{
+      width:220px;
+      max-width:100%;
+      height:auto;
+      display:inline-block;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow:0 8px 18px rgba(31,42,55,.12);
+      object-fit:cover;
+      background:#fff;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-top:2px;
+      margin-bottom:8px;
+      color:#4a6478;
+      font-size:14px;
+    }
+
+    @media(max-width:700px){
+      .hero-head{
+        flex-direction:column;
+      }
+
+      .hero-image{
+        text-align:left;
+      }
+
+      .hero-image img{
+        width:100%;
+        max-width:320px;
+      }
     }
   </style>
 </head>
@@ -128,15 +256,23 @@
   <main class="wrap">
 
     <div class="card">
-      <h1>Santé et alimentation — Bilan annuel</h1>
-	   <span class="eyebrow">Auteur : Hocine Korichi, MSc en sciences (génie informatique et génie physique)</span>
-      <p>
-        Objectif : dépister tôt les facteurs de risque comme le diabète, l’insuffisance rénale, les maladies cardiovasculaires, l’atteinte du foie et certains cancers fréquents.
-      </p>
-      <p class="note">
-        <span class="pill">Important</span>
-        Les seuils ci-dessous sont des repères. Les bornes exactes peuvent changer selon les laboratoires, l’âge, le sexe et le contexte médical.
-      </p>
+      <div class="hero-head">
+        <div class="hero-text">
+          <h1>Santé et alimentation — Bilan annuel</h1>
+          <span class="eyebrow">Auteur : Hocine Korichi, MSc en sciences (génie informatique et génie physique)</span>
+          <p>
+            Objectif : dépister tôt les facteurs de risque comme le diabète, l’insuffisance rénale, les maladies cardiovasculaires, l’atteinte du foie et certains cancers fréquents.
+          </p>
+          <p class="note">
+            <span class="pill">Important</span>
+            Les seuils ci-dessous sont des repères. Les bornes exactes peuvent changer selon les laboratoires, l’âge, le sexe et le contexte médical.
+          </p>
+        </div>
+
+        <div class="hero-image">
+          <img src="assets/img/bilan-sante-annuel.jfif" alt="Illustration bilan de santé annuel">
+        </div>
+      </div>
 
       <div class="mini-nav">
         <a href="#analyses-annuelles">Analyses annuelles</a>
