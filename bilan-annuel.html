@@ -23,11 +23,13 @@
       line-height:1.55;
     }
 
-    /* Menu navigation en haut */
     header{
       border-bottom:1px solid var(--border);
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(6px);
+      position:sticky;
+      top:0;
+      z-index:10;
     }
     .topbar{
       max-width:1000px;
@@ -49,8 +51,12 @@
       padding:6px 10px;
       border:1px solid var(--border);
       border-radius:12px;
+      transition:.2s ease;
     }
-    nav a:hover{border-color:rgba(125,211,252,.55)}
+    nav a:hover{
+      border-color:rgba(125,211,252,.55);
+      background:rgba(125,211,252,.08);
+    }
 
     .wrap{max-width:1000px;margin:auto;padding:18px}
     .card{
@@ -86,6 +92,24 @@
     .grid{display:grid;grid-template-columns:1fr;gap:12px}
     @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
     .hr{height:1px;background:var(--border);margin:12px 0}
+    .mini-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .mini-nav a{
+      font-size:13px;
+      color:#dff3ff;
+      text-decoration:none;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid rgba(125,211,252,.22);
+      background:rgba(125,211,252,.08);
+    }
+    .mini-nav a:hover{
+      background:rgba(125,211,252,.14);
+    }
   </style>
 </head>
 
@@ -106,28 +130,39 @@
     <div class="card">
       <h1>Santé et alimentation — Bilan annuel</h1>
       <p>
-        Objectif : dépister tôt les facteurs de risque (diabète, insuffisance rénale, maladies cardiovasculaires, atteinte du foie).
+        Objectif : dépister tôt les facteurs de risque comme le diabète, l’insuffisance rénale, les maladies cardiovasculaires, l’atteinte du foie et certains cancers fréquents.
       </p>
       <p class="note">
         <span class="pill">Important</span>
         Les seuils ci-dessous sont des repères. Les bornes exactes peuvent changer selon les laboratoires, l’âge, le sexe et le contexte médical.
       </p>
+
+      <div class="mini-nav">
+        <a href="#analyses-annuelles">Analyses annuelles</a>
+        <a href="#valeurs-reference">Valeurs de référence</a>
+        <a href="#hepatites">Hépatites</a>
+        <a href="#echographie">Échographie</a>
+        <a href="#colon-rectum">Cancer colorectal</a>
+        <a href="#prostate">Prostate</a>
+        <a href="#psa-theme">PSA / thème spécial</a>
+        <a href="#conseils">Conseils</a>
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="analyses-annuelles">
       <h2>1) Analyses souvent utiles chaque année</h2>
       <ul>
-        <li>Glycémie à jeun (et parfois HbA1c selon le profil).</li>
+        <li>Glycémie à jeun, et parfois HbA1c selon le profil.</li>
         <li>Profil lipidique : cholestérol total, LDL, HDL, triglycérides.</li>
         <li>Fonction rénale : créatinine + estimation du DFG (eGFR).</li>
         <li>Bilan hépatique : ALAT (ALT), ASAT (AST), GGT, phosphatases alcalines (PAL/ALP), bilirubine.</li>
       </ul>
       <p class="note">
-        D’autres examens peuvent être ajoutés selon l’âge et les facteurs de risque (tension artérielle, poids/IMC, albuminurie, etc.).
+        D’autres examens peuvent être ajoutés selon l’âge et les facteurs de risque : tension artérielle, poids, tour de taille, albuminurie, vitamine B12, TSH, etc.
       </p>
     </div>
 
-    <div class="card">
+    <div class="card" id="valeurs-reference">
       <h2>2) Valeurs de référence : normal / limite / anormal</h2>
 
       <h3>2.1 Glycémie à jeun</h3>
@@ -154,7 +189,7 @@
 
       <h3>2.2 HbA1c (hémoglobine glyquée)</h3>
       <p class="note">
-        Utile pour estimer la moyenne de glycémie sur ~2–3 mois. Le dépistage dépend du contexte.
+        Utile pour estimer la moyenne de glycémie sur environ 2 à 3 mois.
       </p>
       <table>
         <thead>
@@ -198,13 +233,13 @@
             <td>LDL (mauvais cholestérol)</td>
             <td class="good">&lt; 100 mg/dL (&lt; 2,6 mmol/L)</td>
             <td class="warn">100–159 mg/dL</td>
-            <td class="bad">≥ 160 mg/dL (plus haut = plus de risque)</td>
+            <td class="bad">≥ 160 mg/dL</td>
           </tr>
           <tr>
             <td>HDL (bon cholestérol)</td>
             <td class="good">≥ 60 mg/dL (≥ 1,6 mmol/L)</td>
             <td class="warn">40–59 mg/dL</td>
-            <td class="bad">&lt; 40 mg/dL (protecteur insuffisant)</td>
+            <td class="bad">&lt; 40 mg/dL</td>
           </tr>
           <tr>
             <td>Triglycérides</td>
@@ -219,7 +254,7 @@
 
       <h3>2.4 Fonction rénale : créatinine et eGFR</h3>
       <p class="note">
-        La créatinine dépend du sexe et de la masse musculaire. L’eGFR (DFG estimé) aide à classer la fonction rénale.
+        La créatinine dépend du sexe et de la masse musculaire. L’eGFR aide à classer la fonction rénale.
       </p>
       <div class="grid">
         <div class="card" style="margin:0">
@@ -243,7 +278,7 @@
             </tbody>
           </table>
           <p class="note">
-            <span class="warn">À surveiller</span> : une créatinine au-dessus des bornes usuelles suggère souvent une baisse du DFG.
+            Une créatinine au-dessus des bornes usuelles peut suggérer une baisse du DFG.
           </p>
         </div>
 
@@ -261,7 +296,7 @@
               <tr>
                 <td class="good">G1</td>
                 <td class="good">≥ 90</td>
-                <td>Normal/élevé (si pas d’autre signe rénal)</td>
+                <td>Normal ou élevé</td>
               </tr>
               <tr>
                 <td class="warn">G2</td>
@@ -297,7 +332,7 @@
 
       <h3>2.5 Foie : bilan hépatique (repères adultes)</h3>
       <p class="note">
-        Les unités et les bornes peuvent varier. Voici des repères courants.
+        Les unités et les bornes peuvent varier selon les laboratoires.
       </p>
       <table>
         <thead>
@@ -321,12 +356,12 @@
           <tr>
             <td>GGT</td>
             <td class="good">0–50 UI/L</td>
-            <td class="warn">Souvent augmenté avec alcool, cholestase, certains médicaments</td>
+            <td class="warn">Peut augmenter avec alcool, cholestase, certains médicaments</td>
           </tr>
           <tr>
             <td>Phosphatases alcalines (PAL/ALP)</td>
             <td class="good">≈ 25–115 UI/L</td>
-            <td class="warn">Augmentation : foie/voies biliaires ou os (selon contexte)</td>
+            <td class="warn">Augmentation : foie, voies biliaires ou os</td>
           </tr>
           <tr>
             <td>Bilirubine totale</td>
@@ -337,114 +372,243 @@
       </table>
     </div>
 
-    <div class="card">
+    <div class="card" id="hepatites">
       <h2>3) Hépatites : quels tests et comment lire “normal / anormal”</h2>
       <p>
-        Les tests d’hépatite sont souvent <strong>qualitatifs</strong> (positif / négatif).
-        Le dépistage dépend du risque (antécédents, exposition au sang, etc.).
+        Les tests d’hépatite sont souvent <strong>qualitatifs</strong> : positif ou négatif.
+        Le dépistage dépend du risque : exposition au sang, transfusion ancienne, certains voyages, partage de matériel, etc.
       </p>
 
-      <h3>Hépatite B (exemples de marqueurs)</h3>
+      <h3>Hépatite B : exemples de marqueurs</h3>
       <ul>
-        <li><strong>HBsAg</strong> : positif = infection en cours (aiguë ou chronique).</li>
-        <li><strong>Anti-HBs</strong> : positif = immunité (vaccination ou guérison).</li>
+        <li><strong>HBsAg</strong> : positif = infection en cours.</li>
+        <li><strong>Anti-HBs</strong> : positif = immunité après vaccin ou ancienne infection guérie.</li>
         <li><strong>Anti-HBc</strong> : témoigne d’un contact antérieur avec le virus.</li>
       </ul>
 
       <p class="note">
-        Pour une interprétation fiable, il faut lire le panel complet avec un professionnel (les combinaisons ont des sens différents).
+        Il faut lire l’ensemble du bilan, pas un seul marqueur isolé.
       </p>
     </div>
 
-    <div class="card">
+    <div class="card" id="echographie">
       <h2>4) Échographie de l’abdomen et des reins</h2>
 
       <p class="warn">
-        Faire une échographie de l’abdomen et des reins “tous les ans” chez une personne sans symptômes ni facteur de risque
-        est souvent une mauvaise idée : ce n’est pas un dépistage systématique standard.
+        Faire une échographie de l’abdomen et des reins tous les ans chez une personne sans symptôme ni facteur de risque n’est généralement pas un bon réflexe.
       </p>
 
-      <h3>Quand elle est pertinente (exemples)</h3>
+      <h3>Quand elle est pertinente</h3>
       <ul>
-        <li>Douleurs abdominales, anomalies biologiques hépatiques persistantes.</li>
-        <li>Suspicion de stéatose hépatique, calculs biliaires, masses.</li>
-        <li>Douleurs lombaires, sang dans les urines, infections urinaires récidivantes.</li>
-        <li>Suivi d’une pathologie déjà connue (foie, vésicule, reins).</li>
+        <li>Douleurs abdominales ou anomalies persistantes du bilan hépatique.</li>
+        <li>Suspicion de stéatose hépatique, calculs biliaires, masse ou kyste.</li>
+        <li>Douleurs lombaires, sang dans les urines, infections urinaires répétées.</li>
+        <li>Suivi d’une maladie déjà connue du foie, de la vésicule ou des reins.</li>
       </ul>
 
-      <h3>Cas particulier : dépistage anévrysme de l’aorte abdominale (AAA)</h3>
+      <h3>Cas particulier : anévrysme de l’aorte abdominale</h3>
       <ul>
-        <li>Dépistage <strong>une seule fois</strong> par échographie chez les hommes 65–75 ans ayant fumé (selon recommandations).</li>
+        <li>Le dépistage peut être proposé une seule fois par échographie chez certains hommes de 65 à 75 ans ayant fumé.</li>
       </ul>
 
       <p class="note">
-        Conclusion pratique : l’échographie est surtout un examen “orienté” par des symptômes, des facteurs de risque ou des anomalies d’analyses.
+        L’échographie est surtout un examen orienté par des symptômes ou des facteurs de risque.
       </p>
     </div>
 
-    <div class="card">
+    <div class="card" id="colon-rectum">
       <h2>5) Dépistage du cancer colorectal (côlon et rectum)</h2>
 
       <p>
         Ce dépistage vise surtout les personnes <strong>sans symptôme</strong> et à <strong>risque moyen</strong>.
-        Les règles exactes varient selon le pays et le programme local.
       </p>
 
-      <h3>5.1 Test dans les selles (le plus courant en population générale)</h3>
+      <h3>5.1 Test dans les selles</h3>
       <ul>
-        <li><strong>Test immunochimique fécal</strong> (recherche de sang occulte) : souvent proposé entre <strong>50 et 74 ans</strong>, en général <strong>tous les 2 ans</strong> dans plusieurs programmes au Canada. :contentReference[oaicite:0]{index=0}</li>
-        <li>Dans d’autres recommandations, le dépistage peut commencer à <strong>45 ans</strong> (selon contexte). :contentReference[oaicite:1]{index=1}</li>
+        <li><strong>Test immunochimique fécal</strong> : souvent proposé entre <strong>50 et 74 ans</strong>, en général <strong>tous les 2 ans</strong> selon plusieurs programmes.</li>
+        <li>Dans certains contextes, le dépistage peut commencer plus tôt, par exemple à <strong>45 ans</strong>.</li>
       </ul>
       <p class="note">
-        Si le test est <strong>positif</strong>, il faut habituellement une <strong>coloscopie</strong> pour vérifier (ce test ne “diagnostique” pas, il sélectionne les personnes à explorer). :contentReference[oaicite:2]{index=2}
+        Si le test est positif, une coloscopie est habituellement nécessaire.
       </p>
 
-      <h3>5.2 Quand ne pas suivre le “schéma standard”</h3>
+      <h3>5.2 Quand sortir du schéma standard</h3>
       <ul>
-        <li><strong>Risque plus élevé</strong> (antécédents familiaux de cancer colorectal, polypes à risque, maladies inflammatoires de l’intestin, etc.) : début plus tôt et stratégie personnalisée (souvent coloscopie). :contentReference[oaicite:3]{index=3}</li>
-        <li><strong>Symptômes</strong> (sang dans les selles, changement durable du transit, amaigrissement inexpliqué, douleurs abdominales persistantes, anémie) : ce n’est plus un “dépistage”, il faut consulter. :contentReference[oaicite:4]{index=4}</li>
+        <li><strong>Risque élevé</strong> : antécédents familiaux, polypes avancés, maladies inflammatoires intestinales.</li>
+        <li><strong>Symptômes</strong> : sang dans les selles, changement durable du transit, amaigrissement, douleurs persistantes, anémie.</li>
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card" id="prostate">
       <h2>6) Dépistage du cancer de la prostate</h2>
 
       <p class="warn">
-        Le dépistage par <strong>PSA</strong> n’est pas un automatisme : c’est un sujet où les recommandations divergent,
-        car il peut entraîner des diagnostics et traitements inutiles.
+        Le dépistage par <strong>PSA</strong> n’est pas automatique. Il peut aider dans certains cas, mais il peut aussi entraîner des examens inutiles.
       </p>
 
-      <h3>6.1 Approche “discussion avant test”</h3>
+      <h3>6.1 Discussion avant le test</h3>
       <ul>
-        <li>Chez les hommes <strong>55–69 ans</strong>, certaines recommandations estiment que le bénéfice du dépistage par PSA est <strong>faible</strong> et dépend des préférences (décision partagée). :contentReference[oaicite:5]{index=5}</li>
-        <li>Chez les hommes <strong>70 ans et plus</strong>, plusieurs recommandations déconseillent le dépistage systématique par PSA. :contentReference[oaicite:6]{index=6}</li>
-        <li>Le Groupe de travail canadien (2014) recommandait de <strong>ne pas</strong> dépister systématiquement par PSA, y compris 55–69 ans (recommandation faible) et ≥70 ans (forte). :contentReference[oaicite:7]{index=7}</li>
+        <li>Chez de nombreux hommes entre <strong>55 et 69 ans</strong>, la décision se prend au cas par cas.</li>
+        <li>Après <strong>70 ans</strong>, le dépistage systématique est souvent moins utile.</li>
+        <li>Le bénéfice n’est pas nul, mais il reste modeste et dépend du contexte personnel.</li>
       </ul>
 
-      <h3>6.2 Quand en parler plus tôt ou plus clairement</h3>
+      <h3>6.2 Quand en parler plus tôt</h3>
       <ul>
-        <li>Antécédents familiaux (père, frère) de cancer de la prostate, surtout si diagnostiqué jeune.</li>
-        <li>Symptômes urinaires nouveaux ou gênants (jet faible, levers nocturnes, brûlures, sang dans les urines) : là encore, ce n’est pas un “dépistage”, il faut consulter.</li>
+        <li>Antécédents familiaux : père ou frère atteint d’un cancer de la prostate.</li>
+        <li>Résultat antérieur déjà limite ou en hausse.</li>
+        <li>Symptômes urinaires récents ou gênants.</li>
       </ul>
 
-      <h3>6.3 À savoir sur le PSA</h3>
+      <h3>6.3 Ce qu’il faut savoir</h3>
       <ul>
-        <li>Un PSA élevé n’est <strong>pas</strong> synonyme de cancer (prostate volumineuse, inflammation, infection, etc.). :contentReference[oaicite:8]{index=8}</li>
-        <li>Un résultat “anormal” peut conduire à des examens (imagerie, biopsie) avec des effets indésirables possibles.</li>
+        <li>Un PSA élevé ne veut pas dire automatiquement cancer.</li>
+        <li>Une prostate volumineuse, une inflammation ou une infection peuvent aussi faire monter le PSA.</li>
+        <li>Le PSA est un signal d’alerte possible, pas un diagnostic.</li>
       </ul>
+
       <p class="note">
-        Conclusion pratique : le PSA se décide au cas par cas, après avoir pesé bénéfices et inconvénients avec un professionnel. :contentReference[oaicite:9]{index=9}
+        En pratique, le PSA est surtout utile quand on l’interprète avec l’âge, les symptômes, le toucher rectal si indiqué, et l’évolution dans le temps.
       </p>
     </div>
 
-    <div class="card">
-      <h2>7) Conseils simples pour rester dans les bonnes zones</h2>
+    <div class="card" id="psa-theme">
+      <h2>7) Nouveau thème : PSA et prostate</h2>
+
+      <p>
+        Le <strong>PSA</strong> signifie <strong>antigène prostatique spécifique</strong>. C’est une protéine fabriquée par la prostate et mesurée dans le sang.
+        Le test PSA peut être demandé dans deux situations différentes :
+      </p>
       <ul>
-        <li>Alimentation majoritairement peu transformée, riche en fibres.</li>
-        <li>Activité physique régulière (adaptée à l’âge et au niveau).</li>
+        <li><strong>dépistage</strong> chez un homme sans symptôme ;</li>
+        <li><strong>exploration</strong> d’un problème déjà présent, par exemple des troubles urinaires ou un suivi après un traitement.</li>
+      </ul>
+
+      <h3>7.1 Ce que mesure le PSA</h3>
+      <p>
+        Le taux de PSA augmente parfois quand la prostate est irritée, enflammée, augmentée de volume ou touchée par un cancer.
+        Le problème est simple : <strong>le test manque de précision</strong>. Il peut être élevé sans cancer, et parfois normal malgré un cancer.
+      </p>
+
+      <div class="hr"></div>
+
+      <h3>7.2 Repères simples du PSA total</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>PSA total</th>
+            <th>Lecture simple</th>
+            <th>Remarque</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="good">&lt; 4 ng/mL</td>
+            <td>Souvent rassurant</td>
+            <td>Mais ne supprime pas tout risque</td>
+          </tr>
+          <tr>
+            <td class="warn">4 à 10 ng/mL</td>
+            <td>Zone grise</td>
+            <td>Peut venir d’un adénome, d’une inflammation ou d’un cancer</td>
+          </tr>
+          <tr>
+            <td class="bad">&gt; 10 ng/mL</td>
+            <td>Plus inquiétant</td>
+            <td>Nécessite une évaluation plus sérieuse</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        Ces chiffres sont des repères simples. L’âge, le volume de la prostate et l’évolution du PSA comptent aussi.
+      </p>
+
+      <div class="hr"></div>
+
+      <h3>7.3 Causes fréquentes d’un PSA élevé sans cancer</h3>
+      <ul>
+        <li>Adénome de la prostate, très fréquent avec l’âge.</li>
+        <li>Prostatite, infection ou inflammation.</li>
+        <li>Manipulation récente de la prostate.</li>
+        <li>Éjaculation récente chez certains hommes.</li>
+        <li>Sonde urinaire, cystoscopie ou autre geste urologique.</li>
+        <li>Parfois effort intense ou irritation locale.</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h3>7.4 Symptômes liés à la prostate à ne pas banaliser</h3>
+      <ul>
+        <li>Jet urinaire faible ou haché.</li>
+        <li>Besoin d’uriner souvent, surtout la nuit.</li>
+        <li>Difficulté à commencer à uriner.</li>
+        <li>Brûlures urinaires.</li>
+        <li>Sang dans les urines ou dans le sperme.</li>
+        <li>Douleurs pelviennes ou osseuses persistantes.</li>
+      </ul>
+
+      <p class="note">
+        Ces signes ne veulent pas dire automatiquement cancer, mais ils justifient une consultation.
+      </p>
+
+      <div class="hr"></div>
+
+      <h3>7.5 Comment mieux interpréter un PSA</h3>
+      <div class="grid">
+        <div class="card" style="margin:0">
+          <h3>Le plus utile</h3>
+          <ul>
+            <li>Comparer avec les anciens résultats.</li>
+            <li>Regarder si le PSA monte vite ou lentement.</li>
+            <li>Tenir compte de l’âge.</li>
+            <li>Associer si besoin un examen clinique et une imagerie.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin:0">
+          <h3>Ce qui peut être demandé ensuite</h3>
+          <ul>
+            <li>Recontrôle du PSA après quelques semaines.</li>
+            <li>Analyse d’urine ou recherche d’infection.</li>
+            <li>PSA libre / PSA total dans certains cas.</li>
+            <li>IRM prostatique avant une éventuelle biopsie.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3>7.6 Avant une prise de sang PSA</h3>
+      <ul>
+        <li>Éviter de faire le test en pleine infection urinaire ou prostatique.</li>
+        <li>Éviter si possible juste après une manipulation urologique récente.</li>
+        <li>Prévenir le médecin en cas de symptômes, de traitement en cours ou de résultat antérieur élevé.</li>
+      </ul>
+
+      <h3>7.7 Ce qu’il ne faut pas faire</h3>
+      <ul>
+        <li>Se rassurer complètement avec un PSA normal.</li>
+        <li>Paniquer sur un seul résultat un peu élevé.</li>
+        <li>Comparer son chiffre à celui d’un autre homme sans contexte.</li>
+        <li>Décider seul qu’il faut une biopsie ou qu’il ne faut rien faire.</li>
+      </ul>
+
+      <h3>7.8 Conclusion pratique sur le PSA</h3>
+      <p>
+        Le PSA est un outil utile, mais imparfait. Il ne faut ni le sacraliser, ni le rejeter.
+        Un bon raisonnement consiste à regarder <strong>le contexte, l’âge, les symptômes, les antécédents familiaux et l’évolution du taux</strong>.
+      </p>
+    </div>
+
+    <div class="card" id="conseils">
+      <h2>8) Conseils simples pour rester dans les bonnes zones</h2>
+      <ul>
+        <li>Alimentation peu transformée et riche en fibres.</li>
+        <li>Activité physique régulière, adaptée à l’âge.</li>
         <li>Sommeil suffisant et gestion du stress.</li>
-        <li>Limiter alcool, tabac, boissons sucrées, excès de sel.</li>
-        <li>Revoir le médecin si un indicateur sort des limites, plutôt que “surveiller seul”.</li>
+        <li>Limiter alcool, tabac, boissons sucrées et excès de sel.</li>
+        <li>Consulter si un indicateur sort des limites ou évolue dans le mauvais sens.</li>
       </ul>
     </div>
 
