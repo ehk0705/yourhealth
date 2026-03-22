@@ -11,511 +11,560 @@
     <!-- Police -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
 
     <style>
-      :root{
-        --bg:#eef6fb;
-        --bg-2:#f9fcff;
-        --panel:rgba(255,255,255,.78);
-        --panel-strong:#ffffff;
-        --card:rgba(255,255,255,.90);
+      :root {
+        --bg: #eef6fb;
+        --bg-2: #f9fcff;
+        --panel: rgba(255, 255, 255, .78);
+        --panel-strong: #ffffff;
+        --card: rgba(255, 255, 255, .90);
 
-        --txt:#122033;
-        --muted:#526277;
+        --txt: #122033;
+        --muted: #526277;
 
-        --accent:#0ea5a8;
-        --accent-2:#2563eb;
-        --accent-3:#f97316;
-        --accent-4:#14b8a6;
+        --accent: #0ea5a8;
+        --accent-2: #2563eb;
+        --accent-3: #f97316;
+        --accent-4: #14b8a6;
 
-        --border:rgba(15,23,42,.10);
-        --border-strong:rgba(14,165,168,.22);
+        --border: rgba(15, 23, 42, .10);
+        --border-strong: rgba(14, 165, 168, .22);
 
-        --shadow:0 18px 50px rgba(15,23,42,.10);
-        --shadow-soft:0 10px 30px rgba(15,23,42,.07);
-        --shadow-hover:0 18px 42px rgba(15,23,42,.14);
+        --shadow: 0 18px 50px rgba(15, 23, 42, .10);
+        --shadow-soft: 0 10px 30px rgba(15, 23, 42, .07);
+        --shadow-hover: 0 18px 42px rgba(15, 23, 42, .14);
 
-        --radius:22px;
-        --radius-sm:14px;
-        --maxw:1160px;
+        --radius: 22px;
+        --radius-sm: 14px;
+        --maxw: 1160px;
       }
 
-      *{
-        box-sizing:border-box;
+      * {
+        box-sizing: border-box;
       }
 
-      html{
-        scroll-behavior:smooth;
+      html {
+        scroll-behavior: smooth;
       }
 
-      body{
-        margin:0;
-        font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-        color:var(--txt);
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--txt);
         background:
-          radial-gradient(900px 520px at 8% 8%, rgba(14,165,168,.16), transparent 60%),
-          radial-gradient(760px 460px at 92% 12%, rgba(37,99,235,.10), transparent 58%),
-          radial-gradient(700px 420px at 50% 100%, rgba(249,115,22,.08), transparent 60%),
+          radial-gradient(900px 520px at 8% 8%, rgba(14, 165, 168, .16), transparent 60%),
+          radial-gradient(760px 460px at 92% 12%, rgba(37, 99, 235, .10), transparent 58%),
+          radial-gradient(700px 420px at 50% 100%, rgba(249, 115, 22, .08), transparent 60%),
           linear-gradient(180deg, #f7fbff 0%, #eef6fb 48%, #f8fbfd 100%);
-        line-height:1.6;
+        line-height: 1.6;
       }
 
-      img{
-        max-width:100%;
+      img {
+        max-width: 100%;
       }
 
-      a{
-        color:var(--accent-2);
-        text-decoration:none;
-        transition:all .2s ease;
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+        transition: all .2s ease;
       }
 
-      a:hover{
-        opacity:.96;
+      a:hover {
+        opacity: .96;
       }
 
-      header.topbar{
-        position:sticky;
-        top:0;
-        z-index:50;
-        margin-bottom:0;
-        padding:14px 16px 8px;
-        background:linear-gradient(180deg, rgba(238,246,251,.88), rgba(238,246,251,.55));
-        backdrop-filter:blur(14px);
-        -webkit-backdrop-filter:blur(14px);
+      header.topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        margin-bottom: 0;
+        padding: 14px 16px 8px;
+        background: linear-gradient(180deg, rgba(238, 246, 251, .88), rgba(238, 246, 251, .55));
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
       }
 
-      .container{
-        max-width:var(--maxw);
-        margin-left:auto;
-        margin-right:auto;
-        padding-left:16px;
-        padding-right:16px;
+      .container {
+        max-width: var(--maxw);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .topbar__inner{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:18px;
-        padding:14px 18px;
-        border:1px solid rgba(255,255,255,.55);
-        background:rgba(255,255,255,.68);
-        box-shadow:var(--shadow-soft);
-        border-radius:20px;
+      .topbar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px 18px;
+        border: 1px solid rgba(255, 255, 255, .55);
+        background: rgba(255, 255, 255, .68);
+        box-shadow: var(--shadow-soft);
+        border-radius: 20px;
       }
 
-      .brand{
-        font-size:1.15rem;
-        font-weight:800;
-        letter-spacing:-0.02em;
-        color:#0f172a;
-        white-space:nowrap;
+      .brand {
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #0f172a;
+        white-space: nowrap;
       }
 
-      .nav{
-        display:flex;
-        align-items:center;
-        gap:8px;
-        flex-wrap:wrap;
-        justify-content:flex-end;
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
-      .nav a{
-        color:#164e63;
-        font-weight:600;
-        padding:10px 14px;
-        border-radius:999px;
-        background:rgba(255,255,255,.55);
-        border:1px solid transparent;
+      .nav a {
+        color: #164e63;
+        font-weight: 600;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .55);
+        border: 1px solid transparent;
       }
 
-      .nav a:hover{
-        transform:translateY(-1px);
-        background:rgba(14,165,168,.10);
-        border-color:rgba(14,165,168,.18);
+      .nav a:hover {
+        transform: translateY(-1px);
+        background: rgba(14, 165, 168, .10);
+        border-color: rgba(14, 165, 168, .18);
       }
 
-      main.container{
-        margin-top:0;
-        padding-top:10px;
-        padding-bottom:20px;
+      main.container {
+        margin-top: 0;
+        padding-top: 10px;
+        padding-bottom: 20px;
       }
 
-      .hero{
-        position:relative;
-        overflow:hidden;
+      .hero {
+        position: relative;
+        overflow: hidden;
         background:
-          linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.84)),
-          linear-gradient(135deg, rgba(14,165,168,.06), rgba(37,99,235,.06));
-        color:var(--txt);
-        border-radius:28px;
-        border:1px solid rgba(255,255,255,.55);
-        box-shadow:var(--shadow);
-        margin:0 0 24px 0;
-        padding:24px;
+          linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(255, 255, 255, .84)),
+          linear-gradient(135deg, rgba(14, 165, 168, .06), rgba(37, 99, 235, .06));
+        color: var(--txt);
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, .55);
+        box-shadow: var(--shadow);
+        margin: 0 0 24px 0;
+        padding: 24px;
       }
 
-      .hero::before{
-        content:"";
-        position:absolute;
-        inset:auto -120px -120px auto;
-        width:320px;
-        height:320px;
-        border-radius:50%;
-        background:radial-gradient(circle, rgba(14,165,168,.14), transparent 68%);
-        pointer-events:none;
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: auto -120px -120px auto;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(14, 165, 168, .14), transparent 68%);
+        pointer-events: none;
       }
 
-      .hero::after{
-        content:"";
-        position:absolute;
-        inset:-90px auto auto -90px;
-        width:260px;
-        height:260px;
-        border-radius:50%;
-        background:radial-gradient(circle, rgba(249,115,22,.10), transparent 68%);
-        pointer-events:none;
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: -90px auto auto -90px;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(249, 115, 22, .10), transparent 68%);
+        pointer-events: none;
       }
 
-      .hero-top{
-        position:relative;
-        z-index:1;
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap:24px;
+      .hero-top {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
       }
 
-      .hero-left{
-        flex:1;
-        text-align:center;
+      .hero-left {
+        flex: 1;
+        text-align: center;
       }
 
-      .hero__medic{
-        display:block;
-        margin:0 auto 16px;
-        max-width:190px;
-        border-radius:18px;
-        border:3px solid rgba(14,165,168,.25);
-        box-shadow:0 16px 34px rgba(15,23,42,.12);
-        background:#fff;
+      .hero__medic {
+        display: block;
+        margin: 0 auto 16px;
+        max-width: 190px;
+        border-radius: 18px;
+        border: 3px solid rgba(14, 165, 168, .25);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, .12);
+        background: #fff;
       }
 
-      .hero__text h1{
-        font-size:clamp(1.9rem, 3vw, 2.7rem);
-        color:#0f766e;
-        margin:0 0 14px;
-        line-height:1.12;
-        letter-spacing:-0.03em;
+      .hero__text h1 {
+        font-size: clamp(1.9rem, 3vw, 2.7rem);
+        color: #0f766e;
+        margin: 0 0 14px;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
       }
 
-      .hero__text .slogan{
-        display:inline-block;
-        margin:0 0 16px;
-        padding:12px 18px;
-        border-radius:999px;
-        border:1px solid rgba(14,165,168,.20);
-        background:linear-gradient(90deg, rgba(14,165,168,.12), rgba(249,115,22,.10));
-        color:#0f172a;
-        font-weight:800;
-        text-align:center;
-        box-shadow:0 8px 24px rgba(15,23,42,.05);
+      .hero__text .slogan {
+        display: inline-block;
+        margin: 0 0 16px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(14, 165, 168, .20);
+        background: linear-gradient(90deg, rgba(14, 165, 168, .12), rgba(249, 115, 22, .10));
+        color: #0f172a;
+        font-weight: 800;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, .05);
       }
 
-      .hero__text p{
-        font-size:15px;
-        color:var(--muted);
-        margin:0;
-        line-height:1.75;
-        text-align:left;
+      .hero__text p {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.75;
+        text-align: left;
       }
 
-      .hero__box-sante{
-        width:320px;
-        max-width:320px;
-        margin:0;
-        padding:18px 18px 16px;
-        font-size:13px;
-        color:var(--txt);
-        background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.88));
-        border-radius:20px;
-        border:1px solid rgba(14,165,168,.14);
-        border-left:6px solid var(--accent-3);
-        box-shadow:var(--shadow-soft);
-        text-align:left;
+      .hero__box-sante {
+        width: 320px;
+        max-width: 320px;
+        margin: 0;
+        padding: 18px 18px 16px;
+        font-size: 13px;
+        color: var(--txt);
+        background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88));
+        border-radius: 20px;
+        border: 1px solid rgba(14, 165, 168, .14);
+        border-left: 6px solid var(--accent-3);
+        box-shadow: var(--shadow-soft);
+        text-align: left;
       }
 
-      .hero__box-sante h4{
-        font-size:16px;
-        color:var(--accent-3);
-        margin:0 0 10px;
-        letter-spacing:-0.01em;
+      .hero__box-sante h4 {
+        font-size: 16px;
+        color: var(--accent-3);
+        margin: 0 0 10px;
+        letter-spacing: -0.01em;
       }
 
-      .hero__box-sante h5{
-        font-size:13px;
-        color:var(--accent);
-        margin:12px 0 6px;
-        text-transform:uppercase;
-        letter-spacing:.04em;
+      .hero__box-sante h5 {
+        font-size: 13px;
+        color: var(--accent);
+        margin: 12px 0 6px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
       }
 
-      .hero__box-sante ul{
-        margin:0;
-        padding-left:18px;
+      .hero__box-sante ul {
+        margin: 0;
+        padding-left: 18px;
       }
 
-      .hero__box-sante li{
-        margin-bottom:7px;
-        color:var(--muted);
+      .hero__box-sante li {
+        margin-bottom: 7px;
+        color: var(--muted);
       }
 
-      .container-pathologies{
-        margin-top:10px;
+      .hero-image-link {
+        display: inline-block;
+        cursor: pointer;
       }
 
-      h2{
-        margin:20px 0 12px;
-        color:#0f766e;
-        font-size:1.6rem;
-        letter-spacing:-0.02em;
+      .hero-image-link:hover {
+        transform: translateY(-2px);
       }
 
-      .patho-title{
-        text-align:center;
+      .hero-image-link img {
+        transition: transform .22s ease, box-shadow .22s ease;
       }
 
-      .cards-container{
-        display:flex;
-        flex-wrap:wrap;
-        gap:22px;
-        justify-content:center;
-        margin-top:22px;
+      .hero-image-link:hover img {
+        transform: scale(1.02);
+        box-shadow: 0 18px 38px rgba(15, 23, 42, .16);
+      }
+
+      .image-surveiller {
+        display: block;
+        margin: 24px auto 0;
+        width: min(88%, 760px);
+        max-width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 14px 30px rgba(15, 23, 42, .12);
+      }
+
+      .container-pathologies {
+        margin-top: 10px;
+      }
+
+      h2 {
+        margin: 20px 0 12px;
+        color: #0f766e;
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+      }
+
+      .patho-title {
+        text-align: center;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        justify-content: center;
+        margin-top: 22px;
       }
 
       .card-patho,
-      .card{
-        display:block;
-        width:220px;
-        text-align:center;
-        background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.88));
-        border:1px solid rgba(15,23,42,.08);
-        border-radius:20px;
-        overflow:hidden;
-        transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-        text-decoration:none;
-        box-shadow:0 10px 24px rgba(15,23,42,.06);
-        backdrop-filter:blur(8px);
-        -webkit-backdrop-filter:blur(8px);
+      .card {
+        display: block;
+        width: 220px;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88));
+        border: 1px solid rgba(15, 23, 42, .08);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+        text-decoration: none;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
 
-      .card{
-        padding:18px 16px 18px;
+      .card {
+        padding: 18px 16px 18px;
       }
 
-      .card-patho img{
-        width:100%;
-        height:150px;
-        object-fit:cover;
-        display:block;
-        background:#fff;
+      .card-patho img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+        background: #fff;
       }
 
       .card-patho h3,
-      .card h3{
-        margin:14px 10px 8px;
-        font-size:17px;
-        color:var(--accent-3);
-        line-height:1.3;
-        letter-spacing:-0.01em;
+      .card h3 {
+        margin: 14px 10px 8px;
+        font-size: 17px;
+        color: var(--accent-3);
+        line-height: 1.3;
+        letter-spacing: -0.01em;
       }
 
       .card-patho p,
-      .card p{
-        padding:0 12px 14px;
-        font-size:14px;
-        color:var(--muted);
-        margin:0;
-        line-height:1.5;
+      .card p {
+        padding: 0 12px 14px;
+        font-size: 14px;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.5;
       }
 
       .card:hover,
-      .card-patho:hover{
-        transform:translateY(-7px);
-        border-color:rgba(14,165,168,.28);
-        box-shadow:var(--shadow-hover);
+      .card-patho:hover {
+        transform: translateY(-7px);
+        border-color: rgba(14, 165, 168, .28);
+        box-shadow: var(--shadow-hover);
       }
 
       .chip,
       .card a[href],
-      .card-patho a[href]{
-        transition:all .2s ease;
+      .card-patho a[href] {
+        transition: all .2s ease;
       }
 
-      .chip{
-        display:inline-block;
-        margin:0 0 2px;
-        padding:10px 14px;
-        border-radius:999px;
-        background:linear-gradient(135deg, var(--accent), var(--accent-2));
-        color:#fff;
-        font-weight:700;
-        box-shadow:0 10px 20px rgba(37,99,235,.18);
+      .chip {
+        display: inline-block;
+        margin: 0 0 2px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, .18);
       }
 
-      .chip:hover{
-        transform:translateY(-1px);
-        opacity:1;
+      .chip:hover {
+        transform: translateY(-1px);
+        opacity: 1;
       }
 
       .container section,
       section.container,
-      section.ressources-sante{
-        background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.70));
-        border:1px solid rgba(255,255,255,.52);
-        border-radius:24px;
-        box-shadow:var(--shadow-soft);
-        padding:22px 22px 18px;
-        margin-top:22px;
+      section.ressources-sante {
+        background: linear-gradient(180deg, rgba(255, 255, 255, .78), rgba(255, 255, 255, .70));
+        border: 1px solid rgba(255, 255, 255, .52);
+        border-radius: 24px;
+        box-shadow: var(--shadow-soft);
+        padding: 22px 22px 18px;
+        margin-top: 22px;
       }
 
       .container section p,
       section.container p,
-      section.ressources-sante p{
-        color:var(--muted);
+      section.ressources-sante p {
+        color: var(--muted);
       }
 
-      .ressources-sante ul{
-        margin:0;
-        padding-left:0;
-        list-style:none;
-        display:grid;
-        gap:12px;
+      .ressources-sante ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
       }
 
-      .ressources-sante li{
-        background:rgba(255,255,255,.78);
-        border:1px solid rgba(15,23,42,.07);
-        border-radius:16px;
-        padding:12px 14px;
-        box-shadow:0 6px 18px rgba(15,23,42,.04);
+      .ressources-sante li {
+        background: rgba(255, 255, 255, .78);
+        border: 1px solid rgba(15, 23, 42, .07);
+        border-radius: 16px;
+        padding: 12px 14px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, .04);
       }
 
-      .ressources-sante li a{
-        font-weight:600;
+      .ressources-sante li a {
+        font-weight: 600;
       }
 
-      footer.site-footer{
-        margin-top:30px;
-        padding:20px 18px 14px;
-        border:1px solid rgba(255,255,255,.55);
-        border-radius:24px;
-        background:linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.68));
-        box-shadow:var(--shadow-soft);
-        color:var(--muted);
-        font-size:13px;
-        text-align:center;
+      footer.site-footer {
+        margin-top: 30px;
+        padding: 20px 18px 14px;
+        border: 1px solid rgba(255, 255, 255, .55);
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, .80), rgba(255, 255, 255, .68));
+        box-shadow: var(--shadow-soft);
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
       }
 
-      footer.site-footer p{
-        margin:10px 0;
+      footer.site-footer p {
+        margin: 10px 0;
       }
 
-      .compteur-visites{
-        display:inline-block;
-        margin:12px auto 8px;
-        padding:12px 14px;
-        border:1px solid rgba(14,165,168,.14);
-        border-radius:16px;
-        background:rgba(255,255,255,.92);
-        box-shadow:0 10px 26px rgba(15,23,42,.06);
-        color:var(--txt);
-        min-width:220px;
+      .compteur-visites {
+        display: inline-block;
+        margin: 12px auto 8px;
+        padding: 12px 14px;
+        border: 1px solid rgba(14, 165, 168, .14);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, .92);
+        box-shadow: 0 10px 26px rgba(15, 23, 42, .06);
+        color: var(--txt);
+        min-width: 220px;
       }
 
-      .compteur-visites .label{
-        display:block;
-        color:var(--muted);
-        font-size:12px;
-        margin-bottom:7px;
-        letter-spacing:.03em;
-        text-transform:uppercase;
+      .compteur-visites .label {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 7px;
+        letter-spacing: .03em;
+        text-transform: uppercase;
       }
 
-      .compteur-visites #compteur-visites{
-        font-weight:700;
-        color:var(--txt);
+      .compteur-visites #compteur-visites {
+        font-weight: 700;
+        color: var(--txt);
       }
 
-      @media (max-width:980px){
-        .topbar__inner{
-          flex-direction:column;
-          align-items:flex-start;
+      @media (max-width: 980px) {
+        .topbar__inner {
+          flex-direction: column;
+          align-items: flex-start;
         }
 
-        .nav{
-          justify-content:flex-start;
+        .nav {
+          justify-content: flex-start;
         }
 
-        .hero-top{
-          flex-direction:column;
+        .hero-top {
+          flex-direction: column;
         }
 
-        .hero__box-sante{
-          width:100%;
-          max-width:100%;
+        .hero__box-sante {
+          width: 100%;
+          max-width: 100%;
         }
       }
 
-      @media (max-width:700px){
-        header.topbar{
-          padding:10px 10px 6px;
+      @media (max-width: 700px) {
+        header.topbar {
+          padding: 10px 10px 6px;
         }
 
-        .topbar__inner{
-          padding:14px;
-          border-radius:18px;
+        .topbar__inner {
+          padding: 14px;
+          border-radius: 18px;
         }
 
-        .brand{
-          white-space:normal;
+        .brand {
+          white-space: normal;
         }
 
-        .nav{
-          gap:6px;
+        .nav {
+          gap: 6px;
         }
 
-        .nav a{
-          padding:9px 12px;
-          font-size:14px;
+        .nav a {
+          padding: 9px 12px;
+          font-size: 14px;
         }
 
-        .hero{
-          padding:18px;
-          border-radius:22px;
+        .hero {
+          padding: 18px;
+          border-radius: 22px;
         }
 
-        .hero__text p{
-          text-align:left;
+        .hero__text p {
+          text-align: left;
         }
 
-        .cards-container{
-          gap:16px;
+        .cards-container {
+          gap: 16px;
         }
 
         .card-patho,
-        .card{
-          width:100%;
-          max-width:360px;
+        .card {
+          width: 100%;
+          max-width: 360px;
         }
 
         section.container,
-        section.ressources-sante{
-          padding:18px 16px 16px;
-          border-radius:20px;
+        section.ressources-sante {
+          padding: 18px 16px 16px;
+          border-radius: 20px;
         }
+
+        .image-surveiller {
+          width: 100%;
+        }
+      }
+
+      .image-center {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .image-surveiller {
+        display: block;
+        margin: 0 auto;
+        max-width: 75%;
+        width: 400px;
+        height: auto;
+        border-radius: 12px;
       }
     </style>
   </head>
@@ -524,7 +573,7 @@
     <!-- HEADER (statique, compatible GitHub Pages) -->
     <header class="topbar">
       <div class="container topbar__inner">
-        <a class="brand" href="index.html">Votre santé – Hocine Korichi</a>	 
+        <a class="brand" href="index.html">Votre santé – Hocine Korichi</a>
         <nav class="nav">
           <a href="index.html">Accueil</a>
           <a href="sport-sante.html">Sport</a>
@@ -532,7 +581,6 @@
           <a href="ressources.html">Ressources</a>
           <a href="contact.html">Vos commentaires</a>
         </nav>
-
       </div>
     </header>
 
@@ -549,25 +597,33 @@
             >
 
             <div class="hero__text">
- <h1>La santé commence dans l’assiette.</h1>
+              <h1>La santé commence dans l’assiette.</h1>
 
-<p class="slogan">Moins de sucre. Plus de fibres.</p>
+              <p class="slogan">Moins de sucre. Plus de fibres.</p>
 
-<p>
-La santé ne commence pas chez le médecin, elle commence dans l’assiette.
-Ce que l’on mange chaque jour influence directement le poids, l’énergie, le sommeil, la glycémie, le cœur et l’immunité. Une alimentation déséquilibrée fragilise l’organisme lentement, sans bruit. À l’inverse, des choix simples et réguliers protègent durablement la santé.
-Bien manger n’est pas une mode ni une contrainte : c’est un acte concret de prévention et de respect de son corps.
-Mais pour des millions de personnes, la réalité est plus grave :
-elles n’ont tout simplement pas assez à manger.
-</p>
+              <p>
+                La santé ne commence pas chez le médecin, elle commence dans l’assiette.
+                Ce que l’on mange chaque jour influence directement le poids, l’énergie, le sommeil, la glycémie, le cœur et l’immunité. Une alimentation déséquilibrée fragilise l’organisme lentement, sans bruit. À l’inverse, des choix simples et réguliers protègent durablement la santé.
+                Bien manger n’est pas une mode ni une contrainte : c’est un acte concret de prévention et de respect de son corps.
+                Mais pour des millions de personnes, la réalité est plus grave :
+                elles n’ont tout simplement pas assez à manger.
+              </p>
 
-              <img
-                src="assets/img/a-surveiller.jfif"
-                alt="Valeurs de santé à surveiller"
-                style="display:block; margin:20px auto; width:50%; height:auto; border-radius:12px;"
-              >
-
- 
+              <div class="image-center">
+                <a
+                  href="assets/img/a-surveiller.jfif"
+                  target="_blank"
+                  rel="noopener"
+                  class="hero-image-link"
+                  aria-label="Ouvrir l’image des valeurs de santé à surveiller"
+                >
+                  <img
+                    src="assets/img/a-surveiller.jfif"
+                    alt="Valeurs de santé à surveiller"
+                    class="image-surveiller"
+                  >
+                </a>
+              </div>
             </div>
           </div>
 
@@ -609,31 +665,18 @@ elles n’ont tout simplement pas assez à manger.
             <p>À faire annuellement.</p>
           </a>
 
-          <div class="card">
+          <a href="tests-a-jeun.html" class="card-patho">
+            <img data-slug="tests-a-jeun" alt="Tests à jeun">
             <h3>Prises de sang : faut-il être à jeun ?</h3>
             <p>HBsAg / anti-HBc, créatinine, glycémie, lipides, et autres tests fréquents.</p>
+          </a>
 
-            <a
-              href="tests-a-jeun.html"
-              style="
-                display:inline-block;
-                margin-top:10px;
-                padding:10px 16px;
-                background:#2563eb;
-                color:#ffffff;
-                text-decoration:none;
-                border-radius:8px;
-                font-weight:600;
-              "
-            >
-              Ouvrir la page
-            </a>
-          </div>
           <a href="/yourhealth/pathologies/anemie.html" class="card-patho">
             <img data-slug="anemie-main" alt="Anémie">
             <h3>l'Anémie</h3>
             <p>Comprendre l'anémie.</p>
           </a>
+
           <a href="sport-sante.html" class="card-patho">
             <img data-slug="sport-sante" alt="Santé et sport">
             <h3>Sport et santé</h3>
@@ -670,7 +713,6 @@ elles n’ont tout simplement pas assez à manger.
             <p>Causes et facteurs de risque.</p>
           </a>
 
-
           <a href="/yourhealth/pathologies/doigts-gonfles.html" class="card-patho">
             <img data-slug="doigts-gonfles" alt="Doigts gonflés.">
             <h3>Doigts qui gonflent</h3>
@@ -688,11 +730,13 @@ elles n’ont tout simplement pas assez à manger.
             <h3>Diabète</h3>
             <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
           </a>
-<a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
-  <img data-slug="injection-insuline" alt="Injection d'insuline">
-  <h3>Injection d’insuline</h3>
-  <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
-</a>
+
+          <a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
+            <img data-slug="injection-insuline" alt="Injection d'insuline">
+            <h3>Injection d’insuline</h3>
+            <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
+          </a>
+
           <a href="/yourhealth/pathologies/resistance-insuline.html" class="card-patho">
             <img data-slug="resistance-insuline" alt="Résistance à l’insuline">
             <h3>Résistance à l’insuline</h3>
@@ -839,11 +883,13 @@ elles n’ont tout simplement pas assez à manger.
             <h3>Infarctus du myocarde</h3>
             <p>Urgence : obstruction d’une artère coronaire.</p>
           </a>
-<a href="/yourhealth/pathologies/meningite.html" class="card-patho">
-  <img data-slug="meningite" alt="Méningite virale et bactérienne">
-  <h3>Méningite</h3>
-  <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
-</a>
+
+          <a href="/yourhealth/pathologies/meningite.html" class="card-patho">
+            <img data-slug="meningite" alt="Méningite virale et bactérienne">
+            <h3>Méningite</h3>
+            <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
+          </a>
+
           <a href="/yourhealth/pathologies/avc.html" class="card-patho">
             <img data-slug="avc" alt="Accident vasculaire cérébral">
             <h3>Accident vasculaire cérébral</h3>
@@ -948,7 +994,6 @@ elles n’ont tout simplement pas assez à manger.
             <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
           </a>
 
-
           <!-- ⚠️ Correction minimale : ton HTML était cassé (guillemets manquants) -->
           <a href="pathologies/oeil.html" class="card-patho">
             <img data-slug="oeil" alt="Maladie des yeux">
@@ -961,11 +1006,13 @@ elles n’ont tout simplement pas assez à manger.
             <h3>Prostate</h3>
             <p>Dépistage, symptômes, examens et prévention (hygiène de vie).</p>
           </a>
+
           <a href="pathologies/crohn.html" class="card-patho">
             <img data-slug="crohn" alt="Maladie de Crohn">
             <h3>Maladie de Crohn</h3>
             <p>Inflammation chronique de l’intestin : douleurs abdominales, diarrhée, fatigue, poussées et suivi médical.</p>
           </a>
+
           <a href="pathologies/colon.html" class="card-patho">
             <img data-slug="colon" alt="Côlon : prévention et dépistage">
             <h3>Côlon</h3>
@@ -991,26 +1038,26 @@ elles n’ont tout simplement pas assez à manger.
             </p>
           </a>
 
-<a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
-  <img data-slug="repas-diabete" alt="Repas et diabète">
-  <h3>Repas et diabète</h3>
-  <p>
-    Que manger matin, midi et soir quand on est diabétique.
-    Cette page présente des repères alimentaires simples,
-    un menu type sur 7 jours et les règles de base pour limiter
-    les variations de la glycémie.
-  </p>
-</a>
+          <a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
+            <img data-slug="repas-diabete" alt="Repas et diabète">
+            <h3>Repas et diabète</h3>
+            <p>
+              Que manger matin, midi et soir quand on est diabétique.
+              Cette page présente des repères alimentaires simples,
+              un menu type sur 7 jours et les règles de base pour limiter
+              les variations de la glycémie.
+            </p>
+          </a>
 
-<a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
-  <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
-  <h3>Prescription de l’insuline</h3>
-  <p>
-    Un médecin généraliste peut-il prescrire de l’insuline avec un protocole.
-    Cette page explique le cadre médical, les conditions de prescription,
-    le rôle du protocole et les limites de compétence, sans interprétation.
-  </p>
-</a>
+          <a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
+            <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
+            <h3>Prescription de l’insuline</h3>
+            <p>
+              Un médecin généraliste peut-il prescrire de l’insuline avec un protocole.
+              Cette page explique le cadre médical, les conditions de prescription,
+              le rôle du protocole et les limites de compétence, sans interprétation.
+            </p>
+          </a>
 
           <article class="card">
             <h3>Avoine &amp; cholestérol</h3>
@@ -1030,16 +1077,15 @@ elles n’ont tout simplement pas assez à manger.
             </p>
             <a class="chip" href="perdre-ventre-apres-50-ans.html">Lire la page</a>
           </article>
-		  
-<article class="card">
-  <h3>Dangers du vapotage</h3>
-  <p>
-    Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance
-    à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.
-  </p>
-  <a class="chip" href="/yourhealth/pathologies/vapotage-dangers.html">Lire la page</a>
-</article>
-		  
+
+          <article class="card">
+            <h3>Dangers du vapotage</h3>
+            <p>
+              Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance
+              à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.
+            </p>
+            <a class="chip" href="/yourhealth/pathologies/vapotage-dangers.html">Lire la page</a>
+          </article>
         </div>
       </section>
 
@@ -1177,17 +1223,19 @@ elles n’ont tout simplement pas assez à manger.
         <p>© 2026 yourhealth</p>
       </footer>
     </main>
- 
+
     <script>
       (function () {
         const IMG_BASE = "assets/img/";
         const FALLBACKS = [IMG_BASE + "crohn.jfif", IMG_BASE + "default.svg"];
-        const EXTS = ["jfif","jpg","jpeg","png","webp","svg"];
+        const EXTS = ["jfif", "jpg", "jpeg", "png", "webp", "svg"];
 
         function setFallback(imgEl) {
           let k = 0;
           const tryFb = () => {
-            if (k >= FALLBACKS.length) return;
+            if (k >= FALLBACKS.length) {
+              return;
+            }
             imgEl.onerror = tryFb;
             imgEl.src = FALLBACKS[k++];
           };
@@ -1196,6 +1244,7 @@ elles n’ont tout simplement pas assez à manger.
 
         function trySetImage(imgEl, slug) {
           let i = 0;
+
           function attempt() {
             if (i >= EXTS.length) {
               setFallback(imgEl);
@@ -1205,6 +1254,7 @@ elles n’ont tout simplement pas assez à manger.
             imgEl.onerror = attempt;
             imgEl.src = url;
           }
+
           slug = (slug || "").trim();
           if (!slug) {
             setFallback(imgEl);
