@@ -1,612 +1,621 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Votre santé – Hocine Korichi</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Votre santé – Hocine Korichi</title>
 
-    <!-- CSS principal (GitHub Pages : chemin relatif) -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Police -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    >
+  <!-- Police -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-    <style>
-      :root {
-        --bg: #eef6fb;
-        --bg-2: #f9fcff;
-        --panel: rgba(255, 255, 255, .78);
-        --panel-strong: #ffffff;
-        --card: rgba(255, 255, 255, .90);
+  <style>
+    :root {
+      --bg: #eef6fb;
+      --bg-2: #f9fcff;
+      --panel: rgba(255, 255, 255, 0.78);
+      --panel-strong: #ffffff;
+      --card: rgba(255, 255, 255, 0.90);
 
-        --txt: #122033;
-        --muted: #526277;
+      --txt: #122033;
+      --muted: #526277;
 
-        --accent: #0ea5a8;
-        --accent-2: #2563eb;
-        --accent-3: #f97316;
-        --accent-4: #14b8a6;
+      --accent: #0ea5a8;
+      --accent-2: #2563eb;
+      --accent-3: #f97316;
+      --accent-4: #14b8a6;
 
-        --border: rgba(15, 23, 42, .10);
-        --border-strong: rgba(14, 165, 168, .22);
+      --border: rgba(15, 23, 42, 0.10);
+      --border-strong: rgba(14, 165, 168, 0.22);
 
-        --shadow: 0 18px 50px rgba(15, 23, 42, .10);
-        --shadow-soft: 0 10px 30px rgba(15, 23, 42, .07);
-        --shadow-hover: 0 18px 42px rgba(15, 23, 42, .14);
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.07);
+      --shadow-hover: 0 18px 42px rgba(15, 23, 42, 0.14);
 
-        --radius: 22px;
-        --radius-sm: 14px;
-        --maxw: 1160px;
-      }
+      --radius: 22px;
+      --radius-sm: 14px;
+      --maxw: 1160px;
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    * {
+      box-sizing: border-box;
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      body {
-        margin: 0;
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-        color: var(--txt);
-        background:
-          radial-gradient(900px 520px at 8% 8%, rgba(14, 165, 168, .16), transparent 60%),
-          radial-gradient(760px 460px at 92% 12%, rgba(37, 99, 235, .10), transparent 58%),
-          radial-gradient(700px 420px at 50% 100%, rgba(249, 115, 22, .08), transparent 60%),
-          linear-gradient(180deg, #f7fbff 0%, #eef6fb 48%, #f8fbfd 100%);
-        line-height: 1.6;
-      }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--txt);
+      background:
+        radial-gradient(900px 520px at 8% 8%, rgba(14, 165, 168, 0.16), transparent 60%),
+        radial-gradient(760px 460px at 92% 12%, rgba(37, 99, 235, 0.10), transparent 58%),
+        radial-gradient(700px 420px at 50% 100%, rgba(249, 115, 22, 0.08), transparent 60%),
+        linear-gradient(180deg, #f7fbff 0%, #eef6fb 48%, #f8fbfd 100%);
+      line-height: 1.6;
+    }
 
-      img {
-        max-width: 100%;
-      }
+    img {
+      max-width: 100%;
+    }
 
-      a {
-        color: var(--accent-2);
-        text-decoration: none;
-        transition: all .2s ease;
-      }
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
 
-      a:hover {
-        opacity: .96;
-      }
+    a:hover {
+      opacity: 0.96;
+    }
 
-      header.topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        margin-bottom: 0;
-        padding: 14px 16px 8px;
-        background: linear-gradient(180deg, rgba(238, 246, 251, .88), rgba(238, 246, 251, .55));
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-      }
+    header.topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      margin-bottom: 0;
+      padding: 14px 16px 8px;
+      background: linear-gradient(180deg, rgba(238, 246, 251, 0.88), rgba(238, 246, 251, 0.55));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-      .container {
-        max-width: var(--maxw);
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 16px;
-        padding-right: 16px;
-      }
+    .container {
+      max-width: var(--maxw);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
 
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: var(--shadow-soft);
+      border-radius: 20px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: #164e63;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(14, 165, 168, 0.10);
+      border-color: rgba(14, 165, 168, 0.18);
+    }
+
+    main.container {
+      margin-top: 0;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.84)),
+        linear-gradient(135deg, rgba(14, 165, 168, 0.06), rgba(37, 99, 235, 0.06));
+      color: var(--txt);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: var(--shadow);
+      margin: 0 0 24px 0;
+      padding: 24px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 168, 0.14), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -90px auto auto -90px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-left {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero__medic {
+      display: block;
+      margin: 0 auto 16px;
+      max-width: 190px;
+      border-radius: 18px;
+      border: 3px solid rgba(14, 165, 168, 0.25);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+      background: #fff;
+    }
+
+    .hero__text h1 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      color: #0f766e;
+      margin: 0 0 14px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .hero__text .slogan {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(14, 165, 168, 0.20);
+      background: linear-gradient(90deg, rgba(14, 165, 168, 0.12), rgba(249, 115, 22, 0.10));
+      color: #0f172a;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .hero__text p {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.75;
+      text-align: left;
+    }
+
+    .hero__box-sante {
+      width: 320px;
+      max-width: 320px;
+      margin: 0;
+      padding: 18px 18px 16px;
+      font-size: 13px;
+      color: var(--txt);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88));
+      border-radius: 20px;
+      border: 1px solid rgba(14, 165, 168, 0.14);
+      border-left: 6px solid var(--accent-3);
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+    }
+
+    .hero__box-sante h4 {
+      font-size: 16px;
+      color: var(--accent-3);
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero__box-sante h5 {
+      font-size: 13px;
+      color: var(--accent);
+      margin: 12px 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hero__box-sante ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .hero__box-sante li {
+      margin-bottom: 7px;
+      color: var(--muted);
+    }
+
+    .hero-image-link {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .hero-image-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-image-link img {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .hero-image-link:hover img {
+      transform: scale(1.02);
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
+    }
+
+    .container-pathologies {
+      margin-top: 10px;
+    }
+
+    h2 {
+      margin: 20px 0 12px;
+      color: #0f766e;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .patho-title {
+      text-align: center;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .card-patho,
+    .card {
+      display: block;
+      width: 220px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88));
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .card {
+      padding: 18px 16px 18px;
+    }
+
+    .card-patho img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #fff;
+    }
+
+    .card-patho h3,
+    .card h3 {
+      margin: 14px 10px 8px;
+      font-size: 17px;
+      color: var(--accent-3);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .card-patho p,
+    .card p {
+      padding: 0 12px 14px;
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .card:hover,
+    .card-patho:hover {
+      transform: translateY(-7px);
+      border-color: rgba(14, 165, 168, 0.28);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .chip,
+    .card a[href],
+    .card-patho a[href] {
+      transition: all 0.2s ease;
+    }
+
+    .chip {
+      display: inline-block;
+      margin: 0 0 2px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .container section,
+    section.container,
+    section.ressources-sante {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.70));
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 18px;
+      margin-top: 22px;
+    }
+
+    .container section p,
+    section.container p,
+    section.ressources-sante p {
+      color: var(--muted);
+    }
+
+    .ressources-sante ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ressources-sante li {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 23, 42, 0.07);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    .ressources-sante li a {
+      font-weight: 600;
+    }
+
+    footer.site-footer {
+      margin-top: 30px;
+      padding: 20px 18px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.68));
+      box-shadow: var(--shadow-soft);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer.site-footer p {
+      margin: 10px 0;
+    }
+
+    .compteur-visites {
+      display: inline-block;
+      margin: 12px auto 8px;
+      padding: 12px 14px;
+      border: 1px solid rgba(14, 165, 168, 0.14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+      color: var(--txt);
+      min-width: 220px;
+    }
+
+    .compteur-visites .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .compteur-visites #compteur-visites {
+      font-weight: 700;
+      color: var(--txt);
+    }
+
+    .image-center {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-surveiller {
+      display: block;
+      margin: 0 auto;
+      width: 400px;
+      max-width: 75%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .bloc-sante {
+      border: 2px solid #d0d7e2;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f8fbff;
+      margin: 20px 0;
+    }
+
+    .bloc-sante p {
+      text-align: justify;
+      max-width: 900px;
+      margin: 0 auto 15px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px) {
       .topbar__inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 14px 18px;
-        border: 1px solid rgba(255, 255, 255, .55);
-        background: rgba(255, 255, 255, .68);
-        box-shadow: var(--shadow-soft);
-        border-radius: 20px;
-      }
-
-      .brand {
-        font-size: 1.15rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #0f172a;
-        white-space: nowrap;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .nav {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .nav a {
-        color: #164e63;
-        font-weight: 600;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, .55);
-        border: 1px solid transparent;
-      }
-
-      .nav a:hover {
-        transform: translateY(-1px);
-        background: rgba(14, 165, 168, .10);
-        border-color: rgba(14, 165, 168, .18);
-      }
-
-      main.container {
-        margin-top: 0;
-        padding-top: 10px;
-        padding-bottom: 20px;
-      }
-
-      .hero {
-        position: relative;
-        overflow: hidden;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(255, 255, 255, .84)),
-          linear-gradient(135deg, rgba(14, 165, 168, .06), rgba(37, 99, 235, .06));
-        color: var(--txt);
-        border-radius: 28px;
-        border: 1px solid rgba(255, 255, 255, .55);
-        box-shadow: var(--shadow);
-        margin: 0 0 24px 0;
-        padding: 24px;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: auto -120px -120px auto;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(14, 165, 168, .14), transparent 68%);
-        pointer-events: none;
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: -90px auto auto -90px;
-        width: 260px;
-        height: 260px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(249, 115, 22, .10), transparent 68%);
-        pointer-events: none;
+        justify-content: flex-start;
       }
 
       .hero-top {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 24px;
-      }
-
-      .hero-left {
-        flex: 1;
-        text-align: center;
-      }
-
-      .hero__medic {
-        display: block;
-        margin: 0 auto 16px;
-        max-width: 190px;
-        border-radius: 18px;
-        border: 3px solid rgba(14, 165, 168, .25);
-        box-shadow: 0 16px 34px rgba(15, 23, 42, .12);
-        background: #fff;
-      }
-
-      .hero__text h1 {
-        font-size: clamp(1.9rem, 3vw, 2.7rem);
-        color: #0f766e;
-        margin: 0 0 14px;
-        line-height: 1.12;
-        letter-spacing: -0.03em;
-      }
-
-      .hero__text .slogan {
-        display: inline-block;
-        margin: 0 0 16px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        border: 1px solid rgba(14, 165, 168, .20);
-        background: linear-gradient(90deg, rgba(14, 165, 168, .12), rgba(249, 115, 22, .10));
-        color: #0f172a;
-        font-weight: 800;
-        text-align: center;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, .05);
-      }
-
-      .hero__text p {
-        font-size: 15px;
-        color: var(--muted);
-        margin: 0;
-        line-height: 1.75;
-        text-align: left;
+        flex-direction: column;
       }
 
       .hero__box-sante {
-        width: 320px;
-        max-width: 320px;
-        margin: 0;
-        padding: 18px 18px 16px;
-        font-size: 13px;
-        color: var(--txt);
-        background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88));
-        border-radius: 20px;
-        border: 1px solid rgba(14, 165, 168, .14);
-        border-left: 6px solid var(--accent-3);
-        box-shadow: var(--shadow-soft);
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header.topbar {
+        padding: 10px 10px 6px;
+      }
+
+      .topbar__inner {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .brand {
+        white-space: normal;
+      }
+
+      .nav {
+        gap: 6px;
+      }
+
+      .nav a {
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .hero__text p {
         text-align: left;
       }
 
-      .hero__box-sante h4 {
-        font-size: 16px;
-        color: var(--accent-3);
-        margin: 0 0 10px;
-        letter-spacing: -0.01em;
-      }
-
-      .hero__box-sante h5 {
-        font-size: 13px;
-        color: var(--accent);
-        margin: 12px 0 6px;
-        text-transform: uppercase;
-        letter-spacing: .04em;
-      }
-
-      .hero__box-sante ul {
-        margin: 0;
-        padding-left: 18px;
-      }
-
-      .hero__box-sante li {
-        margin-bottom: 7px;
-        color: var(--muted);
-      }
-
-      .hero-image-link {
-        display: inline-block;
-        cursor: pointer;
-      }
-
-      .hero-image-link:hover {
-        transform: translateY(-2px);
-      }
-
-      .hero-image-link img {
-        transition: transform .22s ease, box-shadow .22s ease;
-      }
-
-      .hero-image-link:hover img {
-        transform: scale(1.02);
-        box-shadow: 0 18px 38px rgba(15, 23, 42, .16);
-      }
-
-      .image-surveiller {
-        display: block;
-        margin: 24px auto 0;
-        width: min(88%, 760px);
-        max-width: 100%;
-        height: auto;
-        border-radius: 16px;
-        box-shadow: 0 14px 30px rgba(15, 23, 42, .12);
-      }
-
-      .container-pathologies {
-        margin-top: 10px;
-      }
-
-      h2 {
-        margin: 20px 0 12px;
-        color: #0f766e;
-        font-size: 1.6rem;
-        letter-spacing: -0.02em;
-      }
-
-      .patho-title {
-        text-align: center;
-      }
-
       .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 22px;
-        justify-content: center;
-        margin-top: 22px;
+        gap: 16px;
       }
 
       .card-patho,
       .card {
-        display: block;
-        width: 220px;
-        text-align: center;
-        background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88));
-        border: 1px solid rgba(15, 23, 42, .08);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-        text-decoration: none;
-        box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
-
-      .card {
-        padding: 18px 16px 18px;
-      }
-
-      .card-patho img {
         width: 100%;
-        height: 150px;
-        object-fit: cover;
-        display: block;
-        background: #fff;
+        max-width: 360px;
       }
 
-      .card-patho h3,
-      .card h3 {
-        margin: 14px 10px 8px;
-        font-size: 17px;
-        color: var(--accent-3);
-        line-height: 1.3;
-        letter-spacing: -0.01em;
-      }
-
-      .card-patho p,
-      .card p {
-        padding: 0 12px 14px;
-        font-size: 14px;
-        color: var(--muted);
-        margin: 0;
-        line-height: 1.5;
-      }
-
-      .card:hover,
-      .card-patho:hover {
-        transform: translateY(-7px);
-        border-color: rgba(14, 165, 168, .28);
-        box-shadow: var(--shadow-hover);
-      }
-
-      .chip,
-      .card a[href],
-      .card-patho a[href] {
-        transition: all .2s ease;
-      }
-
-      .chip {
-        display: inline-block;
-        margin: 0 0 2px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #fff;
-        font-weight: 700;
-        box-shadow: 0 10px 20px rgba(37, 99, 235, .18);
-      }
-
-      .chip:hover {
-        transform: translateY(-1px);
-        opacity: 1;
-      }
-
-      .container section,
       section.container,
       section.ressources-sante {
-        background: linear-gradient(180deg, rgba(255, 255, 255, .78), rgba(255, 255, 255, .70));
-        border: 1px solid rgba(255, 255, 255, .52);
-        border-radius: 24px;
-        box-shadow: var(--shadow-soft);
-        padding: 22px 22px 18px;
-        margin-top: 22px;
-      }
-
-      .container section p,
-      section.container p,
-      section.ressources-sante p {
-        color: var(--muted);
-      }
-
-      .ressources-sante ul {
-        margin: 0;
-        padding-left: 0;
-        list-style: none;
-        display: grid;
-        gap: 12px;
-      }
-
-      .ressources-sante li {
-        background: rgba(255, 255, 255, .78);
-        border: 1px solid rgba(15, 23, 42, .07);
-        border-radius: 16px;
-        padding: 12px 14px;
-        box-shadow: 0 6px 18px rgba(15, 23, 42, .04);
-      }
-
-      .ressources-sante li a {
-        font-weight: 600;
-      }
-
-      footer.site-footer {
-        margin-top: 30px;
-        padding: 20px 18px 14px;
-        border: 1px solid rgba(255, 255, 255, .55);
-        border-radius: 24px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, .80), rgba(255, 255, 255, .68));
-        box-shadow: var(--shadow-soft);
-        color: var(--muted);
-        font-size: 13px;
-        text-align: center;
-      }
-
-      footer.site-footer p {
-        margin: 10px 0;
-      }
-
-      .compteur-visites {
-        display: inline-block;
-        margin: 12px auto 8px;
-        padding: 12px 14px;
-        border: 1px solid rgba(14, 165, 168, .14);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, .92);
-        box-shadow: 0 10px 26px rgba(15, 23, 42, .06);
-        color: var(--txt);
-        min-width: 220px;
-      }
-
-      .compteur-visites .label {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-        margin-bottom: 7px;
-        letter-spacing: .03em;
-        text-transform: uppercase;
-      }
-
-      .compteur-visites #compteur-visites {
-        font-weight: 700;
-        color: var(--txt);
-      }
-
-      @media (max-width: 980px) {
-        .topbar__inner {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .nav {
-          justify-content: flex-start;
-        }
-
-        .hero-top {
-          flex-direction: column;
-        }
-
-        .hero__box-sante {
-          width: 100%;
-          max-width: 100%;
-        }
-      }
-
-      @media (max-width: 700px) {
-        header.topbar {
-          padding: 10px 10px 6px;
-        }
-
-        .topbar__inner {
-          padding: 14px;
-          border-radius: 18px;
-        }
-
-        .brand {
-          white-space: normal;
-        }
-
-        .nav {
-          gap: 6px;
-        }
-
-        .nav a {
-          padding: 9px 12px;
-          font-size: 14px;
-        }
-
-        .hero {
-          padding: 18px;
-          border-radius: 22px;
-        }
-
-        .hero__text p {
-          text-align: left;
-        }
-
-        .cards-container {
-          gap: 16px;
-        }
-
-        .card-patho,
-        .card {
-          width: 100%;
-          max-width: 360px;
-        }
-
-        section.container,
-        section.ressources-sante {
-          padding: 18px 16px 16px;
-          border-radius: 20px;
-        }
-
-        .image-surveiller {
-          width: 100%;
-        }
-      }
-
-      .image-center {
-        text-align: center;
-        margin: 20px 0;
+        padding: 18px 16px 16px;
+        border-radius: 20px;
       }
 
       .image-surveiller {
-        display: block;
-        margin: 0 auto;
-        max-width: 75%;
-        width: 400px;
-        height: auto;
-        border-radius: 12px;
+        width: 100%;
+        max-width: 100%;
       }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
-  <body>
-    <!-- HEADER (statique, compatible GitHub Pages) -->
-    <header class="topbar">
-      <div class="container topbar__inner">
-        <a class="brand" href="index.html">Votre santé – Hocine Korichi</a>
-        <nav class="nav">
-          <a href="index.html">Accueil</a>
-          <a href="sport-sante.html">Sport</a>
-          <a href="sante-alimentaion-ref.html">Alimentation</a>
-          <a href="ressources.html">Ressources</a>
-          <a href="contact.html">Vos commentaires</a>
-        </nav>
-      </div>
-    </header>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">Votre santé – Hocine Korichi</a>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="sport-sante.html">Sport</a>
+        <a href="sante-alimentaion-ref.html">Alimentation</a>
+        <a href="ressources.html">Ressources</a>
+        <a href="contact.html">Vos commentaires</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-top">
-          <div class="hero-left">
-            <img
-              src="Medic.jfif"
-              alt="Medic"
-              class="hero__medic"
-              onerror="this.onerror=null;this.src='assets/img/default.jpg';"
-            >
+  <main class="container">
+    <section class="hero">
+      <div class="hero-top">
+        <div class="hero-left">
+          <img
+            src="Medic.jfif"
+            alt="Medic"
+            class="hero__medic"
+            onerror="this.onerror=null;this.src='assets/img/default.jpg';"
+          >
 
-            <div class="hero__text">
-              <h1>La santé commence dans l’assiette.</h1>
+          <div class="hero__text">
+            <h1>La santé commence dans l’assiette.</h1>
 
-              <p class="slogan">Moins de sucre. Plus de fibres.</p>
+            <p class="slogan">Moins de sucre. Plus de fibres.</p>
 
+            <div class="bloc-sante">
               <p>
-                La santé ne commence pas chez le médecin, elle commence dans l’assiette.
-                Ce que l’on mange chaque jour influence directement le poids, l’énergie, le sommeil, la glycémie, le cœur et l’immunité. Une alimentation déséquilibrée fragilise l’organisme lentement, sans bruit. À l’inverse, des choix simples et réguliers protègent durablement la santé.
-                Bien manger n’est pas une mode ni une contrainte : c’est un acte concret de prévention et de respect de son corps.
-                Mais pour des millions de personnes, la réalité est plus grave :
-                elles n’ont tout simplement pas assez à manger.
+                La santé commence dans l’assiette.
+                Ce que l’on mange agit chaque jour sur le poids, l’énergie, le sommeil,
+                la glycémie, le cœur et l’immunité.
+                Une alimentation déséquilibrée affaiblit progressivement l’organisme,
+                souvent sans signe immédiat.
+                À l’inverse, des choix simples et réguliers protègent durablement.
+                Bien manger n’est ni une mode ni une contrainte, mais une prévention concrète.
+                Mais pour beaucoup, la réalité est plus dure : ils n’ont pas assez à manger.
               </p>
 
               <div class="image-center">
@@ -626,671 +635,664 @@
               </div>
             </div>
           </div>
-
-<div class="card">
-  <h3>Graines de lin, chia et quinoa</h3>
-  <p>
-    Bienfaits, conseils d’utilisation, préparation, idées de consommation et erreurs à éviter.
-  </p>
-  <a href="graines-lin-chia-quinoa.html" class="btn-link">Lire la page</a>
-</div>
-
-          <div class="hero__box-sante">
-            <h4>Hygiène de vie à adopter</h4>
-
-            <h5>Hygiène essentielle</h5>
-            <ul>
-              <li>Supprimer le tabac et l’alcool.</li>
-              <li>Réduire fortement les excès de sucre.</li>
-              <li>Limiter les produits ultra-transformés.</li>
-              <li>Privilégier une alimentation simple et naturelle.</li>
-            </ul>
-
-            <h5>Activité physique</h5>
-            <ul>
-              <li>Pratiquer une activité régulière adaptée.</li>
-              <li>Marcher chaque jour.</li>
-            </ul>
-
-            <h5>Sommeil et stress</h5>
-            <ul>
-              <li>Respecter un sommeil régulier.</li>
-              <li>Gérer le stress calmement.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- PATHOLOGIES -->
-      <section class="container container-pathologies">
-        <h2 class="patho-title">Conseils de prévention et description de pathologies</h2>
-
-        <div class="cards-container">
-          <!-- (Cartes inchangées : je garde ton contenu tel quel) -->
-          <a href="bilan-annuel.html" class="card-patho">
-            <img data-slug="bilan-sante" alt="Bilan de santé">
-            <h3>Bilan de santé </h3>
-            <p>Health Check-up</p>
-          </a>
-
-          <a href="tests-a-jeun.html" class="card-patho">
-            <img data-slug="tests-a-jeun" alt="Tests à jeun">
-            <h3>Prises de sang : faut-il être à jeun ?</h3>
-            <p>HBsAg / anti-HBc, créatinine, glycémie, lipides, et autres tests fréquents.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/anemie.html" class="card-patho">
-            <img data-slug="anemie-main" alt="Anémie">
-            <h3>l'Anémie</h3>
-            <p>Comprendre l'anémie.</p>
-          </a>
-
-          <a href="sport-sante.html" class="card-patho">
-            <img data-slug="sport-sante" alt="Santé et sport">
-            <h3>Sport et santé</h3>
-            <p>Prévenir par l’activité physique.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/auto-immunes.html" class="card-patho">
-            <img data-slug="systeme-immunitaire" alt="Maladies auto-immunes">
-            <h3>Maladies auto-immunes</h3>
-            <p>Quand le système immunitaire est déréglé et se trompe d'ennemi</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/obesite.html" class="card-patho">
-            <img data-slug="obesite" alt="Obésité">
-            <h3>Obésité</h3>
-            <p>Excès de masse grasse, risques cardio-métaboliques.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/cholesterol.html" class="card-patho">
-            <img data-slug="cholesterol" alt="Cholestérol">
-            <h3>Cholestérol</h3>
-            <p>LDL, HDL, triglycérides : risques et prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/hypertension.html" class="card-patho">
-            <img data-slug="hypertension" alt="Hypertension artérielle">
-            <h3>Hypertension artérielle</h3>
-            <p>Tension élevée durable, risque cardiovasculaire accru.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/zona.html" class="card-patho">
-            <img data-slug="zona" alt="Zona">
-            <h3>Zona</h3>
-            <p>Causes et facteurs de risque.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/doigts-gonfles.html" class="card-patho">
-            <img data-slug="doigts-gonfles" alt="Doigts gonflés.">
-            <h3>Doigts qui gonflent</h3>
-            <p>Œdème ou inflammation : causes fréquentes, signes à surveiller et gestes simples.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/prediabete.html" class="card-patho">
-            <img data-slug="prediabete" alt="Prédiabète">
-            <h3>Prédiabète</h3>
-            <p>Seuils, risques, prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/diabete.html" class="card-patho">
-            <img data-slug="diabete" alt="Diabète">
-            <h3>Diabète</h3>
-            <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
-            <img data-slug="injection-insuline" alt="Injection d'insuline">
-            <h3>Injection d’insuline</h3>
-            <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/resistance-insuline.html" class="card-patho">
-            <img data-slug="resistance-insuline" alt="Résistance à l’insuline">
-            <h3>Résistance à l’insuline</h3>
-            <p>Causes, signes, solutions.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/foie-gras.html" class="card-patho">
-            <img data-slug="foie-gras" alt="Stéatose hépatique non alcoolique (maladie du foie gras)">
-            <h3>Stéatose hépatique non alcoolique</h3>
-            <p>Accumulation de graisses dans le foie hors alcool.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/syndrome-metabolique.html" class="card-patho">
-            <img data-slug="syndrome-metabolique" alt="Syndrome métabolique">
-            <h3>Syndrome métabolique</h3>
-            <p>Tour de taille, tension, sucre et lipides déséquilibrés.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/reflux.html" class="card-patho">
-            <img data-slug="reflux" alt="Reflux gastro-œsophagien">
-            <h3>Reflux (RGO)</h3>
-            <p>Brûlures, reflux, mesures simples.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/constipation.html" class="card-patho">
-            <img data-slug="constipation" alt="Constipation chronique">
-            <h3>Constipation chronique</h3>
-            <p>Fibres, hydratation, habitudes.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/intolerance-lactose.html" class="card-patho">
-            <img data-slug="intolerance-lactose" alt="Intolérance au lactose">
-            <h3>Intolérance au lactose</h3>
-            <p>Symptômes, alternatives, tests.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/carence-fer.html" class="card-patho">
-            <img data-slug="carence-fer" alt="Carence en fer">
-            <h3>Carence en fer</h3>
-            <p>Fatigue, bilan, alimentation.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/carence-vitamine-d.html" class="card-patho">
-            <img data-slug="carence-vitamine-d" alt="Vitamine D">
-            <h3>Vitamine D</h3>
-            <p>Déficit, repères, prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/magnesium.html" class="card-patho">
-            <img data-slug="magnesium" alt="Magnésium">
-            <h3>Magnésium</h3>
-            <p>Stress, crampes, apports.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/calculs-renaux.html" class="card-patho">
-            <img data-slug="calculs-renaux" alt="Calculs rénaux">
-            <h3>Calculs rénaux</h3>
-            <p>Hydratation, sel, oxalates.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/hyperuricemie.html" class="card-patho">
-            <img data-slug="hyperuricemie" alt="Hyperuricémie">
-            <h3>Hyperuricémie</h3>
-            <p>Acide urique et goutte.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/sciatique.html" class="card-patho">
-            <img data-slug="sciatique" alt="Sciatique (nerf sciatique)">
-            <h3>Sciatique</h3>
-            <p>
-              Douleur du bas du dos qui descend dans la jambe : causes fréquentes, symptômes,
-              diagnostic, soulagement et prévention.
-            </p>
-          </a>
-
-          <a href="/yourhealth/pathologies/inflammation-bas-grade.html" class="card-patho">
-            <img data-slug="inflammation-bas-grade" alt="Inflammation de bas grade">
-            <h3>Inflammation de bas grade</h3>
-            <p>Alimentation, poids, sommeil.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
-            <img data-slug="thyroide" alt="Maladies de la thyroïde">
-            <h3>Maladies de la thyroïde</h3>
-            <p>Hypothyroïdie, hyperthyroïdie, nodules.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
-            <img
-              src="assets/img/tremblements.gif"
-              alt="Maladie de Parkinson"
-              loading="lazy"
-              decoding="async"
-              onerror="this.onerror=null;this.src='assets/img/default.jpg';"
-            >
-            <h3>Maladie de Parkinson</h3>
-            <p>Symptômes, diagnostic, prise en charge.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/etiquettes.html" class="card-patho">
-            <img data-slug="etiquettes" alt="Lire les étiquettes">
-            <h3>Lire les étiquettes</h3>
-            <p>Sucre, sel, additifs, repères.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/anxiete.html" class="card-patho">
-            <img data-slug="anxiete" alt="Anxiété">
-            <h3>Anxiété</h3>
-            <p>Stress, inquiétude, symptômes physiques et mentaux.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/depression.html" class="card-patho">
-            <img data-slug="depression" alt="Dépression">
-            <h3>Dépression</h3>
-            <p>Humeur basse, fatigue, perte d’intérêt, troubles du sommeil.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/antidepresseurs.html" class="card-patho">
-            <img data-slug="antidepresseurs" alt="Antidepresseurs">
-            <h3>Antidepresseurs</h3>
-            <p>Effets indésirables possibles, risque de sevrage, interactions, et alternatives d’accompagnement.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/troubles-anxieux.html" class="card-patho">
-            <img data-slug="troubles-anxieux" alt="Troubles anxieux">
-            <h3>Troubles anxieux</h3>
-            <p>Anxiété excessive : panique, phobies, anxiété généralisée.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/burn-out.html" class="card-patho">
-            <img data-slug="burn-out" alt="Burn-out">
-            <h3>Burn-out</h3>
-            <p>Épuisement lié au stress chronique, baisse d’énergie.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/palpitations.html" class="card-patho">
-            <img data-slug="palpitations" alt="Palpitations du cœur">
-            <h3>Palpitations du cœur</h3>
-            <p>Battements rapides, forts ou irréguliers.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/infarctus-myocarde.html" class="card-patho">
-            <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
-            <h3>Infarctus du myocarde</h3>
-            <p>Urgence : obstruction d’une artère coronaire.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/meningite.html" class="card-patho">
-            <img data-slug="meningite" alt="Méningite virale et bactérienne">
-            <h3>Méningite</h3>
-            <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/avc.html" class="card-patho">
-            <img data-slug="avc" alt="Accident vasculaire cérébral">
-            <h3>Accident vasculaire cérébral</h3>
-            <p>Urgence : atteinte de la circulation cérébrale.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/alzheimer.html" class="card-patho">
-            <img data-slug="alzheimer" alt="Maladie d’Alzheimer">
-            <h3>Maladie d’Alzheimer</h3>
-            <p>Troubles cognitifs progressifs, notamment de la mémoire.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/demences.html" class="card-patho">
-            <img data-slug="demences" alt="Démence">
-            <h3>Démence</h3>
-            <p>Autres causes de déclin cognitif (vasculaire, etc.).</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/troubles-sommeil.html" class="card-patho">
-            <img data-slug="troubles-sommeil" alt="Troubles du sommeil">
-            <h3>Troubles du sommeil</h3>
-            <p>Insomnie, apnée, sommeil non réparateur.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/addictions.html" class="card-patho">
-            <img data-slug="addictions" alt="Addictions">
-            <h3>Addictions</h3>
-            <p>Dépendances avec impact sur la santé et la vie sociale.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/troubles-musculo-squelettiques.html" class="card-patho">
-            <img data-slug="troubles-musculo-squelettiques" alt="Troubles musculo-squelettiques">
-            <h3>Troubles musculo-squelettiques</h3>
-            <p>Douleurs et limitations : dos, tendons, articulations.</p>
-          </a>
-
-          <a href="pathologies/arthrose.html" class="card-patho">
-            <img data-slug="arthrose" alt="Arthrose et douleurs articulaires">
-            <h3>Arthrose</h3>
-            <p>
-              Comprendre l’arthrose, ses causes, ses symptômes et les solutions naturelles
-              pour soulager les douleurs articulaires et préserver la mobilité.
-            </p>
-          </a>
-
-          <a href="/yourhealth/pathologies/asthme.html" class="card-patho">
-            <img data-slug="asthme" alt="Asthme">
-            <h3>Asthme</h3>
-            <p>Inflammation des voies aériennes, crises, essoufflement.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/allergies.html" class="card-patho">
-            <img data-slug="allergies" alt="Allergies">
-            <h3>Allergies</h3>
-            <p>Réaction excessive à des allergènes (respiratoire, peau, etc.).</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
-            <img data-slug="phlebite" alt="Phlébite (thrombose veineuse profonde)">
-            <h3>Phlébite</h3>
-            <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/grippe.html" class="card-patho">
-            <img data-slug="grippe" alt="Grippe hivernale">
-            <h3>Grippe hivernale</h3>
-            <p>Symptômes, prévention, quand consulter.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/cancer.html" class="card-patho">
-            <img data-slug="cancer" alt="Cancer">
-            <h3>Cancers | Pathologie</h3>
-            <p>Un diagnostic précoce améliore souvent les chances de traitement.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/cancer-pollution.html" class="card-patho">
-            <img data-slug="cancer-pollution" alt="Pollution et cancers">
-            <h3>Pollution et cancers</h3>
-            <p></p>
-          </a>
-
-          <a href="/yourhealth/pathologies/maladies-respiratoires.html" class="card-patho">
-            <img
-              src="assets/img/respiration-description.jfif"
-              alt="Maladies respiratoires"
-              loading="lazy"
-              decoding="async"
-            >
-            <h3>Maladies respiratoires</h3>
-            <p></p>
-          </a>
-
-          <a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
-            <img data-slug="epilepsie" alt="Épilepsie">
-            <h3>Épilepsie</h3>
-            <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
-          </a>
-
-          <a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
-            <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
-            <h3>Syndrome de l’intestin irritable</h3>
-            <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
-          </a>
-
-          <!-- ⚠️ Correction minimale : ton HTML était cassé (guillemets manquants) -->
-          <a href="pathologies/oeil.html" class="card-patho">
-            <img data-slug="oeil" alt="Maladie des yeux">
-            <h3>Maladie et défauts de l'oeil</h3>
-            <p>Maladie et défauts de l'oeil, diagnostic, corrections et soins.</p>
-          </a>
-
-          <a href="pathologies/prostate.html" class="card-patho">
-            <img data-slug="prostate" alt="Prostate : prévention et dépistage">
-            <h3>Prostate</h3>
-            <p>Dépistage, symptômes, examens et prévention (hygiène de vie).</p>
-          </a>
-
-          <a href="pathologies/crohn.html" class="card-patho">
-            <img data-slug="crohn" alt="Maladie de Crohn">
-            <h3>Maladie de Crohn</h3>
-            <p>Inflammation chronique de l’intestin : douleurs abdominales, diarrhée, fatigue, poussées et suivi médical.</p>
-          </a>
-
-          <a href="pathologies/colon.html" class="card-patho">
-            <img data-slug="colon" alt="Côlon : prévention et dépistage">
-            <h3>Côlon</h3>
-            <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
-          </a>
-
-          <a href="/yourhealth/pathologies/vieillissement-esperance-vie.html" class="card-patho">
-            <img data-slug="vieillissement" alt="Vieillissement et espérance de vie">
-            <h3>Vieillissement &amp; espérance de vie</h3>
-            <p>
-              Vivre plus longtemps, oui.
-              Mais surtout vivre plus longtemps en bonne santé, avec autonomie et qualité de vie.
-            </p>
-          </a>
-
-          <a href="/yourhealth/pathologies/ogm-pesticides.html" class="card-patho">
-            <img data-slug="ogm-pesticides" alt="OGM et pesticides">
-            <h3>OGM &amp; pesticides</h3>
-            <p>
-              OGM et pesticides sont souvent confondus.
-              Cette page explique leurs différences, les voies d’exposition
-              et leurs impacts possibles sur la santé, sans alarmisme.
-            </p>
-          </a>
-
-          <a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
-            <img data-slug="repas-diabete" alt="Repas et diabète">
-            <h3>Repas et diabète</h3>
-            <p>
-              Que manger matin, midi et soir quand on est diabétique.
-              Cette page présente des repères alimentaires simples,
-              un menu type sur 7 jours et les règles de base pour limiter
-              les variations de la glycémie.
-            </p>
-          </a>
-
-          <a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
-            <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
-            <h3>Prescription de l’insuline</h3>
-            <p>
-              Un médecin généraliste peut-il prescrire de l’insuline avec un protocole.
-              Cette page explique le cadre médical, les conditions de prescription,
-              le rôle du protocole et les limites de compétence, sans interprétation.
-            </p>
-          </a>
-
-          <article class="card">
-            <h3>Avoine &amp; cholestérol</h3>
-            <p>
-              Une synthèse simple sur le lien entre l’avoine (fibres solubles) et le cholestérol LDL,
-              avec conseils pratiques et prudence.
-            </p>
-            <a class="chip" href="avoine-cholesterol.html">Lire la page</a>
-          </article>
-
-          <!-- ⚠️ Correction minimale : "apràs" -> "après" -->
-          <article class="card">
-            <h3>Perdre du poids après 50 ans</h3>
-            <p>
-              Une synthèse simple comment perdre du poids après 50 ans. Clés:alimentation adaptée, activité régulière,
-              sommeil correct et suivi concret.
-            </p>
-            <a class="chip" href="perdre-ventre-apres-50-ans.html">Lire la page</a>
-          </article>
-
-          <article class="card">
-            <h3>Dangers du vapotage</h3>
-            <p>
-              Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance
-              à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.
-            </p>
-            <a class="chip" href="/yourhealth/pathologies/vapotage-dangers.html">Lire la page</a>
-          </article>
-        </div>
-      </section>
-
-      <!-- PREVENTION -->
-      <section class="container">
-        <h2>Prévention et bien-être</h2>
-        <p>Des conseils simples pour réduire les risques et améliorer la qualité de vie.</p>
-        <p><a href="sante-alimentaion-ref.html">Alimentation équilibrée</a></p>
-        <p><a href="sport-sante.html">Bienfaits du sport sur la santé</a></p>
-        <p><a href="/yourhealth/pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
-        <p><a href="/yourhealth/pathologies/proteines.html">Les proteines, indispensables</a></p>
-        <p><a href="medias.html">Quelques journaux de presse de différents pays</a></p>
-      </section>
-
-      <!-- RESSOURCES : LIENS EXTERNES -->
-      <section class="container ressources-sante">
-        <h2>Ressources santé (liens externes)</h2>
-
-        <ul>
-          <li>
-            <a
-              href="https://www.inserm.fr/dossier/maladies-auto-immunes/"
-              target="_blank"
-              rel="noopener"
-            >
-              Maladies auto-immunes – Inserm
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.who.int/health-topics/air-pollution"
-              target="_blank"
-              rel="noopener"
-            >
-              Pollution et santé – Organisation mondiale de la santé (OMS)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://sante.gouv.fr/sante-et-environnement/risques-microbiologiques-physiques-et-chimiques/pesticides/article/effets-sur-la-sante-d-une-exposition-a-des-pesticides"
-              target="_blank"
-              rel="noopener"
-            >
-              Pesticides : effets sur la santé – Ministère de la Santé (France)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.efsa.europa.eu/fr/topics/topic/gmo"
-              target="_blank"
-              rel="noopener"
-            >
-              OGM : données scientifiques – Autorité européenne de sécurité des aliments (EFSA)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.ameli.fr/assure/sante/themes/alimentation/alimentation-adulte/alimentation-adulte-types-aliments/vitamines-et-minereraux"
-              target="_blank"
-              rel="noopener"
-            >
-              Vitamines et minéraux : rôles et apports – Assurance Maladie (Ameli)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
-              target="_blank"
-              rel="noopener"
-            >
-              Magnésium : rôle et apports – National Institutes of Health (NIH)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.topsante.com/nutrition-et-recettes/les-bons-aliments/fruits-et-legumes/les-bienfaits-sante-du-kale-54747"
-              target="_blank"
-              rel="noopener"
-            >
-              Chou kale : bienfaits santé et conseils de préparation
-            </a>
-          </li>
-
-          <!-- ✅ CORRECTION ICI : ce lien n'est pas l'OMS -->
-          <li>
-            <a
-              href="https://www.ameli.fr/assure/sante/themes/anemie-par-carence-en-fer/comprendre-anemie-carence-fer"
-              target="_blank"
-              rel="noopener"
-            >
-              Carence en fer et anémie – Assurance Maladie (Ameli)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.ameli.fr/assure/sante/themes/maladie-crohn"
-              target="_blank"
-              rel="noopener"
-            >
-              Maladie de Crohn – Assurance Maladie (Ameli)
-            </a>
-          </li>
-
-          <!-- ✅ AJOUT DEMANDÉ -->
-          <li>
-            <a
-              href="https://ehk0705.github.io/ia"
-              target="_blank"
-              rel="noopener"
-            >
-              Mon site sur l’IA
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <footer class="site-footer">
-        <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
-        <p>
-          <strong>Auteur :</strong> Site développé par Hocine Korichi, ingénieur physicien et informaticien.<br>
-        </p>
-
-        <div class="compteur-visites" aria-live="polite">
-          <span class="label">Nombre de visites</span>
-          <div id="compteur-visites">Chargement…</div>
         </div>
 
-        <p>© 2026 yourhealth</p>
-      </footer>
-    </main>
+        <div class="hero__box-sante">
+          <h4>Hygiène de vie à adopter</h4>
 
-    <script>
-      (function () {
-        const IMG_BASE = "assets/img/";
-        const FALLBACKS = [IMG_BASE + "crohn.jfif", IMG_BASE + "default.svg"];
-        const EXTS = ["jfif", "jpg", "jpeg", "png", "webp", "svg"];
+          <h5>Hygiène essentielle</h5>
+          <ul>
+            <li>Supprimer le tabac et l’alcool.</li>
+            <li>Réduire fortement les excès de sucre.</li>
+            <li>Limiter les produits ultra-transformés.</li>
+            <li>Privilégier une alimentation simple et naturelle.</li>
+          </ul>
 
-        function setFallback(imgEl) {
-          let k = 0;
-          const tryFb = () => {
-            if (k >= FALLBACKS.length) {
-              return;
-            }
-            imgEl.onerror = tryFb;
-            imgEl.src = FALLBACKS[k++];
-          };
-          tryFb();
-        }
+          <h5>Activité physique</h5>
+          <ul>
+            <li>Pratiquer une activité régulière adaptée.</li>
+            <li>Marcher chaque jour.</li>
+          </ul>
 
-        function trySetImage(imgEl, slug) {
-          let i = 0;
+          <h5>Sommeil et stress</h5>
+          <ul>
+            <li>Respecter un sommeil régulier.</li>
+            <li>Gérer le stress calmement.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          function attempt() {
-            if (i >= EXTS.length) {
-              setFallback(imgEl);
-              return;
-            }
-            const url = IMG_BASE + slug + "." + EXTS[i++];
-            imgEl.onerror = attempt;
-            imgEl.src = url;
+    <section class="container container-pathologies">
+      <h2 class="patho-title">Repères de prévention et informations sur les maladies</h2>
+
+      <div class="cards-container">
+        <div class="card">
+          <h3>Graines de lin, chia et quinoa</h3>
+          <p>
+            Bienfaits, conseils d’utilisation, préparation, idées de consommation et erreurs à éviter.
+          </p>
+          <a class="chip" href="graines-lin-chia-quinoa.html">Lire la page</a>
+        </div>
+
+        <a href="bilan-annuel.html" class="card-patho">
+          <img data-slug="bilan-sante" alt="Bilan de santé">
+          <h3>Bilan de santé</h3>
+          <p>Health Check-up</p>
+        </a>
+
+        <a href="tests-a-jeun.html" class="card-patho">
+          <img data-slug="tests-a-jeun" alt="Tests à jeun">
+          <h3>Prises de sang : faut-il être à jeun ?</h3>
+          <p>HBsAg / anti-HBc, créatinine, glycémie, lipides, et autres tests fréquents.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/anemie.html" class="card-patho">
+          <img data-slug="anemie-main" alt="Anémie">
+          <h3>L'anémie</h3>
+          <p>Comprendre l'anémie.</p>
+        </a>
+
+        <a href="sport-sante.html" class="card-patho">
+          <img data-slug="sport-sante" alt="Santé et sport">
+          <h3>Sport et santé</h3>
+          <p>Prévenir par l’activité physique.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/auto-immunes.html" class="card-patho">
+          <img data-slug="systeme-immunitaire" alt="Maladies auto-immunes">
+          <h3>Maladies auto-immunes</h3>
+          <p>Quand le système immunitaire est déréglé et se trompe d'ennemi</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/obesite.html" class="card-patho">
+          <img data-slug="obesite" alt="Obésité">
+          <h3>Obésité</h3>
+          <p>Excès de masse grasse, risques cardio-métaboliques.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/cholesterol.html" class="card-patho">
+          <img data-slug="cholesterol" alt="Cholestérol">
+          <h3>Cholestérol</h3>
+          <p>LDL, HDL, triglycérides : risques et prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/hypertension.html" class="card-patho">
+          <img data-slug="hypertension" alt="Hypertension artérielle">
+          <h3>Hypertension artérielle</h3>
+          <p>Tension élevée durable, risque cardiovasculaire accru.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/zona.html" class="card-patho">
+          <img data-slug="zona" alt="Zona">
+          <h3>Zona</h3>
+          <p>Causes et facteurs de risque.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/doigts-gonfles.html" class="card-patho">
+          <img data-slug="doigts-gonfles" alt="Doigts gonflés">
+          <h3>Doigts qui gonflent</h3>
+          <p>Œdème ou inflammation : causes fréquentes, signes à surveiller et gestes simples.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/prediabete.html" class="card-patho">
+          <img data-slug="prediabete" alt="Prédiabète">
+          <h3>Prédiabète</h3>
+          <p>Seuils, risques, prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/diabete.html" class="card-patho">
+          <img data-slug="diabete" alt="Diabète">
+          <h3>Diabète</h3>
+          <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
+          <img data-slug="injection-insuline" alt="Injection d'insuline">
+          <h3>Injection d’insuline</h3>
+          <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/resistance-insuline.html" class="card-patho">
+          <img data-slug="resistance-insuline" alt="Résistance à l’insuline">
+          <h3>Résistance à l’insuline</h3>
+          <p>Causes, signes, solutions.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/foie-gras.html" class="card-patho">
+          <img data-slug="foie-gras" alt="Stéatose hépatique non alcoolique">
+          <h3>Stéatose hépatique non alcoolique</h3>
+          <p>Accumulation de graisses dans le foie hors alcool.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/syndrome-metabolique.html" class="card-patho">
+          <img data-slug="syndrome-metabolique" alt="Syndrome métabolique">
+          <h3>Syndrome métabolique</h3>
+          <p>Tour de taille, tension, sucre et lipides déséquilibrés.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/reflux.html" class="card-patho">
+          <img data-slug="reflux" alt="Reflux gastro-œsophagien">
+          <h3>Reflux (RGO)</h3>
+          <p>Brûlures, reflux, mesures simples.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/constipation.html" class="card-patho">
+          <img data-slug="constipation" alt="Constipation chronique">
+          <h3>Constipation chronique</h3>
+          <p>Fibres, hydratation, habitudes.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/intolerance-lactose.html" class="card-patho">
+          <img data-slug="intolerance-lactose" alt="Intolérance au lactose">
+          <h3>Intolérance au lactose</h3>
+          <p>Symptômes, alternatives, tests.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/carence-fer.html" class="card-patho">
+          <img data-slug="carence-fer" alt="Carence en fer">
+          <h3>Carence en fer</h3>
+          <p>Fatigue, bilan, alimentation.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/carence-vitamine-d.html" class="card-patho">
+          <img data-slug="carence-vitamine-d" alt="Vitamine D">
+          <h3>Vitamine D</h3>
+          <p>Déficit, repères, prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/magnesium.html" class="card-patho">
+          <img data-slug="magnesium" alt="Magnésium">
+          <h3>Magnésium</h3>
+          <p>Stress, crampes, apports.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/calculs-renaux.html" class="card-patho">
+          <img data-slug="calculs-renaux" alt="Calculs rénaux">
+          <h3>Calculs rénaux</h3>
+          <p>Hydratation, sel, oxalates.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/hyperuricemie.html" class="card-patho">
+          <img data-slug="hyperuricemie" alt="Hyperuricémie">
+          <h3>Hyperuricémie</h3>
+          <p>Acide urique et goutte.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/sciatique.html" class="card-patho">
+          <img data-slug="sciatique" alt="Sciatique">
+          <h3>Sciatique</h3>
+          <p>
+            Douleur du bas du dos qui descend dans la jambe : causes fréquentes, symptômes,
+            diagnostic, soulagement et prévention.
+          </p>
+        </a>
+
+        <a href="/yourhealth/pathologies/inflammation-bas-grade.html" class="card-patho">
+          <img data-slug="inflammation-bas-grade" alt="Inflammation de bas grade">
+          <h3>Inflammation de bas grade</h3>
+          <p>Alimentation, poids, sommeil.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
+          <img data-slug="thyroide" alt="Maladies de la thyroïde">
+          <h3>Maladies de la thyroïde</h3>
+          <p>Hypothyroïdie, hyperthyroïdie, nodules.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
+          <img
+            src="assets/img/tremblements.gif"
+            alt="Maladie de Parkinson"
+            loading="lazy"
+            decoding="async"
+            onerror="this.onerror=null;this.src='assets/img/default.jpg';"
+          >
+          <h3>Maladie de Parkinson</h3>
+          <p>Symptômes, diagnostic, prise en charge.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/etiquettes.html" class="card-patho">
+          <img data-slug="etiquettes" alt="Lire les étiquettes">
+          <h3>Lire les étiquettes</h3>
+          <p>Sucre, sel, additifs, repères.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/anxiete.html" class="card-patho">
+          <img data-slug="anxiete" alt="Anxiété">
+          <h3>Anxiété</h3>
+          <p>Stress, inquiétude, symptômes physiques et mentaux.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/depression.html" class="card-patho">
+          <img data-slug="depression" alt="Dépression">
+          <h3>Dépression</h3>
+          <p>Humeur basse, fatigue, perte d’intérêt, troubles du sommeil.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/antidepresseurs.html" class="card-patho">
+          <img data-slug="antidepresseurs" alt="Antidépresseurs">
+          <h3>Antidépresseurs</h3>
+          <p>Effets indésirables possibles, risque de sevrage, interactions, et alternatives d’accompagnement.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/troubles-anxieux.html" class="card-patho">
+          <img data-slug="troubles-anxieux" alt="Troubles anxieux">
+          <h3>Troubles anxieux</h3>
+          <p>Anxiété excessive : panique, phobies, anxiété généralisée.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/burn-out.html" class="card-patho">
+          <img data-slug="burn-out" alt="Burn-out">
+          <h3>Burn-out</h3>
+          <p>Épuisement lié au stress chronique, baisse d’énergie.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/palpitations.html" class="card-patho">
+          <img data-slug="palpitations" alt="Palpitations du cœur">
+          <h3>Palpitations du cœur</h3>
+          <p>Battements rapides, forts ou irréguliers.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/infarctus-myocarde.html" class="card-patho">
+          <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
+          <h3>Infarctus du myocarde</h3>
+          <p>Urgence : obstruction d’une artère coronaire.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/meningite.html" class="card-patho">
+          <img data-slug="meningite" alt="Méningite virale et bactérienne">
+          <h3>Méningite</h3>
+          <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/avc.html" class="card-patho">
+          <img data-slug="avc" alt="Accident vasculaire cérébral">
+          <h3>Accident vasculaire cérébral</h3>
+          <p>Urgence : atteinte de la circulation cérébrale.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/alzheimer.html" class="card-patho">
+          <img data-slug="alzheimer" alt="Maladie d’Alzheimer">
+          <h3>Maladie d’Alzheimer</h3>
+          <p>Troubles cognitifs progressifs, notamment de la mémoire.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/demences.html" class="card-patho">
+          <img data-slug="demences" alt="Démence">
+          <h3>Démence</h3>
+          <p>Autres causes de déclin cognitif (vasculaire, etc.).</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/troubles-sommeil.html" class="card-patho">
+          <img data-slug="troubles-sommeil" alt="Troubles du sommeil">
+          <h3>Troubles du sommeil</h3>
+          <p>Insomnie, apnée, sommeil non réparateur.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/addictions.html" class="card-patho">
+          <img data-slug="addictions" alt="Addictions">
+          <h3>Addictions</h3>
+          <p>Dépendances avec impact sur la santé et la vie sociale.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/troubles-musculo-squelettiques.html" class="card-patho">
+          <img data-slug="troubles-musculo-squelettiques" alt="Troubles musculo-squelettiques">
+          <h3>Troubles musculo-squelettiques</h3>
+          <p>Douleurs et limitations : dos, tendons, articulations.</p>
+        </a>
+
+        <a href="pathologies/arthrose.html" class="card-patho">
+          <img data-slug="arthrose" alt="Arthrose et douleurs articulaires">
+          <h3>Arthrose</h3>
+          <p>
+            Comprendre l’arthrose, ses causes, ses symptômes et les solutions naturelles
+            pour soulager les douleurs articulaires et préserver la mobilité.
+          </p>
+        </a>
+
+        <a href="/yourhealth/pathologies/asthme.html" class="card-patho">
+          <img data-slug="asthme" alt="Asthme">
+          <h3>Asthme</h3>
+          <p>Inflammation des voies aériennes, crises, essoufflement.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/allergies.html" class="card-patho">
+          <img data-slug="allergies" alt="Allergies">
+          <h3>Allergies</h3>
+          <p>Réaction excessive à des allergènes (respiratoire, peau, etc.).</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
+          <img data-slug="phlebite" alt="Phlébite">
+          <h3>Phlébite</h3>
+          <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/grippe.html" class="card-patho">
+          <img data-slug="grippe" alt="Grippe hivernale">
+          <h3>Grippe hivernale</h3>
+          <p>Symptômes, prévention, quand consulter.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/cancer.html" class="card-patho">
+          <img data-slug="cancer" alt="Cancer">
+          <h3>Cancers | Pathologie</h3>
+          <p>Un diagnostic précoce améliore souvent les chances de traitement.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/cancer-pollution.html" class="card-patho">
+          <img data-slug="cancer-pollution" alt="Pollution et cancers">
+          <h3>Pollution et cancers</h3>
+          <p></p>
+        </a>
+
+        <a href="/yourhealth/pathologies/maladies-respiratoires.html" class="card-patho">
+          <img
+            src="assets/img/respiration-description.jfif"
+            alt="Maladies respiratoires"
+            loading="lazy"
+            decoding="async"
+          >
+          <h3>Maladies respiratoires</h3>
+          <p></p>
+        </a>
+
+        <a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
+          <img data-slug="epilepsie" alt="Épilepsie">
+          <h3>Épilepsie</h3>
+          <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
+        </a>
+
+        <a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
+          <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
+          <h3>Syndrome de l’intestin irritable</h3>
+          <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
+        </a>
+
+        <a href="pathologies/oeil.html" class="card-patho">
+          <img data-slug="oeil" alt="Maladie des yeux">
+          <h3>Maladie et défauts de l'œil</h3>
+          <p>Maladie et défauts de l'œil, diagnostic, corrections et soins.</p>
+        </a>
+
+        <a href="pathologies/prostate.html" class="card-patho">
+          <img data-slug="prostate" alt="Prostate : prévention et dépistage">
+          <h3>Prostate</h3>
+          <p>Dépistage, symptômes, examens et prévention (hygiène de vie).</p>
+        </a>
+
+        <a href="pathologies/crohn.html" class="card-patho">
+          <img data-slug="crohn" alt="Maladie de Crohn">
+          <h3>Maladie de Crohn</h3>
+          <p>Inflammation chronique de l’intestin : douleurs abdominales, diarrhée, fatigue, poussées et suivi médical.</p>
+        </a>
+
+        <a href="pathologies/colon.html" class="card-patho">
+          <img data-slug="colon" alt="Côlon : prévention et dépistage">
+          <h3>Côlon</h3>
+          <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/vieillissement-esperance-vie.html" class="card-patho">
+          <img data-slug="vieillissement" alt="Vieillissement et espérance de vie">
+          <h3>Vieillissement &amp; espérance de vie</h3>
+          <p>
+            Vivre plus longtemps, oui.
+            Mais surtout vivre plus longtemps en bonne santé, avec autonomie et qualité de vie.
+          </p>
+        </a>
+
+        <a href="/yourhealth/pathologies/ogm-pesticides.html" class="card-patho">
+          <img data-slug="ogm-pesticides" alt="OGM et pesticides">
+          <h3>OGM &amp; pesticides</h3>
+          <p>
+            OGM et pesticides sont souvent confondus.
+            Cette page explique leurs différences, les voies d’exposition
+            et leurs impacts possibles sur la santé, sans alarmisme.
+          </p>
+        </a>
+
+        <a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
+          <img data-slug="repas-diabete" alt="Repas et diabète">
+          <h3>Repas et diabète</h3>
+          <p>
+            Que manger matin, midi et soir quand on est diabétique.
+            Cette page présente des repères alimentaires simples,
+            un menu type sur 7 jours et les règles de base pour limiter
+            les variations de la glycémie.
+          </p>
+        </a>
+
+        <a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
+          <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
+          <h3>Prescription de l’insuline</h3>
+          <p>
+            Un médecin généraliste peut-il prescrire de l’insuline avec un protocole.
+            Cette page explique le cadre médical, les conditions de prescription,
+            le rôle du protocole et les limites de compétence, sans interprétation.
+          </p>
+        </a>
+
+        <article class="card">
+          <h3>Avoine &amp; cholestérol</h3>
+          <p>
+            Une synthèse simple sur le lien entre l’avoine (fibres solubles) et le cholestérol LDL,
+            avec conseils pratiques et prudence.
+          </p>
+          <a class="chip" href="avoine-cholesterol.html">Lire la page</a>
+        </article>
+
+        <article class="card">
+          <h3>Perdre du poids après 50 ans</h3>
+          <p>
+            Une synthèse simple sur la perte de poids après 50 ans :
+            alimentation adaptée, activité régulière, sommeil correct et suivi concret.
+          </p>
+          <a class="chip" href="perdre-ventre-apres-50-ans.html">Lire la page</a>
+        </article>
+
+        <article class="card">
+          <h3>Dangers du vapotage</h3>
+          <p>
+            Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance
+            à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.
+          </p>
+          <a class="chip" href="/yourhealth/pathologies/vapotage-dangers.html">Lire la page</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Prévention et bien-être</h2>
+      <p>Des conseils simples pour réduire les risques et améliorer la qualité de vie.</p>
+      <p><a href="sante-alimentaion-ref.html">Alimentation équilibrée</a></p>
+      <p><a href="sport-sante.html">Bienfaits du sport sur la santé</a></p>
+      <p><a href="/yourhealth/pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
+      <p><a href="/yourhealth/pathologies/proteines.html">Les protéines, indispensables</a></p>
+      <p><a href="medias.html">Quelques journaux de presse de différents pays</a></p>
+    </section>
+
+    <section class="container ressources-sante">
+      <h2>Ressources santé (liens externes)</h2>
+
+      <ul>
+        <li>
+          <a
+            href="https://www.inserm.fr/dossier/maladies-auto-immunes/"
+            target="_blank"
+            rel="noopener"
+          >
+            Maladies auto-immunes – Inserm
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.who.int/health-topics/air-pollution"
+            target="_blank"
+            rel="noopener"
+          >
+            Pollution et santé – Organisation mondiale de la santé (OMS)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://sante.gouv.fr/sante-et-environnement/risques-microbiologiques-physiques-et-chimiques/pesticides/article/effets-sur-la-sante-d-une-exposition-a-des-pesticides"
+            target="_blank"
+            rel="noopener"
+          >
+            Pesticides : effets sur la santé – Ministère de la Santé (France)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.efsa.europa.eu/fr/topics/topic/gmo"
+            target="_blank"
+            rel="noopener"
+          >
+            OGM : données scientifiques – Autorité européenne de sécurité des aliments (EFSA)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.ameli.fr/assure/sante/themes/alimentation/alimentation-adulte/alimentation-adulte-types-aliments/vitamines-et-minereraux"
+            target="_blank"
+            rel="noopener"
+          >
+            Vitamines et minéraux : rôles et apports – Assurance Maladie (Ameli)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+            target="_blank"
+            rel="noopener"
+          >
+            Magnésium : rôle et apports – National Institutes of Health (NIH)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.topsante.com/nutrition-et-recettes/les-bons-aliments/fruits-et-legumes/les-bienfaits-sante-du-kale-54747"
+            target="_blank"
+            rel="noopener"
+          >
+            Chou kale : bienfaits santé et conseils de préparation
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.ameli.fr/assure/sante/themes/anemie-par-carence-en-fer/comprendre-anemie-carence-fer"
+            target="_blank"
+            rel="noopener"
+          >
+            Carence en fer et anémie – Assurance Maladie (Ameli)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.ameli.fr/assure/sante/themes/maladie-crohn"
+            target="_blank"
+            rel="noopener"
+          >
+            Maladie de Crohn – Assurance Maladie (Ameli)
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://ehk0705.github.io/ia"
+            target="_blank"
+            rel="noopener"
+          >
+            Mon site sur l’IA
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="site-footer">
+      <p><strong>Avertissement :</strong> informations générales, ne remplace pas un avis médical.</p>
+      <p>
+        <strong>Auteur :</strong> Site développé par Hocine Korichi, ingénieur physicien et informaticien.<br>
+      </p>
+
+      <div class="compteur-visites" aria-live="polite">
+        <span class="label">Nombre de visites</span>
+        <div id="compteur-visites">Chargement…</div>
+      </div>
+
+      <p>© 2026 yourhealth</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const IMG_BASE = "assets/img/";
+      const FALLBACKS = [IMG_BASE + "crohn.jfif", IMG_BASE + "default.svg"];
+      const EXTS = ["jfif", "jpg", "jpeg", "png", "webp", "svg"];
+
+      function setFallback(imgEl) {
+        let k = 0;
+        const tryFb = () => {
+          if (k >= FALLBACKS.length) {
+            return;
           }
+          imgEl.onerror = tryFb;
+          imgEl.src = FALLBACKS[k++];
+        };
+        tryFb();
+      }
 
-          slug = (slug || "").trim();
-          if (!slug) {
+      function trySetImage(imgEl, slug) {
+        let i = 0;
+
+        function attempt() {
+          if (i >= EXTS.length) {
             setFallback(imgEl);
             return;
           }
-          attempt();
+          const url = IMG_BASE + slug + "." + EXTS[i++];
+          imgEl.onerror = attempt;
+          imgEl.src = url;
         }
 
-        document.querySelectorAll("img[data-slug]").forEach((img) => {
-          const slug = img.getAttribute("data-slug");
-          img.setAttribute("loading", "lazy");
-          img.setAttribute("decoding", "async");
-          trySetImage(img, slug);
-        });
-
-        const el = document.getElementById("compteur-visites");
-        if (el) {
-          el.innerHTML =
-            '<img src="https://ehk0705.goatcounter.com/counter/TOTAL.svg?no_branding=1" ' +
-            'alt="Compteur de visites (TOTAL)" ' +
-            'loading="lazy" style="max-width:100%;height:auto">';
+        slug = (slug || "").trim();
+        if (!slug) {
+          setFallback(imgEl);
+          return;
         }
-      })();
-    </script>
+        attempt();
+      }
 
-    <script
-      data-goatcounter="https://ehk0705.goatcounter.com/count"
-      src="https://gc.zgo.at/count.js"
-    ></script>
-  </body>
+      document.querySelectorAll("img[data-slug]").forEach((img) => {
+        const slug = img.getAttribute("data-slug");
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("decoding", "async");
+        trySetImage(img, slug);
+      });
+
+      const el = document.getElementById("compteur-visites");
+      if (el) {
+        el.innerHTML =
+          '<img src="https://ehk0705.goatcounter.com/counter/TOTAL.svg?no_branding=1" ' +
+          'alt="Compteur de visites (TOTAL)" ' +
+          'loading="lazy" style="max-width:100%;height:auto">';
+      }
+    })();
+  </script>
+
+  <script
+    data-goatcounter="https://ehk0705.goatcounter.com/count"
+    src="https://gc.zgo.at/count.js"
+  ></script>
+</body>
 </html>
