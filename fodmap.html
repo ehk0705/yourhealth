@@ -90,11 +90,35 @@
     }
 
     .hero-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
       background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
       color: #ffffff;
       padding: 34px 28px;
       border-radius: 24px;
       box-shadow: var(--shadow);
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-image {
+      flex: 0 0 220px;
+      max-width: 220px;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .hero-badge {
@@ -265,6 +289,21 @@
       h1 {
         font-size: 1.65rem;
       }
+
+      .hero-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        max-width: 100%;
+        width: 100%;
+        flex: none;
+      }
+
+      .hero-image img {
+        max-width: 280px;
+      }
     }
 
     @media (max-width: 700px) {
@@ -294,13 +333,23 @@
   <header class="hero">
     <div class="container">
       <div class="hero-box">
-        <span class="hero-badge">Santé digestive</span>
-        <h1>Le régime FODMAP</h1>
-        <p>
-          Le régime FODMAP est une approche alimentaire utilisée surtout pour aider à réduire
-          certains symptômes digestifs, notamment dans le syndrome de l’intestin irritable.
-          Il ne s’agit pas d’un régime définitif, mais d’une méthode en plusieurs étapes.
-        </p>
+        <div class="hero-content">
+          <span class="hero-badge">Santé digestive</span>
+          <h1>Le régime FODMAP</h1>
+          <p>
+            Le régime FODMAP est une approche alimentaire utilisée surtout pour aider à réduire
+            certains symptômes digestifs, notamment dans le syndrome de l’intestin irritable.
+            Il ne s’agit pas d’un régime définitif, mais d’une méthode en plusieurs étapes.
+          </p>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="fodmap.jfif"
+            alt="Illustration du régime FODMAP"
+            onerror="this.onerror=null;this.style.display='none';"
+          />
+        </div>
       </div>
     </div>
   </header>
