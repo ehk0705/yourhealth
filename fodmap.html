@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Régime FODMAP</title>
+  <meta
+    name="description"
+    content="Guide simple sur le régime FODMAP : définition, objectifs, personnes concernées, étapes, conseils pratiques et limites."
+  />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #0f766e;
+      --primary-soft: #ccfbf1;
+      --border: #dbe3ea;
+      --danger: #b91c1c;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef5f8 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary-soft);
+    }
+
+    header.hero {
+      padding: 32px 0 24px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+      color: #ffffff;
+      padding: 34px 28px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-box p {
+      margin: 0;
+      max-width: 850px;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    main {
+      padding: 8px 0 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.half {
+      grid-column: span 6;
+    }
+
+    .card.third {
+      grid-column: span 4;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: #374151;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 14px 14px 14px 56px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .notice {
+      border-left: 5px solid var(--danger);
+      background: #fff5f5;
+    }
+
+    .mini-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .mini-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 0 0 40px;
+    }
+
+    .sources {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .sources a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .sources a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .card.half,
+      .card.third {
+        grid-column: span 12;
+      }
+
+      .mini-table {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">Votre santé</a>
+      <div class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="ressources.html">Ressources</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <span class="hero-badge">Santé digestive</span>
+        <h1>Le régime FODMAP</h1>
+        <p>
+          Le régime FODMAP est une approche alimentaire utilisée surtout pour aider à réduire
+          certains symptômes digestifs, notamment dans le syndrome de l’intestin irritable.
+          Il ne s’agit pas d’un régime définitif, mais d’une méthode en plusieurs étapes.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="grid">
+        <section class="card">
+          <span class="tag">Définition</span>
+          <h2>Que veut dire FODMAP ?</h2>
+          <p class="lead">
+            FODMAP est un sigle qui désigne un groupe de glucides fermentescibles, parfois mal absorbés
+            par l’intestin. Chez certaines personnes, ils peuvent favoriser les ballonnements, les gaz,
+            les douleurs abdominales, la diarrhée ou la constipation.
+          </p>
+          <div class="mini-table">
+            <div class="mini-box">
+              <h3>F = Fermentescibles</h3>
+              <p>Ils sont fermentés par les bactéries intestinales.</p>
+            </div>
+            <div class="mini-box">
+              <h3>ODMAP</h3>
+              <p>Oligosaccharides, disaccharides, monosaccharides et polyols.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card half">
+          <span class="tag">Cibles</span>
+          <h2>Pour qui ?</h2>
+          <ul>
+            <li>Personnes souffrant de syndrome de l’intestin irritable.</li>
+            <li>Personnes ayant des ballonnements, douleurs, gaz ou troubles du transit liés à certains aliments.</li>
+            <li>Personnes suivies par un médecin ou un diététiste pour des symptômes digestifs persistants.</li>
+          </ul>
+        </section>
+
+        <section class="card half">
+          <span class="tag">Pourquoi</span>
+          <h2>À quoi sert-il ?</h2>
+          <ul>
+            <li>Réduire les symptômes digestifs gênants.</li>
+            <li>Identifier les aliments réellement mal tolérés.</li>
+            <li>Éviter les exclusions inutiles à long terme.</li>
+            <li>Construire une alimentation plus personnalisée.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <span class="tag">Méthode</span>
+          <h2>Les 3 étapes du régime FODMAP</h2>
+          <ol class="steps">
+            <li>
+              <strong>Réduction courte :</strong> pendant une période limitée, on réduit les aliments riches en FODMAP.
+              Ce n’est pas une phase permanente.
+            </li>
+            <li>
+              <strong>Réintroduction :</strong> on teste progressivement certains groupes d’aliments pour repérer ceux
+              qui déclenchent les symptômes.
+            </li>
+            <li>
+              <strong>Personnalisation :</strong> on garde seulement les restrictions utiles, afin d’avoir une alimentation
+              la plus variée possible.
+            </li>
+          </ol>
+        </section>
+
+        <section class="card third">
+          <span class="tag">Exemples</span>
+          <h2>Souvent riches en FODMAP</h2>
+          <ul>
+            <li>Oignon</li>
+            <li>Ail</li>
+            <li>Blé chez certaines personnes</li>
+            <li>Lait riche en lactose</li>
+            <li>Pommes, poires</li>
+            <li>Certains édulcorants comme le sorbitol</li>
+            <li>Légumineuses selon la quantité</li>
+          </ul>
+        </section>
+
+        <section class="card third">
+          <span class="tag">Exemples</span>
+          <h2>Souvent mieux tolérés</h2>
+          <ul>
+            <li>Riz</li>
+            <li>Pommes de terre</li>
+            <li>Flocons d’avoine</li>
+            <li>Banane peu mûre</li>
+            <li>Orange</li>
+            <li>Fromages pauvres en lactose selon le cas</li>
+            <li>Viande, poisson, œufs non transformés</li>
+          </ul>
+        </section>
+
+        <section class="card third">
+          <span class="tag">Important</span>
+          <h2>Ce qu’il faut comprendre</h2>
+          <ul>
+            <li>La quantité compte souvent autant que l’aliment lui-même.</li>
+            <li>Un aliment peut être toléré en petite portion mais pas en grande.</li>
+            <li>Le but n’est pas de tout supprimer.</li>
+            <li>Chaque personne a ses propres seuils.</li>
+          </ul>
+        </section>
+
+        <section class="card half">
+          <span class="tag">Conseils</span>
+          <h2>Conseils pratiques</h2>
+          <ul>
+            <li>Tenir un journal des repas et des symptômes.</li>
+            <li>Éviter de commencer ce régime sans méthode.</li>
+            <li>Lire les étiquettes : ail, oignon, sirop, polyols et lactose reviennent souvent.</li>
+            <li>Tester les aliments un par un pendant la réintroduction.</li>
+            <li>Préserver la variété alimentaire autant que possible.</li>
+          </ul>
+        </section>
+
+        <section class="card half notice">
+          <span class="tag">Prudence</span>
+          <h2>Limites et précautions</h2>
+          <ul>
+            <li>Ce régime n’est pas fait pour être strict à vie.</li>
+            <li>Il peut devenir trop restrictif s’il est mal appliqué.</li>
+            <li>Il ne remplace pas un avis médical en cas de perte de poids, saignement, fièvre ou douleur inhabituelle.</li>
+            <li>Un accompagnement par un professionnel est préférable, surtout si les symptômes durent.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <span class="tag">Résumé</span>
+          <h2>En bref</h2>
+          <p>
+            Le régime FODMAP sert surtout à mieux contrôler certains troubles digestifs, en particulier dans
+            le syndrome de l’intestin irritable. Son intérêt principal est d’identifier les aliments mal tolérés,
+            puis de revenir à une alimentation plus large et plus adaptée à chaque personne.
+          </p>
+          <p class="muted">
+            Cette page est informative et ne remplace pas un suivi médical ou diététique.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="card">
+        <h2>Sources conseillées</h2>
+        <div class="sources">
+          <p><a href="https://www.monashfodmap.com/" target="_blank" rel="noopener noreferrer">Monash University FODMAP</a></p>
+          <p><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/eating-diet-nutrition" target="_blank" rel="noopener noreferrer">NIDDK – IBS: alimentation et nutrition</a></p>
+          <p><a href="https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/further-help-and-support/" target="_blank" rel="noopener noreferrer">NHS – Aide et informations sur le régime pauvre en FODMAP</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
