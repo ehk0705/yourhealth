@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests PSA et FIT</title>
+  <meta
+    name="description"
+    content="Comprendre les tests PSA et FIT : définition, utilité, différences, limites et points à retenir."
+  />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .container {
+      width: min(1000px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: #eaf1ff;
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .chip {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      color: #111827;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 800px;
+    }
+
+    main {
+      padding: 10px 0 50px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-top: 24px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-size: 0.98rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 28px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      opacity: 0.92;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .card {
+        padding: 22px;
+      }
+
+      nav {
+        width: 100%;
+      }
+    }
+.hero-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 60%;
+}
+
+.hero-images {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hero-images img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .hero-flex {
+    flex-direction: column;
+  }
+
+  .hero-images {
+    justify-content: flex-start;
+  }
+}	
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <a href="index.html" class="brand">Santé & Information</a>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#ressources">Ressources</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+<div class="hero-card hero-flex">
+  <div class="hero-text">
+    <span class="chip">Dépistage</span>
+    <h1>Tests PSA et FIT</h1>
+    <p class="lead">
+      Le test PSA et le test FIT servent à dépister deux problèmes différents.
+      Le PSA concerne la prostate. Le FIT concerne le côlon et le rectum.
+    </p>
+  </div>
+
+  <div class="hero-images">
+    <img src="psa.jfif" alt="Test PSA" />
+    <img src="fit.jfif" alt="Test FIT" />
+  </div>
+</div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="grid">
+        <article class="card">
+          <h2>Qu’est-ce que le test PSA ?</h2>
+          <p>
+            Le PSA signifie <strong>antigène prostatique spécifique</strong>.
+            C’est une <strong>prise de sang</strong> qui mesure une protéine produite par la prostate.
+          </p>
+          <ul>
+            <li>Il aide à repérer un problème de prostate.</li>
+            <li>Un taux élevé ne veut pas forcément dire cancer.</li>
+            <li>Il peut aussi augmenter en cas d’inflammation ou d’augmentation bénigne de la prostate.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Qu’est-ce que le test FIT ?</h2>
+          <p>
+            Le FIT signifie <strong>test immunochimique fécal</strong>.
+            C’est un <strong>test de selles</strong>, souvent fait à la maison.
+          </p>
+          <ul>
+            <li>Il cherche du sang invisible dans les selles.</li>
+            <li>Il peut aider à détecter un polype ou un cancer colorectal.</li>
+            <li>Il est utilisé pour le dépistage du côlon et du rectum.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Différence simple</h2>
+          <ul>
+            <li><strong>PSA :</strong> prostate.</li>
+            <li><strong>FIT :</strong> côlon et rectum.</li>
+            <li><strong>PSA :</strong> prise de sang.</li>
+            <li><strong>FIT :</strong> test de selles.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>À retenir</h2>
+          <ul>
+            <li>Le test PSA ne suffit pas à poser un diagnostic.</li>
+            <li>Le test FIT ne remplace pas un avis médical si des symptômes sont présents.</li>
+            <li>Ces tests servent surtout au dépistage et à l’orientation médicale.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Point comparé</th>
+              <th>PSA</th>
+              <th>FIT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Type de test</td>
+              <td>Prise de sang</td>
+              <td>Analyse de selles</td>
+            </tr>
+            <tr>
+              <td>Zone concernée</td>
+              <td>Prostate</td>
+              <td>Côlon et rectum</td>
+            </tr>
+            <tr>
+              <td>But principal</td>
+              <td>Repérer une anomalie de la prostate</td>
+              <td>Détecter du sang caché dans les selles</td>
+            </tr>
+            <tr>
+              <td>Limite importante</td>
+              <td>Un résultat élevé ne signifie pas automatiquement un cancer</td>
+              <td>Un résultat anormal demande souvent un examen complémentaire</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <strong>Important :</strong> un résultat anormal ne veut pas dire automatiquement cancer.
+        Seul un professionnel de santé peut interpréter correctement le résultat selon l’âge,
+        les symptômes et les antécédents.
+      </div>
+
+      <a href="index.html" class="back-link">Retour à l’accueil</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Page d’information générale sur les tests PSA et FIT.
+    </div>
+  </footer>
+</body>
+</html>
