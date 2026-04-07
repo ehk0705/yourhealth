@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comprendre le bateau : flottabilité, navigation et sécurité</title>
+  <style>
+    :root {
+      --fond: #f4f8fb;
+      --carte: #ffffff;
+      --texte: #1f2937;
+      --muted: #4b5563;
+      --bleu: #0f4c81;
+      --bleu-clair: #dbeafe;
+      --bleu-mer: #cfefff;
+      --bord: #d6e2ea;
+      --accent: #0b7285;
+      --danger: #b42318;
+      --ok: #0f766e;
+      --ombre: 0 10px 24px rgba(15, 76, 129, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eaf4fb 0%, var(--fond) 100%);
+      color: var(--texte);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f4c81 0%, #136f9b 100%);
+      color: white;
+      padding: 48px 20px 36px;
+    }
+
+    .wrap {
+      width: min(1150px, 94%);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+    }
+
+    .intro {
+      max-width: 860px;
+      font-size: 1.08rem;
+      opacity: 0.98;
+    }
+
+    nav {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 28px 0 60px;
+    }
+
+    .section {
+      background: var(--carte);
+      border: 1px solid var(--bord);
+      border-radius: 20px;
+      padding: 28px;
+      margin: 22px 0;
+      box-shadow: var(--ombre);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: var(--bleu);
+      font-size: 1.7rem;
+    }
+
+    .section h3 {
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .grille-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .grille-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .carte {
+      background: #fbfdff;
+      border: 1px solid var(--bord);
+      border-radius: 16px;
+      padding: 18px;
+      height: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--bleu-clair);
+      color: var(--bleu);
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    li + li { margin-top: 7px; }
+
+    .svg-box {
+      background: linear-gradient(180deg, #fafdff 0%, #eef8ff 100%);
+      border: 1px solid var(--bord);
+      border-radius: 18px;
+      padding: 12px;
+    }
+
+    .note {
+      background: #eefbf8;
+      border-left: 5px solid var(--ok);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-top: 16px;
+    }
+
+    .danger {
+      background: #fff4f2;
+      border-left: 5px solid var(--danger);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-top: 16px;
+    }
+
+    .tableau {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .tableau th,
+    .tableau td {
+      border: 1px solid var(--bord);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .tableau th {
+      background: #edf6ff;
+      color: var(--bleu);
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 12px 20px 40px;
+      font-size: 0.95rem;
+    }
+
+    .small { color: var(--muted); font-size: 0.95rem; }
+
+    @media (max-width: 900px) {
+      .grille-2, .grille-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Comprendre le bateau</h1>
+      <p class="intro">
+        Cette page explique de façon simple comment un bateau flotte, avance, se dirige et affronte les dangers de la mer.
+        Elle résume aussi la navigation, les nœuds, les forces en jeu, la conception d’un navire et le rôle des armateurs.
+      </p>
+      <nav>
+        <a href="#archimede">Archimède</a>
+        <a href="#forces">Forces</a>
+        <a href="#navigation">Navigation</a>
+        <a href="#noeuds">Nœuds</a>
+        <a href="#dangers">Dangers</a>
+        <a href="#conception">Conception</a>
+        <a href="#armateurs">Armateurs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section" id="archimede">
+      <div class="grille-2">
+        <div>
+          <span class="badge">1. Pourquoi le bateau flotte</span>
+          <h2>Principe d’Archimède</h2>
+          <p>
+            Un bateau flotte parce qu’il déplace un volume d’eau suffisant pour que l’eau exerce sur lui une force vers le haut.
+            Cette force s’appelle la <strong>poussée d’Archimède</strong>.
+          </p>
+          <ul>
+            <li><strong>Le poids</strong> tire le bateau vers le bas.</li>
+            <li><strong>La poussée d’Archimède</strong> pousse vers le haut.</li>
+            <li>Quand ces deux forces s’équilibrent, le bateau flotte.</li>
+          </ul>
+          <div class="note">
+            Un gros navire en acier peut flotter, non pas parce que l’acier est léger, mais parce que la coque est creuse et déplace beaucoup d’eau.
+          </div>
+        </div>
+        <div class="svg-box">
+          <svg viewBox="0 0 520 340" width="100%" aria-label="Schéma du principe d Archimède">
+            <rect x="0" y="170" width="520" height="170" fill="#bfe8ff"></rect>
+            <rect x="0" y="155" width="520" height="15" fill="#71c2e8"></rect>
+            <path d="M120 170 L190 235 L360 235 L410 170 Z" fill="#355c7d"></path>
+            <rect x="235" y="90" width="14" height="80" fill="#8b5a2b"></rect>
+            <polygon points="249,95 330,135 249,170" fill="#f7f1e3"></polygon>
+            <line x1="250" y1="42" x2="250" y2="112" stroke="#c62828" stroke-width="7"></line>
+            <polygon points="250,25 230,58 270,58" fill="#c62828"></polygon>
+            <text x="268" y="55" font-size="18" fill="#c62828" font-weight="bold">Poids</text>
+            <line x1="95" y1="300" x2="95" y2="230" stroke="#0b7285" stroke-width="7"></line>
+            <polygon points="95,210 75,243 115,243" fill="#0b7285"></polygon>
+            <text x="112" y="260" font-size="18" fill="#0b7285" font-weight="bold">Poussée d’Archimède</text>
+            <text x="150" y="262" font-size="16" fill="#183b56">Coque</text>
+            <text x="25" y="148" font-size="16" fill="#155e75">Surface de l’eau</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="forces">
+      <div class="grille-2">
+        <div class="svg-box">
+          <svg viewBox="0 0 520 340" width="100%" aria-label="Schéma des forces sur un bateau">
+            <rect x="0" y="170" width="520" height="170" fill="#ccefff"></rect>
+            <rect x="0" y="155" width="520" height="15" fill="#79c7ea"></rect>
+            <path d="M110 170 L180 230 L360 230 L415 170 Z" fill="#294c60"></path>
+            <rect x="230" y="95" width="12" height="75" fill="#8d5524"></rect>
+            <polygon points="242,100 310,128 242,160" fill="#ffffff"></polygon>
+            <line x1="260" y1="50" x2="260" y2="120" stroke="#c62828" stroke-width="7"></line>
+            <polygon points="260,132 242,102 278,102" fill="#c62828" transform="rotate(180 260 117)"></polygon>
+            <text x="275" y="62" font-size="18" fill="#c62828" font-weight="bold">Poids</text>
+            <line x1="95" y1="300" x2="95" y2="235" stroke="#0b7285" stroke-width="7"></line>
+            <polygon points="95,215 75,248 115,248" fill="#0b7285"></polygon>
+            <text x="115" y="260" font-size="18" fill="#0b7285" font-weight="bold">Poussée</text>
+            <line x1="52" y1="138" x2="135" y2="138" stroke="#1d4ed8" stroke-width="7"></line>
+            <polygon points="145,138 113,120 113,156" fill="#1d4ed8"></polygon>
+            <text x="20" y="117" font-size="18" fill="#1d4ed8" font-weight="bold">Propulsion</text>
+            <line x1="462" y1="138" x2="382" y2="138" stroke="#7c3aed" stroke-width="7"></line>
+            <polygon points="370,138 402,120 402,156" fill="#7c3aed"></polygon>
+            <text x="375" y="117" font-size="18" fill="#7c3aed" font-weight="bold">Traînée</text>
+          </svg>
+        </div>
+        <div>
+          <span class="badge">2. Les forces en jeu</span>
+          <h2>Quatre forces principales</h2>
+          <ul>
+            <li><strong>Poids</strong> : il dépend de la masse du bateau, du carburant, de l’équipage et de la cargaison.</li>
+            <li><strong>Poussée</strong> : elle compense le poids si la flottabilité est suffisante.</li>
+            <li><strong>Propulsion</strong> : produite par l’hélice, le moteur ou les voiles.</li>
+            <li><strong>Traînée</strong> : résistance de l’eau et de l’air qui freine l’avancement.</li>
+          </ul>
+          <p>
+            À vitesse constante, la propulsion compense la traînée. En flottabilité normale, le poids est compensé par la poussée.
+          </p>
+          <div class="note">
+            La stabilité dépend aussi du centre de gravité, de la forme de la coque, du chargement et de la répartition des masses.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="navigation">
+      <span class="badge">3. Se repérer et manœuvrer</span>
+      <h2>Navigation maritime</h2>
+      <div class="grille-3">
+        <div class="carte">
+          <h3>Position</h3>
+          <p>Le navire utilise le GPS, les cartes marines et parfois des repères côtiers pour connaître sa position.</p>
+          <div class="svg-box">
+            <svg viewBox="0 0 320 200" width="100%" aria-label="Illustration GPS et carte">
+              <rect x="18" y="20" width="284" height="160" rx="14" fill="#eef7ff" stroke="#aacde3"></rect>
+              <path d="M40 135 C95 80, 135 120, 195 88 S275 80, 282 58" fill="none" stroke="#0f4c81" stroke-width="6"></path>
+              <circle cx="95" cy="97" r="8" fill="#c62828"></circle>
+              <circle cx="215" cy="84" r="8" fill="#0b7285"></circle>
+              <path d="M160 48 l18 32 h-36 z" fill="#1d4ed8"></path>
+              <text x="128" y="168" font-size="16" fill="#0f4c81" font-weight="bold">Route sur carte</text>
+            </svg>
+          </div>
+        </div>
+        <div class="carte">
+          <h3>Détection</h3>
+          <p>Le radar aide à voir d’autres navires, la côte, certains obstacles et les zones à surveiller.</p>
+          <div class="svg-box">
+            <svg viewBox="0 0 320 200" width="100%" aria-label="Illustration radar">
+              <circle cx="160" cy="100" r="70" fill="#e8fff7" stroke="#73c7a8" stroke-width="3"></circle>
+              <circle cx="160" cy="100" r="48" fill="none" stroke="#73c7a8" stroke-width="2"></circle>
+              <circle cx="160" cy="100" r="24" fill="none" stroke="#73c7a8" stroke-width="2"></circle>
+              <line x1="160" y1="100" x2="215" y2="48" stroke="#0f766e" stroke-width="4"></line>
+              <circle cx="222" cy="53" r="5" fill="#c62828"></circle>
+              <circle cx="132" cy="145" r="5" fill="#c62828"></circle>
+              <text x="122" y="188" font-size="16" fill="#0f766e" font-weight="bold">Radar</text>
+            </svg>
+          </div>
+        </div>
+        <div class="carte">
+          <h3>Direction</h3>
+          <p>Le compas, le gouvernail et les systèmes automatiques aident à tenir un cap et à corriger la trajectoire.</p>
+          <div class="svg-box">
+            <svg viewBox="0 0 320 200" width="100%" aria-label="Illustration compas">
+              <circle cx="160" cy="100" r="72" fill="#fffaf0" stroke="#d8b36a" stroke-width="3"></circle>
+              <circle cx="160" cy="100" r="10" fill="#0f4c81"></circle>
+              <line x1="160" y1="32" x2="160" y2="168" stroke="#c9a24f" stroke-width="2"></line>
+              <line x1="92" y1="100" x2="228" y2="100" stroke="#c9a24f" stroke-width="2"></line>
+              <polygon points="160,38 146,100 160,92 174,100" fill="#c62828"></polygon>
+              <polygon points="160,162 146,100 160,108 174,100" fill="#1d4ed8"></polygon>
+              <text x="154" y="24" font-size="18" fill="#0f4c81" font-weight="bold">N</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="note">
+        Autrefois, les marins utilisaient aussi les étoiles, le sextant et l’expérience. Aujourd’hui, l’électronique aide beaucoup, mais elle ne remplace pas la prudence.
+      </div>
+    </section>
+
+    <section class="section" id="noeuds">
+      <div class="grille-2">
+        <div>
+          <span class="badge">4. Vitesse en mer</span>
+          <h2>Que signifie un nœud ?</h2>
+          <p>
+            La vitesse d’un bateau se mesure souvent en <strong>nœuds</strong>.
+            <strong>1 nœud = 1,852 kilomètre par heure</strong>.
+          </p>
+          <table class="tableau">
+            <thead>
+              <tr>
+                <th>Type de bateau</th>
+                <th>Vitesse courante</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Petit bateau de plaisance</td>
+                <td>5 à 15 nœuds</td>
+              </tr>
+              <tr>
+                <td>Voilier de croisière</td>
+                <td>5 à 10 nœuds</td>
+              </tr>
+              <tr>
+                <td>Navire de commerce</td>
+                <td>15 à 25 nœuds</td>
+              </tr>
+              <tr>
+                <td>Navire militaire rapide</td>
+                <td>Souvent davantage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="svg-box">
+          <svg viewBox="0 0 520 320" width="100%" aria-label="Illustration vitesse et noeuds">
+            <rect x="20" y="40" width="480" height="240" rx="18" fill="#f7fbff" stroke="#cfe1ec"></rect>
+            <path d="M80 200 L135 240 L290 240 L345 200 Z" fill="#355c7d"></path>
+            <line x1="365" y1="150" x2="455" y2="150" stroke="#1d4ed8" stroke-width="8"></line>
+            <polygon points="470,150 435,130 435,170" fill="#1d4ed8"></polygon>
+            <text x="338" y="122" font-size="24" fill="#1d4ed8" font-weight="bold">12 nœuds</text>
+            <text x="112" y="90" font-size="22" fill="#0f4c81" font-weight="bold">1 nœud = 1,852 km/h</text>
+            <path d="M55 255 C80 240, 115 240, 140 255" fill="none" stroke="#84d2f6" stroke-width="5"></path>
+            <path d="M160 255 C185 240, 220 240, 245 255" fill="none" stroke="#84d2f6" stroke-width="5"></path>
+            <path d="M265 255 C290 240, 325 240, 350 255" fill="none" stroke="#84d2f6" stroke-width="5"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dangers">
+      <span class="badge">5. Principaux risques</span>
+      <h2>Dangers en mer</h2>
+      <div class="grille-3">
+        <div class="carte">
+          <h3>Météo</h3>
+          <p>Vent fort, tempêtes, houle et vagues peuvent rendre la navigation très dangereuse.</p>
+        </div>
+        <div class="carte">
+          <h3>Obstacles</h3>
+          <p>Récifs, hauts-fonds, épaves, glace et autres navires menacent la sécurité.</p>
+        </div>
+        <div class="carte">
+          <h3>Pannes et erreurs</h3>
+          <p>Une panne moteur, une mauvaise lecture des cartes ou une erreur humaine peuvent avoir de graves conséquences.</p>
+        </div>
+      </div>
+      <div class="grille-2" style="margin-top:20px;">
+        <div class="svg-box">
+          <svg viewBox="0 0 520 320" width="100%" aria-label="Illustration tempête en mer">
+            <rect x="0" y="0" width="520" height="140" fill="#a7b7c9"></rect>
+            <rect x="0" y="140" width="520" height="180" fill="#6cb9db"></rect>
+            <path d="M0 180 C40 150, 90 210, 130 180 S220 150, 260 185 S350 220, 390 185 S470 150, 520 185" fill="none" stroke="#2e86ab" stroke-width="14"></path>
+            <path d="M170 185 L225 240 L360 240 L395 185 Z" fill="#243b53"></path>
+            <line x1="260" y1="95" x2="245" y2="165" stroke="#f8fafc" stroke-width="5"></line>
+            <line x1="245" y1="165" x2="273" y2="145" stroke="#f8fafc" stroke-width="5"></line>
+            <line x1="245" y1="165" x2="228" y2="200" stroke="#f8fafc" stroke-width="5"></line>
+            <text x="25" y="42" font-size="24" fill="#1f2937" font-weight="bold">Tempête</text>
+          </svg>
+        </div>
+        <div>
+          <div class="danger">
+            En mer, le danger principal reste souvent la météo. Même un navire bien conçu peut être mis en difficulté par une mer forte, un mauvais chargement ou une mauvaise décision.
+          </div>
+          <ul>
+            <li>Respecter la météo et les avis de navigation.</li>
+            <li>Surveiller la route et les cartes.</li>
+            <li>Équilibrer correctement la cargaison.</li>
+            <li>Maintenir le matériel en bon état.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="conception">
+      <span class="badge">6. Comment on conçoit un navire</span>
+      <h2>Coque, équilibre, propulsion</h2>
+      <div class="grille-3">
+        <div class="carte">
+          <h3>Coque</h3>
+          <p>Sa forme doit assurer la flottabilité, réduire la résistance de l’eau et garder une bonne stabilité.</p>
+        </div>
+        <div class="carte">
+          <h3>Ballast</h3>
+          <p>De l’eau peut être ajoutée dans certains réservoirs pour équilibrer le navire et corriger son assiette.</p>
+        </div>
+        <div class="carte">
+          <h3>Propulsion</h3>
+          <p>Moteurs, arbres d’hélice, hélices, voiles et gouvernail sont étudiés pour avancer et manœuvrer efficacement.</p>
+        </div>
+      </div>
+      <div class="svg-box" style="margin-top:20px;">
+        <svg viewBox="0 0 900 280" width="100%" aria-label="Illustration simplifiée de la conception d un navire">
+          <rect x="0" y="150" width="900" height="130" fill="#d7f0ff"></rect>
+          <rect x="0" y="140" width="900" height="10" fill="#81c9ed"></rect>
+          <path d="M130 140 L220 220 L650 220 L760 140 Z" fill="#314e63"></path>
+          <rect x="250" y="90" width="160" height="50" rx="8" fill="#90a4b8"></rect>
+          <rect x="430" y="70" width="120" height="70" rx="8" fill="#768ea5"></rect>
+          <circle cx="500" cy="240" r="22" fill="#8d5524"></circle>
+          <circle cx="500" cy="240" r="8" fill="#f7f1e3"></circle>
+          <line x1="500" y1="218" x2="500" y2="262" stroke="#f7f1e3" stroke-width="3"></line>
+          <line x1="478" y1="240" x2="522" y2="240" stroke="#f7f1e3" stroke-width="3"></line>
+          <text x="175" y="250" font-size="22" fill="#0f4c81" font-weight="bold">Coque</text>
+          <text x="278" y="82" font-size="20" fill="#0b7285" font-weight="bold">Pont</text>
+          <text x="442" y="58" font-size="20" fill="#0b7285" font-weight="bold">Superstructure</text>
+          <text x="530" y="248" font-size="20" fill="#8d5524" font-weight="bold">Hélice</text>
+        </svg>
+      </div>
+      <p class="small">Tout est calculé : masse, centre de gravité, volume immergé, stabilité, consommation et résistance de la structure.</p>
+    </section>
+
+    <section class="section" id="armateurs">
+      <div class="grille-2">
+        <div>
+          <span class="badge">7. Qui exploite le navire ?</span>
+          <h2>Le rôle des armateurs</h2>
+          <p>
+            L’<strong>armateur</strong> est la personne ou la société qui exploite commercialement le navire.
+            Il ne faut pas le confondre avec le capitaine, qui commande le bateau en mer.
+          </p>
+          <ul>
+            <li>Il achète, finance ou loue le navire.</li>
+            <li>Il organise le transport, les contrats et la rentabilité.</li>
+            <li>Il recrute ou mandate l’équipage.</li>
+            <li>Il assume les coûts d’entretien, d’assurance et d’exploitation.</li>
+          </ul>
+          <div class="note">
+            En résumé : le capitaine dirige la navigation, l’armateur dirige l’exploitation économique.
+          </div>
+        </div>
+        <div class="svg-box">
+          <svg viewBox="0 0 520 320" width="100%" aria-label="Illustration armateur et navire">
+            <rect x="20" y="30" width="480" height="260" rx="18" fill="#f9fcff" stroke="#d1e3ee"></rect>
+            <rect x="55" y="70" width="140" height="110" rx="12" fill="#e8f1f8" stroke="#aacde3"></rect>
+            <rect x="335" y="150" width="115" height="20" rx="10" fill="#8d5524"></rect>
+            <circle cx="95" cy="115" r="18" fill="#0f4c81"></circle>
+            <rect x="82" y="136" width="26" height="32" rx="6" fill="#0f4c81"></rect>
+            <path d="M250 190 L300 225 L420 225 L455 190 Z" fill="#355c7d"></path>
+            <line x1="200" y1="120" x2="330" y2="170" stroke="#0b7285" stroke-width="5"></line>
+            <text x="58" y="58" font-size="20" fill="#0f4c81" font-weight="bold">Armateur</text>
+            <text x="328" y="252" font-size="20" fill="#0f4c81" font-weight="bold">Navire exploité</text>
+            <text x="202" y="104" font-size="18" fill="#0b7285" font-weight="bold">finance, gère, assure</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="badge">Résumé</span>
+      <h2>À retenir</h2>
+      <ul>
+        <li>Un bateau flotte grâce à l’équilibre entre le poids et la poussée d’Archimède.</li>
+        <li>Il avance grâce à la propulsion, freinée par la traînée.</li>
+        <li>La navigation repose sur les cartes, le GPS, le radar et le compas.</li>
+        <li>La vitesse en mer se mesure en nœuds.</li>
+        <li>La météo, les obstacles et les erreurs humaines restent les grands dangers.</li>
+        <li>La conception d’un navire vise la stabilité, l’efficacité et la sécurité.</li>
+        <li>L’armateur exploite économiquement le navire ; le capitaine le conduit en mer.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Page HTML pédagogique sur le fonctionnement d’un bateau, la navigation et la sécurité en mer.
+  </footer>
+</body>
+</html>
