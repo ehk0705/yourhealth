@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infection urinaire | Guide santé</title>
+  <meta
+    name="description"
+    content="Comprendre l’infection urinaire : définition, symptômes, diagnostic, remèdes, prévention, conseils et signes d’alerte."
+  />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --accent: #d1fae5;
+      --border: #e5e7eb;
+      --danger: #b91c1c;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 48px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .card,
+    .mini-card,
+    .alert-box,
+    .integration-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .hero-text {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .hero-visual {
+      padding: 22px;
+    }
+
+    .hero-illustration {
+      background: linear-gradient(135deg, #d1fae5, #ecfeff);
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid var(--border);
+    }
+
+    .urinary-icon {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 25%, #99f6e4 0, #99f6e4 8%, transparent 9%),
+        radial-gradient(circle at 35% 55%, #14b8a6 0, #14b8a6 12%, transparent 13%),
+        radial-gradient(circle at 65% 55%, #14b8a6 0, #14b8a6 12%, transparent 13%),
+        linear-gradient(#0f766e, #0f766e) center 55% / 12% 38% no-repeat,
+        linear-gradient(#0f766e, #0f766e) center 84% / 6% 18% no-repeat,
+        #f8fffe;
+      border: 1px solid #b7ece7;
+    }
+
+    .section {
+      padding: 18px 0 8px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      padding: 18px;
+    }
+
+    .mini-card p:last-child,
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card {
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    ul {
+      margin: 0 0 14px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .alert-box {
+      padding: 22px;
+      border-left: 6px solid var(--danger);
+      background: #fff7f7;
+    }
+
+    .alert-box h3 {
+      color: var(--danger);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .integration-card {
+      padding: 22px;
+      margin-top: 10px;
+    }
+
+    .integration-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-4,
+      .two-cols {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Guide Santé</div>
+      <nav class="menu">
+        <a href="#definition">Définition</a>
+        <a href="#symptomes">Symptômes</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#remedes">Remèdes</a>
+        <a href="#prevention">Prévention</a>
+        <a href="#conseils">Conseils</a>
+        <a href="../index.html">Retour</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Santé urinaire</span>
+          <h1>Comprendre l’infection urinaire simplement</h1>
+          <p class="hero-text">
+            L’infection urinaire est une infection touchant une partie de l’appareil urinaire :
+            l’urètre, la vessie, et parfois les reins. Elle est le plus souvent due à des bactéries.
+          </p>
+          <p class="hero-text">
+            Elle peut provoquer des brûlures en urinant, des envies fréquentes d’uriner, une douleur
+            dans le bas du ventre, et parfois une fièvre ou une douleur dans le dos si l’infection
+            remonte vers les reins.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#diagnostic">Voir le diagnostic</a>
+            <a class="btn btn-secondary" href="#prevention">Voir la prévention</a>
+          </div>
+        </div>
+
+        <div class="hero-card hero-visual">
+          <div class="hero-illustration">
+            <div class="urinary-icon" aria-label="Illustration de l’appareil urinaire"></div>
+            <p class="note" style="margin-top: 14px;">
+              Page d’information générale sur l’infection urinaire.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="grid-4">
+        <article class="mini-card">
+          <h3>Définition</h3>
+          <p>Infection de l’appareil urinaire, souvent d’origine bactérienne.</p>
+        </article>
+
+        <article class="mini-card">
+          <h3>Symptômes fréquents</h3>
+          <p>Brûlures en urinant, envies fréquentes, petites quantités d’urine, gêne pelvienne.</p>
+        </article>
+
+        <article class="mini-card">
+          <h3>Examen clé</h3>
+          <p>Bandelette urinaire, analyse d’urine et parfois culture d’urine.</p>
+        </article>
+
+        <article class="mini-card">
+          <h3>À retenir</h3>
+          <p>Une fièvre ou une douleur dans le dos peut faire craindre une atteinte des reins.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="definition" class="section container">
+      <article class="card">
+        <h2>Définition</h2>
+        <p>
+          Une infection urinaire correspond à la présence et à la multiplication de microbes,
+          le plus souvent des bactéries, dans l’appareil urinaire. Elle peut toucher :
+        </p>
+        <ul>
+          <li><strong>l’urètre</strong> : on parle d’urétrite ;</li>
+          <li><strong>la vessie</strong> : on parle souvent de cystite ;</li>
+          <li><strong>les reins</strong> : il s’agit alors d’une infection plus haute, plus sérieuse.</li>
+        </ul>
+        <p>
+          Les infections urinaires sont plus fréquentes chez la femme, notamment parce que l’urètre
+          est plus court, ce qui facilite la remontée des bactéries vers la vessie.
+        </p>
+      </article>
+    </section>
+
+    <section id="symptomes" class="section container">
+      <article class="card">
+        <h2>Symptômes fréquents</h2>
+        <p>
+          Les signes varient selon la zone atteinte. Une infection limitée à la vessie ne donne pas
+          les mêmes symptômes qu’une infection qui atteint les reins.
+        </p>
+
+        <div class="two-cols">
+          <div>
+            <h3>Signes les plus courants</h3>
+            <ul>
+              <li>Brûlure ou douleur au moment d’uriner</li>
+              <li>Envies fréquentes d’uriner</li>
+              <li>Besoin urgent d’uriner</li>
+              <li>Petites quantités d’urine</li>
+              <li>Gêne ou douleur dans le bas du ventre</li>
+              <li>Urines troubles, parfois malodorantes</li>
+              <li>Présence possible de sang dans les urines</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Si l’infection remonte vers les reins</h3>
+            <ul>
+              <li>Fièvre</li>
+              <li>Frissons</li>
+              <li>Douleur dans le dos ou sur le côté</li>
+              <li>Nausées ou vomissements</li>
+              <li>Malaise général</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container">
+      <article class="alert-box">
+        <h3>Quand consulter rapidement</h3>
+        <p>
+          Il faut consulter rapidement en cas de fièvre, frissons, douleur dans le dos ou sur le côté,
+          vomissements, sang dans les urines, aggravation rapide, grossesse, âge avancé, immunodépression,
+          ou si les symptômes reviennent souvent.
+        </p>
+      </article>
+    </section>
+
+    <section id="causes" class="section container">
+      <article class="card">
+        <h2>Causes et facteurs favorisants</h2>
+        <p>
+          La cause la plus fréquente est la remontée de bactéries vers l’appareil urinaire.
+          Certains facteurs augmentent le risque.
+        </p>
+
+        <div class="two-cols">
+          <div>
+            <h3>Causes fréquentes</h3>
+            <ul>
+              <li>Bactéries venant de la région digestive</li>
+              <li>Migration des bactéries par l’urètre</li>
+              <li>Stagnation d’urine dans la vessie</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Facteurs de risque</h3>
+            <ul>
+              <li>Être une femme</li>
+              <li>Grossesse</li>
+              <li>Calculs urinaires</li>
+              <li>Vidange incomplète de la vessie</li>
+              <li>Prostate augmentée de volume chez l’homme</li>
+              <li>Sonde urinaire</li>
+              <li>Diabète mal équilibré ou immunité affaiblie</li>
+              <li>Rapports sexuels chez certaines personnes</li>
+              <li>Utilisation de spermicides ou diaphragme chez certaines femmes</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="diagnostic" class="section container">
+      <article class="card">
+        <h2>Diagnostic</h2>
+        <p>
+          Le diagnostic repose d’abord sur les symptômes, puis sur des examens urinaires selon la situation.
+        </p>
+
+        <h3>Examens souvent utilisés</h3>
+        <ul>
+          <li><strong>Bandelette urinaire</strong> : orientation rapide</li>
+          <li><strong>Analyse d’urine</strong> : recherche d’anomalies</li>
+          <li><strong>Culture d’urine</strong> : identification de la bactérie et de l’antibiotique adapté</li>
+        </ul>
+
+        <h3>Le but du bilan</h3>
+        <ul>
+          <li>Confirmer qu’il s’agit bien d’une infection urinaire</li>
+          <li>Préciser si la vessie seule est atteinte ou si les reins peuvent être touchés</li>
+          <li>Rechercher un facteur favorisant</li>
+          <li>Adapter le traitement si nécessaire</li>
+        </ul>
+
+        <p class="note">
+          En cas d’infections répétées, chez l’homme, pendant la grossesse, ou en cas de signes de gravité,
+          l’évaluation médicale doit être plus complète.
+        </p>
+      </article>
+    </section>
+
+    <section id="remedes" class="section container">
+      <article class="card">
+        <h2>Remèdes et traitement</h2>
+        <p>
+          Le traitement dépend de la gravité, du terrain et du type d’infection. Dans beaucoup de cas,
+          un traitement antibiotique est prescrit. Le choix ne doit pas être fait au hasard.
+        </p>
+
+        <div class="two-cols">
+          <div>
+            <h3>Mesures utiles</h3>
+            <ul>
+              <li>Boire suffisamment d’eau si cela est possible pour toi</li>
+              <li>Uriner régulièrement, sans se retenir</li>
+              <li>Se reposer</li>
+              <li>Utiliser un antalgique si un professionnel de santé l’autorise</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Ce qu’il ne faut pas faire</h3>
+            <ul>
+              <li>Prendre un antibiotique ancien ou non prescrit</li>
+              <li>Retarder une consultation en cas de fièvre ou douleur dans le dos</li>
+              <li>Supposer que cela passera toujours seul</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          Les symptômes d’une infection de vessie s’améliorent souvent rapidement après le début du traitement.
+          Une infection rénale peut demander plus de temps et une prise en charge plus sérieuse.
+        </p>
+      </article>
+    </section>
+
+    <section class="section container">
+      <article class="card">
+        <h2>Complications possibles</h2>
+        <p>
+          Une infection urinaire traitée tôt évolue le plus souvent bien. En revanche, sans traitement
+          ou en cas de retard, elle peut se compliquer.
+        </p>
+        <ul>
+          <li>Extension de l’infection vers les reins</li>
+          <li>Atteinte rénale</li>
+          <li>Répétition des infections</li>
+          <li>Complications plus graves chez les personnes fragiles</li>
+          <li>Risque de septicémie dans les cas sévères</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="prevention" class="section container">
+      <article class="card">
+        <h2>Prévention</h2>
+        <p>
+          Certaines mesures simples peuvent réduire le risque d’infection urinaire ou de récidive.
+        </p>
+
+        <div class="two-cols">
+          <div>
+            <h3>Gestes utiles</h3>
+            <ul>
+              <li>Boire régulièrement de l’eau</li>
+              <li>Ne pas se retenir trop longtemps</li>
+              <li>Uriner après les rapports sexuels si cela t’aide</li>
+              <li>S’essuyer d’avant en arrière après les selles</li>
+              <li>Éviter certains produits irritants dans la zone intime</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>En cas d’infections répétées</h3>
+            <ul>
+              <li>Demander un avis médical pour rechercher une cause</li>
+              <li>Réévaluer certains moyens contraceptifs si besoin</li>
+              <li>Vérifier s’il existe un obstacle ou une mauvaise vidange de la vessie</li>
+              <li>Suivre un traitement préventif seulement sur avis médical</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="conseils" class="section container">
+      <article class="card">
+        <h2>Conseils et recommandations</h2>
+        <p>Voici des conseils simples, utiles et prudents.</p>
+
+        <h3>Bon réflexe</h3>
+        <p>
+          En cas de brûlures urinaires, d’envies fréquentes d’uriner ou de douleur dans le bas du ventre,
+          il vaut mieux demander un avis médical plutôt que d’attendre plusieurs jours.
+        </p>
+
+        <h3>À surveiller</h3>
+        <p>
+          Une infection urinaire chez un homme, chez une femme enceinte, chez une personne âgée ou fragile
+          mérite plus d’attention.
+        </p>
+
+        <h3>Urgence relative</h3>
+        <p>
+          Si tu as de la fièvre, des frissons, une douleur dans le dos, des vomissements, ou une altération
+          de l’état général, il faut consulter rapidement.
+        </p>
+
+        <h3>Prévention simple</h3>
+        <ul>
+          <li>Boire suffisamment</li>
+          <li>Ne pas garder l’urine trop longtemps</li>
+          <li>Traiter rapidement les épisodes suspects</li>
+          <li>Éviter l’automédication antibiotique</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="faq" class="section container">
+      <article class="card">
+        <h2>Questions fréquentes</h2>
+
+        <h3>Une infection urinaire peut-elle passer seule ?</h3>
+        <p>
+          Parfois les symptômes peuvent sembler diminuer, mais c’est une mauvaise idée de compter là-dessus,
+          surtout s’ils persistent ou s’aggravent.
+        </p>
+
+        <h3>Boire beaucoup suffit-il ?</h3>
+        <p>
+          Non. Boire peut aider, mais cela ne remplace pas un diagnostic ni un traitement quand il faut traiter.
+        </p>
+
+        <h3>Le sang dans les urines est-il normal ?</h3>
+        <p>
+          Non. Cela peut arriver pendant une infection urinaire, mais cela doit être signalé à un professionnel
+          de santé.
+        </p>
+      </article>
+    </section>
+
+    <section id="card" class="section container">
+      <article class="integration-card">
+        <h2>Card d’intégration</h2>
+        <p>Cette carte est prête à être intégrée dans une autre page du site.</p>
+
+        <h4>Infection urinaire : signes à connaître</h4>
+        <p>
+          Brûlures en urinant, envies fréquentes, douleur dans le bas du ventre, parfois fièvre ou douleur
+          dans le dos. Une analyse d’urine peut aider à confirmer le diagnostic.
+        </p>
+
+        <p>
+          <a class="btn btn-primary" href="#definition">Lire la page complète</a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Guide Santé</strong></p>
+      <p>Page d’information générale sur l’infection urinaire.</p>
+      <p>Cette page ne remplace pas un avis médical.</p>
+      <a class="top-link" href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">↑ Haut de page</a>
+    </div>
+  </footer>
+
+</body>
+</html>

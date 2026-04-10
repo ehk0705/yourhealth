@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Votre santé – El Hocine Korichi</title>
 
-  <!-- CSS principal -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Police -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -293,10 +291,6 @@
       box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
     }
 
-    .container-pathologies {
-      margin-top: 10px;
-    }
-
     h2 {
       margin: 20px 0 12px;
       color: #0f766e;
@@ -304,8 +298,15 @@
       letter-spacing: -0.02em;
     }
 
-    .patho-title {
+    .section-title {
       text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--muted);
+      margin: 0 0 18px;
     }
 
     .cards-container {
@@ -313,12 +314,13 @@
       flex-wrap: wrap;
       gap: 22px;
       justify-content: center;
+      align-items: stretch;
       margin-top: 22px;
     }
 
-    .card-patho,
-    .card {
-      display: block;
+    .card-patho {
+      display: flex;
+      flex-direction: column;
       width: 220px;
       text-align: center;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88));
@@ -330,10 +332,7 @@
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-    }
-
-    .card {
-      padding: 18px 16px 18px;
+      color: inherit;
     }
 
     .card-patho img {
@@ -344,8 +343,7 @@
       background: #fff;
     }
 
-    .card-patho h3,
-    .card h3 {
+    .card-patho h3 {
       margin: 14px 10px 8px;
       font-size: 17px;
       color: var(--accent-3);
@@ -353,44 +351,22 @@
       letter-spacing: -0.01em;
     }
 
-    .card-patho p,
-    .card p {
-      padding: 0 12px 14px;
+    .card-patho p {
+      padding: 0 12px 16px;
       font-size: 14px;
       color: var(--muted);
       margin: 0;
       line-height: 1.5;
+      flex-grow: 1;
     }
 
-    .card:hover,
     .card-patho:hover {
       transform: translateY(-7px);
       border-color: rgba(14, 165, 168, 0.28);
       box-shadow: var(--shadow-hover);
     }
 
-    .chip,
-    .card a[href],
-    .card-patho a[href] {
-      transition: all 0.2s ease;
-    }
-
-    .chip {
-      display: inline-block;
-      margin: 0 0 2px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      font-weight: 700;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
-    }
-
-    .chip:hover {
-      transform: translateY(-1px);
-      opacity: 1;
-    }
-
+    .category-section,
     .container section,
     section.container,
     section.ressources-sante {
@@ -404,8 +380,63 @@
 
     .container section p,
     section.container p,
-    section.ressources-sante p {
+    section.ressources-sante p,
+    .category-section p {
       color: var(--muted);
+    }
+
+    .image-center {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-surveiller {
+      display: block;
+      margin: 0 auto;
+      width: 400px;
+      max-width: 75%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .bloc-sante {
+      border: 2px solid #d0d7e2;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f8fbff;
+      margin: 20px 0;
+    }
+
+    .bloc-sante p {
+      text-align: justify;
+      max-width: 900px;
+      margin: 0 auto 15px;
+      line-height: 1.6;
+    }
+
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .category-nav a {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(14, 165, 168, 0.14);
+      color: #164e63;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .category-nav a:hover {
+      background: rgba(14, 165, 168, 0.10);
+      border-color: rgba(14, 165, 168, 0.22);
     }
 
     .ressources-sante ul {
@@ -470,36 +501,6 @@
       color: var(--txt);
     }
 
-    .image-center {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .image-surveiller {
-      display: block;
-      margin: 0 auto;
-      width: 400px;
-      max-width: 75%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
-    }
-
-    .bloc-sante {
-      border: 2px solid #d0d7e2;
-      border-radius: 10px;
-      padding: 20px;
-      background-color: #f8fbff;
-      margin: 20px 0;
-    }
-
-    .bloc-sante p {
-      text-align: justify;
-      max-width: 900px;
-      margin: 0 auto 15px;
-      line-height: 1.6;
-    }
-
     @media (max-width: 980px) {
       .topbar__inner {
         flex-direction: column;
@@ -556,14 +557,14 @@
         gap: 16px;
       }
 
-      .card-patho,
-      .card {
+      .card-patho {
         width: 100%;
         max-width: 360px;
       }
 
       section.container,
-      section.ressources-sante {
+      section.ressources-sante,
+      .category-section {
         padding: 18px 16px 16px;
         border-radius: 20px;
       }
@@ -603,7 +604,6 @@
 
           <div class="hero__text">
             <h1>La santé commence dans l’assiette.</h1>
-
             <p class="slogan">Moins de sucre. Plus de fibres.</p>
 
             <div class="bloc-sante">
@@ -661,32 +661,142 @@
           </ul>
         </div>
       </div>
+
+      <div class="category-nav">
+        <a href="#alimentation">Alimentation</a>
+        <a href="#prevention">Prévention</a>
+        <a href="#examens">Bilans et examens</a>
+        <a href="#metabolique">Métabolique et cardiovasculaire</a>
+        <a href="#digestif">Digestif et urinaire</a>
+        <a href="#neurologie">Neurologie</a>
+        <a href="#mental">Santé mentale</a>
+        <a href="#respiratoire">Respiratoire et immunité</a>
+        <a href="#mobilite">Mobilité et articulations</a>
+        <a href="#autres">Autres thèmes</a>
+      </div>
     </section>
 
-    <section class="container container-pathologies">
-      <h2 class="patho-title">Repères de prévention et informations sur les maladies</h2>
+    <section id="alimentation" class="category-section">
+      <h2 class="section-title">Alimentation et nutrition</h2>
+      <p class="section-intro">Repères pratiques, prévention nutritionnelle et conseils pour mieux manger au quotidien.</p>
 
       <div class="cards-container">
-        <div class="card">
+        <a href="graines-lin-chia-quinoa.html" class="card-patho">
+          <img data-slug="graines-lin-chia-quinoa" alt="Graines de lin, chia et quinoa">
           <h3>Graines de lin, chia et quinoa</h3>
-          <p>
-            Bienfaits, conseils d’utilisation, préparation, idées de consommation et erreurs à éviter.
-          </p>
-          <a class="chip" href="graines-lin-chia-quinoa.html">Lire la page</a>
-        </div>
+          <p>Bienfaits, conseils d’utilisation, préparation, idées de consommation et erreurs à éviter.</p>
+        </a>
 
-        <article class="card">
-          <a href="pathologies/migraine.html" class="card-link">
-            <div class="card-content">
-              <h3>Migraine</h3>
-              <p>
-                Définition, symptômes, diagnostic, remèdes, prévention et conseils pratiques pour mieux comprendre et mieux gérer les crises de migraine.
-              </p>
-              <span class="chip">Lire la page</span>
-            </div>
-          </a>
-        </article>
+        <a href="/yourhealth/pathologies/etiquettes.html" class="card-patho">
+          <img data-slug="etiquettes" alt="Lire les étiquettes">
+          <h3>Lire les étiquettes</h3>
+          <p>Sucre, sel, additifs, repères.</p>
+        </a>
 
+        <a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
+          <img data-slug="repas-diabete" alt="Repas et diabète">
+          <h3>Repas et diabète</h3>
+          <p>Que manger matin, midi et soir quand on est diabétique. Cette page présente des repères alimentaires simples, un menu type sur 7 jours et les règles de base pour limiter les variations de la glycémie.</p>
+        </a>
+
+        <a href="avoine-cholesterol.html" class="card-patho">
+          <img data-slug="avoine-cholesterol" alt="Avoine et cholestérol">
+          <h3>Avoine &amp; cholestérol</h3>
+          <p>Une synthèse simple sur le lien entre l’avoine et le cholestérol LDL, avec conseils pratiques et prudence.</p>
+        </a>
+
+        <a href="fodmap.html" class="card-patho">
+          <img data-slug="fodmap" alt="Régime FODMAP">
+          <h3>Régime FODMAP</h3>
+          <p>Définition, objectifs, personnes concernées, étapes, conseils pratiques et précautions à connaître.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/proteines.html" class="card-patho">
+          <img data-slug="proteines" alt="Les protéines">
+          <h3>Les protéines</h3>
+          <p>Rôle, besoins, sources alimentaires et repères simples.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/bienfaits-eau-minerale.html" class="card-patho">
+          <img data-slug="bienfaits-eau-minerale" alt="Bienfaits de l’eau minérale">
+          <h3>Bienfaits de l’eau minérale</h3>
+          <p>Hydratation, minéraux et conseils de consommation.</p>
+        </a>
+
+        <a href="sante-alimentaion-ref.html" class="card-patho">
+          <img data-slug="alimentation-equilibree" alt="Alimentation équilibrée">
+          <h3>Alimentation équilibrée</h3>
+          <p>Des bases simples pour construire une alimentation plus saine et plus régulière.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="prevention" class="category-section">
+      <h2 class="section-title">Prévention, hygiène de vie et dépistage</h2>
+      <p class="section-intro">Prévenir vaut mieux que subir : activité physique, habitudes de vie, suivi et dépistage.</p>
+
+      <div class="cards-container">
+        <a href="sport-sante.html" class="card-patho">
+          <img data-slug="sport-sante" alt="Santé et sport">
+          <h3>Sport et santé</h3>
+          <p>Prévenir par l’activité physique.</p>
+        </a>
+
+        <a href="perdre-ventre-apres-50-ans.html" class="card-patho">
+          <img data-slug="perdre-ventre-apres-50-ans" alt="Perdre du poids après 50 ans">
+          <h3>Perdre du poids après 50 ans</h3>
+          <p>Une synthèse simple sur la perte de poids après 50 ans : alimentation adaptée, activité régulière, sommeil correct et suivi concret.</p>
+        </a>
+
+        <a href="pathologies/prostate.html" class="card-patho">
+          <img data-slug="prostate" alt="Prostate : prévention et dépistage">
+          <h3>Prostate</h3>
+          <p>Dépistage, symptômes, examens et prévention (hygiène de vie).</p>
+        </a>
+
+        <a href="pathologies/colon.html" class="card-patho">
+          <img data-slug="colon" alt="Côlon : prévention et dépistage">
+          <h3>Côlon</h3>
+          <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
+        </a>
+
+        <a href="psa-fit.html" class="card-patho">
+          <img data-slug="psa-fit" alt="PSA et FIT">
+          <h3>PSA et FIT</h3>
+          <p>Le PSA concerne la prostate. Le FIT concerne le côlon et le rectum.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/vapotage-dangers.html" class="card-patho">
+          <img data-slug="vapotage-dangers" alt="Dangers du vapotage">
+          <h3>Dangers du vapotage</h3>
+          <p>Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/vieillissement-esperance-vie.html" class="card-patho">
+          <img data-slug="vieillissement" alt="Vieillissement et espérance de vie">
+          <h3>Vieillissement &amp; espérance de vie</h3>
+          <p>Vivre plus longtemps, oui. Mais surtout vivre plus longtemps en bonne santé, avec autonomie et qualité de vie.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/ogm-pesticides.html" class="card-patho">
+          <img data-slug="ogm-pesticides" alt="OGM et pesticides">
+          <h3>OGM &amp; pesticides</h3>
+          <p>OGM et pesticides sont souvent confondus. Cette page explique leurs différences, les voies d’exposition et leurs impacts possibles sur la santé, sans alarmisme.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/cancer-pollution.html" class="card-patho">
+          <img data-slug="cancer-pollution" alt="Pollution et cancers">
+          <h3>Pollution et cancers</h3>
+          <p>Exposition, prévention et compréhension des risques.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="examens" class="category-section">
+      <h2 class="section-title">Bilans, examens et soins</h2>
+      <p class="section-intro">Bilans utiles, tests fréquents et gestes techniques expliqués simplement.</p>
+
+      <div class="cards-container">
         <a href="bilan-annuel.html" class="card-patho">
           <img data-slug="bilan-sante" alt="Bilan de santé">
           <h3>Bilan de santé</h3>
@@ -699,24 +809,25 @@
           <p>HBsAg / anti-HBc, créatinine, glycémie, lipides, et autres tests fréquents.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/anemie.html" class="card-patho">
-          <img data-slug="anemie-main" alt="Anémie">
-          <h3>L'anémie</h3>
-          <p>Comprendre l'anémie.</p>
+        <a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
+          <img data-slug="injection-insuline" alt="Injection d'insuline">
+          <h3>Injection d’insuline</h3>
+          <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
         </a>
 
-        <a href="sport-sante.html" class="card-patho">
-          <img data-slug="sport-sante" alt="Santé et sport">
-          <h3>Sport et santé</h3>
-          <p>Prévenir par l’activité physique.</p>
+        <a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
+          <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
+          <h3>Prescription de l’insuline</h3>
+          <p>Un médecin généraliste peut-il prescrire de l’insuline avec un protocole. Cette page explique le cadre médical, les conditions de prescription, le rôle du protocole et les limites de compétence, sans interprétation.</p>
         </a>
+      </div>
+    </section>
 
-        <a href="/yourhealth/pathologies/auto-immunes.html" class="card-patho">
-          <img data-slug="systeme-immunitaire" alt="Maladies auto-immunes">
-          <h3>Maladies auto-immunes</h3>
-          <p>Quand le système immunitaire est déréglé et se trompe d'ennemi</p>
-        </a>
+    <section id="metabolique" class="category-section">
+      <h2 class="section-title">Pathologies métaboliques et cardiovasculaires</h2>
+      <p class="section-intro">Sucre, lipides, tension, poids et circulation : des thèmes majeurs de prévention et de suivi.</p>
 
+      <div class="cards-container">
         <a href="/yourhealth/pathologies/obesite.html" class="card-patho">
           <img data-slug="obesite" alt="Obésité">
           <h3>Obésité</h3>
@@ -735,18 +846,6 @@
           <p>Tension élevée durable, risque cardiovasculaire accru.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/zona.html" class="card-patho">
-          <img data-slug="zona" alt="Zona">
-          <h3>Zona</h3>
-          <p>Causes et facteurs de risque.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/doigts-gonfles.html" class="card-patho">
-          <img data-slug="doigts-gonfles" alt="Doigts gonflés">
-          <h3>Doigts qui gonflent</h3>
-          <p>Œdème ou inflammation : causes fréquentes, signes à surveiller et gestes simples.</p>
-        </a>
-
         <a href="/yourhealth/pathologies/prediabete.html" class="card-patho">
           <img data-slug="prediabete" alt="Prédiabète">
           <h3>Prédiabète</h3>
@@ -757,12 +856,6 @@
           <img data-slug="diabete" alt="Diabète">
           <h3>Diabète</h3>
           <p>Glycémie élevée, résistance à l’insuline, complications possibles.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/injection-insuline.html" class="card-patho">
-          <img data-slug="injection-insuline" alt="Injection d'insuline">
-          <h3>Injection d’insuline</h3>
-          <p>Zones d’injection, angle selon l’aiguille et rotation des sites pour une meilleure absorption.</p>
         </a>
 
         <a href="/yourhealth/pathologies/resistance-insuline.html" class="card-patho">
@@ -783,6 +876,43 @@
           <p>Tour de taille, tension, sucre et lipides déséquilibrés.</p>
         </a>
 
+        <a href="/yourhealth/pathologies/hyperuricemie.html" class="card-patho">
+          <img data-slug="hyperuricemie" alt="Hyperuricémie">
+          <h3>Hyperuricémie</h3>
+          <p>Acide urique et goutte.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/palpitations.html" class="card-patho">
+          <img data-slug="palpitations" alt="Palpitations du cœur">
+          <h3>Palpitations du cœur</h3>
+          <p>Battements rapides, forts ou irréguliers.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/infarctus-myocarde.html" class="card-patho">
+          <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
+          <h3>Infarctus du myocarde</h3>
+          <p>Urgence : obstruction d’une artère coronaire.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/avc.html" class="card-patho">
+          <img data-slug="avc" alt="Accident vasculaire cérébral">
+          <h3>Accident vasculaire cérébral</h3>
+          <p>Urgence : atteinte de la circulation cérébrale.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
+          <img data-slug="phlebite" alt="Phlébite">
+          <h3>Phlébite</h3>
+          <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="digestif" class="category-section">
+      <h2 class="section-title">Appareil digestif et urinaire</h2>
+      <p class="section-intro">Troubles digestifs, intestin, foie, côlon, reins et appareil urinaire.</p>
+
+      <div class="cards-container">
         <a href="/yourhealth/pathologies/reflux.html" class="card-patho">
           <img data-slug="reflux" alt="Reflux gastro-œsophagien">
           <h3>Reflux (RGO)</h3>
@@ -801,28 +931,22 @@
           <p>Symptômes, alternatives, tests.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/carence-fer.html" class="card-patho">
-          <img data-slug="carence-fer" alt="Carence en fer">
-          <h3>Carence en fer</h3>
-          <p>Fatigue, bilan, alimentation.</p>
+        <a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
+          <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
+          <h3>Syndrome de l’intestin irritable</h3>
+          <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/carence-vitamine-d.html" class="card-patho">
-          <img data-slug="carence-vitamine-d" alt="Vitamine D">
-          <h3>Vitamine D</h3>
-          <p>Déficit, repères, prévention.</p>
-        </a>
-        <a href="/yourhealth/pathologies/carence-vitamine-c.html" class="card-patho">
-          <img data-slug="carence-vitamine-c" alt="Vitamine C">
-          <h3>Vitamine C</h3>
-          <p>Déficit, repères, prévention.</p>
+        <a href="pathologies/crohn.html" class="card-patho">
+          <img data-slug="crohn" alt="Maladie de Crohn">
+          <h3>Maladie de Crohn</h3>
+          <p>Inflammation chronique de l’intestin : douleurs abdominales, diarrhée, fatigue, poussées et suivi médical.</p>
         </a>
 
-
-        <a href="/yourhealth/pathologies/magnesium.html" class="card-patho">
-          <img data-slug="magnesium" alt="Magnésium">
-          <h3>Magnésium</h3>
-          <p>Stress, crampes, apports.</p>
+        <a href="pathologies/colon.html" class="card-patho">
+          <img data-slug="colon" alt="Côlon : prévention et dépistage">
+          <h3>Côlon</h3>
+          <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
         </a>
 
         <a href="/yourhealth/pathologies/calculs-renaux.html" class="card-patho">
@@ -831,31 +955,23 @@
           <p>Hydratation, sel, oxalates.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/hyperuricemie.html" class="card-patho">
-          <img data-slug="hyperuricemie" alt="Hyperuricémie">
-          <h3>Hyperuricémie</h3>
-          <p>Acide urique et goutte.</p>
+        <a href="pathologies/infection-urinaire.html" class="card-patho">
+          <img data-slug="infection-urinaire" alt="Infection urinaire">
+          <h3>Infection urinaire</h3>
+          <p>Symptômes, diagnostic, traitement, prévention et conseils pratiques.</p>
         </a>
+      </div>
+    </section>
 
-        <a href="/yourhealth/pathologies/sciatique.html" class="card-patho">
-          <img data-slug="sciatique" alt="Sciatique">
-          <h3>Sciatique</h3>
-          <p>
-            Douleur du bas du dos qui descend dans la jambe : causes fréquentes, symptômes,
-            diagnostic, soulagement et prévention.
-          </p>
-        </a>
+    <section id="neurologie" class="category-section">
+      <h2 class="section-title">Neurologie et cerveau</h2>
+      <p class="section-intro">Système nerveux, troubles cognitifs, douleurs neurologiques et maladies du cerveau.</p>
 
-        <a href="/yourhealth/pathologies/inflammation-bas-grade.html" class="card-patho">
-          <img data-slug="inflammation-bas-grade" alt="Inflammation de bas grade">
-          <h3>Inflammation de bas grade</h3>
-          <p>Alimentation, poids, sommeil.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
-          <img data-slug="thyroide" alt="Maladies de la thyroïde">
-          <h3>Maladies de la thyroïde</h3>
-          <p>Hypothyroïdie, hyperthyroïdie, nodules.</p>
+      <div class="cards-container">
+        <a href="pathologies/migraine.html" class="card-patho">
+          <img data-slug="migraine" alt="Migraine">
+          <h3>Migraine</h3>
+          <p>Définition, symptômes, diagnostic, remèdes, prévention et conseils pratiques pour mieux comprendre et mieux gérer les crises de migraine.</p>
         </a>
 
         <a href="/yourhealth/pathologies/parkinson.html" class="card-patho">
@@ -870,12 +986,43 @@
           <p>Symptômes, diagnostic, prise en charge.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/etiquettes.html" class="card-patho">
-          <img data-slug="etiquettes" alt="Lire les étiquettes">
-          <h3>Lire les étiquettes</h3>
-          <p>Sucre, sel, additifs, repères.</p>
+        <a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
+          <img data-slug="epilepsie" alt="Épilepsie">
+          <h3>Épilepsie</h3>
+          <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
         </a>
 
+        <a href="/yourhealth/pathologies/alzheimer.html" class="card-patho">
+          <img data-slug="alzheimer" alt="Maladie d’Alzheimer">
+          <h3>Maladie d’Alzheimer</h3>
+          <p>Troubles cognitifs progressifs, notamment de la mémoire.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/demences.html" class="card-patho">
+          <img data-slug="demences" alt="Démence">
+          <h3>Démence</h3>
+          <p>Autres causes de déclin cognitif (vasculaire, etc.).</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/sciatique.html" class="card-patho">
+          <img data-slug="sciatique" alt="Sciatique">
+          <h3>Sciatique</h3>
+          <p>Douleur du bas du dos qui descend dans la jambe : causes fréquentes, symptômes, diagnostic, soulagement et prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/meningite.html" class="card-patho">
+          <img data-slug="meningite" alt="Méningite virale et bactérienne">
+          <h3>Méningite</h3>
+          <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="mental" class="category-section">
+      <h2 class="section-title">Santé mentale, stress et sommeil</h2>
+      <p class="section-intro">Équilibre psychique, fatigue mentale, sommeil et troubles liés au stress.</p>
+
+      <div class="cards-container">
         <a href="/yourhealth/pathologies/anxiete.html" class="card-patho">
           <img data-slug="anxiete" alt="Anxiété">
           <h3>Anxiété</h3>
@@ -906,42 +1053,6 @@
           <p>Épuisement lié au stress chronique, baisse d’énergie.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/palpitations.html" class="card-patho">
-          <img data-slug="palpitations" alt="Palpitations du cœur">
-          <h3>Palpitations du cœur</h3>
-          <p>Battements rapides, forts ou irréguliers.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/infarctus-myocarde.html" class="card-patho">
-          <img data-slug="infarctus-myocarde" alt="Infarctus du myocarde">
-          <h3>Infarctus du myocarde</h3>
-          <p>Urgence : obstruction d’une artère coronaire.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/meningite.html" class="card-patho">
-          <img data-slug="meningite" alt="Méningite virale et bactérienne">
-          <h3>Méningite</h3>
-          <p>Méningite virale et bactérienne : symptômes, urgence, diagnostic, traitement et prévention.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/avc.html" class="card-patho">
-          <img data-slug="avc" alt="Accident vasculaire cérébral">
-          <h3>Accident vasculaire cérébral</h3>
-          <p>Urgence : atteinte de la circulation cérébrale.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/alzheimer.html" class="card-patho">
-          <img data-slug="alzheimer" alt="Maladie d’Alzheimer">
-          <h3>Maladie d’Alzheimer</h3>
-          <p>Troubles cognitifs progressifs, notamment de la mémoire.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/demences.html" class="card-patho">
-          <img data-slug="demences" alt="Démence">
-          <h3>Démence</h3>
-          <p>Autres causes de déclin cognitif (vasculaire, etc.).</p>
-        </a>
-
         <a href="/yourhealth/pathologies/troubles-sommeil.html" class="card-patho">
           <img data-slug="troubles-sommeil" alt="Troubles du sommeil">
           <h3>Troubles du sommeil</h3>
@@ -953,20 +1064,18 @@
           <h3>Addictions</h3>
           <p>Dépendances avec impact sur la santé et la vie sociale.</p>
         </a>
+      </div>
+    </section>
 
-        <a href="/yourhealth/pathologies/troubles-musculo-squelettiques.html" class="card-patho">
-          <img data-slug="troubles-musculo-squelettiques" alt="Troubles musculo-squelettiques">
-          <h3>Troubles musculo-squelettiques</h3>
-          <p>Douleurs et limitations : dos, tendons, articulations.</p>
-        </a>
+    <section id="respiratoire" class="category-section">
+      <h2 class="section-title">Respiratoire, immunité et infections</h2>
+      <p class="section-intro">Voies respiratoires, système immunitaire, allergies et infections fréquentes.</p>
 
-        <a href="pathologies/arthrose.html" class="card-patho">
-          <img data-slug="arthrose" alt="Arthrose et douleurs articulaires">
-          <h3>Arthrose</h3>
-          <p>
-            Comprendre l’arthrose, ses causes, ses symptômes et les solutions naturelles
-            pour soulager les douleurs articulaires et préserver la mobilité.
-          </p>
+      <div class="cards-container">
+        <a href="/yourhealth/pathologies/auto-immunes.html" class="card-patho">
+          <img data-slug="systeme-immunitaire" alt="Maladies auto-immunes">
+          <h3>Maladies auto-immunes</h3>
+          <p>Quand le système immunitaire est déréglé et se trompe d'ennemi</p>
         </a>
 
         <a href="/yourhealth/pathologies/asthme.html" class="card-patho">
@@ -981,28 +1090,10 @@
           <p>Réaction excessive à des allergènes (respiratoire, peau, etc.).</p>
         </a>
 
-        <a href="/yourhealth/pathologies/phlebite.html" class="card-patho">
-          <img data-slug="phlebite" alt="Phlébite">
-          <h3>Phlébite</h3>
-          <p>Thrombose veineuse profonde : signes, urgence, prévention.</p>
-        </a>
-
         <a href="/yourhealth/pathologies/grippe.html" class="card-patho">
           <img data-slug="grippe" alt="Grippe hivernale">
           <h3>Grippe hivernale</h3>
           <p>Symptômes, prévention, quand consulter.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/cancer.html" class="card-patho">
-          <img data-slug="cancer" alt="Cancer">
-          <h3>Cancers | Pathologie</h3>
-          <p>Un diagnostic précoce améliore souvent les chances de traitement.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/cancer-pollution.html" class="card-patho">
-          <img data-slug="cancer-pollution" alt="Pollution et cancers">
-          <h3>Pollution et cancers</h3>
-          <p></p>
         </a>
 
         <a href="/yourhealth/pathologies/maladies-respiratoires.html" class="card-patho">
@@ -1013,19 +1104,93 @@
             decoding="async"
           >
           <h3>Maladies respiratoires</h3>
-          <p></p>
+          <p>Prévention, compréhension des symptômes et repères généraux.</p>
         </a>
 
-        <a href="/yourhealth/pathologies/epilepsie.html" class="card-patho">
-          <img data-slug="epilepsie" alt="Épilepsie">
-          <h3>Épilepsie</h3>
-          <p>Crises neurologiques : causes, diagnostic, prise en charge.</p>
+        <a href="/yourhealth/pathologies/zona.html" class="card-patho">
+          <img data-slug="zona" alt="Zona">
+          <h3>Zona</h3>
+          <p>Causes et facteurs de risque.</p>
         </a>
 
-        <a href="pathologies/syndrome-intestin-irritable.html" class="card-patho">
-          <img data-slug="syndrome-intestin-irritable" alt="Syndrome de l’intestin irritable">
-          <h3>Syndrome de l’intestin irritable</h3>
-          <p>Troubles digestifs fonctionnels : douleurs abdominales, ballonnements, transit perturbé.</p>
+        <a href="/yourhealth/pathologies/cancer.html" class="card-patho">
+          <img data-slug="cancer" alt="Cancer">
+          <h3>Cancers | Pathologie</h3>
+          <p>Un diagnostic précoce améliore souvent les chances de traitement.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="mobilite" class="category-section">
+      <h2 class="section-title">Articulations, douleurs et mobilité</h2>
+      <p class="section-intro">Douleurs articulaires, muscles, tendons et maintien de la mobilité.</p>
+
+      <div class="cards-container">
+        <a href="/yourhealth/pathologies/doigts-gonfles.html" class="card-patho">
+          <img data-slug="doigts-gonfles" alt="Doigts gonflés">
+          <h3>Doigts qui gonflent</h3>
+          <p>Œdème ou inflammation : causes fréquentes, signes à surveiller et gestes simples.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/troubles-musculo-squelettiques.html" class="card-patho">
+          <img data-slug="troubles-musculo-squelettiques" alt="Troubles musculo-squelettiques">
+          <h3>Troubles musculo-squelettiques</h3>
+          <p>Douleurs et limitations : dos, tendons, articulations.</p>
+        </a>
+
+        <a href="pathologies/arthrose.html" class="card-patho">
+          <img data-slug="arthrose" alt="Arthrose et douleurs articulaires">
+          <h3>Arthrose</h3>
+          <p>Comprendre l’arthrose, ses causes, ses symptômes et les solutions naturelles pour soulager les douleurs articulaires et préserver la mobilité.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="autres" class="category-section">
+      <h2 class="section-title">Autres pathologies et thèmes de santé</h2>
+      <p class="section-intro">Autres sujets médicaux utiles, à part, mais importants.</p>
+
+      <div class="cards-container">
+        <a href="/yourhealth/pathologies/anemie.html" class="card-patho">
+          <img data-slug="anemie-main" alt="Anémie">
+          <h3>L'anémie</h3>
+          <p>Comprendre l'anémie.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/carence-fer.html" class="card-patho">
+          <img data-slug="carence-fer" alt="Carence en fer">
+          <h3>Carence en fer</h3>
+          <p>Fatigue, bilan, alimentation.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/carence-vitamine-d.html" class="card-patho">
+          <img data-slug="carence-vitamine-d" alt="Vitamine D">
+          <h3>Vitamine D</h3>
+          <p>Déficit, repères, prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/carence-vitamine-c.html" class="card-patho">
+          <img data-slug="carence-vitamine-c" alt="Vitamine C">
+          <h3>Vitamine C</h3>
+          <p>Déficit, repères, prévention.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/magnesium.html" class="card-patho">
+          <img data-slug="magnesium" alt="Magnésium">
+          <h3>Magnésium</h3>
+          <p>Stress, crampes, apports.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/inflammation-bas-grade.html" class="card-patho">
+          <img data-slug="inflammation-bas-grade" alt="Inflammation de bas grade">
+          <h3>Inflammation de bas grade</h3>
+          <p>Alimentation, poids, sommeil.</p>
+        </a>
+
+        <a href="/yourhealth/pathologies/thyroide.html" class="card-patho">
+          <img data-slug="thyroide" alt="Maladies de la thyroïde">
+          <h3>Maladies de la thyroïde</h3>
+          <p>Hypothyroïdie, hyperthyroïdie, nodules.</p>
         </a>
 
         <a href="pathologies/oeil.html" class="card-patho">
@@ -1033,118 +1198,7 @@
           <h3>Maladie et défauts de l'œil</h3>
           <p>Maladie et défauts de l'œil, diagnostic, corrections et soins.</p>
         </a>
-
-        <a href="pathologies/prostate.html" class="card-patho">
-          <img data-slug="prostate" alt="Prostate : prévention et dépistage">
-          <h3>Prostate</h3>
-          <p>Dépistage, symptômes, examens et prévention (hygiène de vie).</p>
-        </a>
-
-        <a href="pathologies/crohn.html" class="card-patho">
-          <img data-slug="crohn" alt="Maladie de Crohn">
-          <h3>Maladie de Crohn</h3>
-          <p>Inflammation chronique de l’intestin : douleurs abdominales, diarrhée, fatigue, poussées et suivi médical.</p>
-        </a>
-
-        <a href="pathologies/colon.html" class="card-patho">
-          <img data-slug="colon" alt="Côlon : prévention et dépistage">
-          <h3>Côlon</h3>
-          <p>Signes d’alerte, examens (test/coloscopie) et prévention.</p>
-        </a>
-
-        <a href="/yourhealth/pathologies/vieillissement-esperance-vie.html" class="card-patho">
-          <img data-slug="vieillissement" alt="Vieillissement et espérance de vie">
-          <h3>Vieillissement &amp; espérance de vie</h3>
-          <p>
-            Vivre plus longtemps, oui.
-            Mais surtout vivre plus longtemps en bonne santé, avec autonomie et qualité de vie.
-          </p>
-        </a>
-
-        <a href="/yourhealth/pathologies/ogm-pesticides.html" class="card-patho">
-          <img data-slug="ogm-pesticides" alt="OGM et pesticides">
-          <h3>OGM &amp; pesticides</h3>
-          <p>
-            OGM et pesticides sont souvent confondus.
-            Cette page explique leurs différences, les voies d’exposition
-            et leurs impacts possibles sur la santé, sans alarmisme.
-          </p>
-        </a>
-
-        <a href="/yourhealth/pathologies/repas-diabete.html" class="card-patho">
-          <img data-slug="repas-diabete" alt="Repas et diabète">
-          <h3>Repas et diabète</h3>
-          <p>
-            Que manger matin, midi et soir quand on est diabétique.
-            Cette page présente des repères alimentaires simples,
-            un menu type sur 7 jours et les règles de base pour limiter
-            les variations de la glycémie.
-          </p>
-        </a>
-
-        <a href="/yourhealth/pathologies/prescrire.html" class="card-patho">
-          <img data-slug="prescrire-insuline" alt="Prescription de l’insuline">
-          <h3>Prescription de l’insuline</h3>
-          <p>
-            Un médecin généraliste peut-il prescrire de l’insuline avec un protocole.
-            Cette page explique le cadre médical, les conditions de prescription,
-            le rôle du protocole et les limites de compétence, sans interprétation.
-          </p>
-        </a>
-
-        <article class="card">
-          <h3>Avoine &amp; cholestérol</h3>
-          <p>
-            Une synthèse simple sur le lien entre l’avoine (fibres solubles) et le cholestérol LDL,
-            avec conseils pratiques et prudence.
-          </p>
-          <a class="chip" href="avoine-cholesterol.html">Lire la page</a>
-        </article>
-
-        <article class="card">
-          <h3>Perdre du poids après 50 ans</h3>
-          <p>
-            Une synthèse simple sur la perte de poids après 50 ans :
-            alimentation adaptée, activité régulière, sommeil correct et suivi concret.
-          </p>
-          <a class="chip" href="perdre-ventre-apres-50-ans.html">Lire la page</a>
-        </article>
-
-        <article class="card">
-          <h3>Dangers du vapotage</h3>
-          <p>
-            Le vapotage n’est pas sans risque. Substances toxiques inhalées, risque de dépendance
-            à la nicotine et dangers accrus chez les jeunes et les non-fumeurs.
-          </p>
-          <a class="chip" href="/yourhealth/pathologies/vapotage-dangers.html">Lire la page</a>
-        </article>
-
-        <article class="card">
-          <h3>Régime FODMAP</h3>
-          <p>
-            Définition, objectifs, personnes concernées, étapes, conseils pratiques
-            et précautions à connaître.
-          </p>
-          <a class="chip" href="fodmap.html">Lire la page</a>
-        </article>
-       <article class="card">
-          <h3>PSA et Fit</h3>
-          <p>
-            Le PSA concerne la prostate. Le FIT concerne le côlon et le rectum.
-          </p>
-          <a class="chip" href="psa-fit.html">Lire la page</a>
-        </article>		
       </div>
-    </section>
-
-    <section class="container">
-      <h2>Prévention et bien-être</h2>
-      <p>Des conseils simples pour réduire les risques et améliorer la qualité de vie.</p>
-      <p><a href="sante-alimentaion-ref.html">Alimentation équilibrée</a></p>
-      <p><a href="sport-sante.html">Bienfaits du sport sur la santé</a></p>
-      <p><a href="/yourhealth/pathologies/bienfaits-eau-minerale.html">Bienfaits de l’eau minérale</a></p>
-      <p><a href="/yourhealth/pathologies/proteines.html">Les protéines, indispensables</a></p>
-      <p><a href="medias.html">Quelques journaux de presse de différents pays</a></p>
     </section>
 
     <section class="container ressources-sante">
