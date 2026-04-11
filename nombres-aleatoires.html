@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nombres aléatoires et pseudo-aléatoires</title>
+  <meta name="description" content="Page pédagogique sur les nombres aléatoires et pseudo-aléatoires, la graine, les algorithmes, l’usage en loterie et la légalité.">
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --bg-soft: #eef3f9;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --primary: #1d4ed8;
+      --primary-dark: #153eaa;
+      --border: #dbe3ee;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --max: 1150px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #ffffff 0%, #f4f7fb 48%, #eaf0f8 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    /* En-tête */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #60a5fa);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .nav a {
+      color: var(--text);
+      font-size: 0.96rem;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    .nav a:hover {
+      background: var(--bg-soft);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 54px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .hero-illustration,
+    .section-card,
+    .info-box,
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-soft);
+      text-decoration: none;
+    }
+
+    .hero-illustration {
+      padding: 22px;
+    }
+
+    /* Sections */
+    main section {
+      padding: 18px 0 10px;
+    }
+
+    .section-card {
+      padding: 30px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-box {
+      padding: 22px;
+    }
+
+    .info-box p:last-child,
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: #eff6ff;
+      color: var(--primary-dark);
+    }
+
+    ul.styled-list {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    ul.styled-list li {
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, transparent 60%, #dbeafe 60%);
+      font-weight: 700;
+    }
+
+    .definition-box {
+      border-left: 5px solid var(--primary);
+      background: #f8fbff;
+      border-radius: 14px;
+      padding: 18px 18px 18px 20px;
+      margin: 18px 0;
+    }
+
+    .comparison {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #eff6ff;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 20px 22px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .legal-note {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      padding: 18px;
+      border-radius: 14px;
+      color: #1e3a8a;
+      font-weight: 600;
+      margin-top: 18px;
+    }
+
+    footer {
+      margin-top: 38px;
+      padding: 30px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-card,
+      .hero-illustration,
+      .section-card,
+      .info-box,
+      .faq-item {
+        padding: 18px;
+      }
+
+      .nav a {
+        padding: 6px 8px;
+        font-size: 0.92rem;
+      }
+
+      th, td {
+        padding: 12px 10px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <span>Hasard, algorithmes et loteries</span>
+      </div>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#definition">Définition</a>
+        <a href="#graine">Graine</a>
+        <a href="#algorithmes">Algorithmes</a>
+        <a href="#loterie">Loteries</a>
+        <a href="#legalite">Légalité</a>
+        <a href="#resume">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <span class="eyebrow">Page pédagogique</span>
+        <h1>Les nombres aléatoires et pseudo-aléatoires</h1>
+        <p>
+          Comprendre la différence entre le hasard réel et le hasard produit par une machine,
+          le rôle de la graine, le fonctionnement des algorithmes et la raison pour laquelle
+          certaines loteries utilisent ces procédés.
+        </p>
+
+        <div class="definition-box">
+          <strong>Idée essentielle :</strong>
+          un nombre pseudo-aléatoire n’est pas tiré par un hasard pur.
+          Il est calculé par un programme, mais il est conçu pour paraître imprévisible.
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#definition">Commencer la lecture</a>
+          <a class="btn btn-secondary" href="#resume">Voir le résumé final</a>
+        </div>
+      </div>
+
+      <div class="hero-illustration" aria-hidden="true">
+        <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0%" stop-color="#1d4ed8"/>
+              <stop offset="100%" stop-color="#60a5fa"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#334155"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="20" y="20" width="560" height="380" rx="28" fill="#f8fbff" stroke="#dbe3ee"/>
+          <rect x="50" y="55" width="220" height="130" rx="18" fill="url(#g1)"/>
+          <text x="78" y="108" font-size="26" fill="#ffffff" font-family="Arial" font-weight="700">Graine</text>
+          <text x="78" y="142" font-size="18" fill="#dbeafe" font-family="Arial">Valeur de départ</text>
+
+          <rect x="330" y="55" width="220" height="130" rx="18" fill="url(#g2)"/>
+          <text x="355" y="108" font-size="24" fill="#ffffff" font-family="Arial" font-weight="700">Algorithme</text>
+          <text x="355" y="142" font-size="18" fill="#cbd5e1" font-family="Arial">Calcul déterminé</text>
+
+          <line x1="270" y1="120" x2="330" y2="120" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="300" cy="120" r="8" fill="#2563eb"/>
+
+          <rect x="75" y="235" width="450" height="95" rx="18" fill="#ffffff" stroke="#cfe0f5"/>
+          <text x="102" y="275" font-size="24" fill="#0f172a" font-family="Arial" font-weight="700">
+            0,3847   0,9182   0,1274   0,6601
+          </text>
+          <text x="102" y="305" font-size="17" fill="#64748b" font-family="Arial">
+            Suite de nombres pseudo-aléatoires
+          </text>
+
+          <circle cx="105" cy="355" r="12" fill="#1d4ed8"/>
+          <circle cx="155" cy="355" r="12" fill="#60a5fa"/>
+          <circle cx="205" cy="355" r="12" fill="#93c5fd"/>
+          <text x="235" y="361" font-size="18" fill="#475569" font-family="Arial">
+            Apparence aléatoire, origine calculée
+          </text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="definition">
+      <div class="container">
+        <div class="section-card">
+          <h2>1. Définition</h2>
+          <p class="section-intro">
+            Il faut d’abord distinguer deux notions proches, mais différentes.
+          </p>
+
+          <div class="grid-2">
+            <div class="info-box">
+              <span class="badge">Hasard pur</span>
+              <h3>Nombre aléatoire</h3>
+              <p>
+                Un <span class="highlight">nombre aléatoire</span> est une valeur obtenue
+                sans que l’on puisse prévoir à l’avance le résultat exact.
+                En principe, chaque tirage est indépendant.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <span class="badge">Hasard simulé</span>
+              <h3>Nombre pseudo-aléatoire</h3>
+              <p>
+                Un <span class="highlight">nombre pseudo-aléatoire</span> est produit
+                par un programme informatique. Il donne l’impression du hasard,
+                mais il provient en réalité d’un calcul précis.
+              </p>
+            </div>
+          </div>
+
+          <div class="definition-box">
+            <strong>Point important :</strong>
+            un ordinateur ne fabrique pas naturellement du hasard pur.
+            Il exécute des instructions. Pour simuler le hasard, il utilise donc
+            un procédé mathématique.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="graine">
+      <div class="container">
+        <div class="section-card">
+          <h2>2. La graine</h2>
+          <p class="section-intro">
+            La graine est l’élément de départ du processus.
+          </p>
+
+          <div class="grid-2">
+            <div>
+              <p>
+                La <strong>graine</strong> est la valeur initiale donnée à l’algorithme.
+                C’est elle qui lance la suite de calculs.
+              </p>
+              <p>
+                Si l’on reprend <strong>la même graine</strong> avec <strong>le même algorithme</strong>,
+                on obtient <strong>la même suite de nombres</strong>.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Exemple simple</h3>
+              <p>
+                Si un programme démarre avec une graine de départ déterminée, par exemple
+                un nombre lié à l’heure ou à une valeur interne, il produira une suite précise.
+              </p>
+              <p>
+                En changeant cette graine, on obtient une autre suite.
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-note">
+            Cette reproductibilité est très utile pour les tests, les simulations,
+            les vérifications et les audits techniques.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="algorithmes">
+      <div class="container">
+        <div class="section-card">
+          <h2>3. Les algorithmes de génération</h2>
+          <p class="section-intro">
+            Les nombres pseudo-aléatoires sont produits par des algorithmes conçus pour donner
+            une impression d’imprévisibilité.
+          </p>
+
+          <div class="grid-3">
+            <div class="info-box">
+              <h3>Rapidité</h3>
+              <p>
+                Ils génèrent très vite de longues suites de nombres, ce qui est utile
+                dans les jeux, les simulations ou les traitements automatisés.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Régularité statistique</h3>
+              <p>
+                Un bon algorithme répartit les valeurs de façon équilibrée,
+                sans motifs trop visibles ni répétitions anormales.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Prévisibilité limitée</h3>
+              <p>
+                Le but est que la suite soit difficile à prévoir sans connaître
+                l’algorithme et la graine utilisés.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 22px;">
+            <h3>Un bon générateur doit produire des nombres :</h3>
+            <ul class="styled-list">
+              <li>bien répartis ;</li>
+              <li>difficiles à anticiper ;</li>
+              <li>sans schéma évident ;</li>
+              <li>adaptés à l’usage prévu.</li>
+            </ul>
+          </div>
+
+          <div class="comparison" style="margin-top: 24px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Élément</th>
+                  <th>Rôle</th>
+                  <th>Pourquoi c’est utile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Graine</td>
+                  <td>Valeur de départ</td>
+                  <td>Permet de lancer la suite de calculs</td>
+                </tr>
+                <tr>
+                  <td>Algorithme</td>
+                  <td>Procédé mathématique</td>
+                  <td>Produit une suite qui paraît aléatoire</td>
+                </tr>
+                <tr>
+                  <td>Répétabilité</td>
+                  <td>Rejouer la même suite</td>
+                  <td>Utile pour les tests et les contrôles</td>
+                </tr>
+                <tr>
+                  <td>Contrôle</td>
+                  <td>Analyse technique</td>
+                  <td>Facilite la vérification du système</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loterie">
+      <div class="container">
+        <div class="section-card">
+          <h2>4. Pourquoi les sociétés de loterie utilisent ces procédés</h2>
+          <p class="section-intro">
+            Dans certains systèmes modernes, le tirage ne repose plus seulement sur des boules mécaniques.
+            Il peut aussi être effectué par un procédé informatique contrôlé.
+          </p>
+
+          <div class="grid-2">
+            <div class="info-box">
+              <h3>Raisons pratiques</h3>
+              <ul class="styled-list">
+                <li>tirages rapides ;</li>
+                <li>automatisation complète ;</li>
+                <li>gestion technique plus simple ;</li>
+                <li>répétition fiable des procédures ;</li>
+                <li>traçabilité des opérations.</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>Raisons de contrôle</h3>
+              <ul class="styled-list">
+                <li>tests techniques réguliers ;</li>
+                <li>audits indépendants ;</li>
+                <li>surveillance du système ;</li>
+                <li>certification du générateur utilisé.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="definition-box" style="margin-top: 22px;">
+            Une loterie n’utilise pas ces procédés parce qu’ils seraient magiques,
+            mais parce qu’ils permettent une exécution rapide, stable, vérifiable
+            et plus facile à contrôler d’un point de vue technique.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legalite">
+      <div class="container">
+        <div class="section-card">
+          <h2>5. Cette pratique est-elle légale ?</h2>
+          <p class="section-intro">
+            Oui, elle peut être légale, mais pas sans conditions.
+          </p>
+
+          <div class="grid-2">
+            <div class="info-box">
+              <h3>Ce qui rend la pratique acceptable</h3>
+              <ul class="styled-list">
+                <li>autorisation par les règles applicables ;</li>
+                <li>contrôle du procédé ;</li>
+                <li>certification technique ;</li>
+                <li>audits et vérifications indépendantes ;</li>
+                <li>mesures de sécurité contre les manipulations.</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>Ce qu’il faut comprendre</h3>
+              <p>
+                Ce n’est pas le fait d’utiliser un algorithme qui serait illégal en soi.
+                Ce qui compte, c’est le cadre : conformité, contrôle, sécurité et transparence.
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-note">
+            En résumé, un générateur pseudo-aléatoire peut être admis dans une loterie
+            si son usage est prévu, surveillé, testé et certifié par les autorités ou organismes compétents.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>6. Questions fréquentes</h2>
+
+          <div class="faq">
+            <div class="faq-item">
+              <h3>Un nombre pseudo-aléatoire est-il faux ?</h3>
+              <p>
+                Non. Il n’est simplement pas issu d’un hasard pur. Il est calculé,
+                mais conçu pour se comporter comme un tirage aléatoire dans la pratique.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Pourquoi la graine est-elle si importante ?</h3>
+              <p>
+                Parce qu’elle détermine le point de départ. Même algorithme et même graine
+                donnent la même suite.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Une loterie informatique est-elle forcément truquée ?</h3>
+              <p>
+                Non. Elle peut être honnête si elle repose sur un système contrôlé,
+                audité et certifié. Sans cela, la confiance serait en effet insuffisante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="section-card">
+          <h2>Résumé final</h2>
+          <p>
+            Un nombre aléatoire provient du hasard, alors qu’un nombre pseudo-aléatoire
+            est produit par un algorithme à partir d’une graine. La graine sert de point
+            de départ et permet, avec le même programme, de retrouver la même suite.
+          </p>
+          <p>
+            Les sociétés de loterie peuvent utiliser ces procédés pour automatiser les tirages
+            et mieux contrôler les opérations. Cette pratique peut être légale si elle respecte
+            un cadre strict de contrôle, de sécurité et de certification.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <strong>Nombres aléatoires et pseudo-aléatoires</strong><br>
+        Page HTML pédagogique prête à être utilisée, modifiée ou intégrée dans un site.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
