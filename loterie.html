@@ -135,6 +135,7 @@
         linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
       box-shadow: var(--shadow);
       padding: 38px;
+      min-height: 540px;
     }
 
     .hero-banner::before {
@@ -148,13 +149,41 @@
       pointer-events: none;
     }
 
+    .hero-corner-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 420px;
+      max-width: 42%;
+      padding: 0;
+      margin: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-corner-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-top-right-radius: 30px;
+      border-bottom-left-radius: 24px;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr;
       gap: 28px;
       align-items: center;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+    }
+
+    .hero-text {
+      max-width: min(62%, 720px);
+      padding-top: 8px;
     }
 
     .eyebrow {
@@ -236,13 +265,7 @@
       border: 1px solid rgba(105,183,255,0.28);
       background: rgba(105,183,255,0.09);
       color: #dbeaff;
-    }
-
-    .hero-art {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,0.05);
-      padding: 16px;
+      max-width: min(62%, 720px);
     }
 
     .page-layout {
@@ -315,7 +338,9 @@
     .grid-3,
     .faq-grid,
     .stats-grid,
-    .ref-grid {
+    .ref-grid,
+    .algo-grid,
+    .simple-grid {
       display: grid;
       gap: 18px;
     }
@@ -328,9 +353,17 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .algo-grid,
+    .simple-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
     .card,
     .faq-item,
-    .ref-card {
+    .ref-card,
+    .algo-card,
+    .simple-card {
       border: 1px solid var(--line);
       border-radius: 18px;
       background: rgba(255,255,255,0.05);
@@ -340,7 +373,9 @@
 
     .card:hover,
     .faq-item:hover,
-    .ref-card:hover {
+    .ref-card:hover,
+    .algo-card:hover,
+    .simple-card:hover {
       transform: translateY(-2px);
       border-color: rgba(105,183,255,0.3);
     }
@@ -380,7 +415,8 @@
     .definition-box,
     .legal-box,
     .warning-box,
-    .quote-box {
+    .quote-box,
+    .info-box {
       margin-top: 20px;
       padding: 18px 20px;
       border-radius: 18px;
@@ -399,6 +435,11 @@
     .warning-box {
       background: rgba(243,200,91,0.1);
       border: 1px solid rgba(243,200,91,0.28);
+    }
+
+    .info-box {
+      background: rgba(61,224,207,0.08);
+      border: 1px solid rgba(61,224,207,0.22);
     }
 
     .quote-box {
@@ -541,12 +582,32 @@
         position: static;
       }
 
+      .hero-corner-image {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 24px;
+        pointer-events: auto;
+      }
+
+      .hero-corner-image img {
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .hero-text,
+      .hero-note {
+        max-width: 100%;
+      }
+
       .hero-grid,
       .summary-banner,
       .grid-2,
       .grid-3,
       .stats-grid,
-      .ref-grid {
+      .ref-grid,
+      .algo-grid,
+      .simple-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -574,7 +635,9 @@
       .summary-main,
       .card,
       .faq-item,
-      .ref-card {
+      .ref-card,
+      .algo-card,
+      .simple-card {
         padding: 18px;
       }
 
@@ -596,11 +659,13 @@
       <div class="brand">
         <div class="brand-mark">R</div>
         <span>Hasard, calcul et loteries</span>
+      </div>
 
       <nav class="topnav" aria-label="Navigation principale">
         <a href="#definition">Définition</a>
         <a href="#graine">Graine</a>
         <a href="#algorithmes">Algorithmes</a>
+        <a href="#algorithmes-celebres">Algorithmes célèbres</a>
         <a href="#loteries">Loteries</a>
         <a href="#legalite">Légalité</a>
         <a href="#faq">Questions</a>
@@ -613,6 +678,44 @@
   <section class="hero">
     <div class="container">
       <div class="hero-banner">
+
+        <div class="hero-corner-image">
+          <img
+            src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 620'>
+              <defs>
+                <linearGradient id='g1' x1='0' x2='1'>
+                  <stop offset='0%' stop-color='%2369b7ff'/>
+                  <stop offset='100%' stop-color='%233de0cf'/>
+                </linearGradient>
+                <linearGradient id='g2' x1='0' x2='1'>
+                  <stop offset='0%' stop-color='%230f2036'/>
+                  <stop offset='100%' stop-color='%231b3658'/>
+                </linearGradient>
+              </defs>
+              <rect width='900' height='620' rx='0' fill='%230a1524'/>
+              <circle cx='760' cy='120' r='110' fill='rgba(105,183,255,0.16)'/>
+              <rect x='70' y='70' width='250' height='110' rx='22' fill='url(%23g1)'/>
+              <text x='110' y='118' font-size='38' font-family='Arial' font-weight='700' fill='%2307111d'>Graine</text>
+              <text x='110' y='152' font-size='20' font-family='Arial' fill='%230b3147'>Valeur initiale</text>
+
+              <rect x='560' y='70' width='250' height='110' rx='22' fill='url(%23g2)'/>
+              <text x='590' y='118' font-size='34' font-family='Arial' font-weight='700' fill='white'>Algorithme</text>
+              <text x='590' y='152' font-size='20' font-family='Arial' fill='%23cdd9ea'>Calcul déterminé</text>
+
+              <line x1='320' y1='125' x2='560' y2='125' stroke='%237adcf4' stroke-width='8' stroke-linecap='round'/>
+              <circle cx='440' cy='125' r='12' fill='%239ad2ff'/>
+
+              <rect x='110' y='250' width='680' height='120' rx='22' fill='%23112036' stroke='rgba(255,255,255,0.14)'/>
+              <text x='145' y='305' font-size='34' font-family='Arial' font-weight='700' fill='white'>0,3847   0,9182   0,1274   0,6601</text>
+              <text x='145' y='340' font-size='22' font-family='Arial' fill='%23b7c5da'>Suite de nombres pseudo-aléatoires</text>
+
+              <rect x='180' y='430' width='540' height='95' rx='20' fill='rgba(105,183,255,0.10)' stroke='rgba(105,183,255,0.26)'/>
+              <text x='220' y='485' font-size='24' font-family='Arial' font-weight='700' fill='white'>Simulation, loteries, audit, sécurité</text>
+            </svg>"
+            alt="Illustration des nombres pseudo-aléatoires, de la graine et des algorithmes">
+        </div>
+
         <div class="hero-grid">
           <div class="hero-text">
             <span class="eyebrow">Page pédagogique institutionnelle</span>
@@ -632,57 +735,13 @@
               <a href="#definition" class="btn btn-primary">Lire la page</a>
               <a href="#conclusion" class="btn btn-secondary">Aller à la conclusion</a>
             </div>
-
-            <div class="hero-note">
-              <strong>Idée centrale :</strong> un nombre pseudo-aléatoire n’est pas issu
-              d’un hasard pur. Il est produit par un calcul, mais il est conçu pour
-              paraître aléatoire.
-            </div>
           </div>
+        </div>
 
-          <div class="hero-art" aria-hidden="true">
-            <svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="h1" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#69b7ff"/>
-                  <stop offset="100%" stop-color="#3de0cf"/>
-                </linearGradient>
-                <linearGradient id="h2" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#1d2f48"/>
-                  <stop offset="100%" stop-color="#334763"/>
-                </linearGradient>
-              </defs>
-
-              <rect x="20" y="20" width="680" height="430" rx="30" fill="#0b1727" stroke="rgba(255,255,255,0.12)"/>
-              <rect x="56" y="56" width="230" height="124" rx="22" fill="url(#h1)"/>
-              <text x="88" y="106" font-size="30" fill="#07111d" font-family="Arial" font-weight="700">Graine</text>
-              <text x="88" y="141" font-size="18" fill="#11384d" font-family="Arial">Valeur de départ</text>
-
-              <rect x="434" y="56" width="230" height="124" rx="22" fill="url(#h2)"/>
-              <text x="465" y="106" font-size="28" fill="#ffffff" font-family="Arial" font-weight="700">Algorithme</text>
-              <text x="465" y="141" font-size="18" fill="#cdd9ea" font-family="Arial">Calcul déterminé</text>
-
-              <line x1="286" y1="118" x2="434" y2="118" stroke="#7adcf4" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="360" cy="118" r="10" fill="#9ad2ff"/>
-
-              <rect x="96" y="232" width="528" height="98" rx="20" fill="#112036" stroke="rgba(255,255,255,0.14)"/>
-              <text x="126" y="274" font-size="28" fill="#ffffff" font-family="Arial" font-weight="700">
-                0,3847   0,9182   0,1274   0,6601
-              </text>
-              <text x="126" y="305" font-size="18" fill="#b7c5da" font-family="Arial">
-                Suite de nombres pseudo-aléatoires
-              </text>
-
-              <circle cx="128" cy="380" r="14" fill="#69b7ff"/>
-              <circle cx="188" cy="380" r="14" fill="#3de0cf"/>
-              <circle cx="248" cy="380" r="14" fill="#9ad2ff"/>
-              <circle cx="308" cy="380" r="14" fill="#39d69d"/>
-
-              <text x="346" y="387" font-size="19" fill="#e5f1ff" font-family="Arial">
-                Apparence aléatoire, origine mathématique
-              </text>
-            </svg>
-          </div>
+        <div class="hero-note">
+          <strong>Idée centrale :</strong> un nombre pseudo-aléatoire n’est pas issu
+          d’un hasard pur. Il est produit par un calcul, mais il est conçu pour
+          paraître aléatoire.
         </div>
       </div>
     </div>
@@ -694,11 +753,12 @@
       <a href="#definition">1. Définition</a>
       <a href="#graine">2. La graine</a>
       <a href="#algorithmes">3. Les algorithmes</a>
-      <a href="#loteries">4. Les loteries</a>
-      <a href="#legalite">5. La légalité</a>
-      <a href="#faq">6. Questions fréquentes</a>
-      <a href="#references">7. Références</a>
-      <a href="#conclusion">8. Conclusion</a>
+      <a href="#algorithmes-celebres">4. Algorithmes célèbres</a>
+      <a href="#loteries">5. Les loteries</a>
+      <a href="#legalite">6. La légalité</a>
+      <a href="#faq">7. Questions fréquentes</a>
+      <a href="#references">8. Références</a>
+      <a href="#conclusion">9. Conclusion</a>
 
       <div class="sidebar-note">
         Cette colonne peut aussi servir de menu latéral permanent dans un site plus large.
@@ -879,35 +939,138 @@
             à l’usage prévu.
           </div>
 
+          <div class="info-box">
+            <strong>Attention :</strong> <strong>Monte-Carlo</strong> n’est pas un générateur
+            pseudo-aléatoire. C’est une méthode de simulation qui utilise des nombres
+            pseudo-aléatoires produits par un générateur.
+          </div>
+
+          <div class="algo-grid">
+            <article class="algo-card">
+              <span class="tag">Classique</span>
+              <h3>Générateur congruentiel linéaire</h3>
+              <p>
+                Méthode simple et ancienne, fondée sur une formule arithmétique répétée.
+                Elle est rapide et facile à programmer, mais sa qualité peut être limitée.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Historique</span>
+              <h3>Mersenne Twister</h3>
+              <p>
+                Très connu pour sa longue période et sa bonne qualité statistique.
+                Il a longtemps été une référence dans les logiciels de simulation.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Rapide</span>
+              <h3>Xorshift</h3>
+              <p>
+                Famille de générateurs reposant sur des opérations binaires simples.
+                Ils sont appréciés pour leur rapidité d’exécution.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Moderne</span>
+              <h3>Xoshiro</h3>
+              <p>
+                Générateur moderne, rapide et plus robuste que plusieurs anciens modèles
+                pour de nombreux usages techniques.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Simulation</span>
+              <h3>Lagged Fibonacci</h3>
+              <p>
+                Générateur fondé sur la combinaison de valeurs précédentes. Il a été
+                utilisé dans plusieurs contextes de calcul scientifique.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Sécurité</span>
+              <h3>Générateurs cryptographiquement sûrs</h3>
+              <p>
+                Ces générateurs sont conçus pour être très difficiles à prédire.
+                Ils servent surtout à la sécurité et à la cryptographie.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Méthode</span>
+              <h3>Monte-Carlo</h3>
+              <p>
+                Méthode de simulation utilisant des tirages pseudo-aléatoires pour estimer
+                des probabilités, explorer des scénarios ou approcher des résultats complexes.
+              </p>
+            </article>
+
+            <article class="algo-card">
+              <span class="tag">Choix</span>
+              <h3>Un algorithme selon le besoin</h3>
+              <p>
+                Il n’existe pas un seul algorithme parfait. Le bon choix dépend du but :
+                simulation, jeu, vitesse, audit ou sécurité.
+              </p>
+            </article>
+          </div>
+
           <div class="comparison">
             <table>
               <thead>
                 <tr>
-                  <th>Élément</th>
-                  <th>Rôle</th>
-                  <th>Utilité</th>
+                  <th>Nom</th>
+                  <th>Type</th>
+                  <th>Caractéristique principale</th>
+                  <th>Usage courant</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Graine</td>
-                  <td>Valeur de départ</td>
-                  <td>Lance la suite de calculs</td>
+                  <td>Générateur congruentiel linéaire</td>
+                  <td>Générateur</td>
+                  <td>Simple et rapide</td>
+                  <td>Apprentissage, anciens systèmes</td>
                 </tr>
                 <tr>
-                  <td>Algorithme</td>
-                  <td>Procédé mathématique</td>
-                  <td>Produit une suite pseudo-aléatoire</td>
+                  <td>Mersenne Twister</td>
+                  <td>Générateur</td>
+                  <td>Très longue période</td>
+                  <td>Simulation, calcul scientifique</td>
                 </tr>
                 <tr>
-                  <td>Répétabilité</td>
-                  <td>Rejouer la même suite</td>
-                  <td>Permet le test et l’audit</td>
+                  <td>Xorshift</td>
+                  <td>Générateur</td>
+                  <td>Très rapide</td>
+                  <td>Jeux, programmes performants</td>
                 </tr>
                 <tr>
-                  <td>Qualité statistique</td>
-                  <td>Bonne distribution des valeurs</td>
-                  <td>Réduit les biais visibles</td>
+                  <td>Xoshiro</td>
+                  <td>Générateur</td>
+                  <td>Rapide et moderne</td>
+                  <td>Applications techniques variées</td>
+                </tr>
+                <tr>
+                  <td>Lagged Fibonacci</td>
+                  <td>Générateur</td>
+                  <td>Basé sur des valeurs antérieures</td>
+                  <td>Simulation numérique</td>
+                </tr>
+                <tr>
+                  <td>Générateur cryptographiquement sûr</td>
+                  <td>Générateur</td>
+                  <td>Difficile à prédire</td>
+                  <td>Sécurité, cryptographie</td>
+                </tr>
+                <tr>
+                  <td>Monte-Carlo</td>
+                  <td>Méthode</td>
+                  <td>Utilise des tirages pseudo-aléatoires</td>
+                  <td>Estimation, modélisation, calcul</td>
                 </tr>
               </tbody>
             </table>
@@ -915,9 +1078,84 @@
         </div>
       </section>
 
+      <section id="algorithmes-celebres">
+        <div class="panel">
+          <h2>4. Algorithmes célèbres expliqués simplement</h2>
+          <p class="section-intro">
+            Voici une présentation plus pédagogique de quelques noms souvent rencontrés
+            lorsqu’on parle de nombres pseudo-aléatoires.
+          </p>
+
+          <div class="simple-grid">
+            <article class="simple-card">
+              <span class="tag">Simple</span>
+              <h3>Générateur congruentiel linéaire</h3>
+              <p>
+                C’est l’un des modèles les plus simples. À chaque étape, il prend le nombre
+                précédent, applique une formule, puis produit le suivant. Il est utile pour
+                comprendre le principe, mais il peut montrer ses limites dans des usages sérieux.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <span class="tag">Connu</span>
+              <h3>Mersenne Twister</h3>
+              <p>
+                Il est devenu célèbre parce qu’il produit une très longue suite avant de se répéter.
+                Il donne souvent de bons résultats statistiques, ce qui explique son succès dans la simulation.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <span class="tag">Très rapide</span>
+              <h3>Xorshift</h3>
+              <p>
+                Son intérêt principal est la vitesse. Il utilise des opérations binaires très simples,
+                ce qui le rend efficace dans des programmes où chaque milliseconde compte.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <span class="tag">Évolution</span>
+              <h3>Xoshiro</h3>
+              <p>
+                On peut le voir comme une famille plus récente de générateurs rapides.
+                Il vise à garder la vitesse tout en améliorant la qualité des résultats.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <span class="tag">Spécialisé</span>
+              <h3>Générateurs cryptographiquement sûrs</h3>
+              <p>
+                Ici, le but n’est pas seulement d’avoir une belle répartition statistique.
+                Il faut aussi empêcher qu’un observateur puisse deviner les prochains nombres.
+                C’est indispensable pour la sécurité.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <span class="tag">À part</span>
+              <h3>Monte-Carlo</h3>
+              <p>
+                Ce nom revient souvent, mais il ne faut pas le confondre avec un générateur.
+                Monte-Carlo est une méthode qui fait beaucoup d’essais aléatoires pour approcher
+                une réponse, par exemple une probabilité ou un risque.
+              </p>
+            </article>
+          </div>
+
+          <div class="warning-box">
+            <strong>À retenir :</strong> un générateur produit les nombres.
+            Une méthode comme Monte-Carlo les exploite pour faire des calculs,
+            des simulations ou des estimations.
+          </div>
+        </div>
+      </section>
+
       <section id="loteries">
         <div class="panel">
-          <h2>4. Pourquoi les sociétés de loterie utilisent ces procédés</h2>
+          <h2>5. Pourquoi les sociétés de loterie utilisent ces procédés</h2>
           <p class="section-intro">
             Certaines loteries utilisent des systèmes informatiques parce qu’ils sont rapides,
             automatisables et plus faciles à contrôler.
@@ -969,7 +1207,7 @@
 
       <section id="legalite">
         <div class="panel">
-          <h2>5. Cette pratique est-elle légale ?</h2>
+          <h2>6. Cette pratique est-elle légale ?</h2>
           <p class="section-intro">
             Oui, elle peut être légale, à condition d’être strictement encadrée.
           </p>
@@ -1019,7 +1257,7 @@
 
       <section id="faq">
         <div class="panel">
-          <h2>6. Questions fréquentes</h2>
+          <h2>7. Questions fréquentes</h2>
 
           <div class="faq-grid">
             <article class="faq-item">
@@ -1045,13 +1283,22 @@
                 Avec un cadre strict, des audits et une certification, elle peut être admise.
               </p>
             </article>
+
+            <article class="faq-item">
+              <h3>Monte-Carlo est-il un générateur ?</h3>
+              <p>
+                Non. Monte-Carlo est une méthode de simulation. Elle se sert de nombres
+                pseudo-aléatoires produits par un générateur, mais elle n’est pas elle-même
+                un générateur.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="references">
         <div class="panel">
-          <h2>7. Références et repères</h2>
+          <h2>8. Références et repères</h2>
           <p class="section-intro">
             Cette section peut servir à afficher des sources, des notes techniques,
             ou des liens vers d’autres contenus de ton site.
@@ -1087,7 +1334,7 @@
 
       <section id="conclusion">
         <div class="panel">
-          <h2>8. Conclusion</h2>
+          <h2>9. Conclusion</h2>
 
           <div class="summary-banner">
             <div class="summary-side">
@@ -1136,7 +1383,9 @@
         section références et conclusion renforcée.
       </div>
     </div>
-			<span>Hocine Korichi, Ing.</span>
+    <div class="container" style="text-align:center; color:#b7c5da; margin-top:12px;">
+      <span>Hocine Korichi, Ing.</span>
+    </div>
   </footer>
 
 </body>
