@@ -334,6 +334,10 @@
       margin-bottom: 22px;
     }
 
+    .justify-text p {
+      text-align: justify;
+    }
+
     .grid-2,
     .grid-3,
     .faq-grid,
@@ -662,6 +666,7 @@
       </div>
 
       <nav class="topnav" aria-label="Navigation principale">
+        <a href="#introduction-deterministe">Introduction</a>
         <a href="#definition">Définition</a>
         <a href="#graine">Graine</a>
         <a href="#algorithmes">Algorithmes</a>
@@ -732,7 +737,7 @@
             </p>
 
             <div class="hero-actions">
-              <a href="#definition" class="btn btn-primary">Lire la page</a>
+              <a href="#introduction-deterministe" class="btn btn-primary">Lire l’introduction</a>
               <a href="#conclusion" class="btn btn-secondary">Aller à la conclusion</a>
             </div>
           </div>
@@ -742,6 +747,7 @@
           <strong>Idée centrale :</strong> un nombre pseudo-aléatoire n’est pas issu
           d’un hasard pur. Il est produit par un calcul, mais il est conçu pour
           paraître aléatoire.
+		  « La loterie actuelle est bien plus une science du calcul qu’un jeu de hasard. »
         </div>
       </div>
     </div>
@@ -750,15 +756,16 @@
   <div class="container page-layout">
     <aside class="sidebar">
       <h3>Sommaire</h3>
-      <a href="#definition">1. Définition</a>
-      <a href="#graine">2. La graine</a>
-      <a href="#algorithmes">3. Les algorithmes</a>
-      <a href="#algorithmes-celebres">4. Algorithmes célèbres</a>
-      <a href="#loteries">5. Les loteries</a>
-      <a href="#legalite">6. La légalité</a>
-      <a href="#faq">7. Questions fréquentes</a>
-      <a href="#references">8. Références</a>
-      <a href="#conclusion">9. Conclusion</a>
+      <a href="#introduction-deterministe">1. Introduction</a>
+      <a href="#definition">2. Définition</a>
+      <a href="#graine">3. La graine</a>
+      <a href="#algorithmes">4. Les algorithmes</a>
+      <a href="#algorithmes-celebres">5. Algorithmes célèbres</a>
+      <a href="#loteries">6. Les loteries</a>
+      <a href="#legalite">7. La légalité</a>
+      <a href="#faq">8. Questions fréquentes</a>
+      <a href="#references">9. Références</a>
+      <a href="#conclusion">10. Conclusion</a>
 
       <div class="sidebar-note">
         Cette colonne peut aussi servir de menu latéral permanent dans un site plus large.
@@ -766,9 +773,34 @@
     </aside>
 
     <main class="content">
+      <section id="introduction-deterministe">
+        <div class="panel justify-text">
+          <h2>1. Un programme déterministe pour les tirages pseudo-aléatoires</h2>
+          <p class="section-intro">
+            Avant d’aborder les définitions techniques, il est utile de comprendre le principe général.
+          </p>
+
+          <p>
+            Un programme déterministe de tirage pseudo-aléatoire est un programme qui ne produit pas un hasard pur, mais une suite de nombres calculés selon des règles précises. Son fonctionnement repose sur une valeur de départ, appelée <strong>graine</strong>, et sur un algorithme qui transforme cette valeur étape après étape.
+          </p>
+
+          <p>
+            Avec la même graine et le même algorithme, le programme génère toujours exactement la même suite. C’est pour cela qu’on parle d’un système <strong>déterministe</strong> : le résultat est fixé par le calcul, même s’il donne l’apparence du hasard.
+          </p>
+
+          <p>
+            Dans les tirages pseudo-aléatoires, l’objectif n’est donc pas de créer un hasard absolu, mais de produire des résultats suffisamment variés, équilibrés et difficiles à prévoir pour l’usage recherché.
+          </p>
+
+          <div class="definition-box">
+            <strong>En résumé :</strong> un programme déterministe ne crée pas le hasard réel. Il simule un comportement aléatoire à partir d’un calcul reproductible.
+          </div>
+        </div>
+      </section>
+
       <section id="definition">
         <div class="panel">
-          <h2>1. Définition</h2>
+          <h2>2. Définition</h2>
           <p class="section-intro">
             Il faut distinguer le hasard réel du hasard simulé par une machine.
           </p>
@@ -817,7 +849,7 @@
 
       <section id="graine">
         <div class="panel">
-          <h2>2. La graine</h2>
+          <h2>3. La graine</h2>
           <p class="section-intro">
             La graine est la valeur de départ qui lance toute la suite de calculs.
           </p>
@@ -882,7 +914,7 @@
 
       <section id="algorithmes">
         <div class="panel">
-          <h2>3. Les algorithmes de génération</h2>
+          <h2>4. Les algorithmes de génération</h2>
           <p class="section-intro">
             Les algorithmes servent à produire très rapidement des suites de nombres
             qui paraissent imprévisibles.
@@ -1080,7 +1112,7 @@
 
       <section id="algorithmes-celebres">
         <div class="panel">
-          <h2>4. Algorithmes célèbres expliqués simplement</h2>
+          <h2>5. Algorithmes célèbres expliqués simplement</h2>
           <p class="section-intro">
             Voici une présentation plus pédagogique de quelques noms souvent rencontrés
             lorsqu’on parle de nombres pseudo-aléatoires.
@@ -1155,7 +1187,7 @@
 
       <section id="loteries">
         <div class="panel">
-          <h2>5. Pourquoi les sociétés de loterie utilisent ces procédés</h2>
+          <h2>6. Pourquoi les sociétés de loterie utilisent ces procédés</h2>
           <p class="section-intro">
             Certaines loteries utilisent des systèmes informatiques parce qu’ils sont rapides,
             automatisables et plus faciles à contrôler.
@@ -1207,7 +1239,7 @@
 
       <section id="legalite">
         <div class="panel">
-          <h2>6. Cette pratique est-elle légale ?</h2>
+          <h2>7. Cette pratique est-elle légale ?</h2>
           <p class="section-intro">
             Oui, elle peut être légale, à condition d’être strictement encadrée.
           </p>
@@ -1257,7 +1289,7 @@
 
       <section id="faq">
         <div class="panel">
-          <h2>7. Questions fréquentes</h2>
+          <h2>8. Questions fréquentes</h2>
 
           <div class="faq-grid">
             <article class="faq-item">
@@ -1298,7 +1330,7 @@
 
       <section id="references">
         <div class="panel">
-          <h2>8. Références et repères</h2>
+          <h2>9. Références et repères</h2>
           <p class="section-intro">
             Cette section peut servir à afficher des sources, des notes techniques,
             ou des liens vers d’autres contenus de ton site.
@@ -1334,7 +1366,7 @@
 
       <section id="conclusion">
         <div class="panel">
-          <h2>9. Conclusion</h2>
+          <h2>10. Conclusion</h2>
 
           <div class="summary-banner">
             <div class="summary-side">
