@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligence artificielle et dépistage précoce de l'anémie</title>
+  <style>
+    :root {
+      --fond: #f4f7fb;
+      --blanc: #ffffff;
+      --principal: #8b1e3f;
+      --secondaire: #1f3c88;
+      --texte: #1f2937;
+      --texte-clair: #5b6472;
+      --bordure: #d8deea;
+      --ombre: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --rayon: 18px;
+      --largeur: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .conteneur {
+      width: min(92%, var(--largeur));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .barre-haute {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--principal);
+      letter-spacing: 0.2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      font-size: 0.96rem;
+      color: var(--texte);
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #eef3ff;
+      color: var(--secondaire);
+    }
+
+    .hero {
+      padding: 44px 0 30px;
+    }
+
+    .hero-grille {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-texte,
+    .hero-image,
+    .carte,
+    .bandeau {
+      background: var(--blanc);
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      box-shadow: var(--ombre);
+    }
+
+    .hero-texte {
+      padding: 34px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fce7ee;
+      color: var(--principal);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3.8vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: #122033;
+    }
+
+    .hero p {
+      color: var(--texte-clair);
+      margin-bottom: 14px;
+      font-size: 1.02rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .bouton {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .bouton-principal {
+      background: var(--principal);
+      color: #fff;
+    }
+
+    .bouton-principal:hover {
+      background: #701733;
+    }
+
+    .bouton-secondaire {
+      background: #edf3ff;
+      color: var(--secondaire);
+    }
+
+    .bouton-secondaire:hover {
+      background: #dfe9ff;
+    }
+
+    .hero-image {
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+      border-radius: var(--rayon);
+    }
+
+    main section {
+      padding: 18px 0 26px;
+    }
+
+    .titre-section {
+      margin-bottom: 18px;
+    }
+
+    .titre-section h2 {
+      font-size: 1.65rem;
+      color: #132238;
+      margin-bottom: 8px;
+    }
+
+    .titre-section p {
+      color: var(--texte-clair);
+    }
+
+    .grille-2,
+    .grille-3 {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grille-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grille-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .carte {
+      padding: 24px;
+    }
+
+    .carte h3 {
+      color: var(--secondaire);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .carte p,
+    .carte li {
+      color: var(--texte-clair);
+      font-size: 0.98rem;
+    }
+
+    .carte ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .carte li + li {
+      margin-top: 8px;
+    }
+
+    .bandeau {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .bandeau img {
+      height: 280px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .resume {
+      background: linear-gradient(135deg, #1f3c88, #8b1e3f);
+      color: #fff;
+      border-radius: var(--rayon);
+      padding: 30px;
+      box-shadow: var(--ombre);
+    }
+
+    .resume h2 {
+      margin-bottom: 12px;
+      font-size: 1.65rem;
+    }
+
+    .resume p {
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 12px;
+    }
+
+    footer {
+      margin-top: 20px;
+      background: #101827;
+      color: #d7dfec;
+      padding: 28px 0;
+    }
+
+    .pied {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pied p {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grille,
+      .grille-2,
+      .grille-3,
+      .bandeau {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image img,
+      .bandeau img {
+        min-height: auto;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .barre-haute {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 8px;
+      }
+
+      .hero-texte,
+      .carte,
+      .resume,
+      .bandeau {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="conteneur barre-haute">
+      <div class="logo">Anémie, biologie et intelligence artificielle</div>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#contexte">Contexte</a></li>
+          <li><a href="#problematique">Problématique</a></li>
+          <li><a href="#methodologie">Méthodologie</a></li>
+          <li><a href="#resultats">Résultats attendus</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="conteneur hero-grille">
+      <div class="hero-texte">
+        <span class="badge">Projet d’article scientifique</span>
+        <h1>Intelligence artificielle et dépistage précoce de l’anémie</h1>
+        <p>
+          Cette page présente un sujet scientifique structuré autour de l’usage de l’intelligence artificielle pour améliorer
+          la détection précoce de l’anémie à partir des analyses biologiques de routine.
+        </p>
+        <p>
+          L’objectif est de montrer comment un modèle d’apprentissage automatique peut aider à repérer plus tôt des profils biologiques suspects,
+          soutenir le clinicien et renforcer la qualité du dépistage.
+        </p>
+        <div class="actions">
+          <a class="bouton bouton-principal" href="#methodologie">Voir la méthodologie</a>
+          <a class="bouton bouton-secondaire" href="#resume-scientifique">Lire le résumé</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="Analyse médicale en laboratoire" />
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="contexte">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Contexte général</h2>
+          <p>L’anémie est fréquente, parfois sous-diagnostiquée à ses débuts, alors que les données biologiques existent déjà.</p>
+        </div>
+        <div class="grille-3">
+          <article class="carte">
+            <h3>Pourquoi ce sujet est important</h3>
+            <p>
+              L’anémie touche plusieurs groupes de population : personnes âgées, femmes enceintes, patients atteints de maladies chroniques,
+              personnes carencées ou sujettes aux pertes sanguines.
+            </p>
+          </article>
+          <article class="carte">
+            <h3>Conséquences possibles</h3>
+            <p>
+              Fatigue, essoufflement, baisse des capacités physiques et cognitives, aggravation de certaines maladies et altération de la qualité de vie.
+            </p>
+          </article>
+          <article class="carte">
+            <h3>Apport attendu de l’intelligence artificielle</h3>
+            <p>
+              Détecter des associations de paramètres biologiques peu visibles en lecture classique et signaler plus tôt les profils à risque.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="problematique">
+      <div class="conteneur">
+        <div class="bandeau">
+          <div>
+            <div class="titre-section">
+              <h2>Problématique et question de recherche</h2>
+            </div>
+            <p>
+              Malgré la disponibilité d’analyses biologiques courantes, certaines anémies ne sont identifiées qu’à un stade plus avancé.
+              Les signes cliniques peuvent être discrets et l’interprétation des résultats reste parfois fragmentée.
+            </p>
+            <p>
+              <strong>Question centrale :</strong> l’intelligence artificielle peut-elle améliorer la détection précoce de l’anémie à partir des analyses biologiques usuelles,
+              par rapport aux méthodes classiques d’interprétation ?
+            </p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Prise de sang et examen médical" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hypothese">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Hypothèse et objectifs</h2>
+          <p>Le modèle doit aider à repérer plus tôt les profils compatibles avec une anémie.</p>
+        </div>
+        <div class="grille-2">
+          <article class="carte">
+            <h3>Hypothèse principale</h3>
+            <p>
+              Un modèle d’intelligence artificielle entraîné sur des données biologiques courantes peut identifier plus précocement des profils compatibles avec une anémie
+              qu’une lecture classique fondée sur quelques seuils isolés.
+            </p>
+          </article>
+          <article class="carte">
+            <h3>Objectifs spécifiques</h3>
+            <ul>
+              <li>Identifier les paramètres biologiques les plus prédictifs.</li>
+              <li>Construire un modèle de classement du risque d’anémie.</li>
+              <li>Comparer ses performances à l’approche classique.</li>
+              <li>Distinguer plusieurs profils d’anémie lorsque possible.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodologie">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Méthodologie proposée</h2>
+          <p>Une étude rétrospective ou prospective peut être menée à partir de données biologiques réelles.</p>
+        </div>
+        <div class="grille-3">
+          <article class="carte">
+            <h3>Population étudiée</h3>
+            <ul>
+              <li>Patients adultes.</li>
+              <li>Numération formule sanguine disponible.</li>
+              <li>Données biologiques exploitables.</li>
+            </ul>
+          </article>
+          <article class="carte">
+            <h3>Variables d’entrée</h3>
+            <ul>
+              <li>Hémoglobine, hématocrite, globules rouges.</li>
+              <li>Volume globulaire moyen.</li>
+              <li>Ferritine, fer sérique, transferrine.</li>
+              <li>Vitamine B12, folates, protéine C réactive.</li>
+            </ul>
+          </article>
+          <article class="carte">
+            <h3>Modèles possibles</h3>
+            <ul>
+              <li>Régression logistique.</li>
+              <li>Arbre de décision.</li>
+              <li>Forêt aléatoire.</li>
+              <li>Gradient boosting.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="analyse">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Étapes de l’analyse</h2>
+          <p>Le protocole doit rester simple, robuste et transparent.</p>
+        </div>
+        <div class="grille-2">
+          <article class="carte">
+            <h3>Pipeline de travail</h3>
+            <ul>
+              <li>Collecte et nettoyage des données.</li>
+              <li>Gestion des valeurs manquantes.</li>
+              <li>Séparation entraînement et test.</li>
+              <li>Entraînement du modèle.</li>
+              <li>Validation croisée.</li>
+              <li>Interprétation des variables importantes.</li>
+            </ul>
+          </article>
+          <article class="carte">
+            <h3>Indicateurs de performance</h3>
+            <ul>
+              <li>Sensibilité.</li>
+              <li>Spécificité.</li>
+              <li>Précision.</li>
+              <li>Valeur prédictive positive et négative.</li>
+              <li>Aire sous la courbe ROC.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultats">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Résultats attendus</h2>
+          <p>Le système doit fonctionner comme une aide au dépistage, pas comme un remplacement du médecin.</p>
+        </div>
+        <div class="grille-3">
+          <article class="carte">
+            <h3>Détection plus précoce</h3>
+            <p>Repérage plus rapide des profils à risque avant l’installation d’une anémie marquée.</p>
+          </article>
+          <article class="carte">
+            <h3>Lecture plus intégrée</h3>
+            <p>Analyse simultanée de plusieurs paramètres biologiques au lieu d’une lecture fragmentée.</p>
+          </article>
+          <article class="carte">
+            <h3>Aide à la décision</h3>
+            <p>Génération d’une alerte clinique ou biologique utile en médecine générale ou en laboratoire.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="limites">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Limites de l’étude</h2>
+          <p>Il faut les indiquer clairement pour rester crédible.</p>
+        </div>
+        <div class="grille-2">
+          <article class="carte">
+            <h3>Limites méthodologiques</h3>
+            <ul>
+              <li>Biais des données rétrospectives.</li>
+              <li>Données cliniques parfois absentes ou incomplètes.</li>
+              <li>Risque de surapprentissage.</li>
+            </ul>
+          </article>
+          <article class="carte">
+            <h3>Limites pratiques</h3>
+            <ul>
+              <li>Faible généralisation si l’échantillon est trop local.</li>
+              <li>Acceptation clinique plus faible si le modèle est opaque.</li>
+              <li>Difficulté à classer certains profils mixtes d’anémie.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume-scientifique">
+      <div class="conteneur">
+        <div class="resume">
+          <h2>Résumé scientifique</h2>
+          <p>
+            L’anémie constitue un problème fréquent de santé publique, souvent sous-diagnostiqué à ses stades précoces malgré la disponibilité d’analyses biologiques courantes.
+            Cette étude propose d’évaluer l’apport de l’intelligence artificielle dans le dépistage précoce de l’anémie à partir de paramètres biologiques usuels.
+          </p>
+          <p>
+            Un modèle d’apprentissage automatique peut être entraîné sur des données telles que l’hémoglobine, l’hématocrite, le volume globulaire moyen,
+            la ferritine, le fer sérique et d’autres indicateurs pertinents. L’objectif est de comparer les performances du modèle à celles des approches classiques d’interprétation biologique.
+          </p>
+          <p>
+            Les résultats attendus concernent une amélioration de la détection des profils à risque, une meilleure sensibilité du dépistage et une aide accrue à la décision clinique.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Conclusion</h2>
+        </div>
+        <div class="carte">
+          <p>
+            L’intelligence artificielle représente une piste sérieuse pour améliorer le dépistage précoce de l’anémie à partir d’analyses biologiques de routine.
+            Son intérêt repose sur sa capacité à intégrer plusieurs paramètres à la fois, à repérer des profils subtils et à fournir un soutien utile au clinicien.
+          </p>
+          <p style="margin-top: 12px;">
+            Pour qu’un tel projet soit réellement publiable, il devra s’appuyer sur des données solides, une méthodologie rigoureuse et une interprétation prudente.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="conteneur pied">
+      <p>Page HTML scientifique consacrée à l’intelligence artificielle et au dépistage précoce de l’anémie.</p>
+      <p>Structure : accueil, contexte, problématique, méthodologie, résultats, conclusion.</p>
+    </div>
+  </footer>
+</body>
+</html>
