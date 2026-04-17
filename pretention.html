@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prétention et humilité dans le monde</title>
+  <meta name="description" content="Réflexion sur la prétention et l'humilité dans le monde, avec un regard sur la France, les États-Unis et certains pays du Maghreb.">
+  <style>
+    :root{
+      --bg:#f3eee4;
+      --paper:#fffdf8;
+      --ink:#1f1f1f;
+      --muted:#6c645b;
+      --line:#ddd2c1;
+      --accent:#6f4e37;
+      --accent-soft:#efe3d1;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --radius:20px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      line-height:1.8;
+      background:
+        radial-gradient(circle at top left, #faf7f1 0%, #f3eee4 45%, #ebe1d1 100%);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,253,248,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(111,78,55,.12);
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--accent);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-size:.95rem;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hero{
+      max-width:var(--max);
+      margin:42px auto 26px;
+      padding:0 20px;
+    }
+
+    .hero-box{
+      background:linear-gradient(135deg, rgba(255,253,248,.96), rgba(242,233,220,.96));
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      min-height:540px;
+    }
+
+    .hero-content{
+      padding:54px 42px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.82rem;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(2rem, 4.2vw, 3.5rem);
+      line-height:1.08;
+      font-weight:700;
+      color:#222;
+    }
+
+    .lead{
+      margin:0;
+      font-size:1.14rem;
+      color:#3e3934;
+      max-width:58ch;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:540px;
+      border-left:1px solid var(--line);
+      background:
+        linear-gradient(rgba(20,20,20,.28), rgba(20,20,20,.28)),
+        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+
+    .hero-caption{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:24px;
+      background:rgba(255,253,248,.88);
+      color:#2b2825;
+      border:1px solid rgba(111,78,55,.18);
+      border-radius:18px;
+      padding:16px 18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.12);
+      font-size:.98rem;
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px 64px;
+    }
+
+    .card,
+    .quote,
+    .footer-card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .card{
+      padding:30px 32px;
+      margin-bottom:24px;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:1.45rem;
+      color:#2d2925;
+    }
+
+    .card p{
+      margin:0 0 18px;
+      text-align:justify;
+      font-size:1.04rem;
+    }
+
+    .card p:last-child{
+      margin-bottom:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+      margin-bottom:24px;
+    }
+
+    .panel{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    .panel h3{
+      margin:0 0 10px;
+      color:var(--accent);
+      font-size:1.15rem;
+    }
+
+    .panel p{
+      margin:0;
+      text-align:justify;
+      font-size:1rem;
+    }
+
+    .quote{
+      padding:28px 30px;
+      border-left:6px solid var(--accent);
+      background:linear-gradient(135deg, #fffdf8, #f4eadb);
+      margin-bottom:24px;
+    }
+
+    blockquote{
+      margin:0;
+      font-size:1.34rem;
+      line-height:1.5;
+      color:#2d2925;
+    }
+
+    .closing{
+      margin-top:14px;
+      color:#433d37;
+      font-size:1.05rem;
+    }
+
+    .footer-card{
+      padding:24px 28px;
+      text-align:center;
+    }
+
+    .author{
+      color:var(--accent);
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .copyright{
+      color:var(--muted);
+      margin-top:8px;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-visual{
+        min-height:340px;
+        border-left:none;
+        border-top:1px solid var(--line);
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero-content{
+        padding:34px 22px;
+      }
+
+      .card,
+      .panel,
+      .quote,
+      .footer-card{
+        padding:22px;
+      }
+
+      .hero-caption{
+        left:16px;
+        right:16px;
+        bottom:16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">Réflexion humaine</div>
+      <div class="nav-links">
+        <a href="#pourquoi">Pourquoi enrichir</a>
+        <a href="#texte">Texte</a>
+        <a href="#regards">Regards culturels</a>
+        <a href="#conclusion">Conclusion</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-box">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">Réflexion critique</div>
+          <h1>La prétention versus l’humilité dans le monde</h1>
+          <p class="lead">
+            Dans beaucoup de sociétés, l’ego se montre plus volontiers que la sagesse.
+            Pourtant, ce qui élève réellement l’être humain n’est pas l’art de paraître,
+            mais la capacité à rester simple, lucide et digne.
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-caption">
+            Une même scène se répète partout : des visages souriants, des postures impeccables,
+            des discours lisses, et derrière les apparences, le besoin de dominer, de juger ou de se faire valoir.
+            C’est cette contradiction entre l’image et le fond qui nourrit tant d’hypocrisie.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <section id="pourquoi" class="card">
+      <h2 class="section-title">Pourquoi enrichir ce texte</h2>
+      <p>
+        Parce que la prétention et l’humilité ne sont pas seulement des défauts ou des qualités individuelles.
+        Elles traversent aussi les mentalités, les rapports sociaux, l’éducation, le besoin de reconnaissance,
+        le culte de l’image et la manière dont chaque société récompense ou sanctionne certains comportements.
+      </p>
+      <p>
+        Enrichir ce sujet, c’est lui donner plus de profondeur, plus de vérité et plus de portée.
+        C’est montrer que l’hypocrisie n’est pas toujours criante : elle se glisse souvent dans les belles manières,
+        les discours vertueux, les airs savants et les postures morales derrière lesquelles l’ego continue d’agir.
+      </p>
+    </section>
+
+    <section id="texte" class="card">
+      <h2 class="section-title">Texte enrichi</h2>
+
+      <p><strong>La prétention fait du bruit, l’humilité construit.</strong> Dans ce monde, beaucoup veulent paraître avant même d’avoir compris, donner des leçons avant d’avoir appris, briller avant d’avoir servi. La prétention est souvent une pauvreté déguisée : elle cherche l’admiration parce qu’elle manque de profondeur. Elle parle haut, s’exhibe, méprise, corrige les autres, mais n’élève personne.</p>
+
+      <p>Cette attitude n’appartient à aucun peuple en particulier, mais elle prend des formes différentes selon les cultures, les histoires nationales et les modèles sociaux dominants. En France, elle peut se cacher derrière la supériorité intellectuelle, le ton professoral, le goût de la formule brillante et la tentation de juger avant d’écouter. Aux États-Unis, elle s’affiche plus directement dans le culte de la réussite, de la performance, de l’image et de l’autopromotion, comme si exister consistait d’abord à se vendre. Dans certains pays du Maghreb, elle passe parfois par l’obsession du regard des autres, le poids des apparences, la volonté de sauver l’honneur social, de paraître important, respectable ou supérieur, même lorsque la réalité ne suit pas.</p>
+
+      <p>Mais l’hypocrisie commence précisément là : lorsqu’on recouvre l’orgueil de mots nobles, lorsqu’on habille la vanité de morale, lorsqu’on parle de valeurs pour mieux préserver son image. On condamne l’arrogance des autres tout en cultivant la sienne. On demande du respect sans toujours en donner. On prêche la modestie tout en exigeant admiration, obéissance ou reconnaissance. Sous des formes raffinées ou brutales, la prétention aime se déguiser en vertu.</p>
+
+      <p>Il faut toutefois rester juste : ces cultures portent aussi de grandes traditions de modestie, de dignité et de retenue. La France a produit une pensée exigeante, mais aussi des figures d’une rare simplicité. Les États-Unis valorisent l’initiative, mais ont aussi cultivé le respect du travail concret et discret. Le Maghreb, malgré certaines postures sociales, demeure traversé par des valeurs profondes de pudeur, d’honneur, de générosité et de respect de l’autre. Le problème n’est donc pas la culture elle-même, mais ce qu’elle peut parfois encourager quand l’ego remplace la mesure.</p>
+
+      <p>Partout, la prétention change de visage, mais le mécanisme reste le même : on cherche à impressionner au lieu de s’élever, à dominer au lieu de comprendre, à se faire valoir au lieu de se construire. Elle naît souvent d’un vide intérieur, d’un manque de paix avec soi-même, d’un besoin maladif d’être reconnu. Celui qui est réellement solide n’a pas besoin d’en faire trop. Il n’a ni besoin d’humilier, ni besoin d’écraser, ni besoin de se mettre en scène à chaque instant.</p>
+
+      <p>L’humilité, au contraire, n’est ni faiblesse ni effacement. C’est une force calme. Elle sait ce qu’elle vaut, sans avoir besoin de le crier. Elle écoute, observe, apprend encore, même après l’expérience. Là où le prétentieux veut dominer, l’humble cherche à comprendre. Là où l’orgueil divise, l’humilité rapproche. L’humilité n’est pas l’absence de valeur ; elle est la maîtrise de soi. Elle est le refus du vacarme inutile. Elle est la noblesse sans théâtre.</p>
+
+      <p>Le monde souffre moins du manque d’intelligence que du trop-plein d’ego. Les réseaux, les apparences, la compétition sociale et la recherche continuelle d’approbation ont encore aggravé cette dérive. Beaucoup veulent être vus, peu veulent être vrais. Beaucoup veulent être applaudis, peu veulent être utiles. Pourtant, les êtres les plus solides ne sont pas ceux qui se croient au-dessus des autres, mais ceux qui restent simples malgré leur savoir, leur rang ou leurs épreuves.</p>
+
+      <p>La prétention isole, parce qu’elle rabaisse. L’humilité honore, parce qu’elle respecte. Et au bout du compte, ce n’est pas celui qui se met le plus en avant qui grandit vraiment, mais celui qui garde assez de dignité pour rester humain. Dans un monde saturé de bruit, de poses et de certitudes, l’humilité demeure une forme supérieure d’intelligence, et peut-être même une forme de civilisation.</p>
+    </section>
+
+    <section id="regards" class="grid">
+      <article class="panel">
+        <h3>France</h3>
+        <p>
+          La prétention y prend parfois l’allure de la supériorité intellectuelle, du jugement rapide
+          et du ton de celui qui croit savoir avant même d’avoir écouté.
+          Mais la même culture sait aussi admirer la mesure, la sobriété et l’élégance de l’esprit.
+        </p>
+      </article>
+
+      <article class="panel">
+        <h3>États-Unis</h3>
+        <p>
+          L’image de soi, la réussite visible et la promotion personnelle y sont souvent valorisées.
+          Cela peut nourrir une culture de façade, où l’assurance compte parfois davantage que la profondeur.
+          Mais cette société sait aussi respecter l’effort réel, l’initiative et le mérite concret.
+        </p>
+      </article>
+
+      <article class="panel">
+        <h3>Certains pays du Maghreb</h3>
+        <p>
+          Le regard social, l’honneur et les apparences peuvent y entretenir certaines postures.
+          On veut parfois sauver la face plus que dire la vérité.
+          Mais ces sociétés gardent aussi un attachement profond à la pudeur, à la dignité et à la générosité.
+        </p>
+      </article>
+    </section>
+
+    <section id="conclusion" class="quote">
+      <blockquote>
+        « La prétention cherche à être admirée. L’humilité cherche à être juste. »
+      </blockquote>
+      <p class="closing">
+        Le progrès moral d’un monde ne se mesure pas à la hauteur de son arrogance, mais à la profondeur de son humilité.
+      </p>
+    </section>
+
+    <footer class="footer-card">
+      <div class="author">Auteur : Hocine Korichi</div>
+      <div class="copyright">Tous droits réservés © 2026</div>
+    </footer>
+
+  </main>
+</body>
+</html>
